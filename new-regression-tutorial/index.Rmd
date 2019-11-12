@@ -237,6 +237,8 @@ $$miles = 0 + 4.9 * hours$$
 
 Expressed in more intuitive language:  “for every 1 hour that a runner runs, on average, runners get 4.9 miles of distance.”
 
+> In general, this is going to be a template for the kind of sentence we use in regression analysis: "For every 1 unit change in the independent variable, what is the change in the dependent variable?"
+
 We need to think about a few more issues.
 
 In general, we call the *starting place* by a few different names:
