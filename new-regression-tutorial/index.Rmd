@@ -8,10 +8,6 @@ output:
     number_sections: yes
     toc: yes
     highlight: haddock
-  tint::tintPdf:
-    number_sections: yes
-    toc: no
-    highlight: haddock
 ---
 
 ```{r setup, include=FALSE}
