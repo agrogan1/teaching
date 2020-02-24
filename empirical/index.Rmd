@@ -2,73 +2,100 @@
 title: "Writing The Empirical Section For The Social Work Prelim"
 author: "Andy Grogan-Kaylor"
 date: "`r Sys.Date()`"
-output: 
-  slidy_presentation: 
+output:
+  pdf_document: 
+    fig_height: 4
+    highlight: haddock
+    latex_engine: xelatex
+    number_sections: yes
+    toc: yes
+  beamer_presentation:
+    highlight: haddock
+    incremental: no
+  ioslides_presentation:
+    highlight: haddock
+    incremental: yes
+  powerpoint_presentation: default
+  slidy_presentation:
     css: slidy.css
     fig_caption: yes
     fig_height: 4
     highlight: haddock
     incremental: yes
+bibliography: empirical.bib
 ---
 
 ```{r setup, include=FALSE}
+
 knitr::opts_chunk$set(echo = FALSE)
+
 ```
 
 ## Role Of Research In Social Work
 
-Social work is a profession dedicated to social justice and the improvement of well-being.
+> Social work is a profession dedicated to social justice and the improvement of well-being.
+
+## Evidence Drives Policy
+
+```{r, out.width = '70%'}
+
+knitr::include_graphics("CPMeta1.png")
+
+```
+
+## Evidence Drives Policy(2)
+
+* Policy Statement by American Academy of Pediatrics [@Sege2019]
+* Policy Statement by American Psychological Association [@AmericanPsychologicalAssociation2019]
 
 ## Concerns About The Research Base for Social Programs And Interventions
 
-```{r}
+```{r, out.width = '70%'}
 
 knitr::include_graphics("80000-hours.png")
 
 ```
 
-
-## Why We Include It In The Social Work Prelim
-
-* There is a lot of pain and suffering in the world.
-* A profession that makes claims to address pain, suffering, and injustice needs to be able to back up its claims with evidence.
-
-## Savedoff and Levine
+## Savedoff, Levine, and Birdsall
 
 > “No physician would consider prescribing strong medications whose impact and potential side-effects have not been properly evaluated. Yet in social development programs, where huge sums can be spent to modify population behaviors, change economic livelihoods, and potentially alter cultures or family structure, no such standard has been adopted. 
 
 > While it is widely recognized that withholding programs that are known to be beneficial would be unethical, the implicit corollary—that programs of unknown impact should not be widely replicated without proper evaluation—is frequently dismissed.”
 
-— Ruth Levine and William Savedoff (2006)
-
-Savedoff, W., R. Levine, et al. (2006). When Will We Ever Learn? Improving Lives Through Impact Evaluation. Evaluation Gap Working Group. Washington, DC, Center for Global Development.
+— [@Savedoff2006]
 
 ## Concerns About Evidence More Generally
 
-```{r}
+```{r, out.width = '70%'}
 
 knitr::include_graphics("concerns.png")
 
 ```
 
-## Incorporating Empirical Evidence Within a Social Work Prelim
+## So... Why Do We Include Research In The Social Work Prelim
 
-## Writing the empirical section of the social work prelim
+> A profession that makes claims to address pain, suffering, and injustice needs to be able to back up its claims with strong *high quality* evidence.
+
+## Incorporating Empirical Evidence Within a Social Work Prelim: Writing The Empirical Section of the Social Work Prelim
 
 * Imposter Syndrome
 * Drawing The Circle Around Your Question
 * Finding The Right Literature
 * Writing
 
-## Imposter Syndrome
+## Imposter Syndrome 
 
-## Drawing The Circle Around Your Question
+> "Academic life is full of learning, excitement, and discovery. However, academics also experience professional challenges at various points in their career, including repeated rejection, impostor syndrome, and burnout. These negative experiences are rarely talked about publicly, creating a sense of loneliness and isolation for people who presume they are the only ones affected by such setbacks. However, nearly everyone has these experiences at one time or another, and thus talking about them should be a normal part of academic life." [@Jaremka2019]
 
-## Finding The Right Literature
+* Surface / Acknowledge the Feeling
+* Acknowledge the Feeling / Welcome It!
+* Fake It Until You Make It
+
+## Drawing The Circle Around Your Question & Finding The Right Literature
 
 * Remember the 80/20 rule:  80% of everything is of relatively low value; only 20% is gold.
 * There are many studies that “make conclusions.”  Only a very limited set of them are methodologically rigorous, and are real contributions to the literature.
-* Start your literature search by reading a good review article, e.g. a recent review piece in Annual Review of Psychology.  What do they cite?  What authors do they think are important?
+* Start your literature search by reading a good review article, e.g. a recent review piece in *Annual Review of Psychology*.  What do they cite?  What authors do they think are important?
 Then search in a large database like PsychInfo or ProQuest
 
 ## Finding The Right Literature (2)
@@ -83,7 +110,7 @@ Then search in a large database like PsychInfo or ProQuest
     - ADD Health
     - ECLS
     - PSID-CDS
-
+    
 * Seminal or Key Articles from any era or journal (the ones that everyone mentions)
 
 > I still think that the key articles in most literatures end up numbering somewhere between 20 and 50 articles.
@@ -98,7 +125,7 @@ Then search in a large database like PsychInfo or ProQuest
 
 > (author, date) studied (sample) to examine (research question). (author, date) found that ______________.   (author, date) also found that ______________. (author, date) also found that ______________.  However, one (strength/limitation) of the study was that __________________________.  These authors suggested (policy, program, intervention).
 
-
+## References
 
 
 
