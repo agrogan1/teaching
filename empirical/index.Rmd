@@ -3,23 +3,24 @@ title: "Writing The Empirical Section For The Social Work Prelim"
 author: "Andy Grogan-Kaylor"
 date: "`r Sys.Date()`"
 output:
+  slidy_presentation:
+    css: slidy.css
+    fig_caption: yes
+    fig_height: 4
+    highlight: haddock
+    incremental: yes
   pdf_document: 
     fig_height: 4
     highlight: haddock
     latex_engine: xelatex
     number_sections: yes
     toc: yes
-  beamer_presentation:
-    highlight: haddock
-    incremental: no
-  ioslides_presentation:
-    highlight: haddock
-    incremental: yes
   powerpoint_presentation: default
-  slidy_presentation:
-    css: slidy.css
-    fig_caption: yes
-    fig_height: 4
+  beamer_presentation: 
+    colortheme: crane
+    highlight: haddock
+    theme: AnnArbor
+  ioslides_presentation:
     highlight: haddock
     incremental: yes
 bibliography: empirical.bib
@@ -124,6 +125,8 @@ Then search in a large database like PsychInfo or ProQuest
 ## Not All Sources Are Equally Good
 
 > (author, date) studied (sample) to examine (research question). (author, date) found that ______________.   (author, date) also found that ______________. (author, date) also found that ______________.  However, one (strength/limitation) of the study was that __________________________.  These authors suggested (policy, program, intervention).
+
+## Questions? {#majorsection}
 
 ## References
 
