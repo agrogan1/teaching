@@ -1,10 +1,10 @@
 ---
 title: "Writing The Empirical Section For The Social Work Prelim"
 author: "Andy Grogan-Kaylor"
-date: "`r Sys.Date()`"
+date: "February 25, 2020"
 output:
   slidy_presentation:
-    css: slidy.css
+    css: UMslidy.css
     fig_caption: yes
     fig_height: 4
     highlight: haddock
