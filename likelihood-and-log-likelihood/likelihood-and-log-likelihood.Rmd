@@ -1,0 +1,66 @@
+---
+title: "Likelihood and Log Likelihood"
+author: "Andy Grogan-Kaylor"
+date: '`r Sys.Date()`'
+output:
+  distill::distill_article:
+    highlight: haddock
+    toc: yes
+---
+
+```{r setup, include=FALSE}
+
+knitr::opts_chunk$set(echo = TRUE)
+
+```
+
+# Background
+
+The likelihood is the probability that a given set of parameters would give rise to a given data set.
+
+Formally, the likelihood is a product of probabilities.
+
+$$\mathcal{L}(\beta) = \prod p(\beta | x, y)$$
+
+# Log-Likelihood
+
+Because probabilities are by definition $< 1$, the likelihood $\mathcal{L}$ tends to be a very small number. For a variety of reasons, it is often easier to work with the logarithm of the likelihood: $\ln \mathcal{L}$.
+
+# Visualizing the Likelihood and Log-Likelihood
+
+```{r,echo=FALSE}
+
+x <- seq(.01, 1, .01)
+
+y <- log(x)
+
+library(ggplot2)
+
+ggplot(data = NULL,
+       aes(x = x,
+           y = y,
+           color = x)) +
+  geom_point() +
+  labs(title = "Simulated Likelihood and Log-Likelihood", 
+       x = "Likelihood", 
+       y = "Log-Likelihood") +
+  theme_minimal() +
+  scale_color_viridis_c() +
+  theme(legend.position = "none")
+
+# plot(x, y,
+#      pch = 19,
+#      col = "blue",
+#      main = "Simulated Likelihood and Log-Likelihood",
+#      xlab = "Likelihood",
+#      ylab = "Log-Likelihood")
+
+```
+
+# Conclusion
+
+Higher values of the *log-likelihood* closer to 0 represent models with a better fit.
+
+
+
+
