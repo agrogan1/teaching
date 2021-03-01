@@ -10,9 +10,16 @@ output:
 
 ```{r setup, include=FALSE}
 
-knitr::opts_chunk$set(echo = TRUE)
+knitr::opts_chunk$set(echo = FALSE)
 
 ```
+
+```{r}
+
+library(ggplot2)
+
+```
+
 
 # Background
 
@@ -22,19 +29,42 @@ Formally, the likelihood is a product of probabilities.
 
 $$\mathcal{L}(\beta) = \prod p(\beta | x, y)$$
 
+# Maximum Likelihood Estimation
+
+Maximum Likelihood Estimation is essentially the process of finding the combination of parameters (e.g. $\beta$) which maximizes the likelihood of producing the data.
+
+```{r}
+
+N <- 1000
+
+x <- rbeta(N, 3, 7)
+
+ggplot(data = NULL,
+       aes(x = x,
+           fill = factor(1))) +
+  geom_density(alpha = .5) +
+  labs(title = "Simulated Likelihood", 
+       x = "Parameter Value", 
+       y = "Likelihood") +
+  theme_minimal() +
+  theme(legend.position = "none",
+        axis.text = element_blank()) +
+  scale_fill_viridis_d()
+
+```
+
+
 # Log-Likelihood
 
 Because probabilities are by definition $< 1$, the likelihood $\mathcal{L}$ tends to be a very small number. For a variety of reasons, it is often easier to work with the logarithm of the likelihood: $\ln \mathcal{L}$.
 
 # Visualizing the Likelihood and Log-Likelihood
 
-```{r,echo=FALSE}
+```{r}
 
 x <- seq(.01, 1, .01)
 
 y <- log(x)
-
-library(ggplot2)
 
 ggplot(data = NULL,
        aes(x = x,
