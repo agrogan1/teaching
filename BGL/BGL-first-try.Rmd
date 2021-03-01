@@ -1,0 +1,30 @@
+---
+title: "BGL First Try"
+author: "BGL"
+date: "2/28/2021"
+output: 
+  html_document: 
+    toc: yes
+    number_sections: yes
+    highlight: haddock
+---
+
+```{r setup, include=FALSE}
+
+knitr::opts_chunk$set(echo = TRUE)
+
+```
+
+# Hamtramck Schools
+
+Hamtramck has a very diverse student population.
+
+```{r}
+
+# R code lives inside a code chunk
+
+# I commented some things out because I don't have the Hamtramck data
+
+# data(Hamtramck)
+
+```
