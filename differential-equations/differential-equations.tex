@@ -1,0 +1,544 @@
+\documentclass[]{tufte-handout}
+
+% ams
+\usepackage{amssymb,amsmath}
+
+\usepackage{ifxetex,ifluatex}
+\usepackage{fixltx2e} % provides \textsubscript
+\ifnum 0\ifxetex 1\fi\ifluatex 1\fi=0 % if pdftex
+  \usepackage[T1]{fontenc}
+  \usepackage[utf8]{inputenc}
+\else % if luatex or xelatex
+  \makeatletter
+  \@ifpackageloaded{fontspec}{}{\usepackage{fontspec}}
+  \makeatother
+  \defaultfontfeatures{Ligatures=TeX,Scale=MatchLowercase}
+  \makeatletter
+  \@ifpackageloaded{soul}{
+     \renewcommand\allcapsspacing[1]{{\addfontfeature{LetterSpace=15}#1}}
+     \renewcommand\smallcapsspacing[1]{{\addfontfeature{LetterSpace=10}#1}}
+   }{}
+  \makeatother
+
+\fi
+
+% graphix
+\usepackage{graphicx}
+\setkeys{Gin}{width=\linewidth,totalheight=\textheight,keepaspectratio}
+
+% booktabs
+\usepackage{booktabs}
+
+% url
+\usepackage{url}
+
+% hyperref
+\usepackage{hyperref}
+
+% units.
+\usepackage{units}
+
+
+\setcounter{secnumdepth}{2}
+
+% citations
+
+
+% pandoc syntax highlighting
+
+% longtable
+
+% multiplecol
+\usepackage{multicol}
+
+% strikeout
+\usepackage[normalem]{ulem}
+
+% morefloats
+\usepackage{morefloats}
+
+
+% tightlist macro required by pandoc >= 1.14
+\providecommand{\tightlist}{%
+  \setlength{\itemsep}{0pt}\setlength{\parskip}{0pt}}
+
+% title / author / date
+\title{Differential Equations}
+\author{true}
+\date{2021-03-08}
+
+
+\begin{document}
+
+\maketitle
+
+
+
+{
+\setcounter{tocdepth}{2}
+\tableofcontents
+}
+
+\hypertarget{background}{%
+\section{Background}\label{background}}
+
+In this handout, we consider several simple differential equations that
+characterize growth. We then consider the solution of this differential
+equation.
+
+\hypertarget{constant-linear-growth}{%
+\section{Constant (Linear) Growth}\label{constant-linear-growth}}
+
+\hypertarget{dydx-form}{%
+\subsection{\texorpdfstring{\(dy/dx\)
+Form}{dy/dx Form}}\label{dydx-form}}
+
+\[\frac{dy}{dx} = k\]
+
+implies
+
+\[y = kx + C\]
+
+\begin{marginfigure}
+\includegraphics{differential-equations_files/figure-latex/unnamed-chunk-1-1} \end{marginfigure}
+\begin{marginfigure}
+\includegraphics{differential-equations_files/figure-latex/unnamed-chunk-1-2} \end{marginfigure}
+\begin{marginfigure}
+\includegraphics{differential-equations_files/figure-latex/unnamed-chunk-1-3} \end{marginfigure}
+\begin{marginfigure}
+\includegraphics{differential-equations_files/figure-latex/unnamed-chunk-1-4} \end{marginfigure}
+\begin{marginfigure}
+\includegraphics{differential-equations_files/figure-latex/unnamed-chunk-1-5} \end{marginfigure}
+\begin{marginfigure}
+\includegraphics{differential-equations_files/figure-latex/unnamed-chunk-1-6} \end{marginfigure}
+\begin{marginfigure}
+\includegraphics{differential-equations_files/figure-latex/unnamed-chunk-1-7} \end{marginfigure}
+\begin{marginfigure}
+\includegraphics{differential-equations_files/figure-latex/unnamed-chunk-1-8} \end{marginfigure}
+\begin{marginfigure}
+\includegraphics{differential-equations_files/figure-latex/unnamed-chunk-1-9} \end{marginfigure}
+\begin{marginfigure}
+\includegraphics{differential-equations_files/figure-latex/unnamed-chunk-1-10} \end{marginfigure}
+\begin{marginfigure}
+\includegraphics{differential-equations_files/figure-latex/unnamed-chunk-1-11} \end{marginfigure}
+\begin{marginfigure}
+\includegraphics{differential-equations_files/figure-latex/unnamed-chunk-1-12} \end{marginfigure}
+\begin{marginfigure}
+\includegraphics{differential-equations_files/figure-latex/unnamed-chunk-1-13} \end{marginfigure}
+\begin{marginfigure}
+\includegraphics{differential-equations_files/figure-latex/unnamed-chunk-1-14} \end{marginfigure}
+\begin{marginfigure}
+\includegraphics{differential-equations_files/figure-latex/unnamed-chunk-1-15} \end{marginfigure}
+\begin{marginfigure}
+\includegraphics{differential-equations_files/figure-latex/unnamed-chunk-1-16} \end{marginfigure}
+\begin{marginfigure}
+\includegraphics{differential-equations_files/figure-latex/unnamed-chunk-1-17} \end{marginfigure}
+\begin{marginfigure}
+\includegraphics{differential-equations_files/figure-latex/unnamed-chunk-1-18} \end{marginfigure}
+\begin{marginfigure}
+\includegraphics{differential-equations_files/figure-latex/unnamed-chunk-1-19} \end{marginfigure}
+\begin{marginfigure}
+\includegraphics{differential-equations_files/figure-latex/unnamed-chunk-1-20} \end{marginfigure}
+\begin{marginfigure}
+\includegraphics{differential-equations_files/figure-latex/unnamed-chunk-1-21} \end{marginfigure}
+\begin{marginfigure}
+\includegraphics{differential-equations_files/figure-latex/unnamed-chunk-1-22} \end{marginfigure}
+\begin{marginfigure}
+\includegraphics{differential-equations_files/figure-latex/unnamed-chunk-1-23} \end{marginfigure}
+\begin{marginfigure}
+\includegraphics{differential-equations_files/figure-latex/unnamed-chunk-1-24} \end{marginfigure}
+\begin{marginfigure}
+\includegraphics{differential-equations_files/figure-latex/unnamed-chunk-1-25} \end{marginfigure}
+\begin{marginfigure}
+\includegraphics{differential-equations_files/figure-latex/unnamed-chunk-1-26} \end{marginfigure}
+\begin{marginfigure}
+\includegraphics{differential-equations_files/figure-latex/unnamed-chunk-1-27} \end{marginfigure}
+\begin{marginfigure}
+\includegraphics{differential-equations_files/figure-latex/unnamed-chunk-1-28} \end{marginfigure}
+\begin{marginfigure}
+\includegraphics{differential-equations_files/figure-latex/unnamed-chunk-1-29} \end{marginfigure}
+\begin{marginfigure}
+\includegraphics{differential-equations_files/figure-latex/unnamed-chunk-1-30} \end{marginfigure}
+\begin{marginfigure}
+\includegraphics{differential-equations_files/figure-latex/unnamed-chunk-1-31} \end{marginfigure}
+\begin{marginfigure}
+\includegraphics{differential-equations_files/figure-latex/unnamed-chunk-1-32} \end{marginfigure}
+\begin{marginfigure}
+\includegraphics{differential-equations_files/figure-latex/unnamed-chunk-1-33} \end{marginfigure}
+\begin{marginfigure}
+\includegraphics{differential-equations_files/figure-latex/unnamed-chunk-1-34} \end{marginfigure}
+\begin{marginfigure}
+\includegraphics{differential-equations_files/figure-latex/unnamed-chunk-1-35} \end{marginfigure}
+\begin{marginfigure}
+\includegraphics{differential-equations_files/figure-latex/unnamed-chunk-1-36} \end{marginfigure}
+\begin{marginfigure}
+\includegraphics{differential-equations_files/figure-latex/unnamed-chunk-1-37} \end{marginfigure}
+\begin{marginfigure}
+\includegraphics{differential-equations_files/figure-latex/unnamed-chunk-1-38} \end{marginfigure}
+\begin{marginfigure}
+\includegraphics{differential-equations_files/figure-latex/unnamed-chunk-1-39} \end{marginfigure}
+\begin{marginfigure}
+\includegraphics{differential-equations_files/figure-latex/unnamed-chunk-1-40} \end{marginfigure}
+\begin{marginfigure}
+\includegraphics{differential-equations_files/figure-latex/unnamed-chunk-1-41} \end{marginfigure}
+\begin{marginfigure}
+\includegraphics{differential-equations_files/figure-latex/unnamed-chunk-1-42} \end{marginfigure}
+\begin{marginfigure}
+\includegraphics{differential-equations_files/figure-latex/unnamed-chunk-1-43} \end{marginfigure}
+\begin{marginfigure}
+\includegraphics{differential-equations_files/figure-latex/unnamed-chunk-1-44} \end{marginfigure}
+\begin{marginfigure}
+\includegraphics{differential-equations_files/figure-latex/unnamed-chunk-1-45} \end{marginfigure}
+\begin{marginfigure}
+\includegraphics{differential-equations_files/figure-latex/unnamed-chunk-1-46} \end{marginfigure}
+\begin{marginfigure}
+\includegraphics{differential-equations_files/figure-latex/unnamed-chunk-1-47} \end{marginfigure}
+\begin{marginfigure}
+\includegraphics{differential-equations_files/figure-latex/unnamed-chunk-1-48} \end{marginfigure}
+\begin{marginfigure}
+\includegraphics{differential-equations_files/figure-latex/unnamed-chunk-1-49} \end{marginfigure}
+\begin{marginfigure}
+\includegraphics{differential-equations_files/figure-latex/unnamed-chunk-1-50} \end{marginfigure}
+\begin{marginfigure}
+\includegraphics{differential-equations_files/figure-latex/unnamed-chunk-1-51} \end{marginfigure}
+\begin{marginfigure}
+\includegraphics{differential-equations_files/figure-latex/unnamed-chunk-1-52} \end{marginfigure}
+\begin{marginfigure}
+\includegraphics{differential-equations_files/figure-latex/unnamed-chunk-1-53} \end{marginfigure}
+\begin{marginfigure}
+\includegraphics{differential-equations_files/figure-latex/unnamed-chunk-1-54} \end{marginfigure}
+\begin{marginfigure}
+\includegraphics{differential-equations_files/figure-latex/unnamed-chunk-1-55} \end{marginfigure}
+\begin{marginfigure}
+\includegraphics{differential-equations_files/figure-latex/unnamed-chunk-1-56} \end{marginfigure}
+\begin{marginfigure}
+\includegraphics{differential-equations_files/figure-latex/unnamed-chunk-1-57} \end{marginfigure}
+\begin{marginfigure}
+\includegraphics{differential-equations_files/figure-latex/unnamed-chunk-1-58} \end{marginfigure}
+\begin{marginfigure}
+\includegraphics{differential-equations_files/figure-latex/unnamed-chunk-1-59} \end{marginfigure}
+\begin{marginfigure}
+\includegraphics{differential-equations_files/figure-latex/unnamed-chunk-1-60} \end{marginfigure}
+\begin{marginfigure}
+\includegraphics{differential-equations_files/figure-latex/unnamed-chunk-1-61} \end{marginfigure}
+\begin{marginfigure}
+\includegraphics{differential-equations_files/figure-latex/unnamed-chunk-1-62} \end{marginfigure}
+\begin{marginfigure}
+\includegraphics{differential-equations_files/figure-latex/unnamed-chunk-1-63} \end{marginfigure}
+\begin{marginfigure}
+\includegraphics{differential-equations_files/figure-latex/unnamed-chunk-1-64} \end{marginfigure}
+\begin{marginfigure}
+\includegraphics{differential-equations_files/figure-latex/unnamed-chunk-1-65} \end{marginfigure}
+\begin{marginfigure}
+\includegraphics{differential-equations_files/figure-latex/unnamed-chunk-1-66} \end{marginfigure}
+\begin{marginfigure}
+\includegraphics{differential-equations_files/figure-latex/unnamed-chunk-1-67} \end{marginfigure}
+\begin{marginfigure}
+\includegraphics{differential-equations_files/figure-latex/unnamed-chunk-1-68} \end{marginfigure}
+\begin{marginfigure}
+\includegraphics{differential-equations_files/figure-latex/unnamed-chunk-1-69} \end{marginfigure}
+\begin{marginfigure}
+\includegraphics{differential-equations_files/figure-latex/unnamed-chunk-1-70} \end{marginfigure}
+\begin{marginfigure}
+\includegraphics{differential-equations_files/figure-latex/unnamed-chunk-1-71} \end{marginfigure}
+\begin{marginfigure}
+\includegraphics{differential-equations_files/figure-latex/unnamed-chunk-1-72} \end{marginfigure}
+\begin{marginfigure}
+\includegraphics{differential-equations_files/figure-latex/unnamed-chunk-1-73} \end{marginfigure}
+\begin{marginfigure}
+\includegraphics{differential-equations_files/figure-latex/unnamed-chunk-1-74} \end{marginfigure}
+\begin{marginfigure}
+\includegraphics{differential-equations_files/figure-latex/unnamed-chunk-1-75} \end{marginfigure}
+\begin{marginfigure}
+\includegraphics{differential-equations_files/figure-latex/unnamed-chunk-1-76} \end{marginfigure}
+\begin{marginfigure}
+\includegraphics{differential-equations_files/figure-latex/unnamed-chunk-1-77} \end{marginfigure}
+\begin{marginfigure}
+\includegraphics{differential-equations_files/figure-latex/unnamed-chunk-1-78} \end{marginfigure}
+\begin{marginfigure}
+\includegraphics{differential-equations_files/figure-latex/unnamed-chunk-1-79} \end{marginfigure}
+\begin{marginfigure}
+\includegraphics{differential-equations_files/figure-latex/unnamed-chunk-1-80} \end{marginfigure}
+\begin{marginfigure}
+\includegraphics{differential-equations_files/figure-latex/unnamed-chunk-1-81} \end{marginfigure}
+\begin{marginfigure}
+\includegraphics{differential-equations_files/figure-latex/unnamed-chunk-1-82} \end{marginfigure}
+\begin{marginfigure}
+\includegraphics{differential-equations_files/figure-latex/unnamed-chunk-1-83} \end{marginfigure}
+\begin{marginfigure}
+\includegraphics{differential-equations_files/figure-latex/unnamed-chunk-1-84} \end{marginfigure}
+\begin{marginfigure}
+\includegraphics{differential-equations_files/figure-latex/unnamed-chunk-1-85} \end{marginfigure}
+\begin{marginfigure}
+\includegraphics{differential-equations_files/figure-latex/unnamed-chunk-1-86} \end{marginfigure}
+\begin{marginfigure}
+\includegraphics{differential-equations_files/figure-latex/unnamed-chunk-1-87} \end{marginfigure}
+\begin{marginfigure}
+\includegraphics{differential-equations_files/figure-latex/unnamed-chunk-1-88} \end{marginfigure}
+\begin{marginfigure}
+\includegraphics{differential-equations_files/figure-latex/unnamed-chunk-1-89} \end{marginfigure}
+\begin{marginfigure}
+\includegraphics{differential-equations_files/figure-latex/unnamed-chunk-1-90} \end{marginfigure}
+\begin{marginfigure}
+\includegraphics{differential-equations_files/figure-latex/unnamed-chunk-1-91} \end{marginfigure}
+\begin{marginfigure}
+\includegraphics{differential-equations_files/figure-latex/unnamed-chunk-1-92} \end{marginfigure}
+\begin{marginfigure}
+\includegraphics{differential-equations_files/figure-latex/unnamed-chunk-1-93} \end{marginfigure}
+\begin{marginfigure}
+\includegraphics{differential-equations_files/figure-latex/unnamed-chunk-1-94} \end{marginfigure}
+\begin{marginfigure}
+\includegraphics{differential-equations_files/figure-latex/unnamed-chunk-1-95} \end{marginfigure}
+\begin{marginfigure}
+\includegraphics{differential-equations_files/figure-latex/unnamed-chunk-1-96} \end{marginfigure}
+\begin{marginfigure}
+\includegraphics{differential-equations_files/figure-latex/unnamed-chunk-1-97} \end{marginfigure}
+\begin{marginfigure}
+\includegraphics{differential-equations_files/figure-latex/unnamed-chunk-1-98} \end{marginfigure}
+\begin{marginfigure}
+\includegraphics{differential-equations_files/figure-latex/unnamed-chunk-1-99} \end{marginfigure}
+\begin{marginfigure}
+\includegraphics{differential-equations_files/figure-latex/unnamed-chunk-1-100} \end{marginfigure}
+
+\hypertarget{dndt-form}{%
+\subsection{\texorpdfstring{\(dN/dt\)
+Form}{dN/dt Form}}\label{dndt-form}}
+
+\[\frac{dN}{dt} = k\]
+
+implies
+
+\[N = kt\]
+
+\begin{marginfigure}
+\includegraphics{differential-equations_files/figure-latex/unnamed-chunk-2-1} \end{marginfigure}
+\begin{marginfigure}
+\includegraphics{differential-equations_files/figure-latex/unnamed-chunk-2-2} \end{marginfigure}
+\begin{marginfigure}
+\includegraphics{differential-equations_files/figure-latex/unnamed-chunk-2-3} \end{marginfigure}
+\begin{marginfigure}
+\includegraphics{differential-equations_files/figure-latex/unnamed-chunk-2-4} \end{marginfigure}
+\begin{marginfigure}
+\includegraphics{differential-equations_files/figure-latex/unnamed-chunk-2-5} \end{marginfigure}
+\begin{marginfigure}
+\includegraphics{differential-equations_files/figure-latex/unnamed-chunk-2-6} \end{marginfigure}
+\begin{marginfigure}
+\includegraphics{differential-equations_files/figure-latex/unnamed-chunk-2-7} \end{marginfigure}
+\begin{marginfigure}
+\includegraphics{differential-equations_files/figure-latex/unnamed-chunk-2-8} \end{marginfigure}
+\begin{marginfigure}
+\includegraphics{differential-equations_files/figure-latex/unnamed-chunk-2-9} \end{marginfigure}
+\begin{marginfigure}
+\includegraphics{differential-equations_files/figure-latex/unnamed-chunk-2-10} \end{marginfigure}
+\begin{marginfigure}
+\includegraphics{differential-equations_files/figure-latex/unnamed-chunk-2-11} \end{marginfigure}
+\begin{marginfigure}
+\includegraphics{differential-equations_files/figure-latex/unnamed-chunk-2-12} \end{marginfigure}
+\begin{marginfigure}
+\includegraphics{differential-equations_files/figure-latex/unnamed-chunk-2-13} \end{marginfigure}
+\begin{marginfigure}
+\includegraphics{differential-equations_files/figure-latex/unnamed-chunk-2-14} \end{marginfigure}
+\begin{marginfigure}
+\includegraphics{differential-equations_files/figure-latex/unnamed-chunk-2-15} \end{marginfigure}
+\begin{marginfigure}
+\includegraphics{differential-equations_files/figure-latex/unnamed-chunk-2-16} \end{marginfigure}
+\begin{marginfigure}
+\includegraphics{differential-equations_files/figure-latex/unnamed-chunk-2-17} \end{marginfigure}
+\begin{marginfigure}
+\includegraphics{differential-equations_files/figure-latex/unnamed-chunk-2-18} \end{marginfigure}
+\begin{marginfigure}
+\includegraphics{differential-equations_files/figure-latex/unnamed-chunk-2-19} \end{marginfigure}
+\begin{marginfigure}
+\includegraphics{differential-equations_files/figure-latex/unnamed-chunk-2-20} \end{marginfigure}
+\begin{marginfigure}
+\includegraphics{differential-equations_files/figure-latex/unnamed-chunk-2-21} \end{marginfigure}
+\begin{marginfigure}
+\includegraphics{differential-equations_files/figure-latex/unnamed-chunk-2-22} \end{marginfigure}
+\begin{marginfigure}
+\includegraphics{differential-equations_files/figure-latex/unnamed-chunk-2-23} \end{marginfigure}
+\begin{marginfigure}
+\includegraphics{differential-equations_files/figure-latex/unnamed-chunk-2-24} \end{marginfigure}
+\begin{marginfigure}
+\includegraphics{differential-equations_files/figure-latex/unnamed-chunk-2-25} \end{marginfigure}
+\begin{marginfigure}
+\includegraphics{differential-equations_files/figure-latex/unnamed-chunk-2-26} \end{marginfigure}
+\begin{marginfigure}
+\includegraphics{differential-equations_files/figure-latex/unnamed-chunk-2-27} \end{marginfigure}
+\begin{marginfigure}
+\includegraphics{differential-equations_files/figure-latex/unnamed-chunk-2-28} \end{marginfigure}
+\begin{marginfigure}
+\includegraphics{differential-equations_files/figure-latex/unnamed-chunk-2-29} \end{marginfigure}
+\begin{marginfigure}
+\includegraphics{differential-equations_files/figure-latex/unnamed-chunk-2-30} \end{marginfigure}
+\begin{marginfigure}
+\includegraphics{differential-equations_files/figure-latex/unnamed-chunk-2-31} \end{marginfigure}
+\begin{marginfigure}
+\includegraphics{differential-equations_files/figure-latex/unnamed-chunk-2-32} \end{marginfigure}
+\begin{marginfigure}
+\includegraphics{differential-equations_files/figure-latex/unnamed-chunk-2-33} \end{marginfigure}
+\begin{marginfigure}
+\includegraphics{differential-equations_files/figure-latex/unnamed-chunk-2-34} \end{marginfigure}
+\begin{marginfigure}
+\includegraphics{differential-equations_files/figure-latex/unnamed-chunk-2-35} \end{marginfigure}
+\begin{marginfigure}
+\includegraphics{differential-equations_files/figure-latex/unnamed-chunk-2-36} \end{marginfigure}
+\begin{marginfigure}
+\includegraphics{differential-equations_files/figure-latex/unnamed-chunk-2-37} \end{marginfigure}
+\begin{marginfigure}
+\includegraphics{differential-equations_files/figure-latex/unnamed-chunk-2-38} \end{marginfigure}
+\begin{marginfigure}
+\includegraphics{differential-equations_files/figure-latex/unnamed-chunk-2-39} \end{marginfigure}
+\begin{marginfigure}
+\includegraphics{differential-equations_files/figure-latex/unnamed-chunk-2-40} \end{marginfigure}
+\begin{marginfigure}
+\includegraphics{differential-equations_files/figure-latex/unnamed-chunk-2-41} \end{marginfigure}
+\begin{marginfigure}
+\includegraphics{differential-equations_files/figure-latex/unnamed-chunk-2-42} \end{marginfigure}
+\begin{marginfigure}
+\includegraphics{differential-equations_files/figure-latex/unnamed-chunk-2-43} \end{marginfigure}
+\begin{marginfigure}
+\includegraphics{differential-equations_files/figure-latex/unnamed-chunk-2-44} \end{marginfigure}
+\begin{marginfigure}
+\includegraphics{differential-equations_files/figure-latex/unnamed-chunk-2-45} \end{marginfigure}
+\begin{marginfigure}
+\includegraphics{differential-equations_files/figure-latex/unnamed-chunk-2-46} \end{marginfigure}
+\begin{marginfigure}
+\includegraphics{differential-equations_files/figure-latex/unnamed-chunk-2-47} \end{marginfigure}
+\begin{marginfigure}
+\includegraphics{differential-equations_files/figure-latex/unnamed-chunk-2-48} \end{marginfigure}
+\begin{marginfigure}
+\includegraphics{differential-equations_files/figure-latex/unnamed-chunk-2-49} \end{marginfigure}
+\begin{marginfigure}
+\includegraphics{differential-equations_files/figure-latex/unnamed-chunk-2-50} \end{marginfigure}
+\begin{marginfigure}
+\includegraphics{differential-equations_files/figure-latex/unnamed-chunk-2-51} \end{marginfigure}
+\begin{marginfigure}
+\includegraphics{differential-equations_files/figure-latex/unnamed-chunk-2-52} \end{marginfigure}
+\begin{marginfigure}
+\includegraphics{differential-equations_files/figure-latex/unnamed-chunk-2-53} \end{marginfigure}
+\begin{marginfigure}
+\includegraphics{differential-equations_files/figure-latex/unnamed-chunk-2-54} \end{marginfigure}
+\begin{marginfigure}
+\includegraphics{differential-equations_files/figure-latex/unnamed-chunk-2-55} \end{marginfigure}
+\begin{marginfigure}
+\includegraphics{differential-equations_files/figure-latex/unnamed-chunk-2-56} \end{marginfigure}
+\begin{marginfigure}
+\includegraphics{differential-equations_files/figure-latex/unnamed-chunk-2-57} \end{marginfigure}
+\begin{marginfigure}
+\includegraphics{differential-equations_files/figure-latex/unnamed-chunk-2-58} \end{marginfigure}
+\begin{marginfigure}
+\includegraphics{differential-equations_files/figure-latex/unnamed-chunk-2-59} \end{marginfigure}
+\begin{marginfigure}
+\includegraphics{differential-equations_files/figure-latex/unnamed-chunk-2-60} \end{marginfigure}
+\begin{marginfigure}
+\includegraphics{differential-equations_files/figure-latex/unnamed-chunk-2-61} \end{marginfigure}
+\begin{marginfigure}
+\includegraphics{differential-equations_files/figure-latex/unnamed-chunk-2-62} \end{marginfigure}
+\begin{marginfigure}
+\includegraphics{differential-equations_files/figure-latex/unnamed-chunk-2-63} \end{marginfigure}
+\begin{marginfigure}
+\includegraphics{differential-equations_files/figure-latex/unnamed-chunk-2-64} \end{marginfigure}
+\begin{marginfigure}
+\includegraphics{differential-equations_files/figure-latex/unnamed-chunk-2-65} \end{marginfigure}
+\begin{marginfigure}
+\includegraphics{differential-equations_files/figure-latex/unnamed-chunk-2-66} \end{marginfigure}
+\begin{marginfigure}
+\includegraphics{differential-equations_files/figure-latex/unnamed-chunk-2-67} \end{marginfigure}
+\begin{marginfigure}
+\includegraphics{differential-equations_files/figure-latex/unnamed-chunk-2-68} \end{marginfigure}
+\begin{marginfigure}
+\includegraphics{differential-equations_files/figure-latex/unnamed-chunk-2-69} \end{marginfigure}
+\begin{marginfigure}
+\includegraphics{differential-equations_files/figure-latex/unnamed-chunk-2-70} \end{marginfigure}
+\begin{marginfigure}
+\includegraphics{differential-equations_files/figure-latex/unnamed-chunk-2-71} \end{marginfigure}
+\begin{marginfigure}
+\includegraphics{differential-equations_files/figure-latex/unnamed-chunk-2-72} \end{marginfigure}
+\begin{marginfigure}
+\includegraphics{differential-equations_files/figure-latex/unnamed-chunk-2-73} \end{marginfigure}
+\begin{marginfigure}
+\includegraphics{differential-equations_files/figure-latex/unnamed-chunk-2-74} \end{marginfigure}
+\begin{marginfigure}
+\includegraphics{differential-equations_files/figure-latex/unnamed-chunk-2-75} \end{marginfigure}
+\begin{marginfigure}
+\includegraphics{differential-equations_files/figure-latex/unnamed-chunk-2-76} \end{marginfigure}
+\begin{marginfigure}
+\includegraphics{differential-equations_files/figure-latex/unnamed-chunk-2-77} \end{marginfigure}
+\begin{marginfigure}
+\includegraphics{differential-equations_files/figure-latex/unnamed-chunk-2-78} \end{marginfigure}
+\begin{marginfigure}
+\includegraphics{differential-equations_files/figure-latex/unnamed-chunk-2-79} \end{marginfigure}
+\begin{marginfigure}
+\includegraphics{differential-equations_files/figure-latex/unnamed-chunk-2-80} \end{marginfigure}
+\begin{marginfigure}
+\includegraphics{differential-equations_files/figure-latex/unnamed-chunk-2-81} \end{marginfigure}
+\begin{marginfigure}
+\includegraphics{differential-equations_files/figure-latex/unnamed-chunk-2-82} \end{marginfigure}
+\begin{marginfigure}
+\includegraphics{differential-equations_files/figure-latex/unnamed-chunk-2-83} \end{marginfigure}
+\begin{marginfigure}
+\includegraphics{differential-equations_files/figure-latex/unnamed-chunk-2-84} \end{marginfigure}
+\begin{marginfigure}
+\includegraphics{differential-equations_files/figure-latex/unnamed-chunk-2-85} \end{marginfigure}
+\begin{marginfigure}
+\includegraphics{differential-equations_files/figure-latex/unnamed-chunk-2-86} \end{marginfigure}
+\begin{marginfigure}
+\includegraphics{differential-equations_files/figure-latex/unnamed-chunk-2-87} \end{marginfigure}
+\begin{marginfigure}
+\includegraphics{differential-equations_files/figure-latex/unnamed-chunk-2-88} \end{marginfigure}
+\begin{marginfigure}
+\includegraphics{differential-equations_files/figure-latex/unnamed-chunk-2-89} \end{marginfigure}
+\begin{marginfigure}
+\includegraphics{differential-equations_files/figure-latex/unnamed-chunk-2-90} \end{marginfigure}
+\begin{marginfigure}
+\includegraphics{differential-equations_files/figure-latex/unnamed-chunk-2-91} \end{marginfigure}
+\begin{marginfigure}
+\includegraphics{differential-equations_files/figure-latex/unnamed-chunk-2-92} \end{marginfigure}
+\begin{marginfigure}
+\includegraphics{differential-equations_files/figure-latex/unnamed-chunk-2-93} \end{marginfigure}
+\begin{marginfigure}
+\includegraphics{differential-equations_files/figure-latex/unnamed-chunk-2-94} \end{marginfigure}
+\begin{marginfigure}
+\includegraphics{differential-equations_files/figure-latex/unnamed-chunk-2-95} \end{marginfigure}
+\begin{marginfigure}
+\includegraphics{differential-equations_files/figure-latex/unnamed-chunk-2-96} \end{marginfigure}
+\begin{marginfigure}
+\includegraphics{differential-equations_files/figure-latex/unnamed-chunk-2-97} \end{marginfigure}
+\begin{marginfigure}
+\includegraphics{differential-equations_files/figure-latex/unnamed-chunk-2-98} \end{marginfigure}
+\begin{marginfigure}
+\includegraphics{differential-equations_files/figure-latex/unnamed-chunk-2-99} \end{marginfigure}
+\begin{marginfigure}
+\includegraphics{differential-equations_files/figure-latex/unnamed-chunk-2-100} \end{marginfigure}
+
+\hypertarget{exponential-growth}{%
+\section{Exponential Growth}\label{exponential-growth}}
+
+\hypertarget{dydx-form-1}{%
+\subsection{\texorpdfstring{\(dy/dx\)
+Form}{dy/dx Form}}\label{dydx-form-1}}
+
+\[\frac{dy}{dx} = y\]
+
+implies
+
+\[y = e^x\]
+
+\hypertarget{dndt-form-1}{%
+\subsection{\texorpdfstring{\(dN/dt\)
+Form}{dN/dt Form}}\label{dndt-form-1}}
+
+\hypertarget{logistic-growth}{%
+\section{Logistic Growth}\label{logistic-growth}}
+
+\hypertarget{dydx-form-2}{%
+\subsection{\texorpdfstring{\(dy/dx\)
+Form}{dy/dx Form}}\label{dydx-form-2}}
+
+\hypertarget{dndt-form-2}{%
+\subsection{\texorpdfstring{\(dN/dt\)
+Form}{dN/dt Form}}\label{dndt-form-2}}
+
+
+
+\end{document}

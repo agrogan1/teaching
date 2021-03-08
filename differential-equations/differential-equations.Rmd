@@ -1,0 +1,187 @@
+---
+title: "Differential Equations"
+description: |
+  Reviewing some basic ideas in differential equations.
+author:
+  - name: Andy Grogan-Kaylor 
+    url: https://www.umich.edu/~agrogan
+    affiliation: University of Michigan
+    affiliation_url: https://www.umich.edu
+date: "`r Sys.Date()`"
+output:
+  distill::distill_article:
+    highlight: haddock
+    toc: yes
+    number_sections: yes
+    fig_height: 3
+  tint::tintPdf:
+    highlight: haddock
+    number_sections: yes
+    toc: yes
+  tufte::tufte_handout:
+    toc: yes
+    number_sections: yes
+    latex_engine: xelatex
+---
+
+```{r setup, include=FALSE}
+
+knitr::opts_chunk$set(echo = FALSE,
+                      fig.margin = TRUE)
+
+library(ggplot2)
+
+library(gganimate)
+
+library(xaringan)
+
+library(xaringanExtra)
+
+xaringanExtra::use_panelset()
+
+
+```
+
+
+# Background
+
+In this handout, we consider several simple differential equations that characterize growth. We then consider the solution of this differential equation.
+
+# Constant (Linear) Growth
+
+```{r}
+
+x <- seq(1,10)
+
+y1 <- as.numeric(x)
+
+mydata1 <- data.frame(x, y1)
+
+plinear <- ggplot(data = mydata1,
+                  aes(x = x,
+                      y = y1,
+                      group = 1)) +
+  # geom_point() +
+  geom_line(size = 2) +
+  labs(title = "Constant Growth") +
+  transition_reveal(x)
+
+```
+
+::::: {.panelset}
+
+::: {.panel}
+
+## $dN/dt$ Form {.panel-name}
+
+$$\frac{dN}{dt} = k$$ 
+
+implies 
+
+$$N = kt$$
+
+```{r}
+
+plinear + labs(subtitle = "Population Size Grows Linearly As A Function Of Time",
+               x = "t", 
+               y = "N")
+
+```
+
+:::
+
+::: {.panel}
+
+## $dy/dx$ Form {.panel-name}
+
+$$\frac{dy}{dx} = k$$ 
+
+implies 
+
+$$y = kx + C$$
+
+```{r}
+
+plinear + labs(subtitle = "y Grows Linearly As A Function Of x")
+
+```
+
+:::
+
+:::::
+
+# Exponential Growth
+
+```{r}
+
+x <- seq(1,10)
+
+y2 <- exp(x)
+
+mydata2 <- data.frame(x, y2)
+
+pexponential <- ggplot(data = mydata2,
+                       aes(x = x,
+                           y = y2,
+                           group = 1)) +
+  # geom_point() +
+  geom_line(size = 2) +
+  labs(title = "Exponential Growth") +
+  transition_reveal(x)
+
+
+```
+
+::::: {.panelset}
+
+::: {.panel}
+
+## $dN/dt$ Form {.panel-name}
+
+$$\frac{dN}{dt} = y$$
+
+implies
+
+$$N = e^t$$
+
+```{r}
+
+pexponential  + labs(subtitle = "Population Size Grows Exponentially As A Function Of Time",
+                     x = "t", 
+                     y = "N")
+
+```
+
+:::
+
+::: {.panel}
+
+## $dy/dx$ Form {.panel-name}
+
+$$\frac{dy}{dx} = y$$
+
+implies
+
+$$y = e^x$$
+
+```{r}
+
+pexponential  + labs(subtitle = "y Grows Exponentially As A Function Of x")
+
+```
+
+:::
+
+:::::
+
+
+# Logistic Growth
+
+## $dy/dx$ Form
+
+## $dN/dt$ Form
+
+
+
+
+
