@@ -62,7 +62,7 @@ plinear <- ggplot(data = mydata1,
                       y = y1,
                       group = 1)) +
   # geom_point() +
-  geom_line(size = 2) +
+  geom_line(size = 2, color = "deepskyblue") +
   labs(title = "Constant Growth") +
   transition_reveal(x)
 
@@ -78,7 +78,7 @@ $$\frac{dN}{dt} = k$$
 
 implies 
 
-$$N = kt$$
+$$N = kt + C$$
 
 ```{r}
 
@@ -125,7 +125,7 @@ pexponential <- ggplot(data = mydata2,
                            y = y2,
                            group = 1)) +
   # geom_point() +
-  geom_line(size = 2) +
+  geom_line(size = 2, color = "deepskyblue") +
   labs(title = "Exponential Growth") +
   transition_reveal(x)
 
@@ -138,15 +138,15 @@ pexponential <- ggplot(data = mydata2,
 
 ## $dN/dt$ Form {.panel-name}
 
-$$\frac{dN}{dt} = y$$
+$$\frac{dN}{dt} = N$$
 
 implies
 
-$$N = e^t$$
+$$N = e^t + C$$
 
 ```{r}
 
-pexponential  + labs(subtitle = "Population Size Grows Exponentially As A Function Of Time",
+pexponential  + labs(subtitle = "Population Grows Exponentially As A Function Of Time",
                      x = "t", 
                      y = "N")
 
@@ -162,7 +162,7 @@ $$\frac{dy}{dx} = y$$
 
 implies
 
-$$y = e^x$$
+$$y = e^x + C$$
 
 ```{r}
 
@@ -174,14 +174,58 @@ pexponential  + labs(subtitle = "y Grows Exponentially As A Function Of x")
 
 :::::
 
-
 # Logistic Growth
 
-## $dy/dx$ Form
+```{r}
 
-## $dN/dt$ Form
+x <- seq(1,20)
+
+y3 <- exp(x - 10) / (1 + exp(x - 10))
+
+mydata3 <- data.frame(x, y3)
+
+plogistic <- ggplot(data = mydata3,
+                       aes(x = x,
+                           y = y3,
+                           group = 1)) +
+  # geom_point() +
+  geom_line(size = 2, color = "deepskyblue") +
+  labs(title = "Logistic Growth") +
+  transition_reveal(x)
 
 
+```
 
+
+::::: {.panelset}
+
+::: {.panel}
+
+## $dN/dt$ Form {.panel-name}
+
+
+```{r}
+
+plogistic  + labs(subtitle = "Population Grows Exponentially Until It Reaches Carrying Capacity",
+                  x = "t", 
+                  y = "N")
+
+```
+
+:::
+
+::: {.panel}
+
+## $dy/dx$ Form {.panel-name}
+
+```{r}
+
+plogistic  + labs(subtitle = "y Grows Exponentially Until y Reaches Carrying Capacity")
+
+```
+
+:::
+
+:::::
 
 
