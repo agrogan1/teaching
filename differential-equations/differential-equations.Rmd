@@ -60,8 +60,9 @@ mydata1 <- data.frame(x, y1)
 plinear <- ggplot(data = mydata1,
                   aes(x = x,
                       y = y1,
+                      frame = x,
                       group = 1)) +
-  # geom_point() +
+  # geom_point(color = "deepskyblue") +
   geom_line(size = 2, color = "deepskyblue") +
   labs(title = "Constant Growth") +
   transition_reveal(x)
@@ -203,6 +204,13 @@ plogistic <- ggplot(data = mydata3,
 
 ## $dN/dt$ Form {.panel-name}
 
+$$\frac{dN}{dt} = N \left(1 - \frac{N}{N_0} \right)$$
+
+implies
+
+implies
+
+$$y = N_0 \left( \frac{e^t}{1 + e^t} \right)$$
 
 ```{r}
 
@@ -218,9 +226,14 @@ plogistic  + labs(subtitle = "Population Grows Exponentially Until It Reaches Ca
 
 ## $dy/dx$ Form {.panel-name}
 
+$$\frac{dy}{dx} = y \left(1 - y \right)$$
+implies
+
+$$y = \frac{e^x}{1 + e^x}$$
+
 ```{r}
 
-plogistic  + labs(subtitle = "y Grows Exponentially Until y Reaches Carrying Capacity")
+plogistic  + labs(subtitle = "y Grows Exponentially Until y Reaches 1.0")
 
 ```
 
