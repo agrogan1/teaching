@@ -4,4 +4,4 @@
 
 * [Likelihood and Log-Likelihood](./likelihood-and-log-likelihood/likelihood-and-log-likelihood.html)
 
-* [Some Thinking About Differential Equations](./differential-equations/diffrential-equations.html)
+* [Some Thinking About Differential Equations](./differential-equations/differential-equations.html)
