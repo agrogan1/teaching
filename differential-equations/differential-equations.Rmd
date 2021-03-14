@@ -13,7 +13,7 @@ output:
     highlight: haddock
     toc: yes
     number_sections: yes
-    fig_height: 3
+    fig_height: 4
   tint::tintPdf:
     highlight: haddock
     number_sections: yes
@@ -49,7 +49,14 @@ xaringanExtra::use_panelset()
 
 In this handout, we consider several simple differential equations that characterize growth. We then consider the solution of each differential equation in terms of $y$ as a function of $x$.
 
+I consider each differential equation in 2 different--mathematically equivalent--forms: 
+
+* A $dN/dt$ form where it is sometimes easier to consider the *substantive implications* by thinking about population growth over time.
+* A $dy/dx$ form where it is sometimes easier to think about the *solution* to the differential equation.
+
 # Constant (Linear) Growth
+
+There is a constant rate of growth, expressed by $k$.
 
 ```{r}
 
@@ -119,6 +126,8 @@ ggplotly(plinearB)
 :::::
 
 # Exponential Growth
+
+Growth is a function of population size $N$ (or equivalently $y$).
 
 ```{r}
 
@@ -191,6 +200,8 @@ ggplotly(pexponentialB)
 
 # Logistic Growth
 
+Growth is initially approximately exponential, but then tapers off as $N$ or $y$ approaches some limiting value.
+
 ```{r}
 
 x <- seq(1, 20)
@@ -229,7 +240,9 @@ $$y = N_0 \left( \frac{e^t}{1 + e^t} \right)$$
 plogisticA <- plogistic + 
   labs(subtitle = "Population Grows Exponentially Until It Reaches Carrying Capacity",
        x = "t", 
-       y = "N")
+       y = "N") +
+  theme(axis.text.y = element_blank(),
+        axis.ticks.y = element_blank())
 
 ggplotly(plogisticA)
 
