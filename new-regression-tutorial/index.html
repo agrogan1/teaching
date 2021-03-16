@@ -12,7 +12,7 @@
 
 <meta name="author" content="Andy Grogan-Kaylor" />
 
-<meta name="date" content="2021-03-08" />
+<meta name="date" content="2021-03-16" />
 
 <title>The Idea of Regression</title>
 
@@ -285,7 +285,7 @@ document.addEventListener('DOMContentLoaded', function() {
 <h1 class="title toc-ignore">The Idea of Regression</h1>
 <h3 class="subtitle">New Regression Tutorial (A Hypothetical Example With Runners)</h3>
 <h4 class="author">Andy Grogan-Kaylor</h4>
-<h4 class="date">2021-03-08</h4>
+<h4 class="date">2021-03-16</h4>
 
 
 <div id="TOC">
@@ -361,7 +361,10 @@ document.addEventListener('DOMContentLoaded', function() {
 <p>It looks like my best guess is that all of the runners started the race at 0. That is to say, none of the runners had a head start, like they did in my first example.</p>
 <p>So now, I could think about writing an equation for my line.</p>
 <p>I know that the equation for my line is:</p>
-<p><span class="math display">\[\text{distance} = \text{starting place} + \text{speed} * \text{hours}\]</span></p>
+<p><span class="math display">\[\text{distance} = \text{starting place} + \text{speed} * \text{hours} + e_i\]</span></p>
+<blockquote>
+<p>The <span class="math inline">\(e_i\)</span> is a new concept for us in this tutorial, and represents the <em>error</em>. To a certain degree we are going to make a wrong prediction about every runner in our data. We are trying to understand the distances that runners run, <em>on average</em>.</p>
+</blockquote>
 <p>In this particular case my best guess is…</p>
 <p><span class="math display">\[miles = 0 + 4.9 * hours\]</span></p>
 <p>Expressed in more intuitive language: “for every 1 hour that a runner runs, on average, runners get 4.9 miles of distance.”</p>

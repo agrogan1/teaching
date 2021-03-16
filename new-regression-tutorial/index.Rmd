@@ -225,7 +225,9 @@ So now, I could think about writing an equation for my line.
 
 I know that the equation for my line is:
 
-$$\text{distance} = \text{starting place} + \text{speed} * \text{hours}$$
+$$\text{distance} = \text{starting place} + \text{speed} * \text{hours} + e_i$$
+
+> The $e_i$ is a new concept for us in this tutorial, and represents the *error*. To a certain degree we are going to make a wrong prediction about every runner in our data. We are trying to understand the distances that runners run, *on average*.
 
 In this particular case my best guess is…
 
