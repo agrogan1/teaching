@@ -3,31 +3,25 @@ title: "What Is Data?"
 author: Andy Grogan-Kaylor
 date: "`r Sys.Date()`"
 output:
+  bookdown::gitbook:
+    highlight: haddock
+    split_by: none
+    config:
+      download:
+      - what-is-data.pdf
+      - what-is-data.epub
   tufte::tufte_handout:
     latex_engine: xelatex
     number_sections: yes
     toc: yes
-  tufte::tufte_html:
-    highlight: haddock
-    number_sections: yes
-    toc: yes
-  bookdown::gitbook:
-    highlight: haddock
-    css: styles.css
-    split_by: none
   distill::distill_article:
     toc: yes
   pdf_document: 
     number_sections: yes
     toc: yes
-  html_document:
-    highlight: haddock
-    number_sections: yes
-    theme: flatly
-    toc: yes
-    toc_float:
-      collapsed: no
-      smooth_scroll: yes
+    fig_height: 3
+    latex_engine: xelatex
+  bookdown::epub_book: default  
   tint::tintPdf:
     highlight: haddock
     number_sections: yes
@@ -83,6 +77,10 @@ mydata <- tibble(person,
                  age, 
                  income)
 
+mydata$age[2] <- NA
+
+mydata$income[5] <- NA
+
 
 if(output_format == "html"){
   
@@ -103,7 +101,7 @@ if(output_format == "html"){
 
 In working through our research questions, we’ll constantly be going back and forth between the actual data (to see the pattern of responses) and the documentation, to figure out the actual question asked as well as how the different responses are coded.
 
-```{r, out.width = "90%", fig.margin=TRUE}
+```{r, out.width = "90%", fig.cap="Hypothetical Questionnaire", fig.margin=FALSE}
 
 knitr::include_graphics("survey.png")
 
@@ -111,7 +109,7 @@ knitr::include_graphics("survey.png")
 
 # Missing Values
 
-Some cells of the table above have a negative number. Frequently negative numbers are used to indicate what are called “missing values”. A missing value is a response like “don’t know” or “refused to answer” or “did not answer”. Before we start doing calculations with our data, we’ll want to change negative numbers to true missing values (usually symbolized by a “.” so that they don’t goof up our calculations.
+Some cells of the table above have a negative number. Frequently negative numbers are used to indicate what are called “missing values”. A missing value is a response like “don’t know” or “refused to answer” or “did not answer”. Before we start doing calculations with our data, we’ll want to change negative numbers to true missing values (usually symbolized by a “.”, or an "NA", so that they don’t goof up our calculations.
 
 # Variable Names Should Be Short
 
