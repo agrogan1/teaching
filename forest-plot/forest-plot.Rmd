@@ -1,0 +1,82 @@
+---
+title: "Making a Forest Plot With R"
+author: "Andy Grogan-Kaylor"
+date: 'date: ''`r Sys.Date()`'''
+output:
+  distill::distill_article:
+    highlight: haddock
+    toc: yes
+  html_document:
+    toc: yes
+    highlight: haddock
+    number_sections: yes
+  pdf_document: 
+    toc: yes
+    highlight: haddock
+    number_sections: yes
+---
+
+```{r setup, include=FALSE}
+
+knitr::opts_chunk$set(echo = TRUE)
+
+```
+
+# Background
+
+In meta-analysis, one of the most common tasks is making a forest plot. Many packages in R and Stata have their own abilities to make a forest plot, but below we present some options for making a forest plot in R, using the kind of results you might get as output from another package.
+
+# Simulate a Table of Results
+
+Below, we simulate a table of data such as one might obtain from a meta-analysis routine in R or Stata. We simulate variables for *author*, *year*, *Cohen's d*, *Lower Confidence Interval*, and *Upper Confidence Interval*.
+
+```{r}
+
+author <- c("Smith", "Jones", "Smith & Jones") # authors
+
+year <- c(2015, 2019, 2020) # publication year
+
+d <- c(1, 2, 3) # Cohen's d
+
+LCI <- c(.9, 1.5, 2.8) # Lower Confidence Interval
+
+UCI <- c(1.1, 2.5, 3.2) # Upper Confidence Interval
+
+metadata <- data.frame(author, year, d, LCI, UCI) # make into a dataframe
+
+metadata$id <- row.names(metadata) # add id variable
+
+metadata # display the data
+
+library(foreign) # save in other formats
+
+write.dta(metadata, file = "metadata.dta")
+
+```
+
+# `ggplot` Graph
+
+```{r}
+
+library(ggplot2)
+
+ggplot(metadata,
+       aes(x = d, # x is Cohen's d
+           y = id)) + # y is article id
+  # geom_point() + you could use points instead
+  geom_col(width = .5) + # columns
+  geom_errorbarh(aes(xmin = LCI, # errorbars
+                     xmax = UCI,
+                     height = .2),
+                 color = "red") +
+  geom_text(aes(x = -1, # labels
+                label = paste(author, 
+                              year))) +
+  labs(title = "Meta-Analytic Results",
+       x = "Cohen's d") +
+  xlim(-2, 4) + # manually set x limits
+  theme_minimal() # nice theme
+
+```
+
+
