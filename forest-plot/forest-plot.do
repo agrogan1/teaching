@@ -23,6 +23,6 @@ title("Meta-Analytic Results") ///
 xtitle("Cohen's d") ///
 ytitle("") // blank ytitle
 
-graph export "forest-plot.png", replace
+graph export "forest-plot-Stata.png", replace
 
 
