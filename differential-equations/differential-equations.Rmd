@@ -54,6 +54,10 @@ I consider each differential equation in 2 different--mathematically equivalent-
 * A $dN/dt$ form where it is sometimes easier to consider the *substantive implications* by thinking about population growth over time.
 * A $dy/dx$ form where it is sometimes easier to think about the *solution* to the differential equation.
 
+For logistic growth, I also consider a $dp/dx$ formulation.
+
+While these formulations are mathematically equivalent, they may have different substantive implications and thinking about these equations in different ways may be helpful to teaching and learning.
+
 # Constant (Linear) Growth
 
 There is a constant rate of growth, expressed by $k$.
@@ -262,7 +266,7 @@ $$y = \frac{e^x}{1 + e^x}$$
 ```{r}
 
 plogisticB <- plogistic + 
-  labs(subtitle = "y Grows Exponentially Until y Reaches 1.0",
+  labs(subtitle = "y Grows Exponentially Until y Approaches 1.0",
        y = "y")
 
 ggplotly(plogisticB)
@@ -271,6 +275,27 @@ ggplotly(plogisticB)
 
 :::
 
+::: {.panel}
+
+## $dp/dx$ Form {.panel-name}
+
+Here $p$ is a probability.
+
+$$\frac{dp}{dx} = p \left(1 - p \right)$$
+implies
+
+$$p = \frac{e^x}{1 + e^x}$$
+
+```{r}
+
+plogisticC <- plogistic + 
+  labs(subtitle = "p Grows Exponentially Until p Approaches 1.0",
+       y = "probability")
+
+ggplotly(plogisticC)
+
+```
+
+:::
+
 :::::
-
-
