@@ -32,6 +32,8 @@ knitr::opts_chunk$set(echo = FALSE)
 
 ```
 
+> As you move forward through this presentation you can press `b` to make text bigger, or `s` to make text smaller.
+
 ## Role Of Research In Social Work
 
 > Social work is a profession dedicated to social justice and the improvement of well-being.
@@ -117,6 +119,13 @@ Then search in a large database like PsychInfo or ProQuest
 > I still think that the key articles in most literatures end up numbering somewhere between 20 and 50 articles.
 
 ## Writing
+
+```{r, fig.height=3, fig.cap="Octavio Paz in the Paris Review"}
+
+knitr::include_graphics("Octavio-Paz_Writing-Paris-Review.jpeg")
+
+```
+
 
 * Writing is **Hard**
 * Write **Many** Rough Drafts (**Share Them!** With your Advisor, or with other people who will read frequent drafts of your writing.)
