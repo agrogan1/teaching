@@ -1,0 +1,301 @@
+---
+title: "Differential Equations"
+description: |
+  Reviewing some basic ideas in differential equations.
+author:
+  - name: Andy Grogan-Kaylor 
+    url: https://www.umich.edu/~agrogan
+    affiliation: University of Michigan
+    affiliation_url: https://www.umich.edu
+date: "`r Sys.Date()`"
+output:
+  distill::distill_article:
+    highlight: haddock
+    toc: yes
+    number_sections: yes
+    fig_height: 4
+  tint::tintPdf:
+    highlight: haddock
+    number_sections: yes
+    toc: yes
+  tufte::tufte_handout:
+    toc: yes
+    number_sections: yes
+    latex_engine: xelatex
+---
+
+```{r setup, include=FALSE}
+
+knitr::opts_chunk$set(echo = FALSE,
+                      fig.margin = TRUE)
+
+library(ggplot2)
+
+library(gganimate)
+
+library(plotly)
+
+library(xaringan)
+
+library(xaringanExtra)
+
+xaringanExtra::use_panelset()
+
+
+```
+
+
+# Background
+
+In this handout, we consider several simple differential equations that characterize growth. We then consider the solution of each differential equation in terms of $y$ as a function of $x$.
+
+I consider each differential equation in 2 different--mathematically equivalent--forms: 
+
+* A $dN/dt$ form where it is sometimes easier to consider the *substantive implications* by thinking about population growth over time.
+* A $dy/dx$ form where it is sometimes easier to think about the *solution* to the differential equation.
+
+For logistic growth, I also consider a $dp/dx$ formulation.
+
+While these formulations are mathematically equivalent, they may have different substantive implications and thinking about these equations in different ways may be helpful to teaching and learning.
+
+# Constant (Linear) Growth
+
+There is a constant rate of growth, expressed by $k$.
+
+```{r}
+
+x <- seq(1,10)
+
+y1 <- as.numeric(x)
+
+mydata1 <- data.frame(x, y1)
+
+plinear <- ggplot(data = mydata1,
+                  aes(x = x,
+                      y = y1,
+                      group = 1)) +
+  geom_line(size = 2, color = "grey") +
+  geom_point(aes(frame = x), color = "deepskyblue", size = 2) +
+  labs(title = "Constant Growth") # +
+  # transition_reveal(x)
+
+```
+
+::::: {.panelset}
+
+::: {.panel}
+
+## $dN/dt$ Form {.panel-name}
+
+$$\frac{dN}{dt} = k$$ 
+
+implies 
+
+$$N = kt + C$$
+
+```{r}
+
+plinearA <- plinear + 
+  labs(subtitle = "Population Size Grows Linearly As A Function Of Time",
+       x = "t", 
+       y = "N")
+
+ggplotly(plinearA)
+
+```
+
+:::
+
+::: {.panel}
+
+## $dy/dx$ Form {.panel-name}
+
+$$\frac{dy}{dx} = k$$ 
+
+implies 
+
+$$y = kx + C$$
+
+```{r}
+
+plinearB <- plinear + 
+  labs(subtitle = "y Grows Linearly As A Function Of x")
+
+ggplotly(plinearB)
+
+```
+
+:::
+
+:::::
+
+# Exponential Growth
+
+Growth is a function of population size $N$ (or equivalently $y$).
+
+```{r}
+
+x <- seq(1, 10, .5)
+
+y2 <- exp(x)
+
+mydata2 <- data.frame(x, y2)
+
+pexponential <- ggplot(data = mydata2,
+                       aes(x = x,
+                           y = y2,
+                           group = 1)) +
+  geom_line(size = 2, color = "grey") +
+  geom_point(aes(frame = x), color = "deepskyblue", size = 2) +
+  labs(title = "Exponential Growth") # +
+  # transition_reveal(x)
+
+
+```
+
+::::: {.panelset}
+
+::: {.panel}
+
+## $dN/dt$ Form {.panel-name}
+
+$$\frac{dN}{dt} = N$$
+
+implies
+
+$$N = e^t + C$$
+
+```{r}
+
+pexponentialA <- pexponential + 
+  labs(subtitle = "Population Grows Exponentially As A Function Of Time",
+       x = "t", 
+       y = "N")
+
+ggplotly(pexponentialA)
+
+```
+
+:::
+
+::: {.panel}
+
+## $dy/dx$ Form {.panel-name}
+
+$$\frac{dy}{dx} = y$$
+
+implies
+
+$$y = e^x + C$$
+
+```{r}
+
+pexponentialB <- pexponential + 
+  labs(subtitle = "y Grows Exponentially As A Function Of x",
+       y = "y")
+
+ggplotly(pexponentialB)
+
+```
+
+:::
+
+:::::
+
+# Logistic Growth
+
+Growth is initially approximately exponential, but then tapers off as $N$ or $y$ approaches some limiting value.
+
+```{r}
+
+x <- seq(1, 20)
+
+y3 <- exp(x - 10) / (1 + exp(x - 10))
+
+mydata3 <- data.frame(x, y3)
+
+plogistic <- ggplot(data = mydata3,
+                       aes(x = x,
+                           y = y3,
+                           group = 1)) +
+  geom_line(size = 2, color = "grey") +
+  geom_point(aes(frame = x), color = "deepskyblue", size = 2) +
+  labs(title = "Logistic Growth") # +
+  # transition_reveal(x)
+
+
+```
+
+
+::::: {.panelset}
+
+::: {.panel}
+
+## $dN/dt$ Form {.panel-name}
+
+$$\frac{dN}{dt} = N \left(1 - \frac{N}{N_0} \right)$$
+
+implies
+
+$$y = N_0 \left( \frac{e^t}{1 + e^t} \right)$$
+
+```{r}
+
+plogisticA <- plogistic + 
+  labs(subtitle = "Population Grows Exponentially Until It Reaches Carrying Capacity",
+       x = "t", 
+       y = "N") +
+  theme(axis.text.y = element_blank(),
+        axis.ticks.y = element_blank())
+
+ggplotly(plogisticA)
+
+```
+
+:::
+
+::: {.panel}
+
+## $dy/dx$ Form {.panel-name}
+
+$$\frac{dy}{dx} = y \left(1 - y \right)$$
+implies
+
+$$y = \frac{e^x}{1 + e^x}$$
+
+```{r}
+
+plogisticB <- plogistic + 
+  labs(subtitle = "y Grows Exponentially Until y Approaches 1.0",
+       y = "y")
+
+ggplotly(plogisticB)
+
+```
+
+:::
+
+::: {.panel}
+
+## $dp/dx$ Form {.panel-name}
+
+Here $p$ is a probability.
+
+$$\frac{dp}{dx} = p \left(1 - p \right)$$
+implies
+
+$$p = \frac{e^x}{1 + e^x}$$
+
+```{r}
+
+plogisticC <- plogistic + 
+  labs(subtitle = "p Grows Exponentially Until p Approaches 1.0",
+       y = "probability")
+
+ggplotly(plogisticC)
+
+```
+
+:::
+
+:::::
