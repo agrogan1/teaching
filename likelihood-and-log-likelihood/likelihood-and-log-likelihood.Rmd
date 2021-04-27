@@ -3,28 +3,35 @@ title: "Likelihood and Log Likelihood"
 author: "Andy Grogan-Kaylor"
 date: '`r Sys.Date()`'
 output:
-  tint::tintPdf:
+  distill::distill_article:
     highlight: haddock
+    toc: yes
+  pdf_document: 
     number_sections: yes
     toc: yes
+    fig_height: 3
+    latex_engine: xelatex
   tufte::tufte_handout:
     toc: yes
     number_sections: yes
     latex_engine: xelatex
-  distill::distill_article:
-    highlight: haddock
+  tint::tintPdf:
     toc: yes
+mainfont: Arial
 ---
 
 ```{r setup, include=FALSE}
 
-knitr::opts_chunk$set(echo = FALSE)
+knitr::opts_chunk$set(echo = FALSE,
+                      fig.margin =TRUE)
 
 ```
 
 ```{r}
 
 library(ggplot2)
+
+library(MASS)
 
 ```
 
@@ -41,7 +48,7 @@ $$\mathcal{L}(\beta) = \prod p(\beta | x, y)$$
 
 Maximum Likelihood Estimation is essentially the process of finding the combination of parameters (e.g. $\beta$) which maximizes the likelihood of producing the data.
 
-```{r}
+```{r, eval=FALSE, echo=FALSE}
 
 N <- 1000
 
@@ -61,6 +68,31 @@ ggplot(data = NULL,
 
 ```
 
+```{r, fig.height=3, fig.cap="Joint Likelihood of Two Parameters"}
+
+# inspired by a coding approach at
+# https://stackoverflow.com/questions/11530010/how-to-simulate-bimodal-distribution
+
+beta0 <- rnorm(1000, 0.5, 2)
+
+beta1 <- rnorm(1000, 0, .1)
+
+# density plot
+
+mydensity <- kde2d(beta0, beta1)
+
+par(mar = rep(2, 4)) # adjust margins
+
+persp(mydensity,
+      theta = -45,
+      phi = 10,
+      main = "Joint Likelihood of Two Parameters",
+      xlab = "intercept",
+      ylab = "slope",
+      zlab = "probability",
+      lwd = .5)
+
+```
 
 # Log-Likelihood
 
@@ -68,7 +100,7 @@ Because probabilities are by definition $< 1$, the likelihood $\mathcal{L}$ tend
 
 # Visualizing the Likelihood and Log-Likelihood
 
-```{r}
+```{r, fig.cap="Likelihood and Log-Likelihood"}
 
 x <- seq(.01, 1, .01)
 
