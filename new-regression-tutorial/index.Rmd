@@ -77,7 +77,7 @@ p1 <- ggplot(data = mydata,
   theme(title = element_text(size = rel(2)),
         axis.text = element_text(size = rel(2)),
         legend.text = element_text(size = rel(2))) +
-  transition_reveal(x1)
+  transition_reveal(x1) 
 
 p1 # replay graph
 
@@ -89,7 +89,7 @@ We can write an equation that represents the distance run in several equivalent 
 
 * $miles = 6 * hours$
 
-* $y = 6* x$
+* $y = 6 * x$
 
 In this case, the runner’s speed (6 miles per hour) is what we call the *slope* of the line. The <font color="orange">orange</font> runner is getting 6 miles of distance for every hour spent running.  Economists sometimes talk about this idea as the “rate of return”:  For every hour of running, the <font color="orange">orange</font> runner gets 6 miles of distance.  
 
@@ -130,7 +130,7 @@ p2 <- ggplot(data = mydata2,
   theme(title = element_text(size = rel(2)),
         axis.text = element_text(size = rel(2)),
         legend.text = element_text(size = rel(2))) +
-  transition_reveal(x2)
+  transition_reveal(x2) 
 
 p2 # replay graph
 
@@ -253,7 +253,7 @@ We call the *rate of change* by a few different names as well:
 
 So now we can talk about a more general form for our equation.  A more general way of writing:
 
-$$miles = 0 + 4.9 hours$$
+$$miles = 0 + 4.9 * hours$$
 
 Would be to say
 
