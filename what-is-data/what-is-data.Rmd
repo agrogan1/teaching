@@ -3,13 +3,13 @@ title: "What Is Data?"
 author: Andy Grogan-Kaylor
 date: "`r Sys.Date()`"
 output:
-  distill::distill_article:
-    toc: yes
   pdf_document: 
     number_sections: yes
     toc: yes
     fig_height: 3
     latex_engine: xelatex
+  distill::distill_article:
+    toc: yes
 mainfont: Arial
 ---
 
