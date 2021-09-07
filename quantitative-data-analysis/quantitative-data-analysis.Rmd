@@ -1,0 +1,121 @@
+---
+title: "Quantitative Data Analysis"
+description: |
+  In Excel, Google Sheets, R, and Stata
+author: Andy Grogan-Kaylor
+date: "`r Sys.Date()`"
+output:
+  distill::distill_article:
+    highlight: haddock
+    toc: yes
+    code_folding: true
+  powerpoint_presentation: 
+    toc: yes
+    fig_caption: yes
+  slidy_presentation: 
+    fig_caption: yes
+    highlight: haddock
+    css: UMslidy.css
+---
+
+```{r setup, include=FALSE}
+
+knitr::opts_chunk$set(echo = FALSE)
+
+library(pander)
+
+xaringanExtra::use_panelset()
+
+```
+
+# Publicly Available Tools for Analysis
+
+-------------------------------------------------------------
+Tool        Cost         Ease        Analysis       Suitability 
+                         of          Capabilities   for
+                         Use                        Large Data
+----------- -------      ----------  -------------  ------------
+Excel       Comes        Easy        Limited        Difficult when
+            installed                               N > 100
+            on many
+            computers
+
+Google      Free         Easy        Limited        Difficult when
+Sheets      with a                                  N > 100
+            Google
+            account
+            
+R           Free         Challenging Extensive      Excellent with
+                                                    large datasets
+                                                    
+Stata       Some         Learning    Extensive      Excellent with 
+            cost         Curve                      large datasets
+                         (Intuitive) 
+-------------------------------------------------------------
+
+# Our Data
+
+We take a look at our *simulated* data, which has an `id` number, `age`, and `happiness` (on a 5 point scale, with 5 being the happiest.)
+
+```{r, echo=FALSE}
+
+N <- 100 # sample size
+
+id <- seq(1, N) # id number
+
+age <- rnorm(N, 50, 10) # normally distributed age
+
+age[2] <- 200 # someone is 200 years old
+
+happy <- round(runif(N, 1, 5)) # 5 point happiness scale
+
+happy[1] <- -99
+
+happy[3] <- -99
+
+somethingelese <- rnorm(N, 0, 1) # something else!
+
+mydata <- data.frame(id, age, happy, somethingelese)
+
+pander(head(mydata))
+
+```
+Notice that…
+
+* There are variables in which we may not have interest (e.g. `somethingelse`).
+* None of the variables have informative *variable labels*. We have to guess at what the variables mean.
+* Variables do not seem to have informative *value labels*. While somewhat intuitive, we have to guess at what the values mean.
+* Someone appears to 200 years old.
+* There appear to be missing values in the variable happy that need to be recoded.
+
+# Cleaning Data
+
+* Only keep the variables of interest.
+* Add variable labels (if we can).
+* Add value labels (if we can).
+* Recode outliers, values that are errors, or values that should be coded as missing
+
+::::: {.panelset}
+
+
+::: {.panel}
+
+## Excel {.panel-name}
+
+Testing
+
+:::
+
+
+::: {.panel}
+
+## Google Sheets {.panel-name}
+
+Testing 1,2,3
+
+:::
+
+:::::
+
+# Simple Analysis
+
