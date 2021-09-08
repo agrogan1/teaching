@@ -1,14 +1,13 @@
 ---
 title: "Quantitative Data Analysis"
 description: |
-  In Excel, Google Sheets, R, and Stata
+  In Excel, Google Sheets, and R
 author: Andy Grogan-Kaylor
 date: "`r Sys.Date()`"
 output:
   distill::distill_article:
     highlight: haddock
     toc: yes
-    code_folding: true
   powerpoint_presentation: 
     toc: yes
     fig_caption: yes
@@ -26,6 +25,16 @@ library(pander)
 
 xaringanExtra::use_panelset()
 
+```
+
+```{css, echo=FALSE}
+
+d-article blockquote {
+  color: black;
+  border-left: 2px solid gold; 
+  padding: 0.5em 10px;
+  }
+  
 ```
 
 # Publicly Available Tools for Analysis
@@ -73,11 +82,13 @@ happy[1] <- -99
 
 happy[3] <- -99
 
-somethingelese <- rnorm(N, 0, 1) # something else!
+somethingelse <- rnorm(N, 0, 1) # something else!
 
-mydata <- data.frame(id, age, happy, somethingelese)
+mydata <- data.frame(id, age, happy, somethingelse)
 
 pander(head(mydata))
+
+write.csv(mydata, file = "mydata.csv")
 
 ```
 Notice that…
@@ -90,28 +101,91 @@ Notice that…
 
 # Cleaning Data
 
-* Only keep the variables of interest.
-* Add variable labels (if we can).
-* Add value labels (if we can).
-* Recode outliers, values that are errors, or values that should be coded as missing
+1. Only keep the variables of interest.
+2. Add variable labels (if we can).
+3. Add value labels (if we can).
+4. Recode outliers, values that are errors, or values that should be coded as missing
 
 ::::: {.panelset}
 
-
 ::: {.panel}
 
-## Excel {.panel-name}
+## Excel and Google Sheets {.panel-name}
 
-Testing
+1. Only keep the variables of interest.
+
+> Select the column, or columns, of data that you wish to remove, and right click, or control click, to delete them.
+
+```{r}
+
+knitr::include_graphics("Excel1.png")
+
+```
+
+
+2. Add variable labels (if we can).
+
+> We are unable to add informative labels to variables in Excel or Google Sheets.
+
+3. Add value labels (if we can).
+
+> We are unable to add informative labels to values in Excel or Google Sheets.
+
+4. Recode outliers, values that are errors, or values that should be coded as missing.
+
+> We are likely going to have to use **find and replace** to manually replace problematic values. For example, we will want to replace the `200` in the `age` column with a `.` or `NA` for missing. Similarly, we will want to replace the values of `-99` in the `happy` column with a `.` or `NA` for missing.
+
+> For small data sets, this will not be difficult, but for larger data sets--especially data with many different kinds of values that need to be recoded--this process will become more difficult and cumbersome.
 
 :::
 
+::: {.panel}
+
+## R {.panel-name}
+
+> Much of R's functionality is accomplished through writing *code*, that is saved in a *script*. Notice how--as our tasks get more and more complicated--the saved script provides documentation for the decisions that we have made with the data.
+
+1. Only keep the variables of interest.
+
+> We can easily accomplish this with the `subset` function
+
+```{r, echo=TRUE}
+
+mynewdata <- subset(mydata,
+                    select = c(id, age, happy))
+```
+
+```{r}
+
+pander(head(mynewdata))
+
+```
+
+2. Add variable labels (if we can).
+3. Add value labels (if we can).
+4. Recode outliers, values that are errors, or values that should be coded as missing.
+
+> We can easily accomplish this using Base R's syntax for recoding: `data$variable[rule] <- newvalue`.
+
+```{r, echo=TRUE}
+
+mynewdata$age[mynewdata$age >= 100] <- NA
+
+mynewdata$happy[mynewdata$happy == -99] <- NA
+
+```
+
+```{r}
+
+pander(head(mynewdata))
+
+```
+
+:::
 
 ::: {.panel}
 
-## Google Sheets {.panel-name}
-
-Testing 1,2,3
+## Stata {.panel-name}
 
 :::
 
