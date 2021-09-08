@@ -8,13 +8,20 @@ output:
   distill::distill_article:
     highlight: haddock
     toc: yes
+  pdf_document: 
+    toc: yes
+    latex_engine: xelatex
+    number_sections: yes
   powerpoint_presentation: 
     toc: yes
     fig_caption: yes
+    slide_level: 4
   slidy_presentation: 
     fig_caption: yes
     highlight: haddock
     css: UMslidy.css
+mainfont: Arial
+always_allow_html: true
 ---
 
 ```{r setup, include=FALSE}
@@ -25,6 +32,12 @@ library(pander)
 
 xaringanExtra::use_panelset()
 
+# xaringanExtra::style_panelset_tabs(foreground = "honeydew", 
+#                                    background = "seagreen")
+
+
+library(foreign)
+
 ```
 
 ```{css, echo=FALSE}
@@ -33,34 +46,52 @@ d-article blockquote {
   color: black;
   border-left: 2px solid gold; 
   padding: 0.5em 10px;
-  }
+}
+h1, h2, h3, h4, h5, h6 {
+  color: #2F65A7;
+  font-weight: 300;
+}
+.panelset {  
+  color: #2F65A7;
+}
   
 ```
 
-# Publicly Available Tools for Analysis
+# Introduction
 
--------------------------------------------------------------
-Tool        Cost         Ease        Analysis       Suitability 
-                         of          Capabilities   for
-                         Use                        Large Data
------------ -------      ----------  -------------  ------------
-Excel       Comes        Easy        Limited        Difficult when
-            installed                               N > 100
-            on many
-            computers
+A great deal of data analysis and visualization involves the same core set of steps.
 
-Google      Free         Easy        Limited        Difficult when
-Sheets      with a                                  N > 100
-            Google
-            account
+$$\text{have a question} \rightarrow \text{get data} \rightarrow \text{process and clean data} \rightarrow \text{analyze data}$$ 
+Below we describe some simple data cleaning, and simple analysis with 4 tools: Excel, Google Sheets, R, and Stata.
+
+# Some Tools for Analysis
+
+----------------------------------------------------------------------------
+Tool     Cost         Ease         Analysis       Suitability   Keep                 
+                      of           Capabilities   for           Track of
+                      Use                         Large Data    Complicated
+                                                                Workflows
+-------- ---------    ------------ -------------  ------------  --------------
+Excel    Comes        Easy         Limited        Difficult     Difficult to
+         installed                                when          Impossible
+         on many                                  N > 100
+         computers
+
+Google   Free         Easy         Limited        Difficult     Difficult to
+Sheets   with a                                   when          Impossible
+         Google                                   N > 100
+         account
             
-R           Free         Challenging Extensive      Excellent with
-                                                    large datasets
+R        Free         Challenging  Extensive      Excellent     Yes, with
+                                                  with          script
+                                                  large 
+                                                  datasets
                                                     
-Stata       Some         Learning    Extensive      Excellent with 
-            cost         Curve                      large datasets
-                         (Intuitive) 
--------------------------------------------------------------
+Stata    Some         Learning     Extensive      Excellent     Yes, with
+         cost         Curve                       with          command
+                      but                         large         file
+                      Intuitive                   datasets
+----------------------------------------------------------------------------
 
 # Our Data
 
@@ -71,6 +102,13 @@ We take a look at our *simulated* data, which has an `id` number, `age`, and `ha
 N <- 100 # sample size
 
 id <- seq(1, N) # id number
+
+group <- rbinom(N, 1, .5) # group
+
+group <- factor(group, 
+                levels = c(1,0),
+                labels = c("Group A",
+                           "Group B"))
 
 age <- rnorm(N, 50, 10) # normally distributed age
 
@@ -84,13 +122,16 @@ happy[3] <- -99
 
 somethingelse <- rnorm(N, 0, 1) # something else!
 
-mydata <- data.frame(id, age, happy, somethingelse)
+mydata <- data.frame(id, group, age, happy, somethingelse)
 
-pander(head(mydata))
+write.csv(mydata, file = "mydata.csv") # write to CSV
 
-write.csv(mydata, file = "mydata.csv")
+write.dta(mydata, file = "mydata.dta") # write to Stata
+
+pander(head(mydata)) # show the data
 
 ```
+
 Notice that…
 
 * There are variables in which we may not have interest (e.g. `somethingelse`).
@@ -112,26 +153,25 @@ Notice that…
 
 ## Excel and Google Sheets {.panel-name}
 
-1. Only keep the variables of interest.
+### 1. Only keep the variables of interest.
 
 > Select the column, or columns, of data that you wish to remove, and right click, or control click, to delete them.
 
-```{r}
+```{r, out.width="50%"}
 
 knitr::include_graphics("Excel1.png")
 
 ```
 
+### 2. Add variable labels (if we can).
 
-2. Add variable labels (if we can).
+> We are unable to add informative labels to **variables** in Excel or Google Sheets.
 
-> We are unable to add informative labels to variables in Excel or Google Sheets.
+### 3. Add value labels (if we can).
 
-3. Add value labels (if we can).
+> We are unable to add informative labels to **values** in Excel or Google Sheets.
 
-> We are unable to add informative labels to values in Excel or Google Sheets.
-
-4. Recode outliers, values that are errors, or values that should be coded as missing.
+### 4. Recode outliers, values that are errors, or values that should be coded as missing.
 
 > We are likely going to have to use **find and replace** to manually replace problematic values. For example, we will want to replace the `200` in the `age` column with a `.` or `NA` for missing. Similarly, we will want to replace the values of `-99` in the `happy` column with a `.` or `NA` for missing.
 
@@ -145,14 +185,14 @@ knitr::include_graphics("Excel1.png")
 
 > Much of R's functionality is accomplished through writing *code*, that is saved in a *script*. Notice how--as our tasks get more and more complicated--the saved script provides documentation for the decisions that we have made with the data.
 
-1. Only keep the variables of interest.
+### 1. Only keep the variables of interest.
 
 > We can easily accomplish this with the `subset` function
 
 ```{r, echo=TRUE}
 
 mynewdata <- subset(mydata,
-                    select = c(id, age, happy))
+                    select = c(id, group, age, happy))
 ```
 
 ```{r}
@@ -161,17 +201,41 @@ pander(head(mynewdata))
 
 ```
 
-2. Add variable labels (if we can).
-3. Add value labels (if we can).
-4. Recode outliers, values that are errors, or values that should be coded as missing.
+### 2. Add variable labels (if we can).
+
+> Adding *variable labels* is not well established in R. There are libraries that can add variable labels for some purposes, but not every library in R recognizes *variable labels*.
+
+### 3. Add value labels (if we can).
+
+> In contrast, *value labels* are straightforward in R, and can be accomplished by creating a *factor variable*. Below we demonstrate how to do this with the happy variable.
+
+```{r, echo=TRUE}
+
+mynewdata$happyFACTOR <- factor(mynewdata$happy,
+                             levels = c(1, 2, 3, 4, 5),
+                             labels = c("Very Unhappy",
+                                        "Somewhat Unhappy",
+                                        "Neutral",
+                                        "Somewhat Happy",
+                                        "Very Happy"))
+
+```
+
+```{r}
+
+pander(head(mynewdata))
+
+```
+
+### 4. Recode outliers, values that are errors, or values that should be coded as missing.
 
 > We can easily accomplish this using Base R's syntax for recoding: `data$variable[rule] <- newvalue`.
 
 ```{r, echo=TRUE}
 
-mynewdata$age[mynewdata$age >= 100] <- NA
+mynewdata$age[mynewdata$age >= 100] <- NA # recode > 100 to NA
 
-mynewdata$happy[mynewdata$happy == -99] <- NA
+mynewdata$happy[mynewdata$happy == -99] <- NA # recode -99 to NA
 
 ```
 
@@ -187,9 +251,186 @@ pander(head(mynewdata))
 
 ## Stata {.panel-name}
 
+```{stata, echo = FALSE, eval=FALSE}
+
+use "mydata.dta" // open the data
+
+```
+
+### 1. Only keep the variables of interest.
+
+> This is easily accomplished with Stata's `drop` command. We could also choose to `keep` our variables of interest. 
+
+```{stata, echo = TRUE, eval=FALSE}
+
+drop somethingelse // drop extraneous variable(s)
+
+```
+
+### 2. Add variable labels (if we can).
+
+> Variable labels can easily be added in Stata.
+
+```{stata, echo=TRUE, eval=FALSE}
+
+label variable age "Respondent's Age'" // variable label for age
+
+label variable happy "Happiness Score" // variable label for happy
+
+describe // describe the data
+
+Contains data from mydata.dta
+ Observations:           100                              
+    Variables:             4                  
+-------------------------------------------------------------------------------
+Variable      Storage   Display    Value
+    name         type    format    label      Variable label
+-------------------------------------------------------------------------------
+id              long    %9.0g                 id
+group           long    %9.0g      group      group
+age             double  %9.0g                 Respondent's Age'
+happy           double  %9.0g                 Happiness Score
+-------------------------------------------------------------------------------
+
+```
+
+### Add value labels (if we can)
+
+> Value labels are a natural part of Stata.
+
+```{stata, echo = TRUE, eval=FALSE}
+
+label define happy /// create value label for happy
+5 "Very Unhappy" ///
+4 "Somewhat Unhappy" ///
+3 "Neutral" ///
+2 "Somewhat Happy" ///
+1 "Very Happy"
+
+label values happy happy // assign value label happy to variable happy 
+
+list in 1/10 // list first 10 lines of data
+
+     +--------------------------------------------+
+     | id     group        age              happy |
+     |--------------------------------------------|
+  1. |  1   Group A   47.99102                -99 |
+  2. |  2   Group A        200   Somewhat Unhappy |
+  3. |  3   Group B   49.13296                -99 |
+  4. |  4   Group A   36.66538   Somewhat Unhappy |
+  5. |  5   Group B   57.67317            Neutral |
+     |--------------------------------------------|
+  6. |  6   Group A   54.10485         Very Happy |
+  7. |  7   Group A   39.23244       Very Unhappy |
+  8. |  8   Group B   44.18384   Somewhat Unhappy |
+  9. |  9   Group A   35.08472            Neutral |
+ 10. | 10   Group A   52.86285   Somewhat Unhappy |
+     +--------------------------------------------+
+
+
+```
+
+### 4. Recode outliers, values that are errors, or values that should be coded as missing
+
+```{stata, echo = TRUE, eval=FALSE}
+
+recode age (100 / max = .) // recode ages > 100
+
+```
+
+```{stata, echo = TRUE, eval=FALSE}
+
+recode happy (-99 = .) // recode -99 to missing
+
+```
+
+```{stata, echo = TRUE, eval=FALSE}
+
+list in 1/10 // list first 10 lines of data
+
+     +--------------------------------------------+
+     | id     group        age              happy |
+     |--------------------------------------------|
+  1. |  1   Group A   47.99102                  . |
+  2. |  2   Group A          .   Somewhat Unhappy |
+  3. |  3   Group B   49.13296                  . |
+  4. |  4   Group A   36.66538   Somewhat Unhappy |
+  5. |  5   Group B   57.67317            Neutral |
+     |--------------------------------------------|
+  6. |  6   Group A   54.10485         Very Happy |
+  7. |  7   Group A   39.23244       Very Unhappy |
+  8. |  8   Group B   44.18384   Somewhat Unhappy |
+  9. |  9   Group A   35.08472            Neutral |
+ 10. | 10   Group A   52.86285   Somewhat Unhappy |
+     +--------------------------------------------+
+  
+```
+
 :::
 
 :::::
 
 # Simple Analysis
 
+Our first step in analysis is to discover what kind of variables we have. We need to make a distinction between *continuous variables* that measure things like mental health or neighborhood safety, or age, and *categorical variables* that measure non-ordered categories like religious identity or gender identity.
+
+* For continuous variables, it is most appropriate to take the *average* or *mean*.
+* For categorical variables, it is most appropriate to generate a *frequency table*.
+
+::::: {.panelset}
+
+::: {.panel}
+
+## Excel and Google Sheets {.panel-name}
+
+:::
+
+::: {.panel}
+
+## R {.panel-name}
+
+```{r, echo=TRUE}
+
+summary(mynewdata$age) # descriptive statistics for age
+
+```
+```{r, echo=TRUE}
+
+table(mynewdata$group) # frequency table of group
+
+```
+
+:::
+
+::: {.panel}
+
+## Stata {.panel-name}
+
+```{stata, eval = FALSE, echo = TRUE}
+
+summarize age
+
+    Variable |        Obs        Mean    Std. dev.       Min        Max
+-------------+---------------------------------------------------------
+         age |         99    47.30858    9.615174   29.53682   71.51345
+
+```
+
+
+```{stata, eval = FALSE, echo = TRUE}
+
+tabulate group
+
+      group |      Freq.     Percent        Cum.
+------------+-----------------------------------
+    Group A |         46       46.00       46.00
+    Group B |         54       54.00      100.00
+------------+-----------------------------------
+      Total |        100      100.00
+
+```
+
+
+:::
+
+:::::
