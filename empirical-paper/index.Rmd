@@ -120,12 +120,20 @@ Then search in a large database like PsychInfo or ProQuest
 
 ## Writing
 
+```{r, fig.height=3, fig.cap="Octavia Butler"}
+
+knitr::include_graphics("octavia-butler.jpg")
+
+```
+
+
 ```{r, fig.height=3, fig.cap="Octavio Paz in the Paris Review"}
 
 knitr::include_graphics("Octavio-Paz_Writing-Paris-Review.jpeg")
 
 ```
 
+## Writing (2)
 
 * Writing is **Hard**
 * Write **Many** Rough Drafts (**Share Them!** With your Advisor, or with other people who will read frequent drafts of your writing.)
