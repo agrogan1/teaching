@@ -149,6 +149,8 @@ Notice that…
 
 # Cleaning Data
 
+There are some basic data cleaning steps that are common to many projects.
+
 1. Only keep the variables of interest.
 2. Add variable labels (if we can).
 3. Add value labels (if we can).
