@@ -30,3 +30,7 @@ recode age (100 / max = .) // recode ages > 100
 recode happy (-99 = .) // recode -99 to missing
 
 list in 1/10 // list first 10 lines of data
+
+summarize age
+
+tabulate group
