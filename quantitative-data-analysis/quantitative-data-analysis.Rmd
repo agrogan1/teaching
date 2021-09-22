@@ -20,6 +20,7 @@ output:
     fig_caption: yes
     highlight: haddock
     css: UMslidy.css
+    slide_level: 1
 mainfont: Arial
 always_allow_html: true
 ---
@@ -44,7 +45,7 @@ library(foreign)
 
 d-article blockquote {
   color: black;
-  border-left: 2px solid gold; 
+  border-left: 2px solid #FFCB05; 
   padding: 0.5em 10px;
 }
 h1, h2, h3, h4, h5, h6 {
@@ -52,7 +53,7 @@ h1, h2, h3, h4, h5, h6 {
   font-weight: 300;
 }
 .panelset {  
-  color: #2F65A7;
+  color: #9A3324;
 }
   
 ```
