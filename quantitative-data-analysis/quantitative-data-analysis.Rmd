@@ -5,13 +5,13 @@ description: |
 author: Andy Grogan-Kaylor
 date: "`r Sys.Date()`"
 output:
-  distill::distill_article:
-    highlight: haddock
-    toc: yes
   pdf_document: 
     toc: yes
     latex_engine: xelatex
     number_sections: yes
+  distill::distill_article:
+    highlight: haddock
+    toc: yes
   powerpoint_presentation: 
     toc: yes
     fig_caption: yes
@@ -49,13 +49,19 @@ d-article blockquote {
   padding: 0.5em 10px;
 }
 h1, h2, h3, h4, h5, h6 {
-  color: #2F65A7;
+  color: #00274C;
   font-weight: 300;
 }
 .panelset {  
   color: #9A3324;
 }
   
+```
+
+```{r, layout="l-body", out.width="75%"}
+
+knitr::include_graphics("background1-cropped.png")
+
 ```
 
 # Introduction
@@ -386,11 +392,21 @@ Our first step in analysis is to discover what kind of variables we have. We nee
 
 ## Excel and Google Sheets {.panel-name}
 
+> In Excel and Google Sheets, our ability to do data *analysis* is very limited. In general, we are only able to easily calculate the *average* of *continuous variables*. There are various *add-ins* that can calculate other quantities, but their availability, usability, and ongoing stable development, tends to be inconsistent.
+
+```{r, out.width="90%"}
+
+knitr::include_graphics("Excel2.png")
+
+```
+
 :::
 
 ::: {.panel}
 
 ## R {.panel-name}
+
+> As a mostly command based language, R relies on the idea of `do_something(dataset$variable)`.
 
 ```{r, echo=TRUE}
 
@@ -409,9 +425,12 @@ table(mynewdata$group) # frequency table of group
 
 ## Stata {.panel-name}
 
+> As a mostly command based language, Stata relies on the idea of `do_something variable(s), options`.
+
+
 ```{stata, eval = FALSE, echo = TRUE}
 
-summarize age
+summarize age // descriptive statistics for age
 
     Variable |        Obs        Mean    Std. dev.       Min        Max
 -------------+---------------------------------------------------------
@@ -422,7 +441,7 @@ summarize age
 
 ```{stata, eval = FALSE, echo = TRUE}
 
-tabulate group
+tabulate group // frequency table of group
 
       group |      Freq.     Percent        Cum.
 ------------+-----------------------------------
