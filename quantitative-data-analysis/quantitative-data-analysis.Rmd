@@ -252,6 +252,8 @@ pander(head(mynewdata))
 
 ## Stata {.panel-name}
 
+> Much of Stata's functionality is accomplished through writing *code*, that is saved in a *script*, which Stata calls a *do file*. Notice how--as our tasks get more and more complicated--the saved script provides documentation for the decisions that we have made with the data.
+
 ```{stata, echo = FALSE, eval=FALSE}
 
 use "mydata.dta" // open the data
