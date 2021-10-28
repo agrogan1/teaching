@@ -12,15 +12,6 @@ output:
   distill::distill_article:
     highlight: haddock
     toc: yes
-  powerpoint_presentation: 
-    toc: yes
-    fig_caption: yes
-    slide_level: 4
-  slidy_presentation: 
-    fig_caption: yes
-    highlight: haddock
-    css: UMslidy.css
-    slide_level: 1
 mainfont: Arial
 always_allow_html: true
 ---
@@ -284,7 +275,7 @@ drop somethingelse // drop extraneous variable(s)
 
 ```{stata, echo=TRUE, eval=FALSE}
 
-label variable age "Respondent's Age'" // variable label for age
+label variable age "Respondent's Age" // variable label for age
 
 label variable happy "Happiness Score" // variable label for happy
 
@@ -299,7 +290,7 @@ Variable      Storage   Display    Value
 -------------------------------------------------------------------------------
 id              long    %9.0g                 id
 group           long    %9.0g      group      group
-age             double  %9.0g                 Respondent's Age'
+age             double  %9.0g                 Respondent's Age
 happy           double  %9.0g                 Happiness Score
 -------------------------------------------------------------------------------
 
