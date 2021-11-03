@@ -94,6 +94,13 @@ knitr::include_graphics("concerns.png")
 * Acknowledge the Feeling / Welcome It!
 * Fake It Until You Make It
 
+```{r, out.width="30%"}
+
+knitr::include_graphics("imposter-syndrome.png")
+
+```
+
+
 ## Drawing The Circle Around Your Question & Finding The Right Literature
 
 * Remember the 80/20 rule:  80% of everything is of relatively low value; only 20% is gold.
