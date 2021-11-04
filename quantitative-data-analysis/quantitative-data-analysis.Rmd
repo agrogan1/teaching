@@ -5,13 +5,13 @@ description: |
 author: Andy Grogan-Kaylor
 date: "`r Sys.Date()`"
 output:
+  distill::distill_article:
+    highlight: haddock
+    toc: yes
   pdf_document: 
     toc: yes
     latex_engine: xelatex
     number_sections: yes
-  distill::distill_article:
-    highlight: haddock
-    toc: yes
 mainfont: Arial
 always_allow_html: true
 ---
@@ -310,6 +310,12 @@ label define happy /// create value label for happy
 1 "Very Happy"
 
 label values happy happy // assign value label happy to variable happy 
+
+```
+
+> Note that this code is actually a *mistake*. 5 should be assigned to *Very Happy*, not to *Very Unhappy*. 1 should be assigned to *Very Unhappy*. Having our thinking written down in the form of code or syntax allows us to see that this mistake has been made--and to ultimately correct it--when we are checking over our workflow.
+
+```{stata, echo = TRUE, eval=FALSE}
 
 list in 1/10 // list first 10 lines of data
 
