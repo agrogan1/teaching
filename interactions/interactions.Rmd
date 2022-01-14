@@ -1,0 +1,152 @@
+---
+title: "Interactions"
+description: |
+  A brief and evolving tutorial on interactions
+author:
+  - name: Andy Grogan-Kaylor 
+    url: https://agrogan1.github.io/
+    affiliation: University of Michigan
+    affiliation_url: https://www.umich.edu
+date: "`r Sys.Date()`"
+output:
+  distill::distill_article:
+    highlight: haddock
+    toc: yes
+    code_folding: true
+---
+
+```{r setup, include=FALSE}
+
+knitr::opts_chunk$set(echo = FALSE)
+
+library(ggplot2)
+
+library(pander)
+
+library(DT)
+
+library(gt)
+
+```
+
+# The Equation That Generates The Data
+
+$$y = \beta_0 + \beta_1 x + \beta_2 group + \beta_3 x \times group + e_i$$
+
+# Simulate Some Data
+
+```{r}
+
+set.seed(1234) # random seed
+
+N <- 1000 # sample size
+
+x <- round(rnorm(N, 100, 10), 2) # random x
+
+group <- rbinom(N, 1, .5) # random group
+
+e <- round(rnorm(N, 0, 1), 2) # random error
+
+y <- 10 + 
+  x + 
+  (30 * group) + 
+  (-.25 * x * group) +
+  e # the true equation that generates y
+
+mydata <- data.frame(x, group, e, y)
+
+DT::datatable(mydata, options = list(pageLength = 5))
+
+```
+
+# Plot The Data
+
+```{r}
+
+plot(x, y, col="grey", pch = 19)
+
+```
+
+# First Model: *x* Only
+
+## The Equation
+
+$$y = \beta_0 + \beta_1 x + e_i$$
+
+## The Regression
+
+```{r}
+
+myfit1 <- lm(y ~ x, data = mydata)
+
+pander(summary(myfit1))
+
+```
+
+## Graph The Regression
+
+```{r}
+
+plot(x, y, col="grey", pch = 19)
+
+abline(24.57, .8803, col="purple", lwd = 3)
+
+```
+
+# Second Model: *x* and *group*
+
+## The Equation
+
+$$y = \beta_0 + \beta_1 x + \beta_2 group + e_i$$
+
+## The Regression
+
+```{r}
+
+myfit2 <- lm(y ~ x + group, data = mydata)
+
+pander(summary(myfit2))
+
+```
+
+## Graph The Regression
+
+```{r}
+
+plot(x, y, col="grey", pch = 19)
+
+abline(21.92, .8808, col="red", lwd = 3)
+
+abline(21.92 + 5.039, .8808, col="blue", lwd = 3)
+
+```
+
+# Third Model: *x* and *group* and interaction of *x* and *group*
+
+## The Equation
+
+$$y = \beta_0 + \beta_1 x + \beta_2 group + + \beta_3 x \times group + e_i$$
+
+## The Regression
+
+```{r}
+
+myfit3 <- lm(y ~ x * group, data = mydata)
+
+pander(summary(myfit3))
+
+```
+
+## Graph The Regression
+
+```{r}
+
+plot(x, y, col="grey", pch = 19)
+
+abline(9.648, 1.004, col = "red", lwd = 3)
+
+abline(9.648 + 30.54, 1.004 - .2557, col = "blue", lwd = 3)
+
+```
+
+
