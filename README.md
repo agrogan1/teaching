@@ -6,6 +6,8 @@
 
 * [New Regression Tutorial](./new-regression-tutorial/index.html)
 
+* [Simpson's Paradox With Palmer Penguins Data](./simpsons-paradox-palmer-penguins/simpsons-paradox-palmer-penguins.html)
+
 * [Interactions](./interactions/interactions.html)
 
 * Basics of [Quantitative Data Analysis](./quantitative-data-analysis/quantitative-data-analysis.html)
