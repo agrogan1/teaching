@@ -1,0 +1,116 @@
+{smcl}
+{com}{sf}{ul off}{txt}{.-}
+      name:  {res}<unnamed>
+       {txt}log:  {res}/Users/agrogan/Desktop/GitHub/teaching/simpsons-paradox-palmer-penguins/simpsons-paradox-palmer-penguins.smcl
+  {txt}log type:  {res}smcl
+ {txt}opened on:  {res} 2 Feb 2022, 11:47:12
+{txt}
+{com}. //_1
+. display c(current_date)
+{res} 2 Feb 2022
+{txt}
+{com}. //_2
+. display c(current_time)
+{res}11:47:12
+{txt}
+{com}. //_3
+. clear all
+{res}{txt}
+{com}. //_4
+. use "penguins.dta"
+{txt}
+{com}. //_5
+. twoway (scatter culmen_depth_mm body_mass_g) ///
+> (lfit culmen_depth_mm body_mass_g), ///
+> title("Culmen Depth by Body Mass") ///
+> caption("Palmer Penguin Data") ///
+> scheme(michigan)
+{res}{txt}
+{com}. //_6
+. graph export mygraph1.png, width(1000) replace
+{txt}{p 0 4 2}
+file {bf}
+/Users/agrogan/Desktop/GitHub/teaching/simpsons-paradox-palmer-penguins/mygraph1.png{rm}
+saved as
+PNG
+format
+{p_end}
+
+{com}. //_7
+. regress culmen_depth_mm body_mass_g
+
+{txt}      Source {c |}       SS           df       MS      Number of obs   ={res}       342
+{txt}{hline 13}{c +}{hline 34}   F(1, 340)       = {res}    97.41
+{txt}       Model {c |} {res}  296.15994         1   296.15994   {txt}Prob > F        ={res}    0.0000
+{txt}    Residual {c |} {res} 1033.67459       340  3.04021939   {txt}R-squared       ={res}    0.2227
+{txt}{hline 13}{c +}{hline 34}   Adj R-squared   ={res}    0.2204
+{txt}       Total {c |} {res} 1329.83453       341  3.89980801   {txt}Root MSE        =   {res} 1.7436
+
+{txt}{hline 13}{c TT}{hline 11}{hline 11}{hline 9}{hline 8}{hline 13}{hline 12}
+{col 1}culmen_dep~m{col 14}{c |} Coefficient{col 26}  Std. err.{col 38}      t{col 46}   P>|t|{col 54}     [95% con{col 67}f. interval]
+{hline 13}{c +}{hline 11}{hline 11}{hline 9}{hline 8}{hline 13}{hline 12}
+{space 1}body_mass_g {c |}{col 14}{res}{space 2}-.0011621{col 26}{space 2} .0001177{col 37}{space 1}   -9.87{col 46}{space 3}0.000{col 54}{space 4}-.0013937{col 67}{space 3}-.0009305
+{txt}{space 7}_cons {c |}{col 14}{res}{space 2} 22.03395{col 26}{space 2} .5036206{col 37}{space 1}   43.75{col 46}{space 3}0.000{col 54}{space 4} 21.04334{col 67}{space 3} 23.02455
+{txt}{hline 13}{c BT}{hline 11}{hline 11}{hline 9}{hline 8}{hline 13}{hline 12}
+{res}{txt}
+{com}. //_8
+. est store M1
+{txt}
+{com}. //_9
+. twoway (scatter culmen_depth_mm body_mass_g) ///
+> (lfit culmen_depth_mm body_mass_g), ///
+> by(species, title("Culmen Depth by Body Mass") caption("Palmer Penguin Data")) ///
+> scheme(michigan)
+{res}{txt}
+{com}. //_10
+. graph export mygraph2.png, width(1000) replace
+{txt}{p 0 4 2}
+file {bf}
+/Users/agrogan/Desktop/GitHub/teaching/simpsons-paradox-palmer-penguins/mygraph2.png{rm}
+saved as
+PNG
+format
+{p_end}
+
+{com}. //_11
+. regress culmen_depth_mm body_mass_g species
+
+{txt}      Source {c |}       SS           df       MS      Number of obs   ={res}       342
+{txt}{hline 13}{c +}{hline 34}   F(2, 339)       = {res}   225.41
+{txt}       Model {c |} {res} 759.047284         2  379.523642   {txt}Prob > F        ={res}    0.0000
+{txt}    Residual {c |} {res} 570.787248       339   1.6837382   {txt}R-squared       ={res}    0.5708
+{txt}{hline 13}{c +}{hline 34}   Adj R-squared   ={res}    0.5683
+{txt}       Total {c |} {res} 1329.83453       341  3.89980801   {txt}Root MSE        =   {res} 1.2976
+
+{txt}{hline 13}{c TT}{hline 11}{hline 11}{hline 9}{hline 8}{hline 13}{hline 12}
+{col 1}culmen_dep~m{col 14}{c |} Coefficient{col 26}  Std. err.{col 38}      t{col 46}   P>|t|{col 54}     [95% con{col 67}f. interval]
+{hline 13}{c +}{hline 11}{hline 11}{hline 9}{hline 8}{hline 13}{hline 12}
+{space 1}body_mass_g {c |}{col 14}{res}{space 2} .0004877{col 26}{space 2} .0001326{col 37}{space 1}    3.68{col 46}{space 3}0.000{col 54}{space 4} .0002269{col 67}{space 3} .0007485
+{txt}{space 5}species {c |}{col 14}{res}{space 2}-1.974985{col 26}{space 2} .1191142{col 37}{space 1}  -16.58{col 46}{space 3}0.000{col 54}{space 4}-2.209281{col 67}{space 3}-1.740689
+{txt}{space 7}_cons {c |}{col 14}{res}{space 2} 18.89014{col 26}{space 2} .4200224{col 37}{space 1}   44.97{col 46}{space 3}0.000{col 54}{space 4} 18.06396{col 67}{space 3} 19.71631
+{txt}{hline 13}{c BT}{hline 11}{hline 11}{hline 9}{hline 8}{hline 13}{hline 12}
+{res}{txt}
+{com}. //_12
+. est store M2
+{txt}
+{com}. //_13
+. est table M1 M2, b(%7.4f) star
+{res}
+{txt}{hline 12}{c -}{c TT}{c -}{hline 10}{c -}{c -}{c -}{hline 10}{c -}{c -}
+{ralign 12:Variable} {c |} {center 10:M1} {space 1} {center 10:M2} {space 1}
+{hline 12}{c -}{c +}{c -}{hline 10}{c -}{c -}{c -}{hline 10}{c -}{c -}
+{res}{txt}{space 1}body_mass_g {c |}{res} {ralign 7:-0.0012}{lalign 3:***}{txt} {space 1}{res} {ralign 7:0.0005}{lalign 3:***}{txt} {space 1}
+{res}{txt}{space 5}species {c |}{res} {ralign 7:}{lalign 3:}{txt} {space 1}{res} {ralign 7:-1.9750}{lalign 3:***}{txt} {space 1}
+{res}{txt}{space 7}_cons {c |}{res} {ralign 7:22.0339}{lalign 3:***}{txt} {space 1}{res} {ralign 7:18.8901}{lalign 3:***}{txt} {space 1}
+{res}{txt}{hline 12}{c -}{c BT}{c -}{hline 10}{c -}{c -}{c -}{hline 10}{c -}{c -}
+{ralign 40:Legend: * p<0.05; ** p<0.01; *** p<0.001}
+{res}{txt}
+{com}. //_^
+. log close
+      {txt}name:  {res}<unnamed>
+       {txt}log:  {res}/Users/agrogan/Desktop/GitHub/teaching/simpsons-paradox-palmer-penguins/simpsons-paradox-palmer-penguins.smcl
+  {txt}log type:  {res}smcl
+ {txt}closed on:  {res} 2 Feb 2022, 11:47:18
+{txt}{.-}
+{smcl}
+{txt}{sf}{ul off}
