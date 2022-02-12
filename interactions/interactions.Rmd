@@ -29,11 +29,17 @@ library(gt)
 
 ```
 
-# The Equation That Generates The Data
+# Setup
 
-$$y = \beta_0 + \beta_1 x + \beta_2 group + \beta_3 x \times group + e_i$$
+## The Equation That Generates The Data
 
-# Simulate Some Data
+$$y_i = \beta_0 + \beta_1 x + \beta_2 \text{group} + \beta_3 (x \times \text{group}) + e_i$$
+
+Numerically...
+
+$$y_i = 10 + 1x + 30 \text{group} -.25 (x \times \text{group}) + e_i$$ 
+
+## Simulate Some Data
 
 ```{r}
 
@@ -59,15 +65,19 @@ DT::datatable(mydata, options = list(pageLength = 5))
 
 ```
 
-# Plot The Data
+## Graph The Data
 
 ```{r}
 
-plot(x, y, col="grey", pch = 19)
+plot(x, y, col = "grey", pch = 19)
 
 ```
 
 # First Model: *x* Only
+
+## The Story
+
+*y* is a function of an *intercept*, *x* and some *error*.
 
 ## The Equation
 
@@ -94,6 +104,10 @@ abline(24.57, .8803, col="purple", lwd = 3)
 ```
 
 # Second Model: *x* and *group*
+
+## The Story
+
+*y* is a function of an *intercept*, *x*, *group* membership, and some *error*.
 
 ## The Equation
 
@@ -123,6 +137,11 @@ abline(21.92 + 5.039, .8808, col="blue", lwd = 3)
 
 # Third Model: *x* and *group* and interaction of *x* and *group*
 
+## The Story
+
+*y* is a function of an *intercept*, *x*, *group* membership, *group* membership multiplied by *x*, and some *error*.
+
+
 ## The Equation
 
 $$y = \beta_0 + \beta_1 x + \beta_2 group + + \beta_3 x \times group + e_i$$
@@ -149,4 +168,12 @@ abline(9.648 + 30.54, 1.004 - .2557, col = "blue", lwd = 3)
 
 ```
 
+# Summary of the Coefficients for Each Group
 
+-------------------------------------------------------------
+Group      Intercept            Slope
+---------- ----------           --------------------
+0          $\beta_0$            $\beta_1$
+
+1          $\beta_0 + \beta_2$  $\beta_1 + \beta_3$
+-------------------------------------------------------------
