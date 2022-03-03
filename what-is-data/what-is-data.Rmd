@@ -76,7 +76,7 @@ if(knitr::opts_knit$get("rmarkdown.pandoc.to") == "html5") {
             extensions = 'Buttons',
             options = list(
               dom = 'Bfrtip',
-              buttons = c('copy', 'csv', 'excel', 'pdf', 'print')))
+              buttons = c('copy', 'csv', 'pdf')))
 
   
 }
@@ -122,6 +122,24 @@ $__________ (annual number)
 
 Some cells of the table above have a negative number. Frequently negative numbers are used to indicate what are called “missing values”. A missing value is a response like “don’t know” or “refused to answer” or “did not answer”. Before we start doing calculations with our data, we’ll want to change negative numbers to true missing values (usually symbolized by a “.”, or an "NA", so that they don’t goof up our calculations.
 
-# Variable Names Should Be Short
+# Variable Names Should Be Short 
 
 Often in a spreadsheet, you’ll see the full text of a question written out (e.g. “What neighborhood do you live in”?) Most programs that work with data are going to want abbreviations (e.g. “Q1” or “neighborhood”) for the questions. These abbreviations should usually have no spaces and be 8 characters or less.
+
+# Variable Names Should Be Limited To a Single Row of the Spreadsheet
+
+Generally, in spreadsheet software, the first row of the data should be used to list the variable names, as is seen in the example below.
+
+```{r}
+
+pander(head(mydata))
+
+```
+
+
+
+
+
+
+
+
