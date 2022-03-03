@@ -12,7 +12,8 @@
 
 * [New Regression Tutorial](./new-regression-tutorial/index.html)
 
-* [Causal Inference With The Spruce Data](./spruce/spruce.html) | [HTML Slides](./spruce/spruce-slidy.html)
+* [Causal Inference With The Spruce Data](./spruce/spruce.html) 
+    + [HTML Slides](./spruce/spruce-slidy.html)
 
 * [Simpson's Paradox With Palmer Penguins Data](./simpsons-paradox-palmer-penguins/simpsons-paradox-palmer-penguins.html)
 
