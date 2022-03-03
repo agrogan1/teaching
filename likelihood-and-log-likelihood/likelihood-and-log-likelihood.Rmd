@@ -3,9 +3,9 @@ title: "Likelihood and Log Likelihood"
 author: "Andy Grogan-Kaylor"
 date: '`r Sys.Date()`'
 output:
-  distill::distill_article:
-    highlight: haddock
+  tint::tintPdf:
     toc: yes
+    number_sections: yes
   pdf_document: 
     number_sections: yes
     toc: yes
@@ -15,7 +15,8 @@ output:
     toc: yes
     number_sections: yes
     latex_engine: xelatex
-  tint::tintPdf:
+  distill::distill_article:
+    highlight: haddock
     toc: yes
 mainfont: Arial
 ---
