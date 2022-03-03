@@ -177,3 +177,31 @@ Group      Intercept            Slope
 
 1          $\beta_0 + \beta_2$  $\beta_1 + \beta_3$
 -------------------------------------------------------------
+
+If we consider a group membership variable that has values *0* or *1*, then effectively, the *intercept* for *group 0* is $\beta_0$ and the *slope* for *group 0* is $\beta_1$. For *group 1*, the *intercept* is $\beta_0 + \beta_2$ while the *slope* is $\beta_1 + \beta_3$.
+
+$\beta_2$ is thus the *difference in intercepts* between the two groups.
+
+$\beta_3$ is the *difference in slopes* between the two groups.
+
+```{r}
+
+plot(x, y, col="grey", pch = 19, xlim = c(0,140), ylim = c(0,140))
+
+abline(9.648, 1.004, col = "red", lwd = 3)
+
+abline(9.648 + 30.54, 1.004 - .2557, col = "blue", lwd = 3)
+
+text(0, 3, expression(beta[0]), col = "red")
+
+text(3, 25, expression(beta[0] + beta[2]), col = "blue")
+
+text(100, 90, expression(beta[1]), col = "red")
+
+text(90, 125, expression(beta[1] + beta[3]), col = "blue")
+
+```
+
+
+
+
