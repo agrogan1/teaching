@@ -5,14 +5,14 @@ description: |
 author: "Andy Grogan-Kaylor"
 date: "`r Sys.Date()`"
 output:
-  distill::distill_article:
-    highlight: haddock
-    toc: yes
   pdf_document: 
     toc: yes
     number_sections: yes
     highlight: haddock
     latex_engine: xelatex
+  distill::distill_article:
+    highlight: haddock
+    toc: yes
 ---
 
 ```{r setup, include=FALSE}
@@ -61,32 +61,60 @@ digraph boxes_and_circles {
 
 ```
 
+# Equation
+
+$$\text{attachment} = \beta_0 + \beta_1 \text{PRF} + \beta_2 \text{CR} + \beta_3 \text{CB} + \beta_4 x + \beta_5 z + e_i$$
+
 # Syntax
 
-Assuming variables `PRF`, `CR`, `CB` and `attachment`. Additionally, `Tx` is an indicator for treatment, and `x`, `y` and `z` represent the control variables.
+Assuming variables `PRF`, `CR`, `CB` and `attachment`. Additionally, `Tx` is an indicator for treatment, and `x` and `z` represent the control variables.
 
+## Basic Models
 
 -------------------------------------------------------------
 SPSS[^SPSS]                              Stata[^Stata]
 --------------------                     --------------------
-`REGRESSION`                             `regress attachment PRF CR CB x y z`
+`REGRESSION`                             `regress attachment PRF CR CB Tx x z`
 
-`/MISSING LISTWISE`          
+`/MISSING LISTWISE`                       
 
-`/STATISTICS COEFF OUTS`
+`/STATISTICS COEFF OUTS`                  
 
-`/CRITERIA=PIN(.05) POUT(.10)`
+`/CRITERIA=PIN(.05) POUT(.10)`            
 
-`/NOORIGIN`
+`/NOORIGIN`                                
 
-`/DEPENDENT attachment`
+`/DEPENDENT attachment`                    
 
-`/METHOD=ENTER PRF CR CB Tx x y z`
+`/METHOD=ENTER PRF CR CB Tx x z.`             
+
+-------------------------------------------------------------
+
+## Interactions
+
+If we think there is moderation, we need to include $\beta_6 \text{PRF} * \text{Tx} + \beta_7 \text{CR} * \text{Tx} + \beta_8 \text{CB} * \text{Tx}$ terms in the equation.
+
+-------------------------------------------------------------
+SPSS                                     Stata
+-----------------------                  --------------------
+In SPSS interaction terms                Stata is able to create interactions   
+need to be created *by                   *on the fly*.    
+hand*.
+                                                
+`COMPUTE PRF_Tx = PRF * Tx.`             `regress attachment (PRF CR CB)##Tx x z` 
+                                          
+`COMPUTE CR_Tx = CR * Tx.`
+
+`COMPUTE CB_Tx = CB * Tx.`
+
+These terms would need 
+to be entered into the 
+equation above.
 
 -------------------------------------------------------------
 
 
-[^SPSS]: SPSS syntax is constantly in flux, but this is a best guess at appropriate commands.
+[^SPSS]: SPSS syntax is constantly in flux, but this is a best guess at appropriate commands. Of course one potential advantage of SPSS is that models can be run using menus.
 [^Stata]: [Stata makes things easy](https://agrogan1.github.io/Stata/two-page-stata/TwoPageStata.pdf)! However, if it is not used in your department, there may be too high of a learning cost.
 
 

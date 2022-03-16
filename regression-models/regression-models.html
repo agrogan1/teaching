@@ -1487,17 +1487,25 @@ code span.wa { color: #008000; font-weight: bold; } /* Warning */
 <h3>Contents</h3>
 <ul>
 <li><a href="#conceptual-model">Conceptual Model</a></li>
-<li><a href="#syntax">Syntax</a></li>
+<li><a href="#equation">Equation</a></li>
+<li><a href="#syntax">Syntax</a>
+<ul>
+<li><a href="#basic-models">Basic Models</a></li>
+<li><a href="#interactions">Interactions</a></li>
+</ul></li>
 </ul>
 </nav>
 </div>
 <h1 id="conceptual-model">Conceptual Model</h1>
 <div class="layout-chunk" data-layout="l-body">
-<div id="htmlwidget-94d64ad96c971f6fb378" style="width:624px;height:384px;" class="grViz html-widget"></div>
-<script type="application/json" data-for="htmlwidget-94d64ad96c971f6fb378">{"x":{"diagram":"\n\ndigraph boxes_and_circles {\n\n  # a \"graph\" statement\n  graph [overlap = true, \n        fontsize = 10,\n        rankdir = LR]\n\n  # several \"node\" statements\n  node [shape = box,\n        fontname = Helvetica]\n\n  node [shape = circle,\n        fontsize = 11,\n        fixedsize = true,\n        width = 1.25] // sets as circles\n \n  A [label = \"attachment \nbehavior\"]\n  PRF[label = \"parental \nreflective \nfunctioning\"]\n  CR[label = \"caregiving \nrepresentation\"]\n  CB[label = \"caregiving \nbehavior\"]\n  \n  PRF -> A[label = \"moderated by \ntreatment\"]\n  CR -> A[label = \"moderated by \ntreatment\"]\n  CB -> A[label = \"moderated by \ntreatment\"]\n  controls -> A\n   \n}\n\n","config":{"engine":"dot","options":null}},"evals":[],"jsHooks":[]}</script>
+<div id="htmlwidget-e4699661ac8175e2ff1c" style="width:624px;height:384px;" class="grViz html-widget"></div>
+<script type="application/json" data-for="htmlwidget-e4699661ac8175e2ff1c">{"x":{"diagram":"\n\ndigraph boxes_and_circles {\n\n  # a \"graph\" statement\n  graph [overlap = true, \n        fontsize = 10,\n        rankdir = LR]\n\n  # several \"node\" statements\n  node [shape = box,\n        fontname = Helvetica]\n\n  node [shape = circle,\n        fontsize = 11,\n        fixedsize = true,\n        width = 1.25] // sets as circles\n \n  A [label = \"attachment \nbehavior\"]\n  PRF[label = \"parental \nreflective \nfunctioning\"]\n  CR[label = \"caregiving \nrepresentation\"]\n  CB[label = \"caregiving \nbehavior\"]\n  \n  PRF -> A[label = \"moderated by \ntreatment\"]\n  CR -> A[label = \"moderated by \ntreatment\"]\n  CB -> A[label = \"moderated by \ntreatment\"]\n  controls -> A\n   \n}\n\n","config":{"engine":"dot","options":null}},"evals":[],"jsHooks":[]}</script>
 </div>
+<h1 id="equation">Equation</h1>
+<p><span class="math display">\[\text{attachment} = \beta_0 + \beta_1 \text{PRF} + \beta_2 \text{CR} + \beta_3 \text{CB} + \beta_4 x + \beta_5 z + e_i\]</span></p>
 <h1 id="syntax">Syntax</h1>
-<p>Assuming variables <code>PRF</code>, <code>CR</code>, <code>CB</code> and <code>attachment</code>. Additionally, <code>Tx</code> is an indicator for treatment, and <code>x</code>, <code>y</code> and <code>z</code> represent the control variables.</p>
+<p>Assuming variables <code>PRF</code>, <code>CR</code>, <code>CB</code> and <code>attachment</code>. Additionally, <code>Tx</code> is an indicator for treatment, and <code>x</code> and <code>z</code> represent the control variables.</p>
+<h2 id="basic-models">Basic Models</h2>
 <table style="width:86%;">
 <colgroup>
 <col style="width: 56%" />
@@ -1512,7 +1520,7 @@ code span.wa { color: #008000; font-weight: bold; } /* Warning */
 <tbody>
 <tr class="odd">
 <td style="text-align: left;"><code>REGRESSION</code></td>
-<td style="text-align: left;"><code>regress attachment PRF CR CB x y z</code></td>
+<td style="text-align: left;"><code>regress attachment PRF CR CB Tx x z</code></td>
 </tr>
 <tr class="even">
 <td style="text-align: left;"><code>/MISSING LISTWISE</code></td>
@@ -1535,7 +1543,43 @@ code span.wa { color: #008000; font-weight: bold; } /* Warning */
 <td style="text-align: left;"></td>
 </tr>
 <tr class="odd">
-<td style="text-align: left;"><code>/METHOD=ENTER PRF CR CB Tx x y z</code></td>
+<td style="text-align: left;"><code>/METHOD=ENTER PRF CR CB Tx x z.</code></td>
+<td style="text-align: left;"></td>
+</tr>
+</tbody>
+</table>
+<h2 id="interactions">Interactions</h2>
+<p>If we think there is moderation, we need to include <span class="math inline">\(\beta_6 \text{PRF} * \text{Tx} + \beta_7 \text{CR} * \text{Tx} + \beta_8 \text{CB} * \text{Tx}\)</span> terms in the equation.</p>
+<table style="width:86%;">
+<colgroup>
+<col style="width: 56%" />
+<col style="width: 29%" />
+</colgroup>
+<thead>
+<tr class="header">
+<th style="text-align: left;">SPSS</th>
+<th style="text-align: left;">Stata</th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td style="text-align: left;">In SPSS interaction terms need to be created <em>by hand</em>.</td>
+<td style="text-align: left;">Stata is able to create interactions <em>on the fly</em>.</td>
+</tr>
+<tr class="even">
+<td style="text-align: left;"><code>COMPUTE PRF_Tx = PRF * Tx.</code></td>
+<td style="text-align: left;"><code>regress attachment (PRF CR CB)##Tx x z</code></td>
+</tr>
+<tr class="odd">
+<td style="text-align: left;"><code>COMPUTE CR_Tx = CR * Tx.</code></td>
+<td style="text-align: left;"></td>
+</tr>
+<tr class="even">
+<td style="text-align: left;"><code>COMPUTE CB_Tx = CB * Tx.</code></td>
+<td style="text-align: left;"></td>
+</tr>
+<tr class="odd">
+<td style="text-align: left;">These terms would need to be entered into the equation above.</td>
 <td style="text-align: left;"></td>
 </tr>
 </tbody>
@@ -1544,7 +1588,7 @@ code span.wa { color: #008000; font-weight: bold; } /* Warning */
 <section class="footnotes" role="doc-endnotes">
 <hr />
 <ol>
-<li id="fn1" role="doc-endnote"><p>SPSS syntax is constantly in flux, but this is a best guess at appropriate commands.<a href="#fnref1" class="footnote-back" role="doc-backlink">↩︎</a></p></li>
+<li id="fn1" role="doc-endnote"><p>SPSS syntax is constantly in flux, but this is a best guess at appropriate commands. Of course one potential advantage of SPSS is that models can be run using menus.<a href="#fnref1" class="footnote-back" role="doc-backlink">↩︎</a></p></li>
 <li id="fn2" role="doc-endnote"><p><a href="https://agrogan1.github.io/Stata/two-page-stata/TwoPageStata.pdf">Stata makes things easy</a>! However, if it is not used in your department, there may be too high of a learning cost.<a href="#fnref2" class="footnote-back" role="doc-backlink">↩︎</a></p></li>
 </ol>
 </section>
@@ -1555,6 +1599,15 @@ code span.wa { color: #008000; font-weight: bold; } /* Warning */
 <div class="d-appendix">
 </div>
 
+<!-- dynamically load mathjax for compatibility with self-contained -->
+<script>
+  (function () {
+    var script = document.createElement("script");
+    script.type = "text/javascript";
+    script.src  = "https://mathjax.rstudio.com/latest/MathJax.js?config=TeX-AMS-MML_HTMLorMML";
+    document.getElementsByTagName("head")[0].appendChild(script);
+  })();
+</script>
 
 <!--radix_placeholder_site_after_body-->
 <!--/radix_placeholder_site_after_body-->
