@@ -1,0 +1,94 @@
+---
+title: "Regression Models"
+description: |
+  Possible regression models for dissertation.
+author: "Andy Grogan-Kaylor"
+date: "`r Sys.Date()`"
+output:
+  distill::distill_article:
+    highlight: haddock
+    toc: yes
+  pdf_document: 
+    toc: yes
+    number_sections: yes
+    highlight: haddock
+    latex_engine: xelatex
+---
+
+```{r setup, include=FALSE}
+
+knitr::opts_chunk$set(echo = FALSE)
+
+library(DiagrammeR)
+
+```
+
+# Conceptual Model
+
+```{r}
+
+grViz(  "
+
+digraph boxes_and_circles {
+
+  # a 'graph' statement
+  graph [overlap = true, 
+        fontsize = 10,
+        rankdir = LR]
+
+  # several 'node' statements
+  node [shape = box,
+        fontname = Helvetica]
+
+  node [shape = circle,
+        fontsize = 11,
+        fixedsize = true,
+        width = 1.25] // sets as circles
+ 
+  A [label = 'attachment \nbehavior']
+  PRF[label = 'parental \nreflective \nfunctioning']
+  CR[label = 'caregiving \nrepresentation']
+  CB[label = 'caregiving \nbehavior']
+  
+  PRF -> A[label = 'moderated by \ntreatment']
+  CR -> A[label = 'moderated by \ntreatment']
+  CB -> A[label = 'moderated by \ntreatment']
+  controls -> A
+   
+}
+
+")
+
+```
+
+# Syntax
+
+Assuming variables `PRF`, `CR`, `CB` and `attachment`. Additionally, `Tx` is an indicator for treatment, and `x`, `y` and `z` represent the control variables.
+
+
+-------------------------------------------------------------
+SPSS[^SPSS]                              Stata[^Stata]
+--------------------                     --------------------
+`REGRESSION`                             `regress attachment PRF CR CB x y z`
+
+`/MISSING LISTWISE`          
+
+`/STATISTICS COEFF OUTS`
+
+`/CRITERIA=PIN(.05) POUT(.10)`
+
+`/NOORIGIN`
+
+`/DEPENDENT attachment`
+
+`/METHOD=ENTER PRF CR CB Tx x y z`
+
+-------------------------------------------------------------
+
+
+[^SPSS]: SPSS syntax is constantly in flux, but this is a best guess at appropriate commands.
+[^Stata]: [Stata makes things easy](https://agrogan1.github.io/Stata/two-page-stata/TwoPageStata.pdf)! However, if it is not used in your department, there may be too high of a learning cost.
+
+
+
+
