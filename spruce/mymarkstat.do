@@ -4,7 +4,7 @@ clear all
 
 * change to correct directory
 
-cd "/Users/agrogan/Desktop/GitHub/newstuff/spruce" // Mac
+cd "/Users/agrogan/Desktop/GitHub/teaching/spruce" // Mac
 
 * open *.stmd file
 

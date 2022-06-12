@@ -20,7 +20,7 @@ Chihara and Hesterberg (2018) provide a data set concerning the growth of Black 
 
 # Causality 🌲
 
-![](causality.png){width=25%}
+![](causality.png){width=50%}
 
 A variable $x$ can only be considered to have *causal* association with $y$ if the following conditions are met (Holland, 1986):
 
@@ -30,7 +30,7 @@ A variable $x$ can only be considered to have *causal* association with $y$ if t
 
 Hence, for this particular data, we are exploring: 
 
-![](spruce.png){width=25%}
+![](spruce.png){width=50%}
 
 > What happens to the association of *fertilizer* and *tree height* when we control for possible confounding variables $z$ using various statistical strategies?
 
@@ -107,7 +107,7 @@ Let's consider in turn each of the criteria for causality.
 
 ```
 
-![Scatterplot of Tree Height At Year 5 By Fertilizer Use](myscatter.png){width=25%}
+![Scatterplot of Tree Height At Year 5 By Fertilizer Use](myscatter.png){width=50%}
 
 2. From the research design, we know that *fertilizer* comes prior to *tree height at year 5*.
 3. We are going to use various statistical strategies--detailed below--to assess whether the association of *fertilizer* and *tree height* can be accounted for by any third variable.
@@ -191,7 +191,7 @@ A propensity score analysis controls for the additional observed variables that 
 
 ```
 
-![Density Plot of Propensity Score](mydensity.png)
+![Density Plot of Propensity Score](mydensity.png){width=50%}
 
 ```s/
 
