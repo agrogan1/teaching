@@ -68,7 +68,15 @@ digraph logicmodel {
   	
   	meetings [label = 'Meetings']
   	
+  	social_media_posts [label = 'Social Media Posts']
+  	
+  	information_cards [label = 'Information Cards']
+  	
   	workshops -> meetings
+  	
+  	publications -> social_media_posts
+  	
+  	publications -> information_cards
     
   	}
   	
@@ -80,7 +88,9 @@ digraph logicmodel {
   	
   	meetings -> better_parenting
   	
-  	publications -> better_parenting
+  	social_media_posts -> better_parenting
+  	
+  	information_cards -> better_parenting
     
   	}
 

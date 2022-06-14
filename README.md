@@ -6,6 +6,10 @@
 
 * [Writing an Empirical Research Paper](./empirical-paper/) (Mostly Aimed at PHD Students)
 
+## Logic Models
+
+* [Creating a Logic Model with `graphviz`](./logic-models/logic-models.html)
+
 ## Statistics
 
 * Basics of [Quantitative Data Analysis](./quantitative-data-analysis/quantitative-data-analysis.html)

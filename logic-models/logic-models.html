@@ -80,6 +80,7 @@ code span.vs { color: #008080; } /* VerbatimString */
 code span.wa { color: #008000; font-weight: bold; } /* Warning */
 </style>
 
+
   <!--radix_placeholder_meta_tags-->
   <title>Logic Models</title>
 
@@ -1258,7 +1259,10 @@ code span.wa { color: #008000; font-weight: bold; } /* Warning */
 
       // hoverable references
       $('span.citation[data-cites]').each(function() {
-        var refHtml = $('#ref-' + $(this).attr('data-cites')).html();
+        var refs = $(this).attr('data-cites').split(" ");
+        var refHtml = refs.map(function(ref) {
+          return "<p>" + $('#ref-' + ref).html() + "</p>";
+        }).join("\n");
         window.tippy(this, {
           allowHTML: true,
           content: refHtml,
@@ -3681,7 +3685,7 @@ distill-header .nav a {
 <!--radix_placeholder_front_matter-->
 
 <script id="distill-front-matter" type="text/json">
-{"title":"Logic Models","description":"Proof of Concept for Creating a Logic Model in graphviz.","authors":[{"author":"Andy Grogan-Kaylor","authorURL":"https://agrogan1.github.io/","affiliation":"University of Michigan","affiliationURL":"https://umich.edu/","orcidID":""}],"publishedDate":"2022-06-14T00:00:00.000+00:00","citationText":"Grogan-Kaylor, 2022"}
+{"title":"Logic Models","description":"Proof of Concept for Creating a Logic Model in graphviz.","authors":[{"author":"Andy Grogan-Kaylor","authorURL":"https://agrogan1.github.io/","affiliation":"University of Michigan","affiliationURL":"https://umich.edu/","orcidID":""}],"publishedDate":"2022-06-14T00:00:00.000-04:00","citationText":"Grogan-Kaylor, 2022"}
 </script>
 
 <!--/radix_placeholder_front_matter-->
@@ -3763,7 +3767,15 @@ digraph logicmodel {
     
     meetings [label = &#39;Meetings&#39;]
     
+    social_media_posts [label = &#39;Social Media Posts&#39;]
+    
+    information_cards [label = &#39;Information Cards&#39;]
+    
     workshops -&gt; meetings
+    
+    publications -&gt; social_media_posts
+    
+    publications -&gt; information_cards
     
     }
     
@@ -3775,7 +3787,9 @@ digraph logicmodel {
     
     meetings -&gt; better_parenting
     
-    publications -&gt; better_parenting
+    social_media_posts -&gt; better_parenting
+    
+    information_cards -&gt; better_parenting
     
     }
 
@@ -3785,8 +3799,8 @@ digraph logicmodel {
 </code></pre>
 </div>
 </details>
-<div id="htmlwidget-6a8786f55b4ce9ace68f" style="width:624px;height:384px;" class="grViz html-widget"></div>
-<script type="application/json" data-for="htmlwidget-6a8786f55b4ce9ace68f">{"x":{"diagram":"\n\ndigraph logicmodel {\n  \n  graph [rankdir = LR]\n  \n  label = \"Logic Model\"\n\n  subgraph cluster_0 {\n  \t    \n  \tlabel = \"Major Domains\"\n    \n    workshops [label=\"Workshops\"]\n\n    publications [label=\"Publications\"]\n\n  \t}\n  \t\n  \tsubgraph cluster_1 {\n  \t    \n  \tlabel = \"Activities\"\n  \t\n  \tmeetings [label = \"Meetings\"]\n  \t\n  \tworkshops -> meetings\n    \n  \t}\n  \t\n  \tsubgraph cluster_2 {\n  \t    \n  \tlabel = \"Outcomes\"\n  \t\n  \tbetter_parenting [label = \"Better Parenting\"]\n  \t\n  \tmeetings -> better_parenting\n  \t\n  \tpublications -> better_parenting\n    \n  \t}\n\n}\n\n","config":{"engine":"dot","options":null}},"evals":[],"jsHooks":[]}</script>
+<div id="htmlwidget-9be65955b81bcdfd4b74" style="width:624px;height:384px;" class="grViz html-widget"></div>
+<script type="application/json" data-for="htmlwidget-9be65955b81bcdfd4b74">{"x":{"diagram":"\n\ndigraph logicmodel {\n  \n  graph [rankdir = LR]\n  \n  label = \"Logic Model\"\n\n  subgraph cluster_0 {\n  \t    \n  \tlabel = \"Major Domains\"\n    \n    workshops [label=\"Workshops\"]\n\n    publications [label=\"Publications\"]\n\n  \t}\n  \t\n  \tsubgraph cluster_1 {\n  \t    \n  \tlabel = \"Activities\"\n  \t\n  \tmeetings [label = \"Meetings\"]\n  \t\n  \tsocial_media_posts [label = \"Social Media Posts\"]\n  \t\n  \tinformation_cards [label = \"Information Cards\"]\n  \t\n  \tworkshops -> meetings\n  \t\n  \tpublications -> social_media_posts\n  \t\n  \tpublications -> information_cards\n    \n  \t}\n  \t\n  \tsubgraph cluster_2 {\n  \t    \n  \tlabel = \"Outcomes\"\n  \t\n  \tbetter_parenting [label = \"Better Parenting\"]\n  \t\n  \tmeetings -> better_parenting\n  \t\n  \tsocial_media_posts -> better_parenting\n  \t\n  \tinformation_cards -> better_parenting\n    \n  \t}\n\n}\n\n","config":{"engine":"dot","options":null}},"evals":[],"jsHooks":[]}</script>
 </div>
 <div class="sourceCode" id="cb1"><pre class="sourceCode r distill-force-highlighting-css"><code class="sourceCode r"></code></pre></div>
 <!--radix_placeholder_article_footer-->
