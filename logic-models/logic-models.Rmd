@@ -1,0 +1,95 @@
+---
+title: "Logic Models"
+description: |
+  Proof of Concept for Creating a Logic Model in graphviz.
+author:
+  - name: Andy Grogan-Kaylor 
+    url: https://agrogan1.github.io/
+    affiliation: University of Michigan
+    affiliation_url: https://umich.edu/
+date: "`r Sys.Date()`"
+output:
+  distill::distill_article:
+    highlight: haddock
+    toc: true
+    toc_float: false
+    code_folding: true
+---
+
+```{r setup, include=FALSE}
+
+knitr::opts_chunk$set(echo = TRUE)
+
+```
+
+Logic models are used extensively in program development and program evaluation.
+
+This is an evolving proof of concept of creating a logic model in graphviz. [graphviz](https://graphviz.org/) is a programming language designed to represent graphs. graphviz files end in `.gv`.
+
+graphviz is implemented in [RStudio](https://www.rstudio.com/) via the [DiagrammeR](https://rich-iannone.github.io/DiagrammeR/) package. This logic model was made with RStudio.
+
+This proof of concept makes use of *subgraphs* to organize the components of a logic model.
+
+Like all programming languages, graphviz may facilitate automation, replication, and documentation of a project. In this way, using graphviz may make creating a logic model easier.
+
+Like all programming languages, graphviz may be finicky and hard to tweak. In this way, using graphviz may make creating a logic model much more difficult. 
+
+**It may be much easier to use PowerPoint or Google Slides to create a logic model!!!**
+
+```{r}
+
+library(DiagrammeR)
+
+```
+
+```{r}
+
+grViz("
+
+digraph logicmodel {
+  
+  graph [rankdir = LR]
+  
+  label = 'Logic Model'
+
+  subgraph cluster_0 {
+  	    
+  	label = 'Major Domains'
+    
+    workshops [label='Workshops']
+
+    publications [label='Publications']
+
+  	}
+  	
+  	subgraph cluster_1 {
+  	    
+  	label = 'Activities'
+  	
+  	meetings [label = 'Meetings']
+  	
+  	workshops -> meetings
+    
+  	}
+  	
+  	subgraph cluster_2 {
+  	    
+  	label = 'Outcomes'
+  	
+  	better_parenting [label = 'Better Parenting']
+  	
+  	meetings -> better_parenting
+  	
+  	publications -> better_parenting
+    
+  	}
+
+}
+
+")
+```
+
+
+
+
+
