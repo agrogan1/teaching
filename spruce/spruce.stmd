@@ -158,6 +158,7 @@ A propensity score analysis controls for the additional observed variables that 
 ```s/
     matrix b = e(b) // get matrix of coefficients
 ```
+
 > The association of fertilizer with tree height is `s %5.2f b[1,1]`.
 
 ### Assess Balance of Propensity Score Model
@@ -165,8 +166,11 @@ A propensity score analysis controls for the additional observed variables that 
 > With many thanks to Jorge Cuartas for ideas for some of this code.
 
 ```s
-	tebalance density, ///
-	scheme(michigan)
+    tebalance summarize
+```
+
+```s
+	tebalance density, scheme(michigan)
 
 	graph export mydensity.png, width(500) replace
 ```

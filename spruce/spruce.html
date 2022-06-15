@@ -203,7 +203,7 @@ table tbody:last-child tr:last-child td {border-bottom:1px solid black;}
 <h1 class="title">Multiple Approaches to Causal Modeling Using Black
 Spruce Data</h1>
 <p class="author">Andy Grogan-Kaylor</p>
-<p class="date">12 Jun 2022 08:53:08</p>
+<p class="date">15 Jun 2022 09:34:15</p>
 </header>
 <h1 id="background">Background 🌲</h1>
 <style>body {max-width: 90%} h1 {color: #00274C;} h2 {color: #2F65A7;} blockquote {border-left: 5px solid #ffcb05; margin: 1.5em 10px; padding: 0.5em 10px;} code {color:red}</style>
@@ -424,8 +424,27 @@ Propensity Score Model</h3>
 <p>With many thanks to Jorge Cuartas for ideas for some of this
 code.</p>
 </blockquote>
-<pre class='stata'>. tebalance density, ///
-> scheme(michigan)
+<pre class='stata'>. tebalance summarize
+(refitting the model using the generate() option)
+
+Covariate balance summary
+
+                         Raw      Matched
+─────────────────────────────────────────
+Number of obs =           72          144
+Treated obs   =           36           72
+Control obs   =           36           72
+─────────────────────────────────────────
+
+────────────────┬────────────────────────────────────────────────
+                │Standardized differences          Variance ratio
+                │        Raw     Matched           Raw    Matched
+────────────────┼────────────────────────────────────────────────
+        Height0 │  -.0296893    .0392505      .6061612   .9203723
+    Competition │          0    .2795331             1   1.048701
+────────────────┴────────────────────────────────────────────────
+</pre>
+<pre class='stata'>. tebalance density, scheme(michigan)
 (refitting the model using the generate() option)
 
 . 

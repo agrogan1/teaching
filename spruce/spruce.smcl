@@ -3,15 +3,15 @@
       name:  {res}<unnamed>
        {txt}log:  {res}/Users/agrogan/Desktop/GitHub/teaching/spruce/spruce.smcl
   {txt}log type:  {res}smcl
- {txt}opened on:  {res}12 Jun 2022, 08:53:38
+ {txt}opened on:  {res}15 Jun 2022, 09:36:22
 {txt}
 {com}. //_1
 . display c(current_date)
-{res}12 Jun 2022
+{res}15 Jun 2022
 {txt}
 {com}. //_2
 . display c(current_time)
-{res}08:53:38
+{res}09:36:22
 {txt}
 {com}. //_3
 . clear all
@@ -170,8 +170,28 @@ Combined {c |}{res}{col 12}     72{col 22} 45.50556{col 34} 1.333392{col 46} 11.
 {res}-12.71
 {txt}
 {com}. //_14
-. tebalance density, ///
-> scheme(michigan)
+. tebalance summarize
+{txt}(refitting the model using the {bf:generate()} option)
+{res}
+{txt}{p 0 0 2}Covariate balance summary{p_end}
+
+{res}{col 16}{text}          Raw{col 29}      Matched
+{res}{col 1}{text}{hline 15}{hline 13}{hline 13}
+{col 1}{text}Number of obs ={col 16}{result}{space 3}        72{col 29}{space 3}       144
+{col 1}{text}Treated obs   ={col 16}{result}{space 3}        36{col 29}{space 3}        72
+{col 1}{text}Control obs   ={col 16}{result}{space 3}        36{col 29}{space 3}        72
+{col 1}{text}{hline 15}{hline 13}{hline 13}
+
+{res}{col 1}{text}{hline 16}{c TT}{hline 24}{hline 24}
+{col 17}{text}{c |}Standardized differences{col 42}          Variance ratio
+{res}{col 17}{text}{c |}        Raw{col 30}    Matched{col 42}          Raw{col 54}    Matched
+{res}{col 1}{text}{hline 16}{c +}{hline 12}{hline 12}{hline 12}{hline 12}
+{col 1}{text}        Height0{col 17}{c |}{result}{space 2}-.0296893{col 30}{space 2} .0392505{col 42}{space 4} .6061612{col 54}{space 2} .9203723
+{col 1}{text}    Competition{col 17}{c |}{result}{space 2}        0{col 30}{space 2} .2795331{col 42}{space 4}        1{col 54}{space 2} 1.048701
+{col 1}{text}{hline 16}{c BT}{hline 12}{hline 12}{hline 12}{hline 12}
+{res}{txt}
+{com}. //_15
+. tebalance density, scheme(michigan)
 {txt}(refitting the model using the {bf:generate()} option)
 {res}{txt}
 {com}. 
@@ -184,7 +204,7 @@ PNG
 format
 {p_end}
 
-{com}. //_15q
+{com}. //_16q
 . 
 . /*
 > recode Fertilizer (2=1)(1=0), generate(F) // recode as 1/0
@@ -202,7 +222,7 @@ format
 > scheme(michigan)
 > */
 . 
-. //_16q
+. //_17q
 . 
 . /*
 > * alternative syntax with psmatch2
@@ -217,7 +237,7 @@ format
       {txt}name:  {res}<unnamed>
        {txt}log:  {res}/Users/agrogan/Desktop/GitHub/teaching/spruce/spruce.smcl
   {txt}log type:  {res}smcl
- {txt}closed on:  {res}12 Jun 2022, 08:53:45
+ {txt}closed on:  {res}15 Jun 2022, 09:36:35
 {txt}{.-}
 {smcl}
 {txt}{sf}{ul off}

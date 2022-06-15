@@ -104,7 +104,7 @@ class="title-slide slide section level1 title">
 <h1 class="title">Multiple Approaches to Causal Modeling Using Black
 Spruce Data</h1>
 <p>Andy Grogan-Kaylor</p>
-<p>12 Jun 2022 08:53:08</p>
+<p>15 Jun 2022 09:34:15</p>
 </div>
 
 </div>
@@ -358,13 +358,32 @@ class="slide section level3">
 code.</p>
 </blockquote>
 <div class="sourceCode" id="cb6"><pre
-class="sourceCode stata"><code class="sourceCode stata"><span id="cb6-1"><a href="#cb6-1" aria-hidden="true" tabindex="-1"></a>. tebalance density, <span class="co">///</span></span>
-<span id="cb6-2"><a href="#cb6-2" aria-hidden="true" tabindex="-1"></a>&gt; <span class="dv">scheme</span>(michigan)</span>
-<span id="cb6-3"><a href="#cb6-3" aria-hidden="true" tabindex="-1"></a>(refitting the <span class="kw">model</span> <span class="kw">using</span> the <span class="kw">generate</span>() option)</span>
-<span id="cb6-4"><a href="#cb6-4" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb6-5"><a href="#cb6-5" aria-hidden="true" tabindex="-1"></a>. </span>
-<span id="cb6-6"><a href="#cb6-6" aria-hidden="true" tabindex="-1"></a>. <span class="kw">graph</span> <span class="kw">export</span> mydensity.png, <span class="kw">width</span>(500) <span class="kw">replace</span></span>
-<span id="cb6-7"><a href="#cb6-7" aria-hidden="true" tabindex="-1"></a>file /Users/agrogan/Desktop/GitHub/teaching/spruce/mydensity.png saved <span class="kw">as</span> PNG <span class="kw">format</span></span></code></pre></div>
+class="sourceCode stata"><code class="sourceCode stata"><span id="cb6-1"><a href="#cb6-1" aria-hidden="true" tabindex="-1"></a>. tebalance <span class="kw">summarize</span></span>
+<span id="cb6-2"><a href="#cb6-2" aria-hidden="true" tabindex="-1"></a>(refitting the <span class="kw">model</span> <span class="kw">using</span> the <span class="kw">generate</span>() option)</span>
+<span id="cb6-3"><a href="#cb6-3" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb6-4"><a href="#cb6-4" aria-hidden="true" tabindex="-1"></a>Covariate balance summary</span>
+<span id="cb6-5"><a href="#cb6-5" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb6-6"><a href="#cb6-6" aria-hidden="true" tabindex="-1"></a>                         Raw      Matched</span>
+<span id="cb6-7"><a href="#cb6-7" aria-hidden="true" tabindex="-1"></a>─────────────────────────────────────────</span>
+<span id="cb6-8"><a href="#cb6-8" aria-hidden="true" tabindex="-1"></a>Number <span class="kw">of</span> <span class="kw">obs</span> =           72          144</span>
+<span id="cb6-9"><a href="#cb6-9" aria-hidden="true" tabindex="-1"></a>Treated <span class="kw">obs</span>   =           36           72</span>
+<span id="cb6-10"><a href="#cb6-10" aria-hidden="true" tabindex="-1"></a>Control <span class="kw">obs</span>   =           36           72</span>
+<span id="cb6-11"><a href="#cb6-11" aria-hidden="true" tabindex="-1"></a>─────────────────────────────────────────</span>
+<span id="cb6-12"><a href="#cb6-12" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb6-13"><a href="#cb6-13" aria-hidden="true" tabindex="-1"></a>────────────────┬────────────────────────────────────────────────</span>
+<span id="cb6-14"><a href="#cb6-14" aria-hidden="true" tabindex="-1"></a>                │Standardized differences          Variance <span class="kw">ratio</span></span>
+<span id="cb6-15"><a href="#cb6-15" aria-hidden="true" tabindex="-1"></a>                │        Raw     Matched           Raw    Matched</span>
+<span id="cb6-16"><a href="#cb6-16" aria-hidden="true" tabindex="-1"></a>────────────────┼────────────────────────────────────────────────</span>
+<span id="cb6-17"><a href="#cb6-17" aria-hidden="true" tabindex="-1"></a>        Height0 │  -.0296893    .0392505      .6061612   .9203723</span>
+<span id="cb6-18"><a href="#cb6-18" aria-hidden="true" tabindex="-1"></a>    Competition │          0    .2795331             1   1.048701</span>
+<span id="cb6-19"><a href="#cb6-19" aria-hidden="true" tabindex="-1"></a>────────────────┴────────────────────────────────────────────────</span></code></pre></div>
+<div class="sourceCode" id="cb7"><pre
+class="sourceCode stata"><code class="sourceCode stata"><span id="cb7-1"><a href="#cb7-1" aria-hidden="true" tabindex="-1"></a>. tebalance density, <span class="dv">scheme</span>(michigan)</span>
+<span id="cb7-2"><a href="#cb7-2" aria-hidden="true" tabindex="-1"></a>(refitting the <span class="kw">model</span> <span class="kw">using</span> the <span class="kw">generate</span>() option)</span>
+<span id="cb7-3"><a href="#cb7-3" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb7-4"><a href="#cb7-4" aria-hidden="true" tabindex="-1"></a>. </span>
+<span id="cb7-5"><a href="#cb7-5" aria-hidden="true" tabindex="-1"></a>. <span class="kw">graph</span> <span class="kw">export</span> mydensity.png, <span class="kw">width</span>(500) <span class="kw">replace</span></span>
+<span id="cb7-6"><a href="#cb7-6" aria-hidden="true" tabindex="-1"></a>file /Users/agrogan/Desktop/GitHub/teaching/spruce/mydensity.png saved <span class="kw">as</span> PNG <span class="kw">format</span></span></code></pre></div>
 <div class="figure">
 <img src="mydensity.png" style="width:50.0%" alt="" />
 <p class="caption">Density Plot of Propensity Score</p>
