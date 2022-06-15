@@ -48,13 +48,19 @@ library(DiagrammeR)
 
 # Render the Graph of the Logic Model
 
-The graphviz code for the logic model can be found [here](logic-model.gv). 
+The graphviz code for the logic model can be found [here](https://github.com/agrogan1/teaching/blob/master/logic-models/logic-model.gv). 
 
 ```{r}
 
 DiagrammeR::grViz("logic-model.gv")
 
 ```
+
+# You Can Use RStudio to Work Directly in graphviz.
+
+As long as you have installed `DiagrammeR` (`install.packages("DiagrammeR")`) you can work directly with a `.gv` file without working in R. You are welcome to download this [sample `logic-model.gv` file](https://github.com/agrogan1/teaching/blob/master/logic-models/logic-model.gv) to experiment with this.
+
+
 
 
 

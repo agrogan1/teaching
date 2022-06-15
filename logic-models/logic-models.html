@@ -3713,6 +3713,8 @@ distill-header .nav a {
 <code>DiagrammeR</code> Library</a></li>
 <li><a href="#render-the-graph-of-the-logic-model">Render the Graph of
 the Logic Model</a></li>
+<li><a href="#you-can-use-rstudio-to-work-directly-in-graphviz.">You Can
+Use RStudio to Work Directly in graphviz.</a></li>
 </ul>
 </nav>
 </div>
@@ -3750,7 +3752,7 @@ Show code
 </div>
 <h1 id="render-the-graph-of-the-logic-model">Render the Graph of the
 Logic Model</h1>
-<p>The graphviz code for the logic model can be found <a href="logic-model.gv">here</a>.</p>
+<p>The graphviz code for the logic model can be found <a href="https://github.com/agrogan1/teaching/blob/master/logic-models/logic-model.gv">here</a>.</p>
 <div class="layout-chunk" data-layout="l-body">
 <details>
 <summary>
@@ -3761,9 +3763,16 @@ Show code
 </code></pre>
 </div>
 </details>
-<div id="htmlwidget-b2a12ddf2e06bb257ac2" style="width:624px;height:384px;" class="grViz html-widget"></div>
-<script type="application/json" data-for="htmlwidget-b2a12ddf2e06bb257ac2">{"x":{"diagram":"digraph logicmodel {\n  \n  graph [rankdir = LR]\n  \n  label = \"Logic Model\"\n\n    subgraph cluster_0 {\n  \t    \n  \tlabel = \"Major Domains\"\n    \n    workshops [label=\"Workshops\"]\n\n    publications [label=\"Publications\"]\n\n  \t}\n  \t\n  \tsubgraph cluster_1 {\n  \t    \n  \tlabel = \"Activities\"\n  \t\n  \tmeetings [label = \"Meetings\"]\n  \t\n  \tsocial_media_posts [label = \"Social Media Posts\"]\n  \t\n  \tinformation_cards [label = \"Information Cards\"]\n  \t\n  \tworkshops -> meetings\n  \t\n  \tpublications -> social_media_posts\n  \t\n  \tpublications -> information_cards\n    \n  \t}\n  \t\n  \tsubgraph cluster_2 {\n  \t    \n  \tlabel = \"Outcomes\"\n  \t\n  \tbetter_parenting [label = \"Better Parenting\"]\n  \t\n  \tmeetings -> better_parenting\n  \t\n  \tsocial_media_posts -> better_parenting\n  \t\n  \tinformation_cards -> better_parenting\n    \n  \t}\n\n}","config":{"engine":"dot","options":null}},"evals":[],"jsHooks":[]}</script>
+<div id="htmlwidget-1352c986dcccc17272a0" style="width:624px;height:384px;" class="grViz html-widget"></div>
+<script type="application/json" data-for="htmlwidget-1352c986dcccc17272a0">{"x":{"diagram":"digraph logicmodel {\n  \n  graph [rankdir = LR]\n  \n  label = \"Logic Model\"\n\n    subgraph cluster_0 {\n  \t    \n  \tlabel = \"Major Domains\"\n    \n    workshops [label=\"Workshops\"]\n\n    publications [label=\"Publications\"]\n\n  \t}\n  \t\n  \tsubgraph cluster_1 {\n  \t    \n  \tlabel = \"Activities\"\n  \t\n  \tmeetings [label = \"Meetings\"]\n  \t\n  \tsocial_media_posts [label = \"Social Media Posts\"]\n  \t\n  \tinformation_cards [label = \"Information Cards\"]\n  \t\n  \tworkshops -> meetings\n  \t\n  \tpublications -> social_media_posts\n  \t\n  \tpublications -> information_cards\n    \n  \t}\n  \t\n  \tsubgraph cluster_2 {\n  \t    \n  \tlabel = \"Outcomes\"\n  \t\n  \tbetter_parenting [label = \"Better Parenting\"]\n  \t\n  \tmeetings -> better_parenting\n  \t\n  \tsocial_media_posts -> better_parenting\n  \t\n  \tinformation_cards -> better_parenting\n    \n  \t}\n\n}","config":{"engine":"dot","options":null}},"evals":[],"jsHooks":[]}</script>
 </div>
+<h1 id="you-can-use-rstudio-to-work-directly-in-graphviz.">You Can Use
+RStudio to Work Directly in graphviz.</h1>
+<p>As long as you have installed <code>DiagrammeR</code>
+(<code>install.packages(&quot;DiagrammeR&quot;)</code>) you can work directly with
+a <code>.gv</code> file without working in R. You are welcome to
+download this <a href="https://github.com/agrogan1/teaching/blob/master/logic-models/logic-model.gv">sample
+<code>logic-model.gv</code> file</a> to experiment with this.</p>
 <div class="sourceCode" id="cb1"><pre class="sourceCode r distill-force-highlighting-css"><code class="sourceCode r"></code></pre></div>
 <!--radix_placeholder_article_footer-->
 <!--/radix_placeholder_article_footer-->
