@@ -12,7 +12,7 @@ output:
   distill::distill_article:
     highlight: haddock
     toc: true
-    toc_float: false
+    toc_float: true
     code_folding: true
 ---
 
@@ -21,6 +21,8 @@ output:
 knitr::opts_chunk$set(echo = TRUE)
 
 ```
+
+# Introduction
 
 Logic models are used extensively in program development and program evaluation.
 
@@ -36,67 +38,22 @@ Like all programming languages, graphviz may be finicky and hard to tweak. In th
 
 **It may be much easier to use PowerPoint or Google Slides to create a logic model!!!**
 
+# Call the `DiagrammeR` Library
+
 ```{r}
 
 library(DiagrammeR)
 
 ```
 
+# Render the Graph of the Logic Model
+
+The graphviz code for the logic model can be found [here](logic-model.gv). 
+
 ```{r}
 
-grViz("
+DiagrammeR::grViz("logic-model.gv")
 
-digraph logicmodel {
-  
-  graph [rankdir = LR]
-  
-  label = 'Logic Model'
-
-  subgraph cluster_0 {
-  	    
-  	label = 'Major Domains'
-    
-    workshops [label='Workshops']
-
-    publications [label='Publications']
-
-  	}
-  	
-  	subgraph cluster_1 {
-  	    
-  	label = 'Activities'
-  	
-  	meetings [label = 'Meetings']
-  	
-  	social_media_posts [label = 'Social Media Posts']
-  	
-  	information_cards [label = 'Information Cards']
-  	
-  	workshops -> meetings
-  	
-  	publications -> social_media_posts
-  	
-  	publications -> information_cards
-    
-  	}
-  	
-  	subgraph cluster_2 {
-  	    
-  	label = 'Outcomes'
-  	
-  	better_parenting [label = 'Better Parenting']
-  	
-  	meetings -> better_parenting
-  	
-  	social_media_posts -> better_parenting
-  	
-  	information_cards -> better_parenting
-    
-  	}
-
-}
-
-")
 ```
 
 

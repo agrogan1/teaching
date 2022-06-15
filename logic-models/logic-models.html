@@ -80,7 +80,6 @@ code span.vs { color: #008080; } /* VerbatimString */
 code span.wa { color: #008000; font-weight: bold; } /* Warning */
 </style>
 
-
   <!--radix_placeholder_meta_tags-->
   <title>Logic Models</title>
 
@@ -88,8 +87,8 @@ code span.wa { color: #008000; font-weight: bold; } /* Warning */
 
 
   <!--  https://schema.org/Article -->
-  <meta property="article:published" itemprop="datePublished" content="2022-06-14" />
-  <meta property="article:created" itemprop="dateCreated" content="2022-06-14" />
+  <meta property="article:published" itemprop="datePublished" content="2022-06-15" />
+  <meta property="article:created" itemprop="dateCreated" content="2022-06-15" />
   <meta name="article:author" content="Andy Grogan-Kaylor" />
 
   <!--  https://developers.facebook.com/docs/sharing/webmasters#markup -->
@@ -107,7 +106,7 @@ code span.wa { color: #008000; font-weight: bold; } /* Warning */
   <!--radix_placeholder_rmarkdown_metadata-->
 
   <script type="text/json" id="radix-rmarkdown-metadata">
-  {"type":"list","attributes":{"names":{"type":"character","attributes":{},"value":["title","description","author","date","output"]}},"value":[{"type":"character","attributes":{},"value":["Logic Models"]},{"type":"character","attributes":{},"value":["Proof of Concept for Creating a Logic Model in graphviz.\n"]},{"type":"list","attributes":{},"value":[{"type":"list","attributes":{"names":{"type":"character","attributes":{},"value":["name","url","affiliation","affiliation_url"]}},"value":[{"type":"character","attributes":{},"value":["Andy Grogan-Kaylor"]},{"type":"character","attributes":{},"value":["https://agrogan1.github.io/"]},{"type":"character","attributes":{},"value":["University of Michigan"]},{"type":"character","attributes":{},"value":["https://umich.edu/"]}]}]},{"type":"character","attributes":{},"value":["2022-06-14"]},{"type":"list","attributes":{"names":{"type":"character","attributes":{},"value":["distill::distill_article"]}},"value":[{"type":"list","attributes":{"names":{"type":"character","attributes":{},"value":["highlight","toc","toc_float","code_folding"]}},"value":[{"type":"character","attributes":{},"value":["haddock"]},{"type":"logical","attributes":{},"value":[true]},{"type":"logical","attributes":{},"value":[false]},{"type":"logical","attributes":{},"value":[true]}]}]}]}
+  {"type":"list","attributes":{"names":{"type":"character","attributes":{},"value":["title","description","author","date","output"]}},"value":[{"type":"character","attributes":{},"value":["Logic Models"]},{"type":"character","attributes":{},"value":["Proof of Concept for Creating a Logic Model in graphviz.\n"]},{"type":"list","attributes":{},"value":[{"type":"list","attributes":{"names":{"type":"character","attributes":{},"value":["name","url","affiliation","affiliation_url"]}},"value":[{"type":"character","attributes":{},"value":["Andy Grogan-Kaylor"]},{"type":"character","attributes":{},"value":["https://agrogan1.github.io/"]},{"type":"character","attributes":{},"value":["University of Michigan"]},{"type":"character","attributes":{},"value":["https://umich.edu/"]}]}]},{"type":"character","attributes":{},"value":["2022-06-15"]},{"type":"list","attributes":{"names":{"type":"character","attributes":{},"value":["distill::distill_article"]}},"value":[{"type":"list","attributes":{"names":{"type":"character","attributes":{},"value":["highlight","toc","toc_float","code_folding"]}},"value":[{"type":"character","attributes":{},"value":["haddock"]},{"type":"logical","attributes":{},"value":[true]},{"type":"logical","attributes":{},"value":[true]},{"type":"logical","attributes":{},"value":[true]}]}]}]}
   </script>
   <!--/radix_placeholder_rmarkdown_metadata-->
   
@@ -1259,10 +1258,7 @@ code span.wa { color: #008000; font-weight: bold; } /* Warning */
 
       // hoverable references
       $('span.citation[data-cites]').each(function() {
-        var refs = $(this).attr('data-cites').split(" ");
-        var refHtml = refs.map(function(ref) {
-          return "<p>" + $('#ref-' + ref).html() + "</p>";
-        }).join("\n");
+        var refHtml = $('#ref-' + $(this).attr('data-cites')).html();
         window.tippy(this, {
           allowHTML: true,
           content: refHtml,
@@ -3685,7 +3681,7 @@ distill-header .nav a {
 <!--radix_placeholder_front_matter-->
 
 <script id="distill-front-matter" type="text/json">
-{"title":"Logic Models","description":"Proof of Concept for Creating a Logic Model in graphviz.","authors":[{"author":"Andy Grogan-Kaylor","authorURL":"https://agrogan1.github.io/","affiliation":"University of Michigan","affiliationURL":"https://umich.edu/","orcidID":""}],"publishedDate":"2022-06-14T00:00:00.000-04:00","citationText":"Grogan-Kaylor, 2022"}
+{"title":"Logic Models","description":"Proof of Concept for Creating a Logic Model in graphviz.","authors":[{"author":"Andy Grogan-Kaylor","authorURL":"https://agrogan1.github.io/","affiliation":"University of Michigan","affiliationURL":"https://umich.edu/","orcidID":""}],"publishedDate":"2022-06-15T00:00:00.000+00:00","citationText":"Grogan-Kaylor, 2022"}
 </script>
 
 <!--/radix_placeholder_front_matter-->
@@ -3704,10 +3700,23 @@ distill-header .nav a {
 <div class="d-byline">
   Andy Grogan-Kaylor <a href="https://agrogan1.github.io/" class="uri">https://agrogan1.github.io/</a> (University of Michigan)<a href="https://umich.edu/" class="uri">https://umich.edu/</a>
   
-<br />2022-06-14
+<br />2022-06-15
 </div>
 
 <div class="d-article">
+<div class="d-contents d-contents-float">
+<nav class="l-text toc figcaption" id="TOC">
+<h3>Contents</h3>
+<ul>
+<li><a href="#introduction">Introduction</a></li>
+<li><a href="#call-the-diagrammer-library">Call the
+<code>DiagrammeR</code> Library</a></li>
+<li><a href="#render-the-graph-of-the-logic-model">Render the Graph of
+the Logic Model</a></li>
+</ul>
+</nav>
+</div>
+<h1 id="introduction">Introduction</h1>
 <p>Logic models are used extensively in program development and program
 evaluation.</p>
 <p>This is an evolving proof of concept of creating a logic model in
@@ -3726,6 +3735,8 @@ tweak. In this way, using graphviz may make creating a logic model much
 more difficult.</p>
 <p><strong>It may be much easier to use PowerPoint or Google Slides to
 create a logic model!!!</strong></p>
+<h1 id="call-the-diagrammer-library">Call the <code>DiagrammeR</code>
+Library</h1>
 <div class="layout-chunk" data-layout="l-body">
 <details>
 <summary>
@@ -3737,70 +3748,21 @@ Show code
 </div>
 </details>
 </div>
+<h1 id="render-the-graph-of-the-logic-model">Render the Graph of the
+Logic Model</h1>
+<p>The graphviz code for the logic model can be found <a href="logic-model.gv">here</a>.</p>
 <div class="layout-chunk" data-layout="l-body">
 <details>
 <summary>
 Show code
 </summary>
 <div class="sourceCode">
-<pre class="sourceCode r"><code class="sourceCode r"><span class="fu"><a href="https://rdrr.io/pkg/DiagrammeR/man/grViz.html">grViz</a></span><span class="op">(</span><span class="st">&quot;
-
-digraph logicmodel {
-  
-  graph [rankdir = LR]
-  
-  label = &#39;Logic Model&#39;
-
-  subgraph cluster_0 {
-        
-    label = &#39;Major Domains&#39;
-    
-    workshops [label=&#39;Workshops&#39;]
-
-    publications [label=&#39;Publications&#39;]
-
-    }
-    
-    subgraph cluster_1 {
-        
-    label = &#39;Activities&#39;
-    
-    meetings [label = &#39;Meetings&#39;]
-    
-    social_media_posts [label = &#39;Social Media Posts&#39;]
-    
-    information_cards [label = &#39;Information Cards&#39;]
-    
-    workshops -&gt; meetings
-    
-    publications -&gt; social_media_posts
-    
-    publications -&gt; information_cards
-    
-    }
-    
-    subgraph cluster_2 {
-        
-    label = &#39;Outcomes&#39;
-    
-    better_parenting [label = &#39;Better Parenting&#39;]
-    
-    meetings -&gt; better_parenting
-    
-    social_media_posts -&gt; better_parenting
-    
-    information_cards -&gt; better_parenting
-    
-    }
-
-}
-
-&quot;</span><span class="op">)</span>
+<pre class="sourceCode r"><code class="sourceCode r"><span class="fu">DiagrammeR</span><span class="fu">::</span><span class="fu"><a href="https://rdrr.io/pkg/DiagrammeR/man/grViz.html">grViz</a></span><span class="op">(</span><span class="st">&quot;logic-model.gv&quot;</span><span class="op">)</span>
 </code></pre>
 </div>
 </details>
-<div id="htmlwidget-9be65955b81bcdfd4b74" style="width:624px;height:384px;" class="grViz html-widget"></div>
-<script type="application/json" data-for="htmlwidget-9be65955b81bcdfd4b74">{"x":{"diagram":"\n\ndigraph logicmodel {\n  \n  graph [rankdir = LR]\n  \n  label = \"Logic Model\"\n\n  subgraph cluster_0 {\n  \t    \n  \tlabel = \"Major Domains\"\n    \n    workshops [label=\"Workshops\"]\n\n    publications [label=\"Publications\"]\n\n  \t}\n  \t\n  \tsubgraph cluster_1 {\n  \t    \n  \tlabel = \"Activities\"\n  \t\n  \tmeetings [label = \"Meetings\"]\n  \t\n  \tsocial_media_posts [label = \"Social Media Posts\"]\n  \t\n  \tinformation_cards [label = \"Information Cards\"]\n  \t\n  \tworkshops -> meetings\n  \t\n  \tpublications -> social_media_posts\n  \t\n  \tpublications -> information_cards\n    \n  \t}\n  \t\n  \tsubgraph cluster_2 {\n  \t    \n  \tlabel = \"Outcomes\"\n  \t\n  \tbetter_parenting [label = \"Better Parenting\"]\n  \t\n  \tmeetings -> better_parenting\n  \t\n  \tsocial_media_posts -> better_parenting\n  \t\n  \tinformation_cards -> better_parenting\n    \n  \t}\n\n}\n\n","config":{"engine":"dot","options":null}},"evals":[],"jsHooks":[]}</script>
+<div id="htmlwidget-b2a12ddf2e06bb257ac2" style="width:624px;height:384px;" class="grViz html-widget"></div>
+<script type="application/json" data-for="htmlwidget-b2a12ddf2e06bb257ac2">{"x":{"diagram":"digraph logicmodel {\n  \n  graph [rankdir = LR]\n  \n  label = \"Logic Model\"\n\n    subgraph cluster_0 {\n  \t    \n  \tlabel = \"Major Domains\"\n    \n    workshops [label=\"Workshops\"]\n\n    publications [label=\"Publications\"]\n\n  \t}\n  \t\n  \tsubgraph cluster_1 {\n  \t    \n  \tlabel = \"Activities\"\n  \t\n  \tmeetings [label = \"Meetings\"]\n  \t\n  \tsocial_media_posts [label = \"Social Media Posts\"]\n  \t\n  \tinformation_cards [label = \"Information Cards\"]\n  \t\n  \tworkshops -> meetings\n  \t\n  \tpublications -> social_media_posts\n  \t\n  \tpublications -> information_cards\n    \n  \t}\n  \t\n  \tsubgraph cluster_2 {\n  \t    \n  \tlabel = \"Outcomes\"\n  \t\n  \tbetter_parenting [label = \"Better Parenting\"]\n  \t\n  \tmeetings -> better_parenting\n  \t\n  \tsocial_media_posts -> better_parenting\n  \t\n  \tinformation_cards -> better_parenting\n    \n  \t}\n\n}","config":{"engine":"dot","options":null}},"evals":[],"jsHooks":[]}</script>
 </div>
 <div class="sourceCode" id="cb1"><pre class="sourceCode r distill-force-highlighting-css"><code class="sourceCode r"></code></pre></div>
 <!--radix_placeholder_article_footer-->

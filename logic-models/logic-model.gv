@@ -1,0 +1,49 @@
+digraph logicmodel {
+  
+  graph [rankdir = LR]
+  
+  label = 'Logic Model'
+
+    subgraph cluster_0 {
+  	    
+  	label = 'Major Domains'
+    
+    workshops [label='Workshops']
+
+    publications [label='Publications']
+
+  	}
+  	
+  	subgraph cluster_1 {
+  	    
+  	label = 'Activities'
+  	
+  	meetings [label = 'Meetings']
+  	
+  	social_media_posts [label = 'Social Media Posts']
+  	
+  	information_cards [label = 'Information Cards']
+  	
+  	workshops -> meetings
+  	
+  	publications -> social_media_posts
+  	
+  	publications -> information_cards
+    
+  	}
+  	
+  	subgraph cluster_2 {
+  	    
+  	label = 'Outcomes'
+  	
+  	better_parenting [label = 'Better Parenting']
+  	
+  	meetings -> better_parenting
+  	
+  	social_media_posts -> better_parenting
+  	
+  	information_cards -> better_parenting
+    
+  	}
+
+}
