@@ -23,6 +23,8 @@
 
 * [Interactions](./interactions/interactions.html)
 
+* [Mediation vs. Confounding](https://github.com/agrogan1/teaching/tree/master/mediation)
+
 * [Forest Plots For Meta-Analysis](./forest-plot/)
 
 * [Likelihood and Log-Likelihood](./likelihood-and-log-likelihood/likelihood-and-log-likelihood.html)
