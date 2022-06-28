@@ -27,6 +27,8 @@
 
 * [Likelihood and Log-Likelihood](./likelihood-and-log-likelihood/likelihood-and-log-likelihood.html)
 
+* [The Difference Between Non-Significant and Non-Significant Can Be Statistically Significant](https://github.com/agrogan1/teaching/tree/master/the-difference-between-ns-and-ns-can-be-significant)
+
 ## Mathematics
 
 * [Some Thinking About Differential Equations](./differential-equations/differential-equations.html)
