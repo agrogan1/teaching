@@ -3,4 +3,4 @@
 * See `.do` file for simulated data.
 * See *graph* for illustration.
 
-
+![graph](Graph.png)

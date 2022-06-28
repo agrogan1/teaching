@@ -1,5 +1,8 @@
 * the difference between nonsignificant and nonsignificant can be significant
 
+
+cd "/Users/agrogan/Desktop/GitHub/teaching/the-difference-between-ns-and-ns-can-be-significant/"
+
 clear all // clear the workspace
 
 set obs 1000 // 1000 observations
@@ -33,4 +36,4 @@ xline(1.5, lcolor(gold)) ///
 note("Neither x1 nor x2 is statistically different from 0." ///
 "However, their difference is statistically different from 0.")
 
-graph export "/Users/agrogan/Desktop/GitHub/teaching/the-difference-between-ns-and-ns-can-be-significant/Graph.png", as(png) name("Graph") replace
+graph export "Graph.png", as(png) name("Graph") width(1000) replace
