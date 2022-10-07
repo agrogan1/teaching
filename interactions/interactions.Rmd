@@ -1,7 +1,7 @@
 ---
-title: "Interactions"
+title: "Interactions and Moderation"
 description: |
-  A brief and evolving tutorial on interactions
+  A brief and evolving tutorial on interactions and moderation.
 author:
   - name: Andy Grogan-Kaylor 
     url: https://agrogan1.github.io/
@@ -61,7 +61,13 @@ y <- 10 +
 
 mydata <- data.frame(x, group, e, y)
 
-DT::datatable(mydata, options = list(pageLength = 5))
+DT::datatable(mydata, 
+              extensions = 'Buttons', 
+              options = list(pageLength = 5,
+                             dom = 'Bfrtip',
+                             buttons = c('copy', 
+                                         'csv', 
+                                         'excel')))
 
 ```
 
