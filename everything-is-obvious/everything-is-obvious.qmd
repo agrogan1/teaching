@@ -1,0 +1,47 @@
+---
+title: "Everything Is Obvious Once You Know The Answer"
+author: "Andy Grogan-Kaylor"
+format:
+  revealjs:
+    incremental: true
+    scrollable: true
+editor: source
+---
+
+## From a Study of ...
+
+"1. Better educated men showed more psycho-neurotic symptoms than those with less education.
+
+. . . 
+
+2. Men from rural backgrounds were usually in better spirits during their Army life than soldiers from city backgrounds.
+
+. . . 
+
+3. Southern soldiers were better able to stand the climate in the hot South Sea Islands than Northern soldiers."
+
+## Everything is Obvious {.smaller}
+
+"We have in these examples a sample list of the simplest type of interrelationships which provide the "bricks" from which our empirical social science is being built. 
+
+. . .
+
+But why, since they are so obvious, is so much money and energy given to establish such findings? 
+
+. . .
+
+Would it not be wiser to take them for granted and proceed directly to a more sophisticated type of analysis? 
+
+. . .
+
+This might be so except for one interesting point about the list. 
+
+. . .
+
+Every one of these statements is the direct opposite of what actually was found. 
+
+. . . 
+
+Poorly educated soldiers were more neurotic than those with high education; Southerners showed no greater ability than Northerners to adjust to a tropical climate; ..."
+
+
