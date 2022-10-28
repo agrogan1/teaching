@@ -4,6 +4,8 @@
 
 * [What Is Data?](./what-is-data/what-is-data.html)
 
+* [Everything Is Obvious Once You Know The Answer](./everything-is-obvious/everything-is-obvious.html)
+
 * [Writing an Empirical Research Paper](./empirical-paper/) (Mostly Aimed at PHD Students)
 
 ## Logic Models
