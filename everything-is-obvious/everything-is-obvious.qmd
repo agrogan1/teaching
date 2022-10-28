@@ -3,12 +3,20 @@ title: "Everything Is Obvious Once You Know The Answer"
 author: "Andy Grogan-Kaylor"
 format:
   revealjs:
+    transition: convex
     incremental: true
     scrollable: true
 editor: source
 ---
 
-## From a Study of ...
+## Navigation
+
+* This is a slide deck. You may need to **scroll down** to see everything on longer slides.
+* Use the `r emo::ji("left_arrow")` `r emo::ji("right_arrow")` keys to move through the presentation.
+
+## From a Study of Over 600,000 Returned Soldiers After World War II
+
+. . . 
 
 "1. Better educated men showed more psycho-neurotic symptoms than those with less education.
 
@@ -22,7 +30,7 @@ editor: source
 
 ## Everything is Obvious {.smaller}
 
-"We have in these examples a sample list of the simplest type of interrelationships which provide the "bricks" from which our empirical social science is being built. 
+"We have in these examples a sample list of the simplest type of interrelationships which provide the 'bricks' from which our empirical social science is being built. 
 
 . . .
 
@@ -38,10 +46,22 @@ This might be so except for one interesting point about the list.
 
 . . .
 
+::: {.fragment .highlight-red}
+
 Every one of these statements is the direct opposite of what actually was found. 
+
+:::
 
 . . . 
 
+::: {.fragment .highlight-blue}
+
 Poorly educated soldiers were more neurotic than those with high education; Southerners showed no greater ability than Northerners to adjust to a tropical climate; ..."
+
+:::
+
+## Citation
+
+Lazarsfeld, P. F. (1949). The American Soldier-An Expository Review. *The Public Opinion Quarterly*, 13(3), 377–404. [http://www.jstor.org/stable/2745717](http://www.jstor.org/stable/2745717)
 
 

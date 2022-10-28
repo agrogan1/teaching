@@ -324,9 +324,18 @@
   <p class="author">Andy Grogan-Kaylor</p>
 </section>
 
-<section id="from-a-study-of" class="slide level2">
-<h2>From a Study of …</h2>
+<section id="navigation" class="slide level2">
+<h2>Navigation</h2>
+<ul>
+<li class="fragment">This is a slide deck. You may need to <strong>scroll down</strong> to see everything on longer slides.</li>
+<li class="fragment">Use the ⬅️ ➡️ keys to move through the presentation.</li>
+</ul>
+</section>
+<section id="from-a-study-of-over-600000-returned-soldiers-after-world-war-ii" class="slide level2">
+<h2>From a Study of Over 600,000 Returned Soldiers After World War II</h2>
+<div class="fragment">
 <p>“1. Better educated men showed more psycho-neurotic symptoms than those with less education.</p>
+</div>
 <div class="fragment">
 <ol start="2" type="1">
 <li class="fragment">Men from rural backgrounds were usually in better spirits during their Army life than soldiers from city backgrounds.</li>
@@ -340,7 +349,7 @@
 </section>
 <section id="everything-is-obvious" class="slide level2 smaller">
 <h2>Everything is Obvious</h2>
-<p>“We have in these examples a sample list of the simplest type of interrelationships which provide the”bricks” from which our empirical social science is being built.</p>
+<p>“We have in these examples a sample list of the simplest type of interrelationships which provide the ‘bricks’ from which our empirical social science is being built.</p>
 <div class="fragment">
 <p>But why, since they are so obvious, is so much money and energy given to establish such findings?</p>
 </div>
@@ -351,13 +360,21 @@
 <p>This might be so except for one interesting point about the list.</p>
 </div>
 <div class="fragment">
+<div class="fragment highlight-red">
 <p>Every one of these statements is the direct opposite of what actually was found.</p>
 </div>
+</div>
 <div class="fragment">
+<div class="fragment highlight-blue">
 <p>Poorly educated soldiers were more neurotic than those with high education; Southerners showed no greater ability than Northerners to adjust to a tropical climate; …”</p>
+</div>
+</div>
+</section>
+<section id="citation" class="slide level2">
+<h2>Citation</h2>
+<p>Lazarsfeld, P. F. (1949). The American Soldier-An Expository Review. <em>The Public Opinion Quarterly</em>, 13(3), 377–404. <a href="http://www.jstor.org/stable/2745717">http://www.jstor.org/stable/2745717</a></p>
 <div class="footer footer-default">
 
-</div>
 </div>
 </section>
     </div>
@@ -517,7 +534,7 @@
         previewLinks: false,
 
         // Transition style (none/fade/slide/convex/concave/zoom)
-        transition: 'none',
+        transition: 'convex',
 
         // Transition speed (default/fast/slow)
         transitionSpeed: 'default',
@@ -571,6 +588,48 @@
         ]
       });
     </script>
+    
+    <script>
+      // htmlwidgets need to know to resize themselves when slides are shown/hidden.
+      // Fire the "slideenter" event (handled by htmlwidgets.js) when the current
+      // slide changes (different for each slide format).
+      (function () {
+        function fireSlideChanged(previousSlide, currentSlide) {
+
+          // dispatch for htmlwidgets
+          const event = window.document.createEvent("Event");
+          event.initEvent("slideenter", true, true);
+          window.document.dispatchEvent(event);
+
+          // dispatch for shiny
+          if (window.jQuery) {
+            if (previousSlide) {
+              window.jQuery(previousSlide).trigger("hidden");
+            }
+            if (currentSlide) {
+              window.jQuery(currentSlide).trigger("shown");
+            }
+          }
+        }
+
+        // hookup for reveal
+        if (window.Reveal) {
+          window.Reveal.addEventListener("slidechanged", function(event) {
+            fireSlideChanged(event.previousSlide, event.currentSlide);
+          });
+        }
+
+        // hookup for slidy
+        if (window.w3c_slidy) {
+          window.w3c_slidy.add_observer(function (slide_num) {
+            // slide_num starts at position 1
+            fireSlideChanged(null, w3c_slidy.slides[slide_num - 1]);
+          });
+        }
+
+      })();
+    </script>
+
     <script id="quarto-html-after-body" type="application/javascript">
     window.document.addEventListener("DOMContentLoaded", function (event) {
       const toggleBodyColorMode = (bsSheetEl) => {
