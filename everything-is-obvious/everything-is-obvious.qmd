@@ -4,7 +4,6 @@ author: "Andy Grogan-Kaylor"
 format:
   revealjs:
     transition: convex
-    incremental: true
     scrollable: true
 editor: source
 ---
@@ -16,7 +15,6 @@ editor: source
 
 ## From a Study of Over 600,000 Returned Soldiers After World War II
 
-
 "1. Better educated men showed more psycho-neurotic symptoms than those with less education.
 
 . . .
@@ -27,7 +25,7 @@ editor: source
 
 3. Southern soldiers were better able to stand the climate in the hot South Sea Islands than Northern soldiers."
 
-## Everything is Obvious {.smaller}
+## Everything is Obvious
 
 "We have in these examples a sample list of the simplest type of interrelationships which provide the 'bricks' from which our empirical social science is being built. 
 
@@ -39,10 +37,7 @@ But why, since they are so obvious, is so much money and energy given to establi
 
 Would it not be wiser to take them for granted and proceed directly to a more sophisticated type of analysis? 
 
-. . .
-
-This might be so except for one interesting point about the list. 
-
+## This might be so except for one interesting point about the list. 
 . . .
 
 ::: {.fragment .highlight-red}
