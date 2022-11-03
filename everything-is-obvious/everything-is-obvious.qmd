@@ -48,19 +48,11 @@ Would it not be wiser to take them for granted and proceed directly to a more so
 ## This might be so except for one interesting point about the list. 
 . . .
 
-::: {.fragment .highlight-red}
-
-Every one of these statements is the direct opposite of what actually was found. 
-
-:::
+<span style="color:red;">Every one of these statements is the direct opposite of what actually was found.</span>
 
 . . . 
 
-::: {.fragment .highlight-blue}
-
-Poorly educated soldiers were more neurotic than those with high education; Southerners showed no greater ability than Northerners to adjust to a tropical climate; ..."
-
-:::
+<span style="color:blue;">Poorly educated soldiers were more neurotic than those with high education; Southerners showed no greater ability than Northerners to adjust to a tropical climate; ..."
 
 ## Citation
 
