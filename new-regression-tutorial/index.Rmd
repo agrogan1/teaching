@@ -201,7 +201,12 @@ My guess is drawn as a <font color="blue">blue</font> line.
 
 I could even make a guess about the *slope* which represents the average speed:  How far does the distance go up for every mile that is run, on average?  
 
-My best guess about the slope is drawn as a <font color="purple">purple</font> line. It looks like for every hour run, on average, runners run just under 5 miles, so let’s say 4.9 miles per hour.
+I also need to think about where the line crosses, or *intercepts*, the y-axis.
+
+My best guess about the *slope* and *intercept* together are drawn as a <font color="purple">purple</font> line. It looks like for every hour run, on average, runners run just under 5 miles, so let’s say 4.9 miles per hour.
+
+It looks like my best guess is that all of the runners started the race at 0.  That is to say, none of the runners had a head start, like they did in my first example.
+
 
 ```{r, fig.margin = TRUE}
 
@@ -215,11 +220,6 @@ p3 +
                  label = "4.9 miles per hour")) 
 
 ```
-
-
-I also need to think about where the line crosses, or *intercepts*, the y-axis.
-
-It looks like my best guess is that all of the runners started the race at 0.  That is to say, none of the runners had a head start, like they did in my first example.
 
 So now, I could think about writing an equation for my line.
 
@@ -291,8 +291,6 @@ It turns out our estimate of slope *(4.9)* was pretty close to what the computer
 
 Lastly, the $R^2$ value indicates that `r round(summary(fit)$r.squared, digits = 3)` of the variation in our *dependent variable*, *miles*, is explained by the variation in our *independent variable*, *hours*.
 
-We’ll talk through some of the implications of these ideas in class. 
-
-(written by [Andy Grogan-Kaylor](https://agrogan1.github.io/).  Comments and questions welcome and should be directed to [agrogan@umich.edu](agrogan@umich.edu)) 
+(written by [Andy Grogan-Kaylor](https://agrogan1.github.io/). Comments and questions welcome and should be directed to [agrogan@umich.edu](agrogan@umich.edu)) 
 
 
