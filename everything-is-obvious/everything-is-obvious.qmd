@@ -5,6 +5,7 @@ format:
   revealjs:
     transition: convex
     scrollable: true
+    controls: true
     title-slide-attributes:
       data-background-color: "black"
     css: everything-is-obvious.css
