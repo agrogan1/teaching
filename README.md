@@ -25,6 +25,8 @@
 
 * [Interactions](./interactions/interactions.html)
 
+* [Unpacking Interactions](./interactions-unpacking/interactions-unpacking.html)
+
 * [Mediation vs. Confounding](https://github.com/agrogan1/teaching/tree/master/mediation)
 
 * [Forest Plots For Meta-Analysis](./forest-plot/)
