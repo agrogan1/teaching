@@ -47,7 +47,9 @@ ggplot(data = NULL) +
                       label = "flatter slope; higher intercept"), 
                   color = "forestgreen") +
   labs(title = "We cannot just consider the interaction.",
-       subtitle = "We also need to consider the intercept and slopes.") +
+       subtitle = "We also need to consider the intercept and slopes.",
+       x = "x (risk or protective factor)",
+       y = "y (outcome)") +
   theme_minimal()
 
 ```
