@@ -12,11 +12,11 @@ There are some differences in *mental health* status in the data and an interest
 
 ## Dataviz Exercise
 
-[Dataviz exercise](https://agrogan1.github.io/newstuff/social-service-agency/social-service-agency.pdf) with *Simulated* Social Service Agency data.
+[Dataviz exercise](https://agrogan1.github.io/teaching/social-service-agency/social-service-agency.pdf) with *Simulated* Social Service Agency data.
 
 ## Dataset
 
-> The Excel formatted version of this data may be the most readily useful: [https://agrogan1.github.io/newstuff/social-service-agency/social-service-agency.xlsx](https://agrogan1.github.io/newstuff/social-service-agency/social-service-agency.xlsx). Alternatively, you may prefer the CSV version of the *clients* data: [https://agrogan1.github.io/newstuff/social-service-agency/clients.csv](https://agrogan1.github.io/newstuff/social-service-agency/clients.csv)
+> The Excel formatted version of this data may be the most readily useful: [https://agrogan1.github.io/teaching/social-service-agency/social-service-agency.xlsx](https://agrogan1.github.io/teaching/social-service-agency/social-service-agency.xlsx). Alternatively, you may prefer the CSV version of the *clients* data: [https://agrogan1.github.io/teaching/social-service-agency/clients.csv](https://agrogan1.github.io/teaching/social-service-agency/clients.csv)
 
 The data can be used *independently* of the PDF handout and are *free to use and share* for other classes.
 
