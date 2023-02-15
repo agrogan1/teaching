@@ -4,6 +4,8 @@
 
 * [What Is Data?](./what-is-data/what-is-data.html)
 
+* [Workflow](./workflow/workflow.html)
+
 * [Everything Is Obvious Once You Know The Answer](./everything-is-obvious/everything-is-obvious.html)
 
 * [Writing an Empirical Research Paper](./empirical-paper/) (Mostly Aimed at PHD Students)
@@ -27,11 +29,15 @@
 
 * [Unpacking Interactions](./interactions-unpacking/interactions-unpacking.html)
 
+* [Visualizing and Analyzing Data on Multiple Identities](./multiple-identities/multiple-identities.html)
+
 * [Mediation vs. Confounding](https://github.com/agrogan1/teaching/tree/master/mediation)
 
 * [Forest Plots For Meta-Analysis](./forest-plot/)
 
 * [Likelihood and Log-Likelihood](./likelihood-and-log-likelihood/likelihood-and-log-likelihood.html)
+
+* [Differences In The Means Of Two Groups](./differences-in-2-means/differences-in-2-means.html)
 
 * [The Difference Between Non-Significant and Non-Significant Can Be Statistically Significant](https://github.com/agrogan1/teaching/tree/master/the-difference-between-ns-and-ns-can-be-significant)
 
