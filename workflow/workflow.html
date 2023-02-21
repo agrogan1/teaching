@@ -88,8 +88,8 @@ code span.wa { color: #008000; font-weight: bold; }
 
 
   <!--  https://schema.org/Article -->
-  <meta property="article:published" itemprop="datePublished" content="2023-02-15" />
-  <meta property="article:created" itemprop="dateCreated" content="2023-02-15" />
+  <meta property="article:published" itemprop="datePublished" content="2023-02-21" />
+  <meta property="article:created" itemprop="dateCreated" content="2023-02-21" />
   <meta name="article:author" content="Andy Grogan-Kaylor" />
 
   <!--  https://developers.facebook.com/docs/sharing/webmasters#markup -->
@@ -107,7 +107,7 @@ code span.wa { color: #008000; font-weight: bold; }
   <!--radix_placeholder_rmarkdown_metadata-->
 
   <script type="text/json" id="radix-rmarkdown-metadata">
-  {"type":"list","attributes":{"names":{"type":"character","attributes":{},"value":["title","description","author","date","output"]}},"value":[{"type":"character","attributes":{},"value":["Workflow"]},{"type":"character","attributes":{},"value":["Thoughts about data science / data analysis workflow.\n"]},{"type":"list","attributes":{},"value":[{"type":"list","attributes":{"names":{"type":"character","attributes":{},"value":["name","url","affiliation","affiliation_url"]}},"value":[{"type":"character","attributes":{},"value":["Andy Grogan-Kaylor"]},{"type":"character","attributes":{},"value":["https://agrogan1.github.io/"]},{"type":"character","attributes":{},"value":["University of Michigan"]},{"type":"character","attributes":{},"value":["https://umich.edu/"]}]}]},{"type":"character","attributes":{},"value":["2023-02-15"]},{"type":"list","attributes":{"names":{"type":"character","attributes":{},"value":["distill::distill_article"]}},"value":[{"type":"list","attributes":{"names":{"type":"character","attributes":{},"value":["highlight","toc"]}},"value":[{"type":"character","attributes":{},"value":["haddock"]},{"type":"logical","attributes":{},"value":[true]}]}]}]}
+  {"type":"list","attributes":{"names":{"type":"character","attributes":{},"value":["title","description","author","date","output"]}},"value":[{"type":"character","attributes":{},"value":["Workflow"]},{"type":"character","attributes":{},"value":["Thoughts about data science / data analysis workflow.\n"]},{"type":"list","attributes":{},"value":[{"type":"list","attributes":{"names":{"type":"character","attributes":{},"value":["name","url","affiliation","affiliation_url"]}},"value":[{"type":"character","attributes":{},"value":["Andy Grogan-Kaylor"]},{"type":"character","attributes":{},"value":["https://agrogan1.github.io/"]},{"type":"character","attributes":{},"value":["University of Michigan"]},{"type":"character","attributes":{},"value":["https://umich.edu/"]}]}]},{"type":"character","attributes":{},"value":["2023-02-21"]},{"type":"list","attributes":{"names":{"type":"character","attributes":{},"value":["distill::distill_article"]}},"value":[{"type":"list","attributes":{"names":{"type":"character","attributes":{},"value":["highlight","toc"]}},"value":[{"type":"character","attributes":{},"value":["haddock"]},{"type":"logical","attributes":{},"value":[true]}]}]}]}
   </script>
   <!--/radix_placeholder_rmarkdown_metadata-->
   
@@ -3548,7 +3548,7 @@ distill-header .nav a {
 <!--radix_placeholder_front_matter-->
 
 <script id="distill-front-matter" type="text/json">
-{"title":"Workflow","description":"Thoughts about data science / data analysis workflow.","authors":[{"author":"Andy Grogan-Kaylor","authorURL":"https://agrogan1.github.io/","affiliation":"University of Michigan","affiliationURL":"https://umich.edu/","orcidID":""}],"publishedDate":"2023-02-15T00:00:00.000-05:00","citationText":"Grogan-Kaylor, 2023"}
+{"title":"Workflow","description":"Thoughts about data science / data analysis workflow.","authors":[{"author":"Andy Grogan-Kaylor","authorURL":"https://agrogan1.github.io/","affiliation":"University of Michigan","affiliationURL":"https://umich.edu/","orcidID":""}],"publishedDate":"2023-02-21T00:00:00.000-05:00","citationText":"Grogan-Kaylor, 2023"}
 </script>
 
 <!--/radix_placeholder_front_matter-->
@@ -3567,7 +3567,7 @@ distill-header .nav a {
 <div class="d-byline">
   Andy Grogan-Kaylor <a href="https://agrogan1.github.io/" class="uri">https://agrogan1.github.io/</a> (University of Michigan)<a href="https://umich.edu/" class="uri">https://umich.edu/</a>
   
-<br />2023-02-15
+<br />2023-02-21
 </div>
 
 <div class="d-article">
@@ -3594,19 +3594,19 @@ border-left: 2px solid #FFCB05; padding: 0.5em 10px;
 <p>So many workflows follow the same conceptual pattern.</p>
 <h1 id="visually-and-conceptually">Visually and Conceptually</h1>
 <div class="layout-chunk" data-layout="l-body">
-<div class="grViz html-widget html-fill-item-overflow-hidden html-fill-item" id="htmlwidget-ddc7aab85668420c9144" style="width:624px;height:384px;"></div>
-<script type="application/json" data-for="htmlwidget-ddc7aab85668420c9144">{"x":{"diagram":"\n\ndigraph workflow {\n\nnode [fontname = Helvetica]\n\nask [label = \"ask a question\"]\n\nopen [label = \"open the raw data\"]\n\nclean [label = \"clean the data, e.g. outliers & errors\"]\n\nwrangle [label = \"create any new variables or scales\"]\n\ndescriptives [label = \"descriptive statistics\"]\n\nvisualize [label = \"visualize the data\"]\n\nanalyze [label = \"analyze with bivariate or multivariate statistics\"]\n\nshare [label = \"share your results with your community(ies)\"]\n\nask -> open \n\nopen -> clean \n\nclean -> wrangle\n\nwrangle -> descriptives\n\ndescriptives -> visualize\n\nvisualize -> analyze\n\nanalyze -> share\n\n\n}","config":{"engine":"dot","options":null}},"evals":[],"jsHooks":[]}</script>
+<div class="grViz html-widget html-fill-item-overflow-hidden html-fill-item" id="htmlwidget-9857addac359b0a69b02" style="width:624px;height:384px;"></div>
+<script type="application/json" data-for="htmlwidget-9857addac359b0a69b02">{"x":{"diagram":"\n\ndigraph workflow {\n\nnode [fontname = Helvetica]\n\nask [label = \"ask a question\"]\n\nopen [label = \"open the raw data\"]\n\nclean [label = \"clean the data, e.g. outliers & errors\"]\n\nwrangle [label = \"create any new variables or scales\"]\n\ndescriptives [label = \"descriptive statistics\"]\n\nvisualize [label = \"visualize the data\"]\n\nanalyze [label = \"analyze with bivariate or multivariate statistics\"]\n\nshare [label = \"share your results with your community(ies)\"]\n\nask -> open \n\nopen -> clean \n\nclean -> wrangle\n\nwrangle -> descriptives\n\ndescriptives -> visualize\n\nvisualize -> analyze\n\nanalyze -> share\n\n\n}","config":{"engine":"dot","options":null}},"evals":[],"jsHooks":[]}</script>
 </div>
 <h1 id="write-a-script">Write A Script</h1>
 <p>Increasingly, we want to think about workflows that are</p>
 <ul>
 <li><strong>documentable</strong>: We have a record of what we did if we want to double check our work, clarify a result, or develop a new project with a similar process.</li>
-<li><strong>auditable</strong>: Others can double check our work.</li>
+<li><strong>auditable</strong>: Others can double check our work. We, or others, can find the inevitable errors in our work, <strong>and correct them</strong>.</li>
 <li><strong>replicable</strong>: Others can replicate our findings with the same or new data.</li>
-<li><strong>scalable</strong>: We are developing a process that can be as easily used with <em>thousands</em> or <em>millions</em> of rows of data as it can with <em>ten</em> rows of data. We are developing a process that can be easily repeated if we are constantly getting new data, e.g. getting new data every week, or every month.</li>
+<li><strong>scalable</strong>: We are developing a process that can be as easily used with <em>thousands</em> or <em>millions</em> of rows of data as it can with <em>ten</em> rows of data. We are developing a process that can be easily repeated if we are <em>constantly getting new data</em>, e.g. getting new data every week, or every month.</li>
 </ul>
 <blockquote>
-<p>Always (or usually) beginning with the raw data, and then writing and running a script that generates our results allows us to develop a process that does all of these things.</p>
+<p>Always (or usually) beginning with the raw data, and then writing and running a script that generates our results allows us to develop a process that is <strong>documentable</strong>, <strong>auditable</strong>, <strong>replicable</strong> and <strong>scalable</strong>.</p>
 </blockquote>
 <p>Below is an example that uses the <a href="https://allisonhorst.github.io/palmerpenguins/">Palmer Penguins</a> data set.</p>
 <p>The example below is in Stata, due to Stata’s ease of readability, but could as easily be written in any other language that has scripting, such as SPSS, SAS, R, or Julia.</p>
