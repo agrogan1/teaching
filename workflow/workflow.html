@@ -3577,7 +3577,9 @@ distill-header .nav a {
 <ul>
 <li><a href="#introduction" id="toc-introduction">Introduction</a></li>
 <li><a href="#visually-and-conceptually" id="toc-visually-and-conceptually">Visually and Conceptually</a></li>
-<li><a href="#write-a-script" id="toc-write-a-script">Write A Script</a></li>
+<li><a href="#characteristics-of-good-workflows" id="toc-characteristics-of-good-workflows">Characteristics of Good Workflows</a></li>
+<li><a href="#complex-workflows" id="toc-complex-workflows">Complex Workflows</a></li>
+<li><a href="#example" id="toc-example">Example</a></li>
 </ul>
 </nav>
 </div>
@@ -3594,22 +3596,76 @@ border-left: 2px solid #FFCB05; padding: 0.5em 10px;
 <p>So many workflows follow the same conceptual pattern.</p>
 <h1 id="visually-and-conceptually">Visually and Conceptually</h1>
 <div class="layout-chunk" data-layout="l-body">
-<div class="grViz html-widget html-fill-item-overflow-hidden html-fill-item" id="htmlwidget-9857addac359b0a69b02" style="width:624px;height:384px;"></div>
-<script type="application/json" data-for="htmlwidget-9857addac359b0a69b02">{"x":{"diagram":"\n\ndigraph workflow {\n\nnode [fontname = Helvetica]\n\nask [label = \"ask a question\"]\n\nopen [label = \"open the raw data\"]\n\nclean [label = \"clean the data, e.g. outliers & errors\"]\n\nwrangle [label = \"create any new variables or scales\"]\n\ndescriptives [label = \"descriptive statistics\"]\n\nvisualize [label = \"visualize the data\"]\n\nanalyze [label = \"analyze with bivariate or multivariate statistics\"]\n\nshare [label = \"share your results with your community(ies)\"]\n\nask -> open \n\nopen -> clean \n\nclean -> wrangle\n\nwrangle -> descriptives\n\ndescriptives -> visualize\n\nvisualize -> analyze\n\nanalyze -> share\n\n\n}","config":{"engine":"dot","options":null}},"evals":[],"jsHooks":[]}</script>
+<div class="grViz html-widget html-fill-item-overflow-hidden html-fill-item" id="htmlwidget-349f5aff36087d2ca7f3" style="width:624px;height:576px;"></div>
+<script type="application/json" data-for="htmlwidget-349f5aff36087d2ca7f3">{"x":{"diagram":"\n\ndigraph workflow {\n\nnode [fontname = Helvetica]\n\nask [label = \"ask a question\"]\n\nopen [label = \"open the raw data\"]\n\nclean [label = \"clean the data, e.g. outliers & errors\"]\n\nwrangle [label = \"create any new variables or scales\"]\n\ndescriptives [label = \"descriptive statistics\"]\n\nvisualize [label = \"visualize the data\"]\n\nanalyze [label = \"analyze with bivariate or multivariate statistics\"]\n\nshare [label = \"share your results with your community(ies)\"]\n\nask -> open \n\nopen -> clean \n\nclean -> wrangle\n\nwrangle -> descriptives\n\ndescriptives -> visualize\n\nvisualize -> analyze\n\nanalyze -> share\n\n\n}","config":{"engine":"dot","options":null}},"evals":[],"jsHooks":[]}</script>
 </div>
-<h1 id="write-a-script">Write A Script</h1>
+<h1 id="characteristics-of-good-workflows">Characteristics of Good Workflows</h1>
 <p>Increasingly, we want to think about workflows that are</p>
 <ul>
-<li><strong>documentable</strong>: We have a record of what we did if we want to double check our work, clarify a result, or develop a new project with a similar process.</li>
-<li><strong>auditable</strong>: Others can double check our work. We, or others, can find the inevitable errors in our work, <strong>and correct them</strong>.</li>
+<li><strong>documentable</strong> and <strong>auditable</strong>: We have a record of what we did if we want to double check our work, clarify a result, or develop a new project with a similar process. We, or others, can find the inevitable errors in our work, <strong>and correct them</strong>.</li>
 <li><strong>replicable</strong>: Others can replicate our findings with the same or new data.</li>
-<li><strong>scalable</strong>: We are developing a process that can be as easily used with <em>thousands</em> or <em>millions</em> of rows of data as it can with <em>ten</em> rows of data. We are developing a process that can be easily repeated if we are <em>constantly getting new data</em>, e.g. getting new data every week, or every month.</li>
+<li><strong>scalable</strong>: We are developing a process that can be as easily used with <em>thousands</em> or <em>millions</em> of rows of data as it can with <em>ten</em> rows of data. We are developing a process that can be easily repeated if we are <em>constantly getting new or updated data</em>, e.g. getting new data every week, or every month.</li>
 </ul>
+<h1 id="complex-workflows">Complex Workflows</h1>
+<p>For <strong>complex workflows</strong>, we will often want to write a script.</p>
+<blockquote>
+<p>The more graphs or calculations I have to make, the more complex the project, the more the desires of the client are likely to change, the more frequently the data is being updated, and the more mission critical the results (i.e. I need auditability and error correction) the more likely I am to use a scripting tool like Stata or R.</p>
+</blockquote>
+<table style="width:74%;">
+<caption>Tools for Different Workflows</caption>
+<colgroup>
+<col style="width: 22%" />
+<col style="width: 22%" />
+<col style="width: 29%" />
+</colgroup>
+<thead>
+<tr class="header">
+<th></th>
+<th>Simple
+Process:
+Single Graph
+or
+Calculation</th>
+<th>Complex Process:
+Multiple Graphs or
+Calculations.</th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td><strong>Process Run</strong>
+<strong>Only Once</strong></td>
+<td>Spreadsheet:
+Excel or
+Google</td>
+<td>Scripting Tool:
+Stata or R</td>
+</tr>
+<tr class="even">
+<td><strong>Process</strong>
+<strong>Run </strong>
+<strong>Multiple</strong>
+<strong>Times</strong>
+<strong>(Perhaps As</strong>
+<strong>Data Are</strong>
+<strong>Regularly</strong>
+<strong>Updated)</strong></td>
+<td>Scripting
+Tool: Stata
+or R</td>
+<td>Scripting Tool:
+Stata or R</td>
+</tr>
+</tbody>
+</table>
 <blockquote>
 <p>Always (or usually) beginning with the raw data, and then writing and running a script that generates our results allows us to develop a process that is <strong>documentable</strong>, <strong>auditable</strong>, <strong>replicable</strong> and <strong>scalable</strong>.</p>
 </blockquote>
+<h1 id="example">Example</h1>
 <p>Below is an example that uses the <a href="https://allisonhorst.github.io/palmerpenguins/">Palmer Penguins</a> data set.</p>
+<blockquote>
 <p>The example below is in Stata, due to Stata’s ease of readability, but could as easily be written in any other language that has scripting, such as SPSS, SAS, R, or Julia.</p>
+</blockquote>
 <div class="layout-chunk" data-layout="l-body">
 <div class="sourceCode" id="cb1"><pre class="sourceCode stata"><code class="sourceCode stata"><span id="cb1-1"><a href="#cb1-1" aria-hidden="true" tabindex="-1"></a></span>
 <span id="cb1-2"><a href="#cb1-2" aria-hidden="true" tabindex="-1"></a>* Learning About Penguins</span>

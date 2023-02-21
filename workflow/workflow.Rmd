@@ -38,7 +38,7 @@ So many workflows follow the same conceptual pattern.
 
 # Visually and Conceptually
 
-```{r}
+```{r, fig.height=6}
 
 DiagrammeR::grViz("
 
@@ -81,20 +81,50 @@ analyze -> share
 
 ```
 
-# Write A Script
+# Characteristics of Good Workflows
 
 Increasingly, we want to think about workflows that are 
 
-* **documentable**: We have a record of what we did if we want to double check our work, clarify a result, or develop a new project with a similar process.
-* **auditable**: Others can double check our work. We, or others, can find the inevitable errors in our work, **and correct them**.
+* **documentable** and **auditable**: We have a record of what we did if we want to double check our work, clarify a result, or develop a new project with a similar process. We, or others, can find the inevitable errors in our work, **and correct them**.
 * **replicable**: Others can replicate our findings with the same or new data.
-* **scalable**: We are developing a process that can be as easily used with *thousands* or *millions* of rows of data as it can with *ten* rows of data. We are developing a process that can be easily repeated if we are *constantly getting new data*, e.g. getting new data every week, or every month.
+* **scalable**: We are developing a process that can be as easily used with *thousands* or *millions* of rows of data as it can with *ten* rows of data. We are developing a process that can be easily repeated if we are *constantly getting new or updated data*, e.g. getting new data every week, or every month.
+
+# Complex Workflows 
+
+For **complex workflows**, we will often want to write a script.
+
+> The more graphs or calculations I have to make, the more complex the project, the more the desires of the client are likely to change, the more frequently the data is being updated, and the more mission critical the results (i.e. I need auditability and error correction) the more likely I am to use a scripting tool like Stata or R.
+
++---------------+---------------+--------------------+
+|               | Simple        | Complex Process:   |
+|               | Process:      | Multiple Graphs or |
+|               | Single Graph  | Calculations.      |
+|               | or            |                    |
+|               | Calculation   |                    |
++===============+===============+====================+
+|**Process Run**| Spreadsheet:  | Scripting Tool:    |
+| **Only Once** | Excel or      | Stata or R         |
+|               | Google        |                    |
++---------------+---------------+--------------------+
+| **Process**   | Scripting     | Scripting Tool:    |
+| **Run **      | Tool: Stata   | Stata or R         |
+| **Multiple**  | or R          |                    |
+| **Times**     |               |                    |
+|**(Perhaps As**|               |                    |
+| **Data Are**  |               |                    |
+| **Regularly** |               |                    |
+| **Updated)**  |               |                    |
++---------------+---------------+--------------------+
+
+: Tools for Different Workflows
 
 > Always (or usually) beginning with the raw data, and then writing and running a script that generates our results allows us to develop a process that is **documentable**, **auditable**, **replicable** and **scalable**.
 
+# Example
+
 Below is an example that uses the [Palmer Penguins](https://allisonhorst.github.io/palmerpenguins/) data set. 
 
-The example below is in Stata, due to Stata's ease of readability, but could as easily be written in any other language that has scripting, such as SPSS, SAS, R, or Julia.
+> The example below is in Stata, due to Stata's ease of readability, but could as easily be written in any other language that has scripting, such as SPSS, SAS, R, or Julia.
 
 ```{stata, eval = FALSE, echo = TRUE}
 
