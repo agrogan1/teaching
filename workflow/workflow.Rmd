@@ -44,7 +44,7 @@ DiagrammeR::grViz("
 
 digraph workflow {
 
-node [fontname = Helvetica]
+node [fontname = Helvetica, color = blue]
 
 ask [label = 'ask a question']
 
