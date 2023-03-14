@@ -36,7 +36,7 @@ digraph boxes_and_circles {
   
  	subgraph cluster_1 {
  	
- 	label = "mediation";
+ 	label = "m mediates the relationship between x and y";
  
   x1 -> m1 
   m1 -> y1 
@@ -46,7 +46,7 @@ digraph boxes_and_circles {
  	
  	subgraph cluster_2 {
  	  
- 	label = "x and m are correlated";
+ 	label = "x and m are correlated predictors of y";
   
   x2 -> m2 [dir=both]
   x2 -> y2
@@ -56,7 +56,7 @@ digraph boxes_and_circles {
   
 	subgraph cluster_3 {
 	  
-  label = "an observable or unobservable covariate accounts for correlations";
+  label = "an observable or unobservable covariate z accounts for correlations between x and y";
   
   x3 -> y3
   m3 -> y3
