@@ -7,7 +7,7 @@
 <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes">
 
 <meta name="author" content="Andy Grogan-Kaylor">
-<meta name="dcterms.date" content="2023-03-15">
+<meta name="dcterms.date" content="2023-03-16">
 
 <title>Mediation</title>
 <style>
@@ -55,7 +55,7 @@ ul.task-list li input[type="checkbox"] {
    
   <ul>
   <li><a href="#mediation" id="toc-mediation" class="nav-link active" data-scroll-target="#mediation"><span class="toc-section-number">1</span>  Mediation</a></li>
-  <li><a href="#mediation-vs.-common-cause-vs.-correlated-predictors" id="toc-mediation-vs.-common-cause-vs.-correlated-predictors" class="nav-link" data-scroll-target="#mediation-vs.-common-cause-vs.-correlated-predictors"><span class="toc-section-number">2</span>  Mediation vs.&nbsp;Common Cause vs.&nbsp;Correlated Predictors</a></li>
+  <li><a href="#mediation-vs.-correlated-predictors" id="toc-mediation-vs.-correlated-predictors" class="nav-link" data-scroll-target="#mediation-vs.-correlated-predictors"><span class="toc-section-number">2</span>  Mediation vs.&nbsp;Correlated Predictors</a></li>
   </ul>
 </nav>
 </div>
@@ -81,7 +81,7 @@ ul.task-list li input[type="checkbox"] {
     <div>
     <div class="quarto-title-meta-heading">Published</div>
     <div class="quarto-title-meta-contents">
-      <p class="date">March 15, 2023</p>
+      <p class="date">March 16, 2023</p>
     </div>
   </div>
   
@@ -96,19 +96,19 @@ ul.task-list li input[type="checkbox"] {
 <p>The basic idea is that if we are regressing <span class="math inline">\(y\)</span> on variable of interest <span class="math inline">\(x\)</span>, and (not shown) control variable(s) <span class="math inline">\(z\)</span>, if we introduce mediator <span class="math inline">\(m\)</span>, the <span class="math inline">\(\beta_{xy}\)</span> coefficient should change. Additionally, <span class="math inline">\(\beta_{xm} \times \beta_{my}\)</span> should be statistically significant.<a href="#fn1" class="footnote-ref" id="fnref1" role="doc-noteref"><sup>1</sup></a></p>
 <div class="cell">
 <div class="cell-output-display">
-<div class="grViz html-widget html-fill-item-overflow-hidden html-fill-item" id="htmlwidget-f6c9ddc3130a0158774a" style="width:100%;height:464px;"></div>
-<script type="application/json" data-for="htmlwidget-f6c9ddc3130a0158774a">{"x":{"diagram":"\n\ndigraph boxes_and_circles {\n  \n  # a \"graph\" statement\n  graph [overlap = true, \n        fontsize = 10,\n        rankdir = LR]\n\n  # several \"node\" statements\n  node [shape = box,\n        fontname = Helvetica]\n\n  node [shape = circle,\n        fontsize = 20,\n        fixedsize = true,\n        width = 1.25] // sets as circles\n\n  x1 [label = \"x\"]\n  \n  m1 [label = \"m\"]\n\n  y1 [label = \"y\"]\n  \n  # several \"edge\" statements\n  \n \tsubgraph cluster_1 {\n \t\n \tlabel = \"mediation\";\n \t\n  x1 -> m1 [label = <&beta;<SUB>xm<\/SUB>>]\n  m1 -> y1 [label = <&beta;<SUB>my<\/SUB>>]\n  x1 -> y1 [label = <&beta;<SUB>xy<\/SUB>>]\n\n \t}  \n\n}\n                  \n","config":{"engine":"dot","options":null}},"evals":[],"jsHooks":[]}</script>
+<div class="grViz html-widget html-fill-item-overflow-hidden html-fill-item" id="htmlwidget-245708b4a184854d7564" style="width:100%;height:464px;"></div>
+<script type="application/json" data-for="htmlwidget-245708b4a184854d7564">{"x":{"diagram":"\n\ndigraph boxes_and_circles {\n  \n  # a \"graph\" statement\n  graph [overlap = true, \n        fontsize = 10,\n        rankdir = LR]\n\n  # several \"node\" statements\n  node [shape = box,\n        fontname = Helvetica]\n\n  node [shape = circle,\n        fontsize = 20,\n        fixedsize = true,\n        width = 1.25] // sets as circles\n\n  x1 [label = \"x\"]\n  \n  m1 [label = \"m\"]\n\n  y1 [label = \"y\"]\n  \n  # several \"edge\" statements\n  \n \tsubgraph cluster_1 {\n \t\n \tlabel = \"mediation\";\n \t\n  x1 -> m1 [label = <&beta;<SUB>xm<\/SUB>>]\n  m1 -> y1 [label = <&beta;<SUB>my<\/SUB>>]\n  x1 -> y1 [label = <&beta;<SUB>xy<\/SUB>>]\n\n \t}  \n\n}\n                  \n","config":{"engine":"dot","options":null}},"evals":[],"jsHooks":[]}</script>
 <p>Mediation</p>
 </div>
 </div>
 </section>
-<section id="mediation-vs.-common-cause-vs.-correlated-predictors" class="level2" data-number="2">
-<h2 data-number="2" class="anchored" data-anchor-id="mediation-vs.-common-cause-vs.-correlated-predictors"><span class="header-section-number">2</span> Mediation vs.&nbsp;Common Cause vs.&nbsp;Correlated Predictors</h2>
-<p>As far as I know, all of the relationships detailed below would result in similar patterns of correlations. As far as I know there would be no empirical way to distinguish between these relationships. Only theory, or knowledge of prior relationships could be used to distinguish between these possible explanations for correlated <span class="math inline">\(z\)</span>, <span class="math inline">\(x\)</span>, <span class="math inline">\(m\)</span> and <span class="math inline">\(y\)</span>.</p>
+<section id="mediation-vs.-correlated-predictors" class="level2" data-number="2">
+<h2 data-number="2" class="anchored" data-anchor-id="mediation-vs.-correlated-predictors"><span class="header-section-number">2</span> Mediation vs.&nbsp;Correlated Predictors</h2>
+<p>As far as I know, all of the relationships detailed below would result in similar patterns of correlations. As far as I know there would be no empirical way to distinguish between these relationships. Only theory, or knowledge of prior relationships could be used to distinguish between these possible explanations for correlated <span class="math inline">\(x\)</span>, <span class="math inline">\(m\)</span> and <span class="math inline">\(y\)</span>.</p>
 <div class="cell">
 <div class="cell-output-display">
-<div class="grViz html-widget html-fill-item-overflow-hidden html-fill-item" id="htmlwidget-bb23a6771ef0da4e22c1" style="width:100%;height:464px;"></div>
-<script type="application/json" data-for="htmlwidget-bb23a6771ef0da4e22c1">{"x":{"diagram":"\n\ndigraph boxes_and_circles {\n\n  # a \"graph\" statement\n  graph [overlap = true, \n        fontsize = 10,\n        rankdir = LR]\n\n  # several \"node\" statements\n  node [shape = box,\n        fontname = Helvetica]\n\n  node [shape = circle,\n        fontsize = 20,\n        fixedsize = true,\n        width = 1.25] // sets as circles\n  \n  x1 [label = \"x\"]\n  \n  x2 [label = \"x\"]\n  \n  m1 [label = \"m\"]\n\n  m2 [label = \"m\"]\n\n  y1 [label = \"y\"]\n  \n  y2 [label = \"y\"]\n  \n  x1 -> x2 [style=invis]\n\n  # several \"edge\" statements\n \t\n \tsubgraph cluster_1 {\n \t\n \tlabel = \"m mediates the relationship between x and y\";\n \n  x1 -> m1 \n  m1 -> y1 \n  x1 -> y1 \n  \n \t}  \n \t\n \tsubgraph cluster_2 {\n \t  \n \tlabel = \"x and m are correlated predictors of y\";\n  \n  x2 -> m2 [dir=both]\n  x2 -> y2\n  m2 -> y2\n  \n  {rank = same; x2 m2 }\n  \n \t}\n  \n}\n\n\n","config":{"engine":"dot","options":null}},"evals":[],"jsHooks":[]}</script>
+<div class="grViz html-widget html-fill-item-overflow-hidden html-fill-item" id="htmlwidget-e8e4067438da02be54a3" style="width:100%;height:464px;"></div>
+<script type="application/json" data-for="htmlwidget-e8e4067438da02be54a3">{"x":{"diagram":"\n\ndigraph boxes_and_circles {\n\n  # a \"graph\" statement\n  graph [overlap = true, \n        fontsize = 10,\n        rankdir = LR]\n\n  # several \"node\" statements\n  node [shape = box,\n        fontname = Helvetica]\n\n  node [shape = circle,\n        fontsize = 20,\n        fixedsize = true,\n        width = 1.25] // sets as circles\n  \n  x1 [label = \"x\"]\n  \n  x2 [label = \"x\"]\n  \n  m1 [label = \"m\"]\n\n  m2 [label = \"m\"]\n\n  y1 [label = \"y\"]\n  \n  y2 [label = \"y\"]\n  \n  x1 -> x2 [style=invis]\n\n  # several \"edge\" statements\n \t\n \tsubgraph cluster_1 {\n \t\n \tlabel = \"m mediates the relationship between x and y\";\n \n  x1 -> m1 \n  m1 -> y1 \n  x1 -> y1 \n  \n \t}  \n \t\n \tsubgraph cluster_2 {\n \t  \n \tlabel = \"x and m are correlated predictors of y\";\n  \n  x2 -> m2 [dir=both]\n  x2 -> y2\n  m2 -> y2\n  \n  {rank = same; x2 m2 }\n  \n \t}\n  \n}\n\n\n","config":{"engine":"dot","options":null}},"evals":[],"jsHooks":[]}</script>
 <p>Mediation vs.&nbsp;Confounding</p>
 </div>
 </div>

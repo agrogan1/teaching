@@ -62,9 +62,9 @@ digraph boxes_and_circles {
 ")
 ```
 
-## Mediation vs. Common Cause vs. Correlated Predictors
+## Mediation vs. Correlated Predictors
 
-As far as I know, all of the relationships detailed below would result in similar patterns of correlations. As far as I know there would be no empirical way to distinguish between these relationships. Only theory, or knowledge of prior relationships could be used to distinguish between these possible explanations for correlated $z$, $x$, $m$ and $y$.
+As far as I know, all of the relationships detailed below would result in similar patterns of correlations. As far as I know there would be no empirical way to distinguish between these relationships. Only theory, or knowledge of prior relationships could be used to distinguish between these possible explanations for correlated $x$, $m$ and $y$.
 
 ```{r, fig.cap="Mediation vs. Confounding", eval=TRUE, echo=FALSE}
 
