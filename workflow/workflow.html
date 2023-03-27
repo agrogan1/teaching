@@ -185,8 +185,8 @@ blockquote {
 <h1 data-number="2"><span class="header-section-number">2</span> Visually and Conceptually</h1>
 <div class="cell">
 <div class="cell-output-display">
-<div class="grViz html-widget html-fill-item-overflow-hidden html-fill-item" id="htmlwidget-0507f98b412ff34611e5" style="width:100%;height:557px;"></div>
-<script type="application/json" data-for="htmlwidget-0507f98b412ff34611e5">{"x":{"diagram":"\n\ndigraph workflow {\n\nnode [fontname = Helvetica, color = blue]\n\nask [label = \"ask a question\"]\n\nopen [label = \"open the raw data\"]\n\nclean [label = \"clean the data, e.g. outliers & errors\"]\n\nwrangle [label = \"create any new variables or scales\"]\n\ndescriptives [label = \"descriptive statistics\"]\n\nvisualize [label = \"visualize the data\"]\n\nanalyze [label = \"analyze with bivariate or multivariate statistics\"]\n\nshare [label = \"share your results with your community(ies)\"]\n\nask -> open \n\nopen -> clean \n\nclean -> wrangle\n\nwrangle -> descriptives\n\ndescriptives -> visualize\n\nvisualize -> analyze\n\nanalyze -> share\n\n\n}","config":{"engine":"dot","options":null}},"evals":[],"jsHooks":[]}</script>
+<div class="grViz html-widget html-fill-item-overflow-hidden html-fill-item" id="htmlwidget-f010081e6bc66c88fe12" style="width:100%;height:557px;"></div>
+<script type="application/json" data-for="htmlwidget-f010081e6bc66c88fe12">{"x":{"diagram":"\n\ndigraph workflow {\n\nnode [fontname = Helvetica, color = blue]\n\nask [label = \"ask a question\"]\n\nopen [label = \"open the raw data\"]\n\nclean [label = \"clean the data, e.g. outliers & errors\"]\n\nwrangle [label = \"create any new variables or scales\"]\n\ndescriptives [label = \"descriptive statistics\"]\n\nvisualize [label = \"visualize the data\"]\n\nanalyze [label = \"analyze with bivariate or multivariate statistics\"]\n\nshare [label = \"share your results with your community(ies)\"]\n\nask -> open \n\nopen -> clean \n\nclean -> wrangle\n\nwrangle -> descriptives\n\ndescriptives -> visualize\n\nvisualize -> analyze\n\nanalyze -> share\n\n\n}","config":{"engine":"dot","options":null}},"evals":[],"jsHooks":[]}</script>
 </div>
 </div>
 </section>
@@ -242,34 +242,40 @@ blockquote {
 <blockquote class="blockquote">
 <p>The example below is in Stata, due to Stata’s ease of readability, but could as easily be written in any other language that has scripting, such as SPSS, SAS, R, or Julia.</p>
 </blockquote>
-<div class="cell" data-collectcode="true">
+<div class="cell">
 <div class="sourceCode cell-code" id="cb1"><pre class="sourceCode stata code-with-copy"><code class="sourceCode stata"><span id="cb1-1"><a href="#cb1-1" aria-hidden="true" tabindex="-1"></a></span>
 <span id="cb1-2"><a href="#cb1-2" aria-hidden="true" tabindex="-1"></a>* Learning About Penguins</span>
 <span id="cb1-3"><a href="#cb1-3" aria-hidden="true" tabindex="-1"></a></span>
 <span id="cb1-4"><a href="#cb1-4" aria-hidden="true" tabindex="-1"></a>* Ask A Question</span>
 <span id="cb1-5"><a href="#cb1-5" aria-hidden="true" tabindex="-1"></a></span>
 <span id="cb1-6"><a href="#cb1-6" aria-hidden="true" tabindex="-1"></a>* What can <span class="fu">I</span> learn about penguins?</span>
-<span id="cb1-7"><a href="#cb1-7" aria-hidden="true" tabindex="-1"></a>  </span>
-<span id="cb1-8"><a href="#cb1-8" aria-hidden="true" tabindex="-1"></a>* Open The Raw Data</span>
-<span id="cb1-9"><a href="#cb1-9" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb1-10"><a href="#cb1-10" aria-hidden="true" tabindex="-1"></a><span class="kw">use</span> <span class="st">"https://github.com/agrogan1/Stata/raw/main/do-files/penguins.dta"</span>, <span class="kw">clear</span> </span>
-<span id="cb1-11"><a href="#cb1-11" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb1-12"><a href="#cb1-12" aria-hidden="true" tabindex="-1"></a>* Clean and Wrangle Data</span>
-<span id="cb1-13"><a href="#cb1-13" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb1-14"><a href="#cb1-14" aria-hidden="true" tabindex="-1"></a><span class="kw">generate</span> big_penguin = body_mass_g &gt; 4000 <span class="co">// create a big penguin variable</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<span id="cb1-7"><a href="#cb1-7" aria-hidden="true" tabindex="-1"></a>  </span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-stdout">
+<pre><code></code></pre>
+</div>
+</div>
+<div class="cell" data-collectcode="true">
+<div class="sourceCode cell-code" id="cb3"><pre class="sourceCode stata code-with-copy"><code class="sourceCode stata"><span id="cb3-1"><a href="#cb3-1" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb3-2"><a href="#cb3-2" aria-hidden="true" tabindex="-1"></a>* Open The Raw Data</span>
+<span id="cb3-3"><a href="#cb3-3" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb3-4"><a href="#cb3-4" aria-hidden="true" tabindex="-1"></a><span class="kw">use</span> <span class="st">"https://github.com/agrogan1/Stata/raw/main/do-files/penguins.dta"</span>, <span class="kw">clear</span> </span>
+<span id="cb3-5"><a href="#cb3-5" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb3-6"><a href="#cb3-6" aria-hidden="true" tabindex="-1"></a>* Clean and Wrangle Data</span>
+<span id="cb3-7"><a href="#cb3-7" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb3-8"><a href="#cb3-8" aria-hidden="true" tabindex="-1"></a><span class="kw">generate</span> big_penguin = body_mass_g &gt; 4000 <span class="co">// create a big penguin variable</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output cell-output-stdout">
 <pre><code></code></pre>
 </div>
 </div>
 <div class="cell">
-<div class="sourceCode cell-code" id="cb3"><pre class="sourceCode stata code-with-copy"><code class="sourceCode stata"><span id="cb3-1"><a href="#cb3-1" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb3-2"><a href="#cb3-2" aria-hidden="true" tabindex="-1"></a>* Descriptive Statistics</span>
-<span id="cb3-3"><a href="#cb3-3" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb3-4"><a href="#cb3-4" aria-hidden="true" tabindex="-1"></a><span class="kw">summarize</span> culmen_length_mm culmen_depth_mm flipper_length_mm body_mass_g</span>
-<span id="cb3-5"><a href="#cb3-5" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb3-6"><a href="#cb3-6" aria-hidden="true" tabindex="-1"></a><span class="kw">tabulate</span> big_penguin</span>
-<span id="cb3-7"><a href="#cb3-7" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb3-8"><a href="#cb3-8" aria-hidden="true" tabindex="-1"></a><span class="kw">tabulate</span> species</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="sourceCode cell-code" id="cb5"><pre class="sourceCode stata code-with-copy"><code class="sourceCode stata"><span id="cb5-1"><a href="#cb5-1" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb5-2"><a href="#cb5-2" aria-hidden="true" tabindex="-1"></a>* Descriptive Statistics</span>
+<span id="cb5-3"><a href="#cb5-3" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb5-4"><a href="#cb5-4" aria-hidden="true" tabindex="-1"></a><span class="kw">summarize</span> culmen_length_mm culmen_depth_mm flipper_length_mm body_mass_g</span>
+<span id="cb5-5"><a href="#cb5-5" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb5-6"><a href="#cb5-6" aria-hidden="true" tabindex="-1"></a><span class="kw">tabulate</span> big_penguin</span>
+<span id="cb5-7"><a href="#cb5-7" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb5-8"><a href="#cb5-8" aria-hidden="true" tabindex="-1"></a><span class="kw">tabulate</span> species</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output cell-output-stdout">
 <pre><code>    Variable |        Obs        Mean    Std. dev.       Min        Max
 -------------+---------------------------------------------------------
@@ -316,25 +322,25 @@ big_penguin |      Freq.     Percent        Cum.
 </div>
 </div></div></div>
 <div class="cell">
-<div class="sourceCode cell-code" id="cb5"><pre class="sourceCode stata code-with-copy"><code class="sourceCode stata"><span id="cb5-1"><a href="#cb5-1" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb5-2"><a href="#cb5-2" aria-hidden="true" tabindex="-1"></a>* Visualize The Data</span>
-<span id="cb5-3"><a href="#cb5-3" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb5-4"><a href="#cb5-4" aria-hidden="true" tabindex="-1"></a><span class="kw">graph</span> <span class="bn">bar</span> body_mass_g, <span class="bn">over</span>(species) <span class="dv">scheme</span>(s1color) <span class="co">// bar graph</span></span>
-<span id="cb5-5"><a href="#cb5-5" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb5-6"><a href="#cb5-6" aria-hidden="true" tabindex="-1"></a><span class="kw">quietly</span> <span class="kw">graph</span> <span class="kw">export</span> <span class="st">"mybargraph.png"</span>, <span class="kw">replace</span></span>
-<span id="cb5-7"><a href="#cb5-7" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb5-8"><a href="#cb5-8" aria-hidden="true" tabindex="-1"></a><span class="kw">twoway</span> <span class="kw">scatter</span> culmen_length_mm body_mass_g, <span class="dv">scheme</span>(s1color) <span class="co">// scatterplot</span></span>
-<span id="cb5-9"><a href="#cb5-9" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb5-10"><a href="#cb5-10" aria-hidden="true" tabindex="-1"></a><span class="kw">quietly</span> <span class="kw">graph</span> <span class="kw">export</span> <span class="st">"myscatterplot.png"</span>, <span class="kw">replace</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="sourceCode cell-code" id="cb7"><pre class="sourceCode stata code-with-copy"><code class="sourceCode stata"><span id="cb7-1"><a href="#cb7-1" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb7-2"><a href="#cb7-2" aria-hidden="true" tabindex="-1"></a>* Visualize The Data</span>
+<span id="cb7-3"><a href="#cb7-3" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb7-4"><a href="#cb7-4" aria-hidden="true" tabindex="-1"></a><span class="kw">graph</span> <span class="bn">bar</span> body_mass_g, <span class="bn">over</span>(species) <span class="dv">scheme</span>(s1color) <span class="co">// bar graph</span></span>
+<span id="cb7-5"><a href="#cb7-5" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb7-6"><a href="#cb7-6" aria-hidden="true" tabindex="-1"></a><span class="kw">quietly</span> <span class="kw">graph</span> <span class="kw">export</span> <span class="st">"mybargraph.png"</span>, <span class="kw">replace</span></span>
+<span id="cb7-7"><a href="#cb7-7" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb7-8"><a href="#cb7-8" aria-hidden="true" tabindex="-1"></a><span class="kw">twoway</span> <span class="kw">scatter</span> culmen_length_mm body_mass_g, <span class="dv">scheme</span>(s1color) <span class="co">// scatterplot</span></span>
+<span id="cb7-9"><a href="#cb7-9" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb7-10"><a href="#cb7-10" aria-hidden="true" tabindex="-1"></a><span class="kw">quietly</span> <span class="kw">graph</span> <span class="kw">export</span> <span class="st">"myscatterplot.png"</span>, <span class="kw">replace</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output cell-output-stdout">
 <pre><code></code></pre>
 </div>
 </div>
 <div class="cell">
-<div class="sourceCode cell-code" id="cb7"><pre class="sourceCode stata code-with-copy"><code class="sourceCode stata"><span id="cb7-1"><a href="#cb7-1" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb7-2"><a href="#cb7-2" aria-hidden="true" tabindex="-1"></a>* Analyze</span>
-<span id="cb7-3"><a href="#cb7-3" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb7-4"><a href="#cb7-4" aria-hidden="true" tabindex="-1"></a><span class="kw">regress</span> culmen_length_mm body_mass_g <span class="co">// regress culmen length on body mass</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="sourceCode cell-code" id="cb9"><pre class="sourceCode stata code-with-copy"><code class="sourceCode stata"><span id="cb9-1"><a href="#cb9-1" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb9-2"><a href="#cb9-2" aria-hidden="true" tabindex="-1"></a>* Analyze</span>
+<span id="cb9-3"><a href="#cb9-3" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb9-4"><a href="#cb9-4" aria-hidden="true" tabindex="-1"></a><span class="kw">regress</span> culmen_length_mm body_mass_g <span class="co">// regress culmen length on body mass</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output cell-output-stdout">
 <pre><code>      Source |       SS           df       MS      Number of obs   =       342
 -------------+----------------------------------   F(1, 340)       =    186.44
