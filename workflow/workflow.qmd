@@ -1,22 +1,24 @@
 ---
 title: "Workflow"
-description: |
-  Thoughts about data science / data analysis workflow.
+Subtitle: "Thoughts about data science / data analysis workflow."
 author:
   - name: Andy Grogan-Kaylor 
     url: https://agrogan1.github.io/
     affiliation: University of Michigan
     affiliation_url: https://umich.edu/
-date: "`r Sys.Date()`"
-output:
-  distill::distill_article:
-    highlight: haddock
-    toc: yes
+date: "today"
+format:
+  html:
+    toc: true
+    number-sections: true
+    theme:
+      light: united
+      dark: vapor
 ---
 
 ```{css, echo=FALSE}
 
-d-article blockquote {
+blockquote {
   color: black;
   border-left: 2px solid #FFCB05; 
   padding: 0.5em 10px;
@@ -27,6 +29,13 @@ d-article blockquote {
 ```{r setup, include=FALSE}
 
 knitr::opts_chunk$set(echo = FALSE)
+
+```
+
+```{r}
+#| output: false
+
+library(Statamarkdown)
 
 ```
 
@@ -126,7 +135,7 @@ Below is an example that uses the [Palmer Penguins](https://allisonhorst.github.
 
 > The example below is in Stata, due to Stata's ease of readability, but could as easily be written in any other language that has scripting, such as SPSS, SAS, R, or Julia.
 
-```{stata, eval = FALSE, echo = TRUE}
+```{stata, collectcode = TRUE, echo = TRUE}
 
 * Learning About Penguins
 
@@ -136,11 +145,15 @@ Below is an example that uses the [Palmer Penguins](https://allisonhorst.github.
   
 * Open The Raw Data
 
-use "https://github.com/agrogan1/Stata/raw/master/do-files/penguins.dta", clear 
+use "https://github.com/agrogan1/Stata/raw/main/do-files/penguins.dta", clear 
 
 * Clean and Wrangle Data
 
 generate big_penguin = body_mass_g > 4000 // create a big penguin variable
+
+```
+
+```{stata, echo = TRUE}
 
 * Descriptive Statistics
 
@@ -150,11 +163,41 @@ tabulate big_penguin
 
 tabulate species
 
+```
+
+```{r}
+#| label: fig-bargraph
+#| fig-cap: "Bar Graph of Penguin Species"
+#| column: margin
+
+knitr::include_graphics("mybargraph.png")
+
+```
+
+```{r}
+#| label: fig-scatterplot
+#| fig-cap: "Scatterplot of Culmen Length by Body Mass"
+#| column: margin
+
+knitr::include_graphics("myscatterplot.png")
+
+```
+
+```{stata, echo = TRUE}
+
 * Visualize The Data
 
 graph bar body_mass_g, over(species) scheme(s1color) // bar graph
 
+quietly graph export "mybargraph.png", replace
+
 twoway scatter culmen_length_mm body_mass_g, scheme(s1color) // scatterplot
+
+quietly graph export "myscatterplot.png", replace
+
+```
+
+```{stata, echo = TRUE}
 
 * Analyze
 
@@ -162,31 +205,12 @@ regress culmen_length_mm body_mass_g // regress culmen length on body mass
 
 ```
 
-<aside>
-```{r, fig.cap="Bar Graph of Penguin Species"}
 
-knitr::include_graphics("mybargraph.png")
 
-```
 
-```{r, fig.cap="Scatterplot of Penguin Culmen Length by Body Mass"}
 
-knitr::include_graphics("myscatterplot.png")
 
-```
 
-```{r, fig.cap="Descriptive Statistics"}
-
-knitr::include_graphics("mydescriptives.png")
-
-```
-
-```{r, fig.cap="Regression Results"}
-
-knitr::include_graphics("myregression.png")
-
-```
-</aside>
 
 
 
