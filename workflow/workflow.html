@@ -7,7 +7,7 @@
 <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes">
 
 <meta name="author" content="Andy Grogan-Kaylor">
-<meta name="dcterms.date" content="2023-03-31">
+<meta name="dcterms.date" content="2023-04-01">
 
 <title>Workflow</title>
 <style>
@@ -152,7 +152,7 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
     <div>
     <div class="quarto-title-meta-heading">Published</div>
     <div class="quarto-title-meta-contents">
-      <p class="date">March 31, 2023</p>
+      <p class="date">April 1, 2023</p>
     </div>
   </div>
   
@@ -185,8 +185,8 @@ blockquote {
 <h1 data-number="2"><span class="header-section-number">2</span> Visually and Conceptually</h1>
 <div class="cell">
 <div class="cell-output-display">
-<div class="grViz html-widget html-fill-item-overflow-hidden html-fill-item" id="htmlwidget-bec8febed2c0c9a1ec1a" style="width:100%;height:557px;"></div>
-<script type="application/json" data-for="htmlwidget-bec8febed2c0c9a1ec1a">{"x":{"diagram":"\n\ndigraph workflow {\n\nnode [fontname = Helvetica, color = blue]\n\nask [label = \"ask a question\"]\n\nopen [label = \"open the raw data\"]\n\nclean [label = \"clean the data, e.g. outliers & errors\"]\n\nwrangle [label = \"create any new variables or scales\"]\n\ndescriptives [label = \"descriptive statistics\"]\n\nvisualize [label = \"visualize the data\"]\n\nanalyze [label = \"analyze with bivariate or multivariate statistics\"]\n\nshare [label = \"share your results with your community(ies)\"]\n\nask -> open \n\nopen -> clean \n\nclean -> wrangle\n\nwrangle -> descriptives\n\ndescriptives -> visualize\n\nvisualize -> analyze\n\nanalyze -> share\n\n\n}","config":{"engine":"dot","options":null}},"evals":[],"jsHooks":[]}</script>
+<div class="grViz html-widget html-fill-item-overflow-hidden html-fill-item" id="htmlwidget-b40c267eef9c4cbcea9a" style="width:100%;height:557px;"></div>
+<script type="application/json" data-for="htmlwidget-b40c267eef9c4cbcea9a">{"x":{"diagram":"\n\ndigraph workflow {\n\nnode [fontname = Helvetica, color = blue]\n\nask [label = \"ask a question\"]\n\nopen [label = \"open the raw data\"]\n\nclean [label = \"clean the data, e.g. outliers & errors\"]\n\nwrangle [label = \"create any new variables or scales\"]\n\ndescriptives [label = \"descriptive statistics\"]\n\nvisualize [label = \"visualize the data\"]\n\nanalyze [label = \"analyze with bivariate or multivariate statistics\"]\n\nshare [label = \"share your results with your community(ies)\"]\n\nask -> open \n\nopen -> clean \n\nclean -> wrangle\n\nwrangle -> descriptives\n\ndescriptives -> visualize\n\nvisualize -> analyze\n\nanalyze -> share\n\n\n}","config":{"engine":"dot","options":null}},"evals":[],"jsHooks":[]}</script>
 </div>
 </div>
 </section>
@@ -194,7 +194,7 @@ blockquote {
 <h1 data-number="3"><span class="header-section-number">3</span> Characteristics of Good Workflows</h1>
 <p>Increasingly, we want to think about workflows that are</p>
 <ul>
-<li><strong>documentable</strong> and <strong>auditable</strong>: We have a record of what we did if we want to double check our work, clarify a result, or develop a new project with a similar process. We, or others, can find the inevitable errors in our work, <strong>and correct them</strong>.</li>
+<li><strong>documentable</strong>, <strong>transparent</strong>, and <strong>auditable</strong>: We have a record of what we did if we want to double check our work, clarify a result, or develop a new project with a similar process. We, or others, can find the inevitable errors in our work, <strong>and correct them</strong>.</li>
 <li><strong>replicable</strong>: Others can replicate our findings with the same or new data.</li>
 <li><strong>scalable</strong>: We are developing a process that can be as easily used with <em>thousands</em> or <em>millions</em> of rows of data as it can with <em>ten</em> rows of data. We are developing a process that can be easily repeated if we are <em>constantly getting new or updated data</em>, e.g.&nbsp;getting new data every week, or every month.</li>
 </ul>
