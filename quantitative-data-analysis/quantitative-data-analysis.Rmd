@@ -1,19 +1,22 @@
 ---
 title: "Quantitative Data Analysis"
-description: |
-  In Excel, Google Sheets, R and Stata
-author: Andy Grogan-Kaylor
+author: "Andy Grogan-Kaylor"
 date: "`r Sys.Date()`"
 output:
-  pdf_document: 
-    toc: yes
-    latex_engine: xelatex
-    number_sections: yes
   distill::distill_article:
     highlight: haddock
     toc: yes
+  html_document:
+    toc: yes
+    df_print: paged
+  pdf_document:
+    toc: yes
+    latex_engine: xelatex
+    number_sections: yes
+description: |
+  In Excel, Google Sheets, R and Stata
 mainfont: Arial
-always_allow_html: true
+always_allow_html: yes
 ---
 
 ```{r setup, include=FALSE}
