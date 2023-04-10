@@ -25,6 +25,8 @@
 
 * [Simpson's Paradox With Palmer Penguins Data](./simpsons-paradox-palmer-penguins/simpsons-paradox-palmer-penguins.html)
 
+* [Selecting on a Collider](./collider/collider.html)
+
 * [Interactions and Moderation](./interactions/interactions.html)
 
 * [Unpacking Interactions](./interactions-unpacking/interactions-unpacking.html)
