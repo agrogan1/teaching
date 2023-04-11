@@ -30,6 +30,8 @@ library(dplyr) # data wrangling
 
 library(sjPlot) # nice tables
 
+set.seed(1234)
+
 ```
 
 # Simulated Data
@@ -53,7 +55,7 @@ df <- data.frame(x, y, e, z) # data frame
 ```{r}
 
 df_selected <- df %>%
-  filter(z > 200)  # selection criterion
+  filter(z > 215)  # selection criterion
 
 ```
 
