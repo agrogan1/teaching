@@ -55,6 +55,8 @@ So many workflows follow the same conceptual pattern.
 #| fig-cap: "A Common Workflow"
 #| fig-height: 6
 
+if (knitr::opts_knit$get("rmarkdown.pandoc.to")=="html") {
+  
 DiagrammeR::grViz("
 
 digraph workflow {
@@ -92,6 +94,12 @@ visualize -> analyze
 analyze -> share
 
 }")
+  
+} else { 
+  
+  knitr::include_graphics("workflow.png")
+  
+}
 
 ```
 
