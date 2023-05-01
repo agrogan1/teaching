@@ -7,7 +7,7 @@
 <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes">
 
 <meta name="author" content="Andy Grogan-Kaylor">
-<meta name="dcterms.date" content="2023-04-12">
+<meta name="dcterms.date" content="2023-05-01">
 
 <title>Workflow</title>
 <style>
@@ -152,7 +152,7 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
     <div>
     <div class="quarto-title-meta-heading">Published</div>
     <div class="quarto-title-meta-contents">
-      <p class="date">April 12, 2023</p>
+      <p class="date">May 1, 2023</p>
     </div>
   </div>
   
@@ -185,8 +185,8 @@ blockquote {
 <h1 data-number="2"><span class="header-section-number">2</span> Visually and Conceptually</h1>
 <div class="cell">
 <div class="cell-output-display">
-<div class="grViz html-widget html-fill-item-overflow-hidden html-fill-item" id="htmlwidget-6af088a6c0bae8747b21" style="width:100%;height:557px;"></div>
-<script type="application/json" data-for="htmlwidget-6af088a6c0bae8747b21">{"x":{"diagram":"\n\ndigraph workflow {\n\nnode [fontname = Helvetica, color = blue]\n\nask [label = \"ask a question\"]\n\nopen [label = \"open the raw data\"]\n\nclean [label = \"clean the data, e.g. outliers & errors\"]\n\nwrangle [label = \"create any new variables or scales\"]\n\ndescriptives [label = \"descriptive statistics\"]\n\nvisualize [label = \"visualize the data\"]\n\nanalyze [label = \"analyze with bivariate or multivariate statistics\"]\n\nshare [label = \"share your results with your community(ies)\"]\n\nask -> open \n\nopen -> clean \n\nclean -> wrangle\n\nwrangle -> descriptives\n\ndescriptives -> visualize\n\nvisualize -> analyze\n\nanalyze -> share\n\n}","config":{"engine":"dot","options":null}},"evals":[],"jsHooks":[]}</script>
+<div class="grViz html-widget html-fill-item-overflow-hidden html-fill-item" id="htmlwidget-ac008b9bbd4753bb9321" style="width:100%;height:557px;"></div>
+<script type="application/json" data-for="htmlwidget-ac008b9bbd4753bb9321">{"x":{"diagram":"\n\ndigraph workflow {\n\nnode [fontname = Helvetica, color = blue]\n\nask [label = \"ask a question\"]\n\nopen [label = \"open the raw data\"]\n\nclean [label = \"clean the data, e.g. outliers & errors\"]\n\nwrangle [label = \"create any new variables or scales\"]\n\ndescriptives [label = \"descriptive statistics\"]\n\nvisualize [label = \"visualize the data\"]\n\nanalyze [label = \"analyze with bivariate or multivariate statistics\"]\n\nshare [label = \"share your results with your community(ies)\"]\n\nask -> open \n\nopen -> clean \n\nclean -> wrangle\n\nwrangle -> descriptives\n\ndescriptives -> visualize\n\nvisualize -> analyze\n\nanalyze -> share\n\n}","config":{"engine":"dot","options":null}},"evals":[],"jsHooks":[]}</script>
 <p>A Common Workflow</p>
 </div>
 </div>
@@ -204,7 +204,7 @@ blockquote {
 <h1 data-number="4"><span class="header-section-number">4</span> Complex Workflows</h1>
 <p>For <strong>complex workflows</strong>, we will often want to write a script.</p>
 <blockquote class="blockquote">
-<p>The more graphs or calculations I have to make, the more complex the project, the more the desires of the client are likely to change, the more frequently the data is being updated, and the more mission critical the results (i.e.&nbsp;I need auditability and error correction) the more likely I am to use a scripting tool like Stata or R.</p>
+<p>The more graphs or calculations I have to make, the more complex the project, the more the desires of the client are likely to change, the more frequently the data is being updated, the more team members that are involved in the workflow, and/or the more mission critical the results (i.e.&nbsp;I need auditability, documentation, and error correction) the more likely I am to use a scripting tool like Stata or R.</p>
 </blockquote>
 <table class="table">
 <caption>Tools for Different Workflows</caption>
