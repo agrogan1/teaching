@@ -7,7 +7,7 @@
 <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes">
 
 <meta name="author" content="Andy Grogan-Kaylor">
-<meta name="dcterms.date" content="2023-05-01">
+<meta name="dcterms.date" content="2023-05-02">
 
 <title>Workflow</title>
 <style>
@@ -121,6 +121,7 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
   <li><a href="#characteristics-of-good-workflows" id="toc-characteristics-of-good-workflows" class="nav-link" data-scroll-target="#characteristics-of-good-workflows"><span class="toc-section-number">3</span>  Characteristics of Good Workflows</a></li>
   <li><a href="#complex-workflows" id="toc-complex-workflows" class="nav-link" data-scroll-target="#complex-workflows"><span class="toc-section-number">4</span>  Complex Workflows</a></li>
   <li><a href="#example" id="toc-example" class="nav-link" data-scroll-target="#example"><span class="toc-section-number">5</span>  Example</a></li>
+  <li><a href="#multiple-person-workflows" id="toc-multiple-person-workflows" class="nav-link" data-scroll-target="#multiple-person-workflows"><span class="toc-section-number">6</span>  Multiple Person Workflows</a></li>
   </ul>
 </nav>
 </div>
@@ -152,7 +153,7 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
     <div>
     <div class="quarto-title-meta-heading">Published</div>
     <div class="quarto-title-meta-contents">
-      <p class="date">May 1, 2023</p>
+      <p class="date">May 2, 2023</p>
     </div>
   </div>
   
@@ -185,8 +186,8 @@ blockquote {
 <h1 data-number="2"><span class="header-section-number">2</span> Visually and Conceptually</h1>
 <div class="cell">
 <div class="cell-output-display">
-<div class="grViz html-widget html-fill-item-overflow-hidden html-fill-item" id="htmlwidget-ac008b9bbd4753bb9321" style="width:100%;height:557px;"></div>
-<script type="application/json" data-for="htmlwidget-ac008b9bbd4753bb9321">{"x":{"diagram":"\n\ndigraph workflow {\n\nnode [fontname = Helvetica, color = blue]\n\nask [label = \"ask a question\"]\n\nopen [label = \"open the raw data\"]\n\nclean [label = \"clean the data, e.g. outliers & errors\"]\n\nwrangle [label = \"create any new variables or scales\"]\n\ndescriptives [label = \"descriptive statistics\"]\n\nvisualize [label = \"visualize the data\"]\n\nanalyze [label = \"analyze with bivariate or multivariate statistics\"]\n\nshare [label = \"share your results with your community(ies)\"]\n\nask -> open \n\nopen -> clean \n\nclean -> wrangle\n\nwrangle -> descriptives\n\ndescriptives -> visualize\n\nvisualize -> analyze\n\nanalyze -> share\n\n}","config":{"engine":"dot","options":null}},"evals":[],"jsHooks":[]}</script>
+<div class="grViz html-widget html-fill-item-overflow-hidden html-fill-item" id="htmlwidget-5d0151fca29dd1198535" style="width:100%;height:557px;"></div>
+<script type="application/json" data-for="htmlwidget-5d0151fca29dd1198535">{"x":{"diagram":"\n\ndigraph workflow {\n\nnode [fontname = Helvetica, color = blue]\n\nask [label = \"ask a question\"]\n\nopen [label = \"open the raw data\"]\n\nclean [label = \"clean the data, e.g. outliers & errors\"]\n\nwrangle [label = \"create any new variables or scales\"]\n\ndescriptives [label = \"descriptive statistics\"]\n\nvisualize [label = \"visualize the data\"]\n\nanalyze [label = \"analyze with bivariate or multivariate statistics\"]\n\nshare [label = \"share your results with your community(ies)\"]\n\nask -> open \n\nopen -> clean \n\nclean -> wrangle\n\nwrangle -> descriptives\n\ndescriptives -> visualize\n\nvisualize -> analyze\n\nanalyze -> share\n\n}","config":{"engine":"dot","options":null}},"evals":[],"jsHooks":[]}</script>
 <p>A Common Workflow</p>
 </div>
 </div>
@@ -359,6 +360,19 @@ culmen_len~m | Coefficient  Std. err.      t    P&gt;|t|     [95% conf. interval
  body_mass_g |   .0040514   .0002967    13.65   0.000     .0034678     .004635
        _cons |   26.89887   1.269148    21.19   0.000      24.4025    29.39524
 ------------------------------------------------------------------------------</code></pre>
+</div>
+</div>
+</section>
+<section id="multiple-person-workflows" class="level1" data-number="6">
+<h1 data-number="6"><span class="header-section-number">6</span> Multiple Person Workflows</h1>
+<p>When workflows involve multiple people, all of the above considerations apply, but the situation becomes more complex. Two hypothetical multiple person workflows are illustrated below.</p>
+<p>The workflow on the left is <em>uncoordinated</em>. Each person’s work is not available to the others, which may cause difficulties if people’s work is supposed to build on the work of others. If one team member makes updates or corrects errors, the results of these efforts are not automatically available to the others.</p>
+<p>In contrast, the workflow on the right is <em>coordinated</em>. Each person’s work is available to the others so that updates and corrections to errors are propagated through the workflow, and into final analyses and visualizations.</p>
+<div class="cell">
+<div class="cell-output-display">
+<div class="grViz html-widget html-fill-item-overflow-hidden html-fill-item" id="htmlwidget-3c90673f2d39da261d8e" style="width:100%;height:557px;"></div>
+<script type="application/json" data-for="htmlwidget-3c90673f2d39da261d8e">{"x":{"diagram":"\n\ndigraph workflow {\n\nnode [fontname = Helvetica, color = black]\n\nrawdataA [label = \"raw data\"]\n\nrawdataB [label = \"raw data\"]\n\nnode [fontname = Helvetica, color = blue]\n\nperson1A [label = \"person 1\"]\n\nperson1B [label = \"person 1\"]\n\ncleandataA [label = \"cleans the data\"]\n\ncleandataB [label = \"cleans the data\"]\n\nnode [fontname = Helvetica, color = red]\n\nperson2A [label = \"person 2\"]\n\nperson2B [label = \"person 2\"]\n\nscale1A [label = \"creates scale 1\"]\n\nscale1B [label = \"creates scale 1\"]\n\nnode [fontname = Helvetica, color = darkgreen]\n\nperson3A [label = \"person 3\"]\n\nperson3B [label = \"person 3\"]\n\nscale2A [label = \"creates scale 2\"]\n\nscale2B [label = \"creates scale 2\"]\n\nnode [fontname = Helvetica, color = orange]\n\nperson4A [label = \"person 4\"]\n\nperson4B [label = \"person 4\"]\n\ncomplexanalysisA [label = \"complex analysis \nand visualization\"]\n\ncomplexanalysisB [label = \"complex analysis \nand visualization\"]\n\nsubgraph cluster_0 {\n\nlabel = \"An UNCOORDINATED multiperson workflow\"\n\nrawdataA -> person1A\n\nperson1A -> cleandataA\n\nrawdataA -> person2A\n\nperson2A -> scale1A\n\nrawdataA -> person3A\n\nperson3A -> scale2A\n\nrawdataA -> person4A\n\nperson4A -> complexanalysisA\n\n}\n\nsubgraph cluster_1 {\n\nlabel = \"A COORDINATED multiperson workflow\"\n\nrawdataB -> person1B\n\nperson1B -> cleandataB\n\ncleandataB -> person2B\n\nperson2B -> scale1B\n\nscale1B -> person3B\n\nperson3B -> scale2B\n\nscale2B -> person4B\n\nperson4B -> complexanalysisB\n\n}\n\n}","config":{"engine":"dot","options":null}},"evals":[],"jsHooks":[]}</script>
+<p>Multiple Person Workflows</p>
 </div>
 </div>
 </section>

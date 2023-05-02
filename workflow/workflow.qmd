@@ -216,7 +216,123 @@ regress culmen_length_mm body_mass_g // regress culmen length on body mass
 ```
 
 
+# Multiple Person Workflows
 
+When workflows involve multiple people, all of the above considerations apply, but the situation becomes more complex. Two hypothetical multiple person workflows are illustrated below. 
+
+The workflow on the left is *uncoordinated*. Each person's work is not available to the others, which may cause difficulties if people's work is supposed to build on the work of others. If one team member makes updates or corrects errors, the results of these efforts are not automatically available to the others.
+
+In contrast, the workflow on the right is *coordinated*. Each person's work is available to the others so that updates and corrections to errors are propagated through the workflow, and into final analyses and visualizations. 
+
+```{r}
+#| fig-cap: "Multiple Person Workflows"
+#| fig-height: 6
+
+if (knitr::opts_knit$get("rmarkdown.pandoc.to")=="html") {
+  
+DiagrammeR::grViz("
+
+digraph workflow {
+
+node [fontname = Helvetica, color = black]
+
+rawdataA [label = 'raw data']
+
+rawdataB [label = 'raw data']
+
+node [fontname = Helvetica, color = blue]
+
+person1A [label = 'person 1']
+
+person1B [label = 'person 1']
+
+cleandataA [label = 'cleans the data']
+
+cleandataB [label = 'cleans the data']
+
+node [fontname = Helvetica, color = red]
+
+person2A [label = 'person 2']
+
+person2B [label = 'person 2']
+
+scale1A [label = 'creates scale 1']
+
+scale1B [label = 'creates scale 1']
+
+node [fontname = Helvetica, color = darkgreen]
+
+person3A [label = 'person 3']
+
+person3B [label = 'person 3']
+
+scale2A [label = 'creates scale 2']
+
+scale2B [label = 'creates scale 2']
+
+node [fontname = Helvetica, color = orange]
+
+person4A [label = 'person 4']
+
+person4B [label = 'person 4']
+
+complexanalysisA [label = 'complex analysis \nand visualization']
+
+complexanalysisB [label = 'complex analysis \nand visualization']
+
+subgraph cluster_0 {
+
+label = 'An UNCOORDINATED multiperson workflow'
+
+rawdataA -> person1A
+
+person1A -> cleandataA
+
+rawdataA -> person2A
+
+person2A -> scale1A
+
+rawdataA -> person3A
+
+person3A -> scale2A
+
+rawdataA -> person4A
+
+person4A -> complexanalysisA
+
+}
+
+subgraph cluster_1 {
+
+label = 'A COORDINATED multiperson workflow'
+
+rawdataB -> person1B
+
+person1B -> cleandataB
+
+cleandataB -> person2B
+
+person2B -> scale1B
+
+scale1B -> person3B
+
+person3B -> scale2B
+
+scale2B -> person4B
+
+person4B -> complexanalysisB
+
+}
+
+}")
+  
+} else { 
+  
+  knitr::include_graphics("multiplepersonworkflow.png")
+  
+}
+
+```
 
 
 
