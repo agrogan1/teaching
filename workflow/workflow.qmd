@@ -8,6 +8,9 @@ author:
     affiliation_url: https://umich.edu/
 date: "today"
 format:
+  docx: 
+    toc: true
+    number-sections: true
   html:
     toc: true
     number-sections: true
@@ -55,8 +58,6 @@ So many workflows follow the same conceptual pattern.
 #| fig-cap: "A Common Workflow"
 #| fig-height: 6
 
-if (knitr::opts_knit$get("rmarkdown.pandoc.to")=="html") {
-  
 DiagrammeR::grViz("
 
 digraph workflow {
@@ -94,12 +95,6 @@ visualize -> analyze
 analyze -> share
 
 }")
-  
-} else { 
-  
-  knitr::include_graphics("workflow.png")
-  
-}
 
 ```
 
@@ -218,18 +213,18 @@ regress culmen_length_mm body_mass_g // regress culmen length on body mass
 
 # Multiple Person Workflows
 
-When workflows involve multiple people, all of the above considerations apply, but the situation becomes more complex. Two hypothetical multiple person workflows are illustrated below. 
+When workflows involve multiple people, all of the above considerations apply, but the situation often becomes more complex. Two hypothetical multiple person workflows are illustrated below. 
 
-The workflow on the left is *uncoordinated*. Each person's work is not available to the others, which may cause difficulties if people's work is supposed to build on the work of others. If one team member makes updates or corrects errors, the results of these efforts are not automatically available to the others.
+In the diagram below, the workflow on the left is *uncoordinated*. Each person's work is not available to the others, which may cause difficulties if people's work is supposed to build on the work of others. If one team member makes updates or corrects errors, the results of these efforts are not automatically available to the others.
 
-In contrast, the workflow on the right is *coordinated*. Each person's work is available to the others so that updates and corrections to errors are propagated through the workflow, and into final analyses and visualizations. 
+In contrast, in the diagram below, the workflow on the right is *coordinated*. Each person's work is available to the others so that updates and corrections to errors are propagated through the workflow, and into final analyses and visualizations. 
+
+It is often the case that a *coordinated* workflow requires more *coordination*, *time* and *energy* to implement than an *uncoordinated* workflow, but a *coordinated* workflow is likely to pay benefits in terms of all of the advantages of good workflows listed above. 
 
 ```{r}
 #| fig-cap: "Multiple Person Workflows"
 #| fig-height: 6
 
-if (knitr::opts_knit$get("rmarkdown.pandoc.to")=="html") {
-  
 DiagrammeR::grViz("
 
 digraph workflow {
@@ -325,12 +320,6 @@ person4B -> complexanalysisB
 }
 
 }")
-  
-} else { 
-  
-  knitr::include_graphics("multiplepersonworkflow.png")
-  
-}
 
 ```
 
