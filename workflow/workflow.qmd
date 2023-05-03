@@ -11,6 +11,7 @@ format:
   docx: 
     toc: true
     number-sections: true
+    reference-doc: markstat.docx
   html:
     toc: true
     number-sections: true
