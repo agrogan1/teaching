@@ -1,18 +1,17 @@
 ---
 title: "Interactions and Moderation"
-description: |
-  A brief and evolving tutorial on interactions and moderation.
-author:
-  - name: Andy Grogan-Kaylor 
-    url: https://agrogan1.github.io/
-    affiliation: University of Michigan
-    affiliation_url: https://www.umich.edu
-date: "`r Sys.Date()`"
-output:
-  distill::distill_article:
-    highlight: haddock
-    toc: yes
-    code_folding: true
+subtitle: "A brief and evolving tutorial on interactions and moderation"
+author: "Andy Grogan-Kaylor"
+date: "today"
+format:
+  html:
+    toc: true
+    number-sections: true
+    code-fold: true
+    code-summary: "Show the code"
+    theme:
+      light: united
+      dark: vapor
 ---
 
 ```{r setup, include=FALSE}
@@ -29,9 +28,29 @@ library(gt)
 
 ```
 
+# Introduction
+
+I’ve heard somewhere--I unfortunately forget exactly where--that a statistical model is nothing more than a principled statement about the data, that can be tested against the data. I think of moderation in that context. 
+
+Moderation is a kind of "statistical story" about different groups in the data. 
+
+As we build up to the idea of moderation, we are telling various "stories" about the data, and testing whether they are accurate.
+
+```{css, echo=FALSE}
+
+blockquote {
+  color: black;
+  border-left: 2px solid #FFCB05; 
+  padding: 0.5em 10px;
+}
+  
+```
+
 # Setup
 
 ## The Equation That Generates The Data
+
+In practice, we usually don't know this equation. We are trying to *estimate* it.
 
 $$y_i = \beta_0 + \beta_1 x + \beta_2 \text{group} + \beta_3 (x \times \text{group}) + e_i$$
 
@@ -83,6 +102,8 @@ plot(x, y, col = "grey", pch = 19)
 
 ## The Story
 
+> Our first story is that the regression coefficients function the same for everyone in the data set, regardless of the group that they are in. Everyone has the same $\beta_0$, and the same $\beta_1$ or regression slope.
+
 *y* is a function of an *intercept*, *x* and some *error*.
 
 ## The Equation
@@ -112,6 +133,8 @@ abline(24.57, .8803, col="purple", lwd = 3)
 # Second Model: *x* and *group*
 
 ## The Story
+
+> Our second story is that one group has a different $\beta_0$, a different intercept from the other group, But both groups have the same regression slope or $\beta_1$. 
 
 *y* is a function of an *intercept*, *x*, *group* membership, and some *error*.
 
@@ -145,13 +168,13 @@ abline(21.92 + 5.039, .8808, col="blue", lwd = 3)
 
 ## The Story
 
-*y* is a function of an *intercept*, *x*, *group* membership, *group* membership multiplied by *x*, and some *error*.
+> Our third and final story--and this is where interactions and moderation come in--is that each group has its own regression intercept, **and** *each group now also has its own slope*. One group has a slope of $\beta_1$. The other group has a slope of $\beta_1 + \beta_3$, where $\beta_3$ three indicates how the regression slope for the second group, is different from the regression slope for the first group.
 
+*y* is a function of an *intercept*, *x*, *group* membership, *group* membership multiplied by *x*, and some *error*.
 
 ## The Equation
 
 $$y = \beta_0 + \beta_1 x + \beta_2 group + + \beta_3 x \times group + e_i$$
-
 ## The Regression
 
 ```{r}
