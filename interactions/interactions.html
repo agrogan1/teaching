@@ -70,7 +70,7 @@ ul.task-list li input[type="checkbox"] {
   <li><a href="#setup" id="toc-setup" class="nav-link" data-scroll-target="#setup"><span class="toc-section-number">2</span>  Setup</a>
   <ul class="collapse">
   <li><a href="#the-equation-that-generates-the-data" id="toc-the-equation-that-generates-the-data" class="nav-link" data-scroll-target="#the-equation-that-generates-the-data"><span class="toc-section-number">2.1</span>  The Equation That Generates The Data</a></li>
-  <li><a href="#simulate-some-data" id="toc-simulate-some-data" class="nav-link" data-scroll-target="#simulate-some-data"><span class="toc-section-number">2.2</span>  Simulate Some Data</a></li>
+  <li><a href="#simulated-data" id="toc-simulated-data" class="nav-link" data-scroll-target="#simulated-data"><span class="toc-section-number">2.2</span>  Simulated Data</a></li>
   <li><a href="#graph-the-data" id="toc-graph-the-data" class="nav-link" data-scroll-target="#graph-the-data"><span class="toc-section-number">2.3</span>  Graph The Data</a></li>
   </ul></li>
   <li><a href="#first-model-x-only" id="toc-first-model-x-only" class="nav-link" data-scroll-target="#first-model-x-only"><span class="toc-section-number">3</span>  First Model: <em>x</em> Only</a>
@@ -150,13 +150,15 @@ blockquote {
 <h1 data-number="2"><span class="header-section-number">2</span> Setup</h1>
 <section id="the-equation-that-generates-the-data" class="level2" data-number="2.1">
 <h2 data-number="2.1" class="anchored" data-anchor-id="the-equation-that-generates-the-data"><span class="header-section-number">2.1</span> The Equation That Generates The Data</h2>
+<blockquote class="blockquote">
 <p>In practice, we usually don’t know this equation. We are trying to <em>estimate</em> it.</p>
+</blockquote>
 <p><span class="math display">\[y_i = \beta_0 + \beta_1 x + \beta_2 \text{group} + \beta_3 (x \times \text{group}) + e_i\]</span></p>
 <p>Numerically…</p>
 <p><span class="math display">\[y_i = 10 + 1x + 30 \text{group} -.25 (x \times \text{group}) + e_i\]</span></p>
 </section>
-<section id="simulate-some-data" class="level2" data-number="2.2">
-<h2 data-number="2.2" class="anchored" data-anchor-id="simulate-some-data"><span class="header-section-number">2.2</span> Simulate Some Data</h2>
+<section id="simulated-data" class="level2" data-number="2.2">
+<h2 data-number="2.2" class="anchored" data-anchor-id="simulated-data"><span class="header-section-number">2.2</span> Simulated Data</h2>
 <div class="cell">
 <div class="cell-output-display">
 
@@ -181,7 +183,19 @@ blockquote {
 <blockquote class="blockquote">
 <p>Our first story is that the regression coefficients function the same for everyone in the data set, regardless of the group that they are in. Everyone has the same <span class="math inline">\(\beta_0\)</span>, and the same <span class="math inline">\(\beta_1\)</span> or regression slope.</p>
 </blockquote>
+<div class="callout-tip callout callout-style-default callout-captioned">
+<div class="callout-header d-flex align-content-center">
+<div class="callout-icon-container">
+<i class="callout-icon"></i>
+</div>
+<div class="callout-caption-container flex-fill">
+y Is A Function Of …
+</div>
+</div>
+<div class="callout-body-container callout-body">
 <p><em>y</em> is a function of an <em>intercept</em>, <em>x</em> and some <em>error</em>.</p>
+</div>
+</div>
 </section>
 <section id="the-equation" class="level2" data-number="3.2">
 <h2 data-number="3.2" class="anchored" data-anchor-id="the-equation"><span class="header-section-number">3.2</span> The Equation</h2>
@@ -269,7 +283,19 @@ blockquote {
 <blockquote class="blockquote">
 <p>Our second story is that one group has a different <span class="math inline">\(\beta_0\)</span>, a different intercept from the other group, But both groups have the same regression slope or <span class="math inline">\(\beta_1\)</span>.</p>
 </blockquote>
+<div class="callout-tip callout callout-style-default callout-captioned">
+<div class="callout-header d-flex align-content-center">
+<div class="callout-icon-container">
+<i class="callout-icon"></i>
+</div>
+<div class="callout-caption-container flex-fill">
+y Is A Function Of …
+</div>
+</div>
+<div class="callout-body-container callout-body">
 <p><em>y</em> is a function of an <em>intercept</em>, <em>x</em>, <em>group</em> membership, and some <em>error</em>.</p>
+</div>
+</div>
 </section>
 <section id="the-equation-1" class="level2" data-number="4.2">
 <h2 data-number="4.2" class="anchored" data-anchor-id="the-equation-1"><span class="header-section-number">4.2</span> The Equation</h2>
@@ -362,13 +388,25 @@ blockquote {
 <section id="the-story-2" class="level2" data-number="5.1">
 <h2 data-number="5.1" class="anchored" data-anchor-id="the-story-2"><span class="header-section-number">5.1</span> The Story</h2>
 <blockquote class="blockquote">
-<p>Our third and final story–and this is where interactions and moderation come in–is that each group has its own regression intercept, <strong>and</strong> <em>each group now also has its own slope</em>. One group has a slope of <span class="math inline">\(\beta_1\)</span>. The other group has a slope of <span class="math inline">\(\beta_1 + \beta_3\)</span>, where <span class="math inline">\(\beta_3\)</span> three indicates how the regression slope for the second group, is different from the regression slope for the first group.</p>
+<p>Our third and final story–and this is where interactions and moderation come in–is that each group has its own regression intercept, <strong>and</strong> <em>each group now also has its own slope</em>. One group has a slope of <span class="math inline">\(\beta_1\)</span>. The other group has a slope of <span class="math inline">\(\beta_1 + \beta_3\)</span>, where <span class="math inline">\(\beta_3\)</span> indicates how the regression slope for the second group, is different from the regression slope for the first group.</p>
 </blockquote>
+<div class="callout-tip callout callout-style-default callout-captioned">
+<div class="callout-header d-flex align-content-center">
+<div class="callout-icon-container">
+<i class="callout-icon"></i>
+</div>
+<div class="callout-caption-container flex-fill">
+y Is A Function Of …
+</div>
+</div>
+<div class="callout-body-container callout-body">
 <p><em>y</em> is a function of an <em>intercept</em>, <em>x</em>, <em>group</em> membership, <em>group</em> membership multiplied by <em>x</em>, and some <em>error</em>.</p>
+</div>
+</div>
 </section>
 <section id="the-equation-2" class="level2" data-number="5.2">
 <h2 data-number="5.2" class="anchored" data-anchor-id="the-equation-2"><span class="header-section-number">5.2</span> The Equation</h2>
-<p><span class="math display">\[y = \beta_0 + \beta_1 x + \beta_2 group + + \beta_3 x \times group + e_i\]</span> ## The Regression</p>
+<p><span class="math display">\[y = \beta_0 + \beta_1 x + \beta_2 group + \beta_3 x \times group + e_i\]</span> ## The Regression</p>
 <div class="cell">
 <div class="cell-output-display">
 <table class="table table-sm table-striped">
