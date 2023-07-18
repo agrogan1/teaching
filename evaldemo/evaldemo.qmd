@@ -22,6 +22,8 @@ I am going to say a lot of stuff about the data.
 
 # Data
 
+This is really important data. It is a survey of blah blah blah.
+
 ```{r, echo=FALSE}
 
 load("evaldata.RData")
@@ -49,8 +51,10 @@ ggplot(evaldata, # data I'm using
 
 # Analysis
 
+Here are the proportions of various types of project.
+
 ```{r, echo=FALSE}
 
-table(evaldata$Q1)
+prop.table(table(evaldata$Q1))
 
 ```
