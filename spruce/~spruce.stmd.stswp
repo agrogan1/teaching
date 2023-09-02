@@ -95,7 +95,7 @@ Let's consider in turn each of the criteria for causality.
 	
 	* generate mylabel = "🌲"
 	
-    twoway (scatter Height5 Fertilizer if Fertilizer == 1) ///
+  twoway (scatter Height5 Fertilizer if Fertilizer == 1) ///
 	(scatter Height5 Fertilizer if Fertilizer == 2), ///
 	title("Tree Height by Fertilizer") ///
 	xtitle("Fertilizer") xlabel("none") ///

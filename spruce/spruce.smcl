@@ -1,17 +1,17 @@
 {smcl}
 {com}{sf}{ul off}{txt}{.-}
       name:  {res}<unnamed>
-       {txt}log:  {res}/Users/agrogan/Desktop/GitHub/teaching/spruce/spruce.smcl
+       {txt}log:  {res}C:\Users\agrogan\Desktop\GitHub\teaching\spruce\spruce.smcl
   {txt}log type:  {res}smcl
- {txt}opened on:  {res}15 Jun 2022, 09:36:22
+ {txt}opened on:  {res} 2 Sep 2023, 12:55:50
 {txt}
 {com}. //_1
 . display c(current_date)
-{res}15 Jun 2022
+{res} 2 Sep 2023
 {txt}
 {com}. //_2
 . display c(current_time)
-{res}09:36:22
+{res}12:55:50
 {txt}
 {com}. //_3
 . clear all
@@ -56,24 +56,25 @@
 Variable      Storage   Display    Value
     name         type    format    label      Variable label
 {hline}
-{p 0 48}{res}{bind:Tree           }{txt}{bind: long    }{bind:{txt}%12.0g    }{space 1}{bind:         }{bind:  }{res}{res}Tree number{p_end}
-{p 0 48}{bind:Competition    }{txt}{bind: long    }{bind:{txt}%12.0g    }{space 1}{txt}Competition{p_end}
+{p 0 48}{res}{bind:Tree           }{txt}{bind: long    }{bind:%12.0g    }{space 1}{bind:         }{bind:  }{res}{res}Tree number{p_end}
+{p 0 48}{bind:Competition    }{txt}{bind: long    }{bind:%12.0g    }{space 1}{txt}Competition{p_end}
 {p 0 48}{space 44}{bind:  }{res}{res}C (competition), CR (competition removed){p_end}
-{p 0 48}{bind:Fertilizer     }{txt}{bind: long    }{bind:{txt}%12.0g    }{space 1}{txt}Fertilizer{p_end}
+{p 0 48}{bind:Fertilizer     }{txt}{bind: long    }{bind:%12.0g    }{space 1}{txt}Fertilizer{p_end}
 {p 0 48}{space 44}{bind:  }{res}{res}F (fertilized), NF (not fertilized){p_end}
-{p 0 48}{bind:Height0        }{txt}{bind: double  }{bind:{txt}%10.0g    }{space 1}{bind:         }{bind:  }{res}{res}Height (cm) of seedling at planting{p_end}
-{p 0 48}{bind:Height5        }{txt}{bind: double  }{bind:{txt}%10.0g    }{space 1}{bind:         }{bind:  }{res}{res}Height (cm) of seedling at year 5{p_end}
-{p 0 48}{bind:Diameter0      }{txt}{bind: double  }{bind:{txt}%10.0g    }{space 1}{bind:         }{bind:  }{res}{res}Diameter (cm) of seedling at planting{p_end}
-{p 0 48}{bind:Diameter5      }{txt}{bind: double  }{bind:{txt}%10.0g    }{space 1}{bind:         }{bind:  }{res}{res}Diameter (cm) of seedling at year 5{p_end}
-{p 0 48}{bind:Ht_change      }{txt}{bind: double  }{bind:{txt}%10.0g    }{space 1}{bind:         }{bind:  }{res}{res}Change (cm) in height{p_end}
-{p 0 48}{bind:Di_change      }{txt}{bind: double  }{bind:{txt}%10.0g    }{space 1}{bind:         }{bind:  }{res}{res}Change (cm) in diameter{p_end}
+{p 0 48}{bind:Height0        }{txt}{bind: double  }{bind:%10.0g    }{space 1}{bind:         }{bind:  }{res}{res}Height (cm) of seedling at planting{p_end}
+{p 0 48}{bind:Height5        }{txt}{bind: double  }{bind:%10.0g    }{space 1}{bind:         }{bind:  }{res}{res}Height (cm) of seedling at year 5{p_end}
+{p 0 48}{bind:Diameter0      }{txt}{bind: double  }{bind:%10.0g    }{space 1}{bind:         }{bind:  }{res}{res}Diameter (cm) of seedling at planting{p_end}
+{p 0 48}{bind:Diameter5      }{txt}{bind: double  }{bind:%10.0g    }{space 1}{bind:         }{bind:  }{res}{res}Diameter (cm) of seedling at year 5{p_end}
+{p 0 48}{bind:Ht_change      }{txt}{bind: double  }{bind:%10.0g    }{space 1}{bind:         }{bind:  }{res}{res}Change (cm) in height{p_end}
+{p 0 48}{bind:Di_change      }{txt}{bind: double  }{bind:%10.0g    }{space 1}{bind:         }{bind:  }{res}{res}Change (cm) in diameter{p_end}
 {txt}{hline}
 Sorted by: 
-
+     Note: {res}Dataset has changed since last saved.
+{txt}
 {com}. //_6q
 . 
-. /*
-> label define fertilizer 1 "Fertilizer" 2 "No Fertilizer"
+.     
+.   /* label define fertilizer 1 "Fertilizer" 2 "No Fertilizer"
 >     
 > label values Fertilizer fertilizer
 >     
@@ -198,7 +199,7 @@ Combined {c |}{res}{col 12}     72{col 22} 45.50556{col 34} 1.333392{col 46} 11.
 . graph export mydensity.png, width(500) replace
 {txt}{p 0 4 2}
 file {bf}
-/Users/agrogan/Desktop/GitHub/teaching/spruce/mydensity.png{rm}
+mydensity.png{rm}
 saved as
 PNG
 format
@@ -235,9 +236,9 @@ format
 . //_^
 . log close
       {txt}name:  {res}<unnamed>
-       {txt}log:  {res}/Users/agrogan/Desktop/GitHub/teaching/spruce/spruce.smcl
+       {txt}log:  {res}C:\Users\agrogan\Desktop\GitHub\teaching\spruce\spruce.smcl
   {txt}log type:  {res}smcl
- {txt}closed on:  {res}15 Jun 2022, 09:36:35
+ {txt}closed on:  {res} 2 Sep 2023, 12:55:56
 {txt}{.-}
 {smcl}
 {txt}{sf}{ul off}
