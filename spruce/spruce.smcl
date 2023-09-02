@@ -1,9 +1,9 @@
 {smcl}
 {com}{sf}{ul off}{txt}{.-}
       name:  {res}<unnamed>
-       {txt}log:  {res}C:\Users\agrogan\Desktop\GitHub\teaching\spruce\spruce.smcl
+       {txt}log:  {res}/Users/agrogan/Desktop/GitHub/teaching/spruce/spruce.smcl
   {txt}log type:  {res}smcl
- {txt}opened on:  {res} 2 Sep 2023, 12:55:50
+ {txt}opened on:  {res} 2 Sep 2023, 13:02:48
 {txt}
 {com}. //_1
 . display c(current_date)
@@ -11,7 +11,7 @@
 {txt}
 {com}. //_2
 . display c(current_time)
-{res}12:55:50
+{res}13:02:48
 {txt}
 {com}. //_3
 . clear all
@@ -199,7 +199,7 @@ Combined {c |}{res}{col 12}     72{col 22} 45.50556{col 34} 1.333392{col 46} 11.
 . graph export mydensity.png, width(500) replace
 {txt}{p 0 4 2}
 file {bf}
-mydensity.png{rm}
+/Users/agrogan/Desktop/GitHub/teaching/spruce/mydensity.png{rm}
 saved as
 PNG
 format
@@ -236,9 +236,9 @@ format
 . //_^
 . log close
       {txt}name:  {res}<unnamed>
-       {txt}log:  {res}C:\Users\agrogan\Desktop\GitHub\teaching\spruce\spruce.smcl
+       {txt}log:  {res}/Users/agrogan/Desktop/GitHub/teaching/spruce/spruce.smcl
   {txt}log type:  {res}smcl
- {txt}closed on:  {res} 2 Sep 2023, 12:55:56
+ {txt}closed on:  {res} 2 Sep 2023, 13:02:54
 {txt}{.-}
 {smcl}
 {txt}{sf}{ul off}
