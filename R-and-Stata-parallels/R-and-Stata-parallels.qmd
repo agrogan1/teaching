@@ -1,0 +1,126 @@
+---
+title: "R and Stata Parallels"
+subtitle: "For Categorical Data Analysis"
+author: "Andy Grogan-Kaylor"
+date: "today"
+format: 
+  html:
+    toc: true
+  pdf: 
+    toc: true
+    classoption: [landscape]
+---
+
+```{css, echo=FALSE}
+
+blockquote {
+  color: black;
+  border-left: 2px solid #FFCB05; 
+  padding: 0.5em 10px;
+}
+  
+```
+
+\renewcommand{\thempfootnote}{\fnsymbol{mpfootnote}}
+
+```{r setup, include = FALSE}
+
+knitr::opts_chunk$set(echo = TRUE)
+
+library(pander)
+
+```
+
+> This is an evolving and growing document. Comments, questions, corrections and clarifications are all welcome.
+
+```{r,echo=FALSE, eval=TRUE}
+
+Concept <- c("Get Data",
+             "Descriptives",
+             "Cross-Tabulation",
+             "Cross-Tabulation With Row and Column Percentages",
+             "",
+             "ChiSquare Test",
+             "Logistic Regression",
+             "Probit Regression",
+             "Ordered Logistic Regression",
+             "Multinomial Logistic Regression",
+             "Poisson Regression",
+             "Negative Binomial Regression")
+
+Stata <- c("`use \"....dta\"`",
+           "`summarize`",
+           "`tabulate x y`",
+           "`tabulate x y, row col`",
+           "",
+           "`tabulate x y, row col chisq`",
+           "`logit y x`",
+           "`probit y x`",
+           "`ologit y x`",
+           "`mlogit y x`",
+           "`poisson y x`",
+           "`nbreg y x`")
+
+R <- c("`load(\"....RData\")`",
+       "`summary()`",
+       "`table(x, y)`[^parsimony]",
+       "`prop.table(table(x, y), margins = ...)`",
+       "`gmodels::CrossTable(x, y)`[^gmodels]",
+       "`chisq.test(table(x, y))`[^chisq]",
+       "`glm(y ~ x, data = ..., family = \"binomial\")`",
+       "`glm(y ~ x, data = ..., family = binomial(link = \"probit\"))`",
+       "`polr(y ~ x, data = ..., Hess = TRUE)`[^polr]",
+       "`multinom(y ~ x, data = ...)`[^multinom]",
+       "`glm(y ~ x, family=\"poisson\", data= ...)`",
+       "`glm.nb(y ~ x, data = ...)`[^nb]")
+
+parallelsdata <- data.frame(Concept, Stata, R)
+
+# knitr::kable(mydata)
+
+# emphasize.cols(1)
+
+save(parallelsdata, file = "parallels.RData")
+
+pander(parallelsdata, split.cells = 15)
+
+```
+
+```{r, eval=FALSE, echo=FALSE}
+
+# legacy handmade table
+
+# | Concept  | Stata | R[^parsimony] | 
+# |----------|-------|----------------|
+# | Get data | `use "....dta"`| `load("....RData")` |
+# | Descriptives | `summarize` | `summary()` |
+# | Cross-Tabulation | `tabulate x y` | `table(x, y)` |
+# | Cross-Tabulation | `tabulate x y, row col` | `prop.table(table(x, y), margins = ...)` |
+# | Cross-Tabulation | `tabulate x y, row col` | `gmodels::CrossTable(x,y)`
+# | Cross-Tabulation | `tabulate x y, chisq` | `chisq.test(table(x,y))` |
+# | Logistic Regression| `logit y x` |  `glm(y ~ x, data = ..., family = "binomial")` |
+# |Probit Regression | `probit y x` | `glm(y ~ x, data = ..., family = binomial(link = "probit"))`  | 
+# |Ordered Logistic Regression | `ologit y x` | `polr(y ~ x, data = ..., Hess = TRUE)` [^polr]|
+# |Multinomial Logistic Regression | `mlogit y x` | `multinom(y ~ x, data = ...)` [^multinom]|
+# |Poisson Regression | `poisson y x`| `glm(y ~ x, family="poisson", data= ...)`|
+# |Negative Binomial Regression | `nbreg y x` | `glm.nb(y ~ x, data = ...)` [^nb]|
+
+
+```
+
+Created by Andy Grogan-Kaylor: [https://agrogan1.github.io/](https://agrogan1.github.io/); [agrogan@umich.edu](agrogan@umich.edu)
+
+
+[^parsimony]: For the sake of parsimony, in my R `table`, `prop.table`, and `gmodels::CrossTable` syntax, I am using single columns of data, e.g. `x` and `y`, but R could as easily use the `dataset$variable` syntax e.g. `table(dataset$variable)`
+[^chisq]: Stata shows the Cross-Tabulation Table together with the $\chi^2$ test while R only shows the results of the $\chi^2$ test.
+[^gmodels]: `gmodels::CrossTable` offers nicer formatting that may be easier to read, especially for those accustomed to Stata or SAS.
+[^polr]: Requires `library(MASS)`
+[^multinom]: Requires `library(nnet)`
+[^nb]: Requires `library(MASS)`
+
+
+
+
+
+
+ 
