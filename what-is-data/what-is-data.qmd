@@ -1,16 +1,21 @@
 ---
 title: "What Is Data?"
 author: Andy Grogan-Kaylor
-date: "`r Sys.Date()`"
-output:
-  distill::distill_article:
-    toc: yes
-  pdf_document: 
-    number_sections: yes
-    toc: yes
-    fig_height: 3
-    latex_engine: xelatex
-mainfont: Arial
+date: "today"
+format:
+  html:
+    toc: true
+    number-sections: true
+    theme:
+      light: united
+      dark: vapor
+    css: styles.css
+  pdf:
+    include-in-header:
+      - text: | 
+          \usepackage[sfdefault]{roboto}
+    toc: true
+    number-sections: true
 ---
 
 ```{r setup, include=FALSE}
@@ -37,7 +42,7 @@ A data set is nothing more than a series of rows and columns that contain answer
 # Simulated Data
 
 
-```{r, eval=TRUE, fig.fullwidth = FALSE}
+```{r}
 
 N <- 100
 
@@ -68,7 +73,7 @@ mydata$age[2] <- NA
 mydata$income[5] <- NA
 
 
-if(knitr::opts_knit$get("rmarkdown.pandoc.to") == "html5") { 
+if(knitr::opts_knit$get("rmarkdown.pandoc.to") == "html") { 
   
   datatable(mydata,
             rownames = FALSE,
@@ -87,26 +92,28 @@ if(knitr::opts_knit$get("rmarkdown.pandoc.to") == "latex") {
 
 }
 
-
 ```
 
 # Both The Data And Documentation Are Useful
 
 In working through our research questions, we’ll constantly be going back and forth between the actual data (to see the pattern of responses) and the documentation, to figure out the actual question asked as well as how the different responses are coded.
 
+::: {.callout-note appearance="minimal"}
 ----------------------------------------
 **Hypothetical Survey**
 ----------------------------------------
 **Question 1**
 What neighborhood do you live in?
 
-0-Neighborhood A
+A - Neighborhood A
 
-1-Neighborhood B
+B - Neighborhood B
 
-2-Other Neighborhood (please indicate)
+...
 
--9-Don't Know / Refused
+-8 - Other Neighborhood (please indicate)
+
+-9 - Don't Know / Refused
 
 **...**
 
@@ -117,6 +124,7 @@ $__________ (annual number)
 
 -9-Don't Know / Refused
 ----------------------------------------
+:::
 
 # Missing Values
 
