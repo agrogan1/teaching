@@ -20,6 +20,8 @@
 
 * [New Regression Tutorial](./new-regression-tutorial/index.html)
 
+* [Quick Regression Demo](./quick-regression-demo/quick-regression-demo.html)
+
 * [Causal Inference With The Spruce Data](./spruce/spruce.html) 
     + [HTML Slides](./spruce/spruce-slidy.html)
 
