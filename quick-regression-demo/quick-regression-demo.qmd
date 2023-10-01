@@ -13,36 +13,53 @@ format:
       dark: vapor
 ---
 
+## Call Libraries
+
+```{r}
+#| output: false
+
+library(pander) # nice tables
+
+library(rgl) # 3D graphics
+
+library(car) # companion to applied regression
+
+```
+
 ## Data
 
 These are the famous Iris data, collected by Edgar Anderson.
+
+```{r}
+
+data("iris") # iris data
+
+pander(head(iris)) # nice table of top of data
+
+```
 
 ## Irises
 
 ![Iris Species](iris-species.png){width=50%}
 
-![Petals and Sepals](petal-sepal.png){width=50%}
+![Petals and Sepals](petal-sepal.png){width=30%}
 
 ## Regression
 
 ```{r}
 
-lm(Petal.Length ~ Sepal.Length + Sepal.Width, data = iris)
+fit1 <- lm(Petal.Length ~ Sepal.Length + Sepal.Width, data = iris)
+
+pander(fit1) # nice table
 
 ```
 
-## Regression Demo
+## Visualization
 
 ```{r}
 #| message: false
 
-library(rgl)
-
-library(car) # companion to applied regression
-
 options(rgl.useNULL = TRUE) # suppress separate RGL window.
-
-data("iris")
 
 car::scatter3d(x = iris$Sepal.Length,
                y = iris$Petal.Length,
