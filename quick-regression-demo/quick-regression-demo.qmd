@@ -1,0 +1,58 @@
+---
+title: "Quick Regression Demo"
+author: "Andy Grogan-Kaylor"
+date: "today"
+format:
+  html:
+    toc: true
+    number-sections: true
+    code-fold: true
+    code-summary: "Show the code"
+    theme:
+      light: cosmo
+      dark: vapor
+---
+
+## Data
+
+These are the famous Iris data, collected by Edgar Anderson.
+
+## Irises
+
+![Iris Species](iris-species.png){width=50%}
+
+![Petals and Sepals](petal-sepal.png){width=50%}
+
+## Regression
+
+```{r}
+
+lm(Petal.Length ~ Sepal.Length + Sepal.Width, data = iris)
+
+```
+
+## Regression Demo
+
+```{r}
+#| message: false
+
+library(rgl)
+
+library(car) # companion to applied regression
+
+options(rgl.useNULL = TRUE) # suppress separate RGL window.
+
+data("iris")
+
+car::scatter3d(x = iris$Sepal.Length,
+               y = iris$Petal.Length,
+               z = iris$Sepal.Width,
+               xlab = "Sepal Length",
+               ylab = "Petal Length",
+               zlab = "Sepal Width")
+
+rglwidget()
+
+```
+
+
