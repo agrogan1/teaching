@@ -1,17 +1,22 @@
 ---
 title: "Likelihood and Log Likelihood"
 author: "Andy Grogan-Kaylor"
-date: '`r Sys.Date()`'
-output:
-  pdf_document: 
-    number_sections: yes
-    toc: yes
-    fig_height: 3
-    latex_engine: xelatex
-  distill::distill_article:
-    highlight: haddock
-    toc: yes
-mainfont: Arial
+date: "today"
+format:
+  html:
+    toc: true
+    number-sections: true
+    anchor-sections: true
+    theme:
+      light: cosmo
+      dark: vapor
+    css: styles.css
+  pdf:
+    include-in-header:
+      - text: | 
+          \usepackage[sfdefault]{roboto}
+    toc: true
+    number-sections: true
 ---
 
 ```{r setup, include=FALSE}
