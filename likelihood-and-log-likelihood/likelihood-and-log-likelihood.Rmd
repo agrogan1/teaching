@@ -3,17 +3,10 @@ title: "Likelihood and Log Likelihood"
 author: "Andy Grogan-Kaylor"
 date: '`r Sys.Date()`'
 output:
-  tint::tintPdf:
-    toc: yes
-    number_sections: yes
   pdf_document: 
     number_sections: yes
     toc: yes
     fig_height: 3
-    latex_engine: xelatex
-  tufte::tufte_handout:
-    toc: yes
-    number_sections: yes
     latex_engine: xelatex
   distill::distill_article:
     highlight: haddock
@@ -43,7 +36,7 @@ The likelihood is the probability that a given set of parameters would give rise
 
 Formally, the likelihood is a product of probabilities.
 
-$$\mathcal{L}(\beta) = \prod p(\beta | x, y)$$
+$$\mathscr{L}(\beta) = \prod p(\beta | x, y)$$
 
 # Maximum Likelihood Estimation
 
@@ -97,7 +90,7 @@ persp(mydensity,
 
 # Log-Likelihood
 
-Because probabilities are by definition $< 1$, the likelihood $\mathcal{L}$ tends to be a very small number. For a variety of reasons, it is often easier to work with the logarithm of the likelihood: $\ln \mathcal{L}$.
+Because probabilities are by definition $< 1$, the likelihood $\mathscr{L}$ tends to be a very small number. For a variety of reasons, it is often easier to work with the logarithm of the likelihood: $\ln \mathscr{L}$.
 
 # Visualizing the Likelihood and Log-Likelihood
 
@@ -130,7 +123,7 @@ ggplot(data = NULL,
 
 # Conclusion
 
-Higher values of the *log-likelihood* closer to 0 represent models with a better fit.
+Higher values of the *log-likelihood*, closer to 0, represent models with a better fit.
 
 
 
