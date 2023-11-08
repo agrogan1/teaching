@@ -7,3 +7,8 @@ h1.title {
 p.author {
   color: white;
 }
+
+.reveal .progress {
+  height: 7px;
+  color: red;
+}
