@@ -6,7 +6,7 @@ format:
   html:
     toc: true
     number-sections: true
-    code-fold: false
+    code-fold: true
     code-summary: "Show the code"
     theme:
       light: cosmo
@@ -54,7 +54,7 @@ df <- data.frame(x, y, e, z) # data frame
 
 ```{r}
 
-df_selected <- df %>%
+df_selected <- df %>% # data selected on collider
   filter(z > 215)  # selection criterion
 
 ```
