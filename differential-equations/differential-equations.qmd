@@ -49,7 +49,7 @@ plinear <- ggplot(data = mydata1,
                       y = y1,
                       group = 1)) +
   geom_line(linewidth = 2, color = "grey") +
-  geom_point(aes(frame = x), color = "deepskyblue", size = 2) +
+  geom_point(aes(frame = x), color = "deepskyblue", size = 3) +
   labs(title = "Constant Growth") 
 
 ```
@@ -89,7 +89,7 @@ pexponential <- ggplot(data = mydata2,
                            y = y2,
                            group = 1)) +
   geom_line(linewidth = 2, color = "grey") +
-  geom_point(aes(frame = x), color = "deepskyblue", size = 2) +
+  geom_point(aes(frame = x), color = "deepskyblue", size = 3) +
   labs(title = "Exponential Growth") 
 
 ```
@@ -128,7 +128,7 @@ plogistic <- ggplot(data = mydata3,
                            y = y3,
                            group = 1)) +
   geom_line(linewidth = 2, color = "grey") +
-  geom_point(aes(frame = x), color = "deepskyblue", size = 2) +
+  geom_point(aes(frame = x), color = "deepskyblue", size = 3) +
   labs(title = "Logistic Growth") 
 
 ```
