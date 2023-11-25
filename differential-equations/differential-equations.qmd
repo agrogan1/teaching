@@ -1,0 +1,181 @@
+---
+title: "Differential Equations"
+subtitle: "Reviewing some basic ideas in differential equations".
+author: "Andy Grogan-Kaylor" 
+date: "today"
+ html:
+    toc: true
+    number-sections: true
+    anchor-sections: true
+    theme:
+      light: cosmo
+      dark: vapor
+    code-fold: true
+    code-summary: "Show the code"
+---
+
+```{r setup, include=FALSE}
+
+library(ggplot2)
+
+library(gganimate)
+
+library(plotly)
+
+```
+
+# Background
+
+In this handout, we consider several simple differential equations that characterize growth. We then consider the solution of each differential equation in terms of $y$ as a function of $x$.
+
+For *logistic growth*, I also consider a $dp/dx$ formulation.
+
+# Constant (Linear) Growth
+
+There is a constant rate of growth, expressed by $k$.
+
+```{r}
+
+x <- seq(1,10)
+
+y1 <- as.numeric(x)
+
+mydata1 <- data.frame(x, y1)
+
+plinear <- ggplot(data = mydata1,
+                  aes(x = x,
+                      y = y1,
+                      group = 1)) +
+  geom_line(size = 2, color = "grey") +
+  geom_point(aes(frame = x), color = "deepskyblue", size = 2) +
+  labs(title = "Constant Growth") # +
+  # transition_reveal(x)
+
+```
+
+
+$$\frac{dy}{dx} = k$$ 
+
+implies 
+
+$$y = kx + C$$
+
+```{r}
+
+plinearB <- plinear + 
+  labs(subtitle = "y Grows Linearly As A Function Of x",
+       y = "y")
+
+ggplotly(plinearB)
+
+```
+
+# Exponential Growth
+
+Growth is a function of $y$.
+
+```{r}
+
+x <- seq(1, 10, .5)
+
+y2 <- exp(x)
+
+mydata2 <- data.frame(x, y2)
+
+pexponential <- ggplot(data = mydata2,
+                       aes(x = x,
+                           y = y2,
+                           group = 1)) +
+  geom_line(size = 2, color = "grey") +
+  geom_point(aes(frame = x), color = "deepskyblue", size = 2) +
+  labs(title = "Exponential Growth") # +
+  # transition_reveal(x)
+
+
+```
+
+$$\frac{dy}{dx} = y$$
+
+implies
+
+$$y = e^x + C$$
+
+```{r}
+
+pexponentialB <- pexponential + 
+  labs(subtitle = "y Grows Exponentially As A Function Of x",
+       y = "y")
+
+ggplotly(pexponentialB)
+
+```
+
+# Logistic Growth
+
+Growth is initially approximately exponential, but then tapers off as $y$ approaches some limiting value.
+
+```{r}
+
+x <- seq(1, 20)
+
+y3 <- exp(x - 10) / (1 + exp(x - 10))
+
+mydata3 <- data.frame(x, y3)
+
+plogistic <- ggplot(data = mydata3,
+                       aes(x = x,
+                           y = y3,
+                           group = 1)) +
+  geom_line(size = 2, color = "grey") +
+  geom_point(aes(frame = x), color = "deepskyblue", size = 2) +
+  labs(title = "Logistic Growth") # +
+  # transition_reveal(x)
+
+
+```
+
+
+::: {.panel-tabset}
+
+## $dy/dx$ Form 
+
+$$\frac{dy}{dx} = y \left(1 - y \right)$$
+implies
+
+$$y = \frac{e^x}{1 + e^x} + C$$
+
+```{r}
+
+plogisticB <- plogistic + 
+  labs(subtitle = "y Grows Exponentially Until y Approaches 1.0",
+       y = "y")
+
+ggplotly(plogisticB)
+
+```
+
+## $dp/dx$ Form {.panel-name}
+
+Here $p$ is a probability.
+
+$$\frac{dp}{dx} = p \left(1 - p \right)$$
+implies
+
+$$p = \frac{e^x}{1 + e^x} + C$$
+
+```{r}
+
+plogisticC <- plogistic + 
+  labs(subtitle = "p Grows Exponentially Until p Approaches 1.0",
+       y = "probability")
+
+ggplotly(plogisticC)
+
+```
+
+:::
+
+
+
+
+
