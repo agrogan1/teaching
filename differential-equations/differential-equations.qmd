@@ -1,9 +1,10 @@
 ---
 title: "Differential Equations"
-subtitle: "Reviewing some basic ideas in differential equations".
-author: "Andy Grogan-Kaylor" 
+subtitle: "Reviewing some basic ideas in differential equations."
+author: "Andy Grogan-Kaylor"
 date: "today"
- html:
+format: 
+  html:
     toc: true
     number-sections: true
     anchor-sections: true
@@ -35,6 +36,7 @@ For *logistic growth*, I also consider a $dp/dx$ formulation.
 There is a constant rate of growth, expressed by $k$.
 
 ```{r}
+#| warning: false
 
 x <- seq(1,10)
 
@@ -46,10 +48,9 @@ plinear <- ggplot(data = mydata1,
                   aes(x = x,
                       y = y1,
                       group = 1)) +
-  geom_line(size = 2, color = "grey") +
+  geom_line(linewidth = 2, color = "grey") +
   geom_point(aes(frame = x), color = "deepskyblue", size = 2) +
-  labs(title = "Constant Growth") # +
-  # transition_reveal(x)
+  labs(title = "Constant Growth") 
 
 ```
 
@@ -75,6 +76,7 @@ ggplotly(plinearB)
 Growth is a function of $y$.
 
 ```{r}
+#| warning: false
 
 x <- seq(1, 10, .5)
 
@@ -86,11 +88,9 @@ pexponential <- ggplot(data = mydata2,
                        aes(x = x,
                            y = y2,
                            group = 1)) +
-  geom_line(size = 2, color = "grey") +
+  geom_line(linewidth = 2, color = "grey") +
   geom_point(aes(frame = x), color = "deepskyblue", size = 2) +
-  labs(title = "Exponential Growth") # +
-  # transition_reveal(x)
-
+  labs(title = "Exponential Growth") 
 
 ```
 
@@ -115,6 +115,7 @@ ggplotly(pexponentialB)
 Growth is initially approximately exponential, but then tapers off as $y$ approaches some limiting value.
 
 ```{r}
+#| warning: false
 
 x <- seq(1, 20)
 
@@ -126,11 +127,9 @@ plogistic <- ggplot(data = mydata3,
                        aes(x = x,
                            y = y3,
                            group = 1)) +
-  geom_line(size = 2, color = "grey") +
+  geom_line(linewidth = 2, color = "grey") +
   geom_point(aes(frame = x), color = "deepskyblue", size = 2) +
-  labs(title = "Logistic Growth") # +
-  # transition_reveal(x)
-
+  labs(title = "Logistic Growth") 
 
 ```
 
