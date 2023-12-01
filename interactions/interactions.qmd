@@ -50,7 +50,11 @@ blockquote {
 
 ## The Equation That Generates The Data
 
-> In practice, we usually don't know this equation. We are trying to *estimate* it.
+::: {.callout-important}
+### Important
+
+In practice, we usually **don't** know this equation. We are trying to **estimate** it.
+:::
 
 $$y_i = \beta_0 + \beta_1 x + \beta_2 \text{group} + \beta_3 (x \times \text{group}) + e_i$$
 
@@ -186,6 +190,7 @@ abline(21.92 + 5.039, .8808, col="blue", lwd = 3)
 ## The Equation
 
 $$y = \beta_0 + \beta_1 x + \beta_2 group + \beta_3 x \times group + e_i$$
+
 ## The Regression
 
 ```{r}
