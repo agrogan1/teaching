@@ -19,7 +19,11 @@ set obs 100 // 100 empty observations
 generate x1 = rnormal(100, 10) // x1 has mean of 100, sd of 10
 
 generate x2 = rnormal(102, 10) // x2 has mean of 102, sd of 10
+<</dd_do>>
+~~~~
 
+~~~~
+<<dd_do>>
 ci means x1 x2 // confidence intervals of the two variables overlap
 
 ttest x1 == x2 // t-test finds significant differences between x and x2
