@@ -1,8 +1,8 @@
 digraph logicmodel {
   
-  graph [rankdir = LR]
+    graph [rankdir = LR]
   
-  label = 'Logic Model'
+    label = 'Logic Model'
 
     subgraph cluster_0 {
   	    

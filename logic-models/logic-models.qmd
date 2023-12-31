@@ -1,26 +1,18 @@
 ---
 title: "Logic Models"
-description: |
-  Proof of Concept for Creating a Logic Model in graphviz.
-author:
-  - name: Andy Grogan-Kaylor 
-    url: https://agrogan1.github.io/
-    affiliation: University of Michigan
-    affiliation_url: https://umich.edu/
-date: "`r Sys.Date()`"
-output:
-  distill::distill_article:
-    highlight: haddock
+subtitle: "Proof of Concept for Creating a Logic Model in graphviz"
+author: "Andy Grogan-Kaylor" 
+date: "today"
+format:
+  html:
     toc: true
-    toc_float: true
-    code_folding: true
+    number-sections: true
+    code-fold: true
+    code-summary: "Show the code"
+    theme:
+      light: cosmo
+      dark: vapor
 ---
-
-```{r setup, include=FALSE}
-
-knitr::opts_chunk$set(echo = TRUE)
-
-```
 
 # Introduction
 
