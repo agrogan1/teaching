@@ -21,6 +21,8 @@ format:
   typst:
     toc: true
     number-sections: true
+mermaid: 
+  theme: default
 ---
 
 ```{css, echo=FALSE}
@@ -50,17 +52,26 @@ So many workflows follow the same conceptual pattern.
 
 # Visually and Conceptually
 
-```{r}
-#| fig-cap: "A Common Workflow"
-#| fig-height: 6
-#| eval: false
-#| echo: false
+```{mermaid}
+%% fig-cap: "A Common Workflow"
 
-DiagrammeR::grViz("workflow.gv")
+flowchart TB
+
+ask[ask a question]-->open
+
+open[open the raw data]-->clean
+
+clean[clean the data, e.g. outliers & errors]-->wrangle
+
+wrangle[create any new variables or scales]-->descriptives
+
+descriptives[descriptive statistics]-->visualize
+
+visualize[visualize the data]-->analyze
+
+analyze[analyze with bivariate or multivariate statistics]-->share["share your results with your community(ies)"]
 
 ```
-
-![A Common Workflow](workflow.png)
 
 # Characteristics of Good Workflows
 
@@ -135,9 +146,9 @@ generate big_penguin = body_mass_g > 4000 // create a big penguin variable
 
 * Descriptive Statistics
 
-summarize culmen_length_mm culmen_depth_mm flipper_length_mm body_mass_g
+use "https://github.com/agrogan1/Stata/raw/main/do-files/penguins.dta", clear
 
-tabulate big_penguin
+summarize culmen_length_mm culmen_depth_mm flipper_length_mm body_mass_g
 
 tabulate species
 
@@ -147,6 +158,8 @@ tabulate species
 ```{stata, echo = TRUE}
 
 * Visualize The Data
+
+use "https://github.com/agrogan1/Stata/raw/main/do-files/penguins.dta", clear
 
 graph bar body_mass_g, over(species) scheme(s1color) // bar graph
 
@@ -170,6 +183,8 @@ quietly graph export "myscatterplot.png", replace
 
 * Analyze
 
+use "https://github.com/agrogan1/Stata/raw/main/do-files/penguins.dta", clear
+
 regress culmen_length_mm body_mass_g // regress culmen length on body mass
 
 ```
@@ -185,112 +200,94 @@ In contrast, in the diagram below, the workflow on the right is *coordinated*. E
 
 It is often the case that a *coordinated* workflow requires more *coordination*, *time* and *energy* to implement than an *uncoordinated* workflow, but a *coordinated* workflow is likely to pay benefits in terms of all of the advantages of good workflows listed above. 
 
-```{r}
-#| fig-cap: "Multiple Person Workflows"
-#| fig-height: 6
-#| echo: false
-#| eval: false
+```{mermaid}
 
-DiagrammeR::grViz("
+flowchart LR 
 
-digraph workflow {
+%% first block: Uncoordinated Workflow
 
-node [fontname = Helvetica, color = black]
+rawdataA[raw data]
 
-rawdataA [label = 'raw data']
+rawdataB[raw data]
 
-rawdataB [label = 'raw data']
+person1A[person 1]
 
-node [fontname = Helvetica, color = blue]
+person1B[person 1]
 
-person1A [label = 'person 1']
+cleandataA[cleans the data]
 
-person1B [label = 'person 1']
+cleandataB[cleans the data]
 
-cleandataA [label = 'cleans the data']
+person2A[person 2]
 
-cleandataB [label = 'cleans the data']
+person2B[person 2]
 
-node [fontname = Helvetica, color = red]
+scale1A[creates scale 1]
 
-person2A [label = 'person 2']
+scale1B[creates scale 1]
 
-person2B [label = 'person 2']
+person3A[person 3]
 
-scale1A [label = 'creates scale 1']
+person3B[person 3]
 
-scale1B [label = 'creates scale 1']
+scale2A[creates scale 2]
 
-node [fontname = Helvetica, color = darkgreen]
+scale2B[creates scale 2]
 
-person3A [label = 'person 3']
+person4A[person 4]
 
-person3B [label = 'person 3']
+person4B[person 4]
 
-scale2A [label = 'creates scale 2']
+complexanalysisA[complex analysis \nand visualization]
 
-scale2B [label = 'creates scale 2']
+complexanalysisB[complex analysis \nand visualization]
 
-node [fontname = Helvetica, color = orange]
+subgraph "Uncoordinated Workflow" 
 
-person4A [label = 'person 4']
+rawdataA-->person1A
 
-person4B [label = 'person 4']
+person1A-->cleandataA
 
-complexanalysisA [label = 'complex analysis \nand visualization']
+rawdataA-->person2A
 
-complexanalysisB [label = 'complex analysis \nand visualization']
+person2A-->scale1A
 
-subgraph cluster_0 {
+rawdataA-->person3A
 
-label = 'An UNCOORDINATED multiperson workflow'
+person3A-->scale2A
 
-rawdataA -> person1A
+rawdataA-->person4A
 
-person1A -> cleandataA
+person4A-->complexanalysisA
 
-rawdataA -> person2A
+end
 
-person2A -> scale1A
+subgraph "COORDINATED Multiperson Workflow"
 
-rawdataA -> person3A
+rawdataB-->person1B
 
-person3A -> scale2A
+person1B-->cleandataB
 
-rawdataA -> person4A
+cleandataB-->person2B
 
-person4A -> complexanalysisA
+person2B-->scale1B
 
-}
+scale1B-->person3B
 
-subgraph cluster_1 {
+person3B-->scale2B
 
-label = 'A COORDINATED multiperson workflow'
+scale2B-->person4B
 
-rawdataB -> person1B
+person4B-->complexanalysisB
 
-person1B -> cleandataB
-
-cleandataB -> person2B
-
-person2B -> scale1B
-
-scale1B -> person3B
-
-person3B -> scale2B
-
-scale2B -> person4B
-
-person4B -> complexanalysisB
-
-}
-
-}")
+end
 
 ```
 
 
-![Multiple Person Workflows](workflow2.png)
+
+
+
 
 
 

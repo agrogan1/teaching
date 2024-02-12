@@ -2,7 +2,7 @@
 <html xmlns="http://www.w3.org/1999/xhtml" lang="en" xml:lang="en"><head>
 
 <meta charset="utf-8">
-<meta name="generator" content="quarto-1.4.545">
+<meta name="generator" content="quarto-1.4.549">
 
 <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes">
 
@@ -71,6 +71,10 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 <link href="workflow_files/libs/bootstrap/bootstrap-icons.css" rel="stylesheet">
 <link href="workflow_files/libs/bootstrap/bootstrap.min.css" rel="stylesheet" class="quarto-color-scheme" id="quarto-bootstrap" data-mode="light">
 <link href="workflow_files/libs/bootstrap/bootstrap-dark.min.css" rel="prefetch" class="quarto-color-scheme quarto-color-alternate" id="quarto-bootstrap" data-mode="dark">
+<meta name="mermaid-theme" content="default">
+<script src="workflow_files/libs/quarto-diagram/mermaid.min.js"></script>
+<script src="workflow_files/libs/quarto-diagram/mermaid-init.js"></script>
+<link href="workflow_files/libs/quarto-diagram/mermaid.css" rel="stylesheet">
 
 
 </head>
@@ -150,11 +154,34 @@ blockquote {
 </section>
 <section id="visually-and-conceptually" class="level1" data-number="2">
 <h1 data-number="2"><span class="header-section-number">2</span> Visually and Conceptually</h1>
-<div class="quarto-figure quarto-figure-center">
-<figure class="figure">
-<p><img src="workflow.png" class="img-fluid figure-img"></p>
-<figcaption>A Common Workflow</figcaption>
-</figure>
+<div class="cell" data-layout-align="default">
+<div class="cell-output-display">
+<div>
+<p></p><figure class="figure"><p></p>
+<div>
+<pre class="mermaid mermaid-js">%% fig-cap: "A Common Workflow"
+
+flowchart TB
+
+ask[ask a question]--&gt;open
+
+open[open the raw data]--&gt;clean
+
+clean[clean the data, e.g. outliers &amp; errors]--&gt;wrangle
+
+wrangle[create any new variables or scales]--&gt;descriptives
+
+descriptives[descriptive statistics]--&gt;visualize
+
+visualize[visualize the data]--&gt;analyze
+
+analyze[analyze with bivariate or multivariate statistics]--&gt;share["share your results with your community(ies)"]
+
+</pre>
+</div>
+<p></p></figure><p></p>
+</div>
+</div>
 </div>
 </section>
 <section id="characteristics-of-good-workflows" class="level1" data-number="3">
@@ -235,9 +262,9 @@ blockquote {
 <div class="sourceCode cell-code" id="cb3"><pre class="sourceCode stata code-with-copy"><code class="sourceCode stata"><span id="cb3-1"><a href="#cb3-1" aria-hidden="true" tabindex="-1"></a></span>
 <span id="cb3-2"><a href="#cb3-2" aria-hidden="true" tabindex="-1"></a>* Descriptive Statistics</span>
 <span id="cb3-3"><a href="#cb3-3" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb3-4"><a href="#cb3-4" aria-hidden="true" tabindex="-1"></a><span class="kw">summarize</span> culmen_length_mm culmen_depth_mm flipper_length_mm body_mass_g</span>
+<span id="cb3-4"><a href="#cb3-4" aria-hidden="true" tabindex="-1"></a><span class="kw">use</span> <span class="st">"https://github.com/agrogan1/Stata/raw/main/do-files/penguins.dta"</span>, <span class="kw">clear</span></span>
 <span id="cb3-5"><a href="#cb3-5" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb3-6"><a href="#cb3-6" aria-hidden="true" tabindex="-1"></a><span class="kw">tabulate</span> big_penguin</span>
+<span id="cb3-6"><a href="#cb3-6" aria-hidden="true" tabindex="-1"></a><span class="kw">summarize</span> culmen_length_mm culmen_depth_mm flipper_length_mm body_mass_g</span>
 <span id="cb3-7"><a href="#cb3-7" aria-hidden="true" tabindex="-1"></a></span>
 <span id="cb3-8"><a href="#cb3-8" aria-hidden="true" tabindex="-1"></a><span class="kw">tabulate</span> species</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output cell-output-stdout">
@@ -247,14 +274,6 @@ culmen_len~m |        342    43.92193    5.459584       32.1       59.6
 culmen_dep~m |        342    17.15117    1.974793       13.1       21.5
 flipper_le~m |        342    200.9152    14.06171        172        231
  body_mass_g |        342    4201.754    801.9545       2700       6300
-
-
-big_penguin |      Freq.     Percent        Cum.
-------------+-----------------------------------
-          0 |        170       49.42       49.42
-          1 |        174       50.58      100.00
-------------+-----------------------------------
-      Total |        344      100.00
 
     species |      Freq.     Percent        Cum.
 ------------+-----------------------------------
@@ -269,13 +288,15 @@ big_penguin |      Freq.     Percent        Cum.
 <div class="sourceCode cell-code" id="cb5"><pre class="sourceCode stata code-with-copy"><code class="sourceCode stata"><span id="cb5-1"><a href="#cb5-1" aria-hidden="true" tabindex="-1"></a></span>
 <span id="cb5-2"><a href="#cb5-2" aria-hidden="true" tabindex="-1"></a>* Visualize The Data</span>
 <span id="cb5-3"><a href="#cb5-3" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb5-4"><a href="#cb5-4" aria-hidden="true" tabindex="-1"></a><span class="kw">graph</span> <span class="bn">bar</span> body_mass_g, <span class="bn">over</span>(species) <span class="dv">scheme</span>(s1color) <span class="co">// bar graph</span></span>
+<span id="cb5-4"><a href="#cb5-4" aria-hidden="true" tabindex="-1"></a><span class="kw">use</span> <span class="st">"https://github.com/agrogan1/Stata/raw/main/do-files/penguins.dta"</span>, <span class="kw">clear</span></span>
 <span id="cb5-5"><a href="#cb5-5" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb5-6"><a href="#cb5-6" aria-hidden="true" tabindex="-1"></a><span class="kw">quietly</span> <span class="kw">graph</span> <span class="kw">export</span> <span class="st">"mybargraph.png"</span>, <span class="kw">replace</span></span>
+<span id="cb5-6"><a href="#cb5-6" aria-hidden="true" tabindex="-1"></a><span class="kw">graph</span> <span class="bn">bar</span> body_mass_g, <span class="bn">over</span>(species) <span class="dv">scheme</span>(s1color) <span class="co">// bar graph</span></span>
 <span id="cb5-7"><a href="#cb5-7" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb5-8"><a href="#cb5-8" aria-hidden="true" tabindex="-1"></a><span class="kw">twoway</span> <span class="kw">scatter</span> culmen_length_mm body_mass_g, <span class="dv">scheme</span>(s1color) <span class="co">// scatterplot</span></span>
+<span id="cb5-8"><a href="#cb5-8" aria-hidden="true" tabindex="-1"></a><span class="kw">quietly</span> <span class="kw">graph</span> <span class="kw">export</span> <span class="st">"mybargraph.png"</span>, <span class="kw">replace</span></span>
 <span id="cb5-9"><a href="#cb5-9" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb5-10"><a href="#cb5-10" aria-hidden="true" tabindex="-1"></a><span class="kw">quietly</span> <span class="kw">graph</span> <span class="kw">export</span> <span class="st">"myscatterplot.png"</span>, <span class="kw">replace</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<span id="cb5-10"><a href="#cb5-10" aria-hidden="true" tabindex="-1"></a><span class="kw">twoway</span> <span class="kw">scatter</span> culmen_length_mm body_mass_g, <span class="dv">scheme</span>(s1color) <span class="co">// scatterplot</span></span>
+<span id="cb5-11"><a href="#cb5-11" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb5-12"><a href="#cb5-12" aria-hidden="true" tabindex="-1"></a><span class="kw">quietly</span> <span class="kw">graph</span> <span class="kw">export</span> <span class="st">"myscatterplot.png"</span>, <span class="kw">replace</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 </div>
 <div>
 
@@ -304,7 +325,9 @@ big_penguin |      Freq.     Percent        Cum.
 <div class="sourceCode cell-code" id="cb6"><pre class="sourceCode stata code-with-copy"><code class="sourceCode stata"><span id="cb6-1"><a href="#cb6-1" aria-hidden="true" tabindex="-1"></a></span>
 <span id="cb6-2"><a href="#cb6-2" aria-hidden="true" tabindex="-1"></a>* Analyze</span>
 <span id="cb6-3"><a href="#cb6-3" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb6-4"><a href="#cb6-4" aria-hidden="true" tabindex="-1"></a><span class="kw">regress</span> culmen_length_mm body_mass_g <span class="co">// regress culmen length on body mass</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<span id="cb6-4"><a href="#cb6-4" aria-hidden="true" tabindex="-1"></a><span class="kw">use</span> <span class="st">"https://github.com/agrogan1/Stata/raw/main/do-files/penguins.dta"</span>, <span class="kw">clear</span></span>
+<span id="cb6-5"><a href="#cb6-5" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb6-6"><a href="#cb6-6" aria-hidden="true" tabindex="-1"></a><span class="kw">regress</span> culmen_length_mm body_mass_g <span class="co">// regress culmen length on body mass</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output cell-output-stdout">
 <pre><code>      Source |       SS           df       MS      Number of obs   =       342
 -------------+----------------------------------   F(1, 340)       =    186.44
@@ -328,11 +351,96 @@ culmen_len~m | Coefficient  Std. err.      t    P&gt;|t|     [95% conf. interval
 <p>In the diagram below, the workflow on the left is <em>uncoordinated</em>. Each person’s work is not available to the others, which may cause difficulties if people’s work is supposed to build on the work of others. If one team member makes updates or corrects errors, the results of these efforts are not automatically available to the others.</p>
 <p>In contrast, in the diagram below, the workflow on the right is <em>coordinated</em>. Each person’s work is available to the others so that updates and corrections to errors are propagated through the workflow, and into final analyses and visualizations.</p>
 <p>It is often the case that a <em>coordinated</em> workflow requires more <em>coordination</em>, <em>time</em> and <em>energy</em> to implement than an <em>uncoordinated</em> workflow, but a <em>coordinated</em> workflow is likely to pay benefits in terms of all of the advantages of good workflows listed above.</p>
-<div class="quarto-figure quarto-figure-center">
-<figure class="figure">
-<p><img src="workflow2.png" class="img-fluid figure-img"></p>
-<figcaption>Multiple Person Workflows</figcaption>
-</figure>
+<div class="cell" data-layout-align="default">
+<div class="cell-output-display">
+<div>
+<p></p><figure class="figure"><p></p>
+<div>
+<pre class="mermaid mermaid-js">flowchart LR 
+
+%% first block: Uncoordinated Workflow
+
+rawdataA[raw data]
+
+rawdataB[raw data]
+
+person1A[person 1]
+
+person1B[person 1]
+
+cleandataA[cleans the data]
+
+cleandataB[cleans the data]
+
+person2A[person 2]
+
+person2B[person 2]
+
+scale1A[creates scale 1]
+
+scale1B[creates scale 1]
+
+person3A[person 3]
+
+person3B[person 3]
+
+scale2A[creates scale 2]
+
+scale2B[creates scale 2]
+
+person4A[person 4]
+
+person4B[person 4]
+
+complexanalysisA[complex analysis \nand visualization]
+
+complexanalysisB[complex analysis \nand visualization]
+
+subgraph "Uncoordinated Workflow" 
+
+rawdataA--&gt;person1A
+
+person1A--&gt;cleandataA
+
+rawdataA--&gt;person2A
+
+person2A--&gt;scale1A
+
+rawdataA--&gt;person3A
+
+person3A--&gt;scale2A
+
+rawdataA--&gt;person4A
+
+person4A--&gt;complexanalysisA
+
+end
+
+subgraph "COORDINATED Multiperson Workflow"
+
+rawdataB--&gt;person1B
+
+person1B--&gt;cleandataB
+
+cleandataB--&gt;person2B
+
+person2B--&gt;scale1B
+
+scale1B--&gt;person3B
+
+person3B--&gt;scale2B
+
+scale2B--&gt;person4B
+
+person4B--&gt;complexanalysisB
+
+end
+
+</pre>
+</div>
+<p></p></figure><p></p>
+</div>
+</div>
 </div>
 </section>
 
