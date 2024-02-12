@@ -1,0 +1,35 @@
+digraph workflow {
+
+node [fontname = Helvetica, color = blue]
+
+ask [label = 'ask a question']
+
+open [label = 'open the raw data']
+
+clean [label = 'clean the data, e.g. outliers & errors']
+
+wrangle [label = 'create any new variables or scales']
+
+descriptives [label = 'descriptive statistics']
+
+visualize [label = 'visualize the data']
+
+analyze [label = 'analyze with bivariate or multivariate statistics']
+
+share [label = 'share your results with your community(ies)']
+
+ask -> open 
+
+open -> clean 
+
+clean -> wrangle
+
+wrangle -> descriptives
+
+descriptives -> visualize
+
+visualize -> analyze
+
+analyze -> share
+
+}

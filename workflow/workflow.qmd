@@ -8,20 +8,19 @@ author:
     affiliation_url: https://umich.edu/
 date: "today"
 format:
-  docx: 
-    toc: true
-    number-sections: true
-    reference-doc: markstat.docx
   html:
     toc: true
     number-sections: true
     theme:
       light: cosmo
       dark: vapor
-  pdf:
+  docx: 
     toc: true
     number-sections: true
-    colorlinks: true
+    reference-doc: markstat.docx
+  typst:
+    toc: true
+    number-sections: true
 ---
 
 ```{css, echo=FALSE}
@@ -34,14 +33,10 @@ blockquote {
   
 ```
 
-```{r setup, include=FALSE}
-
-knitr::opts_chunk$set(echo = FALSE)
-
-```
 
 ```{r}
 #| output: false
+#| echo: false
 
 library(Statamarkdown)
 
@@ -58,46 +53,14 @@ So many workflows follow the same conceptual pattern.
 ```{r}
 #| fig-cap: "A Common Workflow"
 #| fig-height: 6
+#| eval: false
+#| echo: false
 
-DiagrammeR::grViz("
-
-digraph workflow {
-
-node [fontname = Helvetica, color = blue]
-
-ask [label = 'ask a question']
-
-open [label = 'open the raw data']
-
-clean [label = 'clean the data, e.g. outliers & errors']
-
-wrangle [label = 'create any new variables or scales']
-
-descriptives [label = 'descriptive statistics']
-
-visualize [label = 'visualize the data']
-
-analyze [label = 'analyze with bivariate or multivariate statistics']
-
-share [label = 'share your results with your community(ies)']
-
-ask -> open 
-
-open -> clean 
-
-clean -> wrangle
-
-wrangle -> descriptives
-
-descriptives -> visualize
-
-visualize -> analyze
-
-analyze -> share
-
-}")
+DiagrammeR::grViz("workflow.gv")
 
 ```
+
+![A Common Workflow](workflow.png)
 
 # Characteristics of Good Workflows
 
@@ -225,6 +188,8 @@ It is often the case that a *coordinated* workflow requires more *coordination*,
 ```{r}
 #| fig-cap: "Multiple Person Workflows"
 #| fig-height: 6
+#| echo: false
+#| eval: false
 
 DiagrammeR::grViz("
 
@@ -325,7 +290,7 @@ person4B -> complexanalysisB
 ```
 
 
-
+![Multiple Person Workflows](workflow2.png)
 
 
 
