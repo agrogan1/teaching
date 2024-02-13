@@ -14,10 +14,6 @@ format:
     theme:
       light: cosmo
       dark: vapor
-  docx: 
-    toc: true
-    number-sections: true
-    reference-doc: markstat.docx
   typst:
     toc: true
     number-sections: true
@@ -242,7 +238,7 @@ complexanalysisA[complex analysis \nand visualization]
 
 complexanalysisB[complex analysis \nand visualization]
 
-subgraph "Uncoordinated Workflow" 
+subgraph "UNCOORDINATED Workflow" 
 
 rawdataA-->person1A
 
