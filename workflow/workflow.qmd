@@ -82,6 +82,8 @@ Increasingly, we want to think about workflows that are
 For **complex workflows**, we will often want to write a script.
 
 ::: {.callout-tip}
+## Complex Workflows Benefit From Scripts or Code
+
 The more graphs or calculations I have to make, the more complex the project, the more the desires of the client are likely to change, the more frequently the data is being updated, the more team members that are involved in the workflow, and/or the more mission critical the results (i.e. I need auditability, documentation, and error correction) the more likely I am to use a scripting tool like Stata or R.
 :::
 
@@ -109,14 +111,20 @@ The more graphs or calculations I have to make, the more complex the project, th
 : Tools for Different Workflows
 
 ::: {.callout-tip}
+## Start With The Raw Data, And Document Your Thinking In Code
+
 Always (or usually) beginning with the raw data, and then writing and running a script that generates our results allows us to develop a process that is **documentable**, **auditable**, **replicable** and **scalable**.
 :::
 
 ::: {.callout-tip}
-Related to this issue is the idea that it is usually best to store quantitative data in a statistical format such as SPSS or Stata. [Spreadsheets are likely to be a bad tool for storing quantitative data](https://agrogan1.github.io/posts/why-Excel-is-a-bad-format-for-storing-data/).
+## Data Are Often Best Stored In Statistical Formats
+
+It is usually best to store quantitative data in a statistical format such as R, Stata, or SPSS. [Spreadsheets are likely to be a bad tool for storing quantitative data](https://agrogan1.github.io/posts/why-Excel-is-a-bad-format-for-storing-data/).
 :::
 
 ::: {.callout-important}
+## Good Workflows Require Safe Workspaces
+
 It is also *very important* to be aware that good complex workflows are *highly iterative* and *highly collaborative*. Good complex workflows require a *safe workspace* in which team members feel free to admit their own errors, and help with others' mistakes in a non-judgmental fashion. Such a *safe environment* is necessary to build an environment where the *overall error rate* is low.
 :::
 
