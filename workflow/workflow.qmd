@@ -208,15 +208,17 @@ regress culmen_length_mm body_mass_g // regress culmen length on body mass
 
 When workflows involve multiple people, all of the above considerations apply, but the situation often becomes more complex. Two hypothetical multiple person workflows are illustrated below. 
 
-In the diagram below, the workflow on the left is *uncoordinated*. Each person's work is not available to the others, which may cause difficulties if people's work is supposed to build on the work of others. If one team member makes updates or corrects errors, the results of these efforts are not automatically available to the others.
+In the diagram below, one workflow is *uncoordinated*. Each person's work is not available to the others, which may cause difficulties if people's work is supposed to build on the work of others. If one team member makes updates or corrects errors, the results of these efforts are not automatically available to the others.
 
-In contrast, in the diagram below, the workflow on the right is *coordinated*. Each person's work is available to the others so that updates and corrections to errors are propagated through the workflow, and into final analyses and visualizations. 
+In contrast, in the diagram below, one workflow is *coordinated*. Each person's work is available to the others so that updates and corrections to errors are propagated through the workflow, and into final analyses and visualizations. 
 
 It is often the case that a *coordinated* workflow requires more *coordination*, *time* and *energy* to implement than an *uncoordinated* workflow, but a *coordinated* workflow is likely to pay benefits in terms of all of the advantages of good workflows listed above. 
 
+:::{.column-page}
+
 ```{mermaid}
 
-flowchart LR 
+flowchart TB 
 
 %% first block: Uncoordinated Workflow
 
@@ -258,6 +260,8 @@ complexanalysisB[complex analysis \nand visualization]
 
 subgraph "UNCOORDINATED Workflow" 
 
+direction TB
+
 rawdataA-->person1A
 
 person1A-->cleandataA
@@ -277,6 +281,8 @@ person4A-->complexanalysisA
 end
 
 subgraph "COORDINATED Multiperson Workflow"
+
+direction TB
 
 rawdataB-->person1B
 
@@ -298,7 +304,7 @@ end
 
 ```
 
-
+:::
 
 
 

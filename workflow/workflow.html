@@ -2,12 +2,12 @@
 <html xmlns="http://www.w3.org/1999/xhtml" lang="en" xml:lang="en"><head>
 
 <meta charset="utf-8">
-<meta name="generator" content="quarto-1.4.549">
+<meta name="generator" content="quarto-1.4.545">
 
 <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes">
 
 <meta name="author" content="Andy Grogan-Kaylor">
-<meta name="dcterms.date" content="2024-02-21">
+<meta name="dcterms.date" content="2024-03-12">
 
 <title>Workflow</title>
 <style>
@@ -96,7 +96,7 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
   </ul>
 <div class="quarto-alternate-formats"><h2>Other Formats</h2><ul><li><a href="workflow.pdf"><i class="bi bi-file-pdf"></i>Typst</a></li></ul></div></nav>
 </div>
-<main class="content" id="quarto-document-content">
+<main class="content page-columns page-full" id="quarto-document-content">
 
 <header id="title-block-header" class="quarto-title-block default">
 <div class="quarto-title">
@@ -124,7 +124,7 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
     <div>
     <div class="quarto-title-meta-heading">Published</div>
     <div class="quarto-title-meta-contents">
-      <p class="date">February 21, 2024</p>
+      <p class="date">March 12, 2024</p>
     </div>
   </div>
   
@@ -388,18 +388,19 @@ culmen_len~m | Coefficient  Std. err.      t    P&gt;|t|     [95% conf. interval
 </div>
 </div>
 </section>
-<section id="multiple-person-workflows" class="level1" data-number="6">
+<section id="multiple-person-workflows" class="level1 page-columns page-full" data-number="6">
 <h1 data-number="6"><span class="header-section-number">6</span> Multiple Person Workflows</h1>
 <p>When workflows involve multiple people, all of the above considerations apply, but the situation often becomes more complex. Two hypothetical multiple person workflows are illustrated below.</p>
-<p>In the diagram below, the workflow on the left is <em>uncoordinated</em>. Each person’s work is not available to the others, which may cause difficulties if people’s work is supposed to build on the work of others. If one team member makes updates or corrects errors, the results of these efforts are not automatically available to the others.</p>
-<p>In contrast, in the diagram below, the workflow on the right is <em>coordinated</em>. Each person’s work is available to the others so that updates and corrections to errors are propagated through the workflow, and into final analyses and visualizations.</p>
+<p>In the diagram below, one workflow is <em>uncoordinated</em>. Each person’s work is not available to the others, which may cause difficulties if people’s work is supposed to build on the work of others. If one team member makes updates or corrects errors, the results of these efforts are not automatically available to the others.</p>
+<p>In contrast, in the diagram below, one workflow is <em>coordinated</em>. Each person’s work is available to the others so that updates and corrections to errors are propagated through the workflow, and into final analyses and visualizations.</p>
 <p>It is often the case that a <em>coordinated</em> workflow requires more <em>coordination</em>, <em>time</em> and <em>energy</em> to implement than an <em>uncoordinated</em> workflow, but a <em>coordinated</em> workflow is likely to pay benefits in terms of all of the advantages of good workflows listed above.</p>
+<div class="column-page">
 <div class="cell" data-layout-align="default">
 <div class="cell-output-display">
 <div>
 <p></p><figure class="figure"><p></p>
 <div>
-<pre class="mermaid mermaid-js">flowchart LR 
+<pre class="mermaid mermaid-js">flowchart TB 
 
 %% first block: Uncoordinated Workflow
 
@@ -441,6 +442,8 @@ complexanalysisB[complex analysis \nand visualization]
 
 subgraph "UNCOORDINATED Workflow" 
 
+direction TB
+
 rawdataA--&gt;person1A
 
 person1A--&gt;cleandataA
@@ -460,6 +463,8 @@ person4A--&gt;complexanalysisA
 end
 
 subgraph "COORDINATED Multiperson Workflow"
+
+direction TB
 
 rawdataB--&gt;person1B
 
@@ -482,6 +487,7 @@ end
 </pre>
 </div>
 <p></p></figure><p></p>
+</div>
 </div>
 </div>
 </div>
