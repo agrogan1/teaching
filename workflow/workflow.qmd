@@ -128,6 +128,12 @@ It is usually best to store quantitative data in a statistical format such as R,
 It is also *very important* to be aware that good complex workflows are *highly iterative* and *highly collaborative*. Good complex workflows require a *safe workspace* in which team members feel free to admit their own errors, and help with others' mistakes in a non-judgmental fashion. Such a *safe environment* is necessary to build an environment where the *overall error rate* is low.
 :::
 
+:::{.callout-important}
+## Good Workflows Require Patience And Can Be Psychologically Demanding
+
+Developing a good documented and auditable workflow that is implemented in code requires a lot of patience, and often, **many iterations**. Working through these many iterations can be psychologically demanding. It is important to remember that careful attention to getting the details right early in the research process, while sometimes tiring and frustrating, will pay large dividends later on when the research is reviewed, presented, published and read.
+:::
+
 # Example
 
 Below is an example that uses the [Palmer Penguins](https://allisonhorst.github.io/palmerpenguins/) data set. 
