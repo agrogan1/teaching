@@ -79,12 +79,12 @@ Increasingly, we want to think about workflows that are
 
 # Complex Workflows 
 
-For **complex workflows**, we will often want to write a script.
+For **complex workflows**, we will often want to write a script or code.
 
 ::: {.callout-tip}
 ## Complex Workflows Benefit From Scripts or Code
 
-The more graphs or calculations I have to make, the more complex the project, the more the desires of the client are likely to change, the more frequently the data is being updated, the more team members that are involved in the workflow, and/or the more mission critical the results (i.e. I need auditability, documentation, and error correction) the more likely I am to use a scripting tool like Stata or R.
+The more graphs or calculations I have to make, the more complex the project, the more the desires of the client are likely to change, the more frequently the data is being updated, the more team members that are involved in the workflow, and/or the more mission critical the results (i.e. I need auditability, documentation, and error correction) the more likely I am to use a scripting or coding tool like Stata or R.
 :::
 
 +---------------+---------------+--------------------+
@@ -113,7 +113,7 @@ The more graphs or calculations I have to make, the more complex the project, th
 ::: {.callout-tip}
 ## Start With The Raw Data, And Document Your Thinking In Code
 
-Always (or usually) beginning with the raw data, and then writing and running a script that generates our results allows us to develop a process that is **documentable**, **auditable**, **replicable** and **scalable**.
+Always (or usually) beginning with the raw data, and then writing and running a script or code that generates our results allows us to develop a process that is **documentable**, **auditable**, **replicable** and **scalable**.
 :::
 
 ::: {.callout-tip}
