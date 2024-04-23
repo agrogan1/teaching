@@ -24,6 +24,7 @@ Intuitively, if the *confidence intervals* of two variables overlap, we would ex
 However, as the brief example below illustrates, it is possible for two variables to have *overlapping confidence intervals*, yet to be different to a degree that is *statistically significant*.
 
 ```{r}
+#| output: false
 
 library(Statamarkdown)
 
@@ -39,7 +40,7 @@ clear all // clear the workspace
 
 set seed 3846 // set random seed
 
-set obs 100 // 100 empty observations
+set obs 1000 // 1000 empty observations
 
 generate x1 = rnormal(100, 10) // x1 has mean of 100, sd of 10
 
