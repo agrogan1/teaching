@@ -12,6 +12,14 @@ mb <- mandelbrot(xlim = c(-2, 2),
 cols <- mandelbrot_palette(RColorBrewer::brewer.pal(11, "Spectral"), 
                            fold = FALSE)
 
+
+# mypalette <- RColorBrewer::brewer.pal(9, "PRGn")
+# 
+# cols <- mandelbrot_palette(mypalette, 
+#                            # in_set = "white",
+#                            fold = TRUE, 
+#                            reps = 2)
+
 png("./mandelbrot/mandelbrot.png")
 
 plot(mb,
