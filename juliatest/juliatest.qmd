@@ -5,7 +5,6 @@ date: "5/22/2021"
 format:
   html:
     code-fold: true
-jupyter: julia-1.10.2
 ---
 
 ### Parametric Plots
@@ -25,4 +24,5 @@ plot(sin,
      2π, 
      leg=false, 
      fill=(0,:lavender))
+
 ```
