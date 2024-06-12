@@ -71,6 +71,9 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 <link href="workflow_files/libs/bootstrap/bootstrap-icons.css" rel="stylesheet">
 <link href="workflow_files/libs/bootstrap/bootstrap.min.css" rel="stylesheet" class="quarto-color-scheme" id="quarto-bootstrap" data-mode="light">
 <link href="workflow_files/libs/bootstrap/bootstrap-dark.min.css" rel="prefetch" class="quarto-color-scheme quarto-color-alternate" id="quarto-bootstrap" data-mode="dark">
+<script src="workflow_files/libs/quarto-contrib/glightbox/glightbox.min.js"></script>
+<link href="workflow_files/libs/quarto-contrib/glightbox/glightbox.min.css" rel="stylesheet">
+<link href="workflow_files/libs/quarto-contrib/glightbox/lightbox.css" rel="stylesheet">
 <meta name="mermaid-theme" content="default">
 <script src="workflow_files/libs/quarto-diagram/mermaid.min.js"></script>
 <script src="workflow_files/libs/quarto-diagram/mermaid-init.js"></script>
@@ -362,7 +365,7 @@ flipper_le~m |        342    200.9152    14.06171        172        231
 <div class="quarto-layout-cell" style="flex-basis: 50.0%;justify-content: flex-start;">
 <div class="quarto-figure quarto-figure-center">
 <figure class="figure">
-<p><img src="mybargraph.png" class="img-fluid figure-img"></p>
+<p><a href="mybargraph.png" class="lightbox" data-glightbox="description: .lightbox-desc-1" data-gallery="quarto-lightbox-gallery-1" title="Bar Graph of Penguin Species"><img src="mybargraph.png" class="img-fluid figure-img" alt="Bar Graph of Penguin Species"></a></p>
 <figcaption>Bar Graph of Penguin Species</figcaption>
 </figure>
 </div>
@@ -370,7 +373,7 @@ flipper_le~m |        342    200.9152    14.06171        172        231
 <div class="quarto-layout-cell" style="flex-basis: 50.0%;justify-content: flex-start;">
 <div class="quarto-figure quarto-figure-center">
 <figure class="figure">
-<p><img src="myscatterplot.png" class="img-fluid figure-img"></p>
+<p><a href="myscatterplot.png" class="lightbox" data-glightbox="description: .lightbox-desc-2" data-gallery="quarto-lightbox-gallery-2" title="Scatterplot of Culmen Length by Body Mass"><img src="myscatterplot.png" class="img-fluid figure-img" alt="Scatterplot of Culmen Length by Body Mass"></a></p>
 <figcaption>Scatterplot of Culmen Length by Body Mass</figcaption>
 </figure>
 </div>
@@ -503,6 +506,10 @@ end
 </div>
 </div>
 </div>
+</div>
+<div class="hidden" aria-hidden="true">
+<span class="glightbox-desc lightbox-desc-1">Bar Graph of Penguin Species</span>
+<span class="glightbox-desc lightbox-desc-2">Scatterplot of Culmen Length by Body Mass</span>
 </div>
 </section>
 
@@ -1040,6 +1047,31 @@ window.document.addEventListener("DOMContentLoaded", function (event) {
 });
 </script>
 </div> <!-- /content -->
+<script>var lightboxQuarto = GLightbox({"closeEffect":"zoom","openEffect":"zoom","loop":false,"descPosition":"bottom","selector":".lightbox"});
+window.onload = () => {
+  lightboxQuarto.on('slide_before_load', (data) => {
+    const { slideIndex, slideNode, slideConfig, player, trigger } = data;
+    const href = trigger.getAttribute('href');
+    if (href !== null) {
+      const imgEl = window.document.querySelector(`a[href="${href}"] img`);
+      if (imgEl !== null) {
+        const srcAttr = imgEl.getAttribute("src");
+        if (srcAttr && srcAttr.startsWith("data:")) {
+          slideConfig.href = srcAttr;
+        }
+      }
+    } 
+  });
+
+  lightboxQuarto.on('slide_after_load', (data) => {
+    const { slideIndex, slideNode, slideConfig, player, trigger } = data;
+    if (window.Quarto?.typesetMath) {
+      window.Quarto.typesetMath(slideNode);
+    }
+  });
+
+};
+          </script>
 
 
 
