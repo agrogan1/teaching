@@ -7,10 +7,11 @@ format:
   html:
     toc: true
     number-sections: true
+    lightbox: true
     code-fold: true
     code-summary: "Show the code"
     theme:
-      light: cosmo
+      light: yeti
       dark: vapor
 ---
 
