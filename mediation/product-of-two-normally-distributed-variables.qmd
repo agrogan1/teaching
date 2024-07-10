@@ -5,12 +5,12 @@ date: "today"
 format: 
   html:
     theme: 
-      light: united
+      light: yeti
       dark: vapor
     toc: true
     number-sections: true
     anchor-sections: true
-    code-fold: false
+    code-fold: true
 ---
 
 # Call Stata From R
@@ -20,6 +20,7 @@ format:
 library(Statamarkdown)
 
 ```
+
 # Simulate Product of Two Random Normal Variables in Stata
 
 ```{stata}
@@ -30,8 +31,6 @@ library(Statamarkdown)
 * setup
 
 clear all // clear workspace
-
-set scheme s1color // better scheme
 
 set obs 10000 // 10000 observations
 

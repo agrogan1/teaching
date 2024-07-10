@@ -21,7 +21,7 @@ The basic idea is that if we are regressing $y$ on variable of interest $x$, and
 
 ```{r}
 #| fig-cap: "Mediation"
-#| eval: true
+#| eval: false
 #| echo: false
 
 DiagrammeR::grViz("
@@ -65,13 +65,15 @@ digraph boxes_and_circles {
 ")
 ```
 
+![mediation](mediation.png)
+
 ## Mediation vs. Correlated Predictors
 
 As far as I know, all of the relationships detailed below would result in similar patterns of correlations. As far as I know there would be no empirical way to distinguish between these relationships. Only theory, or knowledge of prior relationships could be used to distinguish between these possible explanations for correlated $x$, $m$ and $y$.
 
 ```{r}
 #| fig-cap: "Mediation vs. Confounding"
-#| eval: true
+#| eval: false
 #| echo: false
 
 DiagrammeR::grViz("
@@ -135,3 +137,11 @@ digraph boxes_and_circles {
 
 ")
 ```
+
+![mediation and correlation](mediation-and-correlation.png)
+
+
+
+
+
+
