@@ -1,0 +1,328 @@
+---
+title: "A Tour of Categorical Data Analysis"
+title-slide-attributes:
+  data-background-image: IMG_0520.jpg
+  data-background-size: contain
+  data-background-opacity: "0.25"
+author: "Andy Grogan-Kaylor"
+format: 
+  revealjs:
+    title-slide-attributes:
+       data-background-color: darkgreen
+    theme: default
+    scrollable: true
+    controls: true
+    controls-tutorial: true
+    slide-number: true
+    chalkboard: true
+editor: source
+date: "today"
+---
+
+```{r setup, include=FALSE}
+
+knitr::opts_chunk$set(echo = FALSE,
+                      warning = FALSE,
+                      message = FALSE)
+
+```
+
+```{r}
+
+library(DiagrammeR)
+
+library(ggplot2)
+
+library(plotly)
+
+set.seed(1234)
+
+```
+
+# How to Navigate This Presentation (scroll down &#8681;)
+
+## Navigation 
+
+* **o** for outline
+* **f** for full screen
+* **Alt-Click** to zoom
+* Scroll &#8681; to the bottom of each column of slides; then &#8680;
+* Optional Theme Music (for later): 
+
+<audio controls src="Beautiful Cinematic Orchestral - AShamaluevMusic.mp3" data-ignore></audio>
+
+# Some Trees
+
+![](IMG_0518.jpg){ width=30% }
+
+# Some Trees That Are Less Healthy 
+
+![](IMG_0519.jpg){ width=30% }
+
+
+# A Simple Model (scroll down &#8681;)
+
+## Cross Tabulation 
+
+:::: {.columns}
+
+::: {.column width="50%"}
+
+```{r, echo=FALSE}
+
+mymatrix <- matrix(c(8,2,3,7), 
+                   nrow = 2, 
+                   ncol = 2, 
+                   byrow = TRUE,
+               dimnames = list(c("good soil", "bad soil"),
+                               c("healthy", "not healthy")))
+
+pander::pander(mymatrix)
+
+```
+
+:::
+
+::: {.column width="30%"}
+
+```{r, echo=FALSE}
+
+mosaicplot(mymatrix,
+           main = "Tree Outcomes",
+           col = c("green", "darkgreen"),
+           cex = 1.5)
+
+```
+
+:::
+
+::::
+
+# More Complicated Models (scroll down &#8681;)
+
+## Regression Models for Dichotomous Outcomes
+
+> logit and probit models
+
+```{r, echo=FALSE}
+
+grViz("
+digraph boxes_and_circles {
+
+  # a 'graph' statement
+  graph [overlap = true, fontsize = 10, rankdir = LR]
+
+  # several 'node' statements
+  node [shape = circle,
+        fontname = Helvetica]
+
+  # several 'edge' statements
+  
+  soil -> healthy
+  competition -> healthy
+  sunlight -> healthy
+}
+")
+
+```
+
+## Ordinal Outcomes
+
+> Ordinal Models
+
+```{r, echo=FALSE}
+
+grViz("
+digraph boxes_and_circles {
+
+  # a 'graph' statement
+  graph [overlap = true, fontsize = 10, rankdir = LR]
+
+  # several 'node' statements
+  node [shape = circle,
+        fontname = Helvetica]
+
+  # several 'edge' statements
+  
+  soil -> poor
+  competition -> poor
+  sunlight -> poor
+  poor -> fair
+  fair -> good
+}
+")
+
+```
+
+## Multinomial Outcomes
+
+> Multinomial Models
+
+```{r, echo=FALSE}
+
+grViz("
+digraph boxes_and_circles {
+
+  # a 'graph' statement
+  graph [overlap = true, fontsize = 10, rankdir = LR]
+
+  # several 'node' statements
+  node [shape = circle,
+        fontname = Helvetica]
+
+  # several 'edge' statements
+  
+  soil -> good
+  competition -> good
+  sunlight -> good
+  soil -> fair
+  competition -> fair
+  sunlight -> fair
+  soil -> poor
+  competition -> poor
+  sunlight -> poor
+}
+")
+
+```
+
+# Count Outcomes (scroll down &#8681;)
+
+## Regression Models For Count Outcomes 
+
+> Poisson and Negative Binomial Models
+
+![](IMG_0520.jpg){ width=50% }
+
+# Bayesian Perspectives (scroll down &#8681;)
+
+## Bayesian Models
+
+1. What do we do if we have prior information about any of these statistical models?
+2. How do Bayesian models help us in small samples?
+3. Does the Bayesian idea of $P(H|D)$--rather than rejecting $H_0$--help us conceptually?
+
+# Longitudinal Models (scroll down &#8681;)
+
+## Multilevel Categorical Models for Longitudinal Data
+
+```{r}
+
+N <- 10 # sample size
+
+T <- 100 # number of timepoints
+
+id <- rep(seq(1, N), each = T) # id's 1 to N
+
+t <- rep(seq(1, T), N) # timepoints 1 to T
+
+outcome <- rbinom(N * T, 1, .10)
+
+mydata1 <- tibble::tibble(id, t, outcome)
+
+```
+
+```{r, echo=FALSE}
+
+pal <- c("forestgreen", "orange") # color palette
+
+p1 <- plot_ly(data = mydata1, # use mydata1
+              x = ~t, # x is t (time)
+              y = ~id, # y is id
+              frame = ~t, # frames based on t (time)
+              text = ~outcome,
+              type = 'scatter',
+              mode = 'marker',
+              color = ~outcome, 
+              colors = pal, # use color palette
+              symbol = 'star-triangle-up', 
+              symbols = 'star-triangle-up',
+              marker = list(size = 20)) %>% # marker size
+  layout(title = 'Hypothetical Timing of Tree Fire Damage') 
+
+# %>%
+#   animation_opts(3000) 
+
+p1 # replay
+
+```
+
+## Survival and Event History Models
+
+```{r, echo=FALSE}
+
+N <- 10 # sample size
+
+T <- 100 # number of timepoints
+
+id <- rep(seq(1, N), each = T) # id's 1 to N
+
+t <- rep(seq(1, T), N) # timepoints 1 to T
+
+# random event times
+
+# uniform event times
+
+event_time <- rep(round(runif(N, 3, T), 
+                        digits = 0), 
+                  each = T)
+
+event <- t >= event_time # event has occurred t >= event_time
+
+event <- factor(event, 
+                levels = c(FALSE, TRUE), 
+                labels = c("No Event", "Event"))
+
+# arbitrarily censored after 70
+
+censored <- event_time > 70 
+
+censored <- factor(censored, 
+                   levels = c(FALSE, TRUE), 
+                   labels = c("Not Censored", "Censored"))
+
+# tibble
+
+mydata2 <- tibble::tibble(id, t, event_time, event, censored)
+
+
+```
+
+```{r, echo=FALSE}
+
+pal <- c("forestgreen", "green") # color palette
+
+p2 <- plot_ly(data = mydata2, # use mydata
+              x = ~t, # x is t (time)
+              y = ~id, # y is id
+              frame = ~t, # frames based on t (time)
+              text = ~paste("Event:" ,
+                            event,
+                            "<br>Censored:",
+                            censored),
+              type = 'scatter',
+              mode = 'marker',
+              color = ~censored, # color is censored (yes / no)
+              colors = pal, # use color palette
+              symbol = ~as.numeric(event), # symbol is event (occurred / not occurred)
+              symbols = c('star-triangle-up', # event not occurred
+                          'line-ew'), # event
+              marker = list(size = 10)) %>% # marker size
+  layout(title = 'Hypothetical Timing of Tree Lifespan \nCensored at Time 7',
+         shapes = list(type='line', # censoring line
+                       x0 = 70, 
+                       x1 = 70, 
+                       y0 = 0, 
+                       y1 = 10, 
+                       line=list(dash='dot', width=1))) 
+
+# %>%
+#   animation_opts(3000) 
+
+p2 # replay
+
+```
+
+# <mark>Questions?</mark> {data-background="IMG_0520.jpg"}
+
+
