@@ -40,6 +40,7 @@ body {
   background-color: #00274C;
   color: #ffcb05;
 }
+
 ```
 
 ```{r setup, include=FALSE}
@@ -66,10 +67,10 @@ class: animated, slideInRight
 
 * I do research on families and children, parenting, neighborhoods and schools
 * I have strong interests in social justice.  I was originally a community organizer, and also served as a Peace Corps Volunteer in Ghana, West Africa.
-* I do a lot of work researching physical punishment of children.  A few years ago, I published an analysis of 50 years of research on corporal punishment that you may have read about in the media.  Don’t spank kids!
+* I do a lot of work researching physical punishment of children. A number of years ago, I published an analysis of 50 years of research on corporal punishment that you may have read about in the media.  Don’t spank kids! I continue to do research on physical punishment, but am increasingly focusing on positive parenting.
 * I teach in the areas of research and social policy and evaluation.
 I have taught a course on *Statistics For SP&E Majors*. 
-* Last year, I was a *Technical Advisor* fielding queries from students with challenging advising questions.
+* A few years ago, I was a *Technical Advisor* fielding queries from students with challenging advising questions.
 
 ---
 class: animated, slideInRight
@@ -88,7 +89,7 @@ class: animated, slideInRight
 ## Advising Stuff (2)
 
 * Exemptions (explain process) – if you have exemptions, this frees you up to take electives or to try and fill requirements from later on in the curriculum.  Exemptions are only for classroom based courses not field courses.
-* Changing method or practice area is something that you should think about this week
+* Changing pathways area is something that you should think about this week
 * Changing from 16 to 20 month, or *vice versa*, becomes substantially more difficult once field work has started.
 * Two pathways ties up your course schedule but reserves time in field.
 * Lots of help on campus—If you run into problems down the road, I am a person you can come to and talk to.
