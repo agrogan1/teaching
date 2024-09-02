@@ -4,6 +4,7 @@ title-slide-attributes:
   data-background-image: math.png
   data-background-size: contain
   data-background-opacity: "0.5"
+  data-background-transition: fade
 author: "Eveline Pye"
 format:
   revealjs:
@@ -49,6 +50,8 @@ the letters that make the words and sounds we love.
 – And so, why can’t my numbers be beautiful to me? 
 Why the scorn, the doubt in your face? Do you think 
 I am brittle and dusty as old paper? 
+
+. . .
 
 Look again. See the numbers shine in my eyes"
 
