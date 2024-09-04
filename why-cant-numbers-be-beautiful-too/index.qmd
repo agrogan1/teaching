@@ -4,7 +4,7 @@ title-slide-attributes:
   data-background-image: math.png
   data-background-size: contain
   data-background-opacity: "0.5"
-  data-background-transition: fade
+  data-background-transition: convex
 author: "Eveline Pye"
 format:
   revealjs:
