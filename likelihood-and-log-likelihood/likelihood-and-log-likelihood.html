@@ -82,10 +82,11 @@ window.Quarto = {
    
   <ul>
   <li><a href="#background" id="toc-background" class="nav-link active" data-scroll-target="#background"><span class="header-section-number">1</span> Background</a></li>
-  <li><a href="#maximum-likelihood-estimation" id="toc-maximum-likelihood-estimation" class="nav-link" data-scroll-target="#maximum-likelihood-estimation"><span class="header-section-number">2</span> Maximum Likelihood Estimation</a></li>
-  <li><a href="#log-likelihood" id="toc-log-likelihood" class="nav-link" data-scroll-target="#log-likelihood"><span class="header-section-number">3</span> Log-Likelihood</a></li>
-  <li><a href="#visualizing-the-likelihood-and-log-likelihood" id="toc-visualizing-the-likelihood-and-log-likelihood" class="nav-link" data-scroll-target="#visualizing-the-likelihood-and-log-likelihood"><span class="header-section-number">4</span> Visualizing the Likelihood and Log-Likelihood</a></li>
-  <li><a href="#conclusion" id="toc-conclusion" class="nav-link" data-scroll-target="#conclusion"><span class="header-section-number">5</span> Conclusion</a></li>
+  <li><a href="#an-empirical-example" id="toc-an-empirical-example" class="nav-link" data-scroll-target="#an-empirical-example"><span class="header-section-number">2</span> An Empirical Example</a></li>
+  <li><a href="#maximum-likelihood-estimation" id="toc-maximum-likelihood-estimation" class="nav-link" data-scroll-target="#maximum-likelihood-estimation"><span class="header-section-number">3</span> Maximum Likelihood Estimation</a></li>
+  <li><a href="#log-likelihood" id="toc-log-likelihood" class="nav-link" data-scroll-target="#log-likelihood"><span class="header-section-number">4</span> Log-Likelihood</a></li>
+  <li><a href="#visualizing-the-likelihood-and-log-likelihood" id="toc-visualizing-the-likelihood-and-log-likelihood" class="nav-link" data-scroll-target="#visualizing-the-likelihood-and-log-likelihood"><span class="header-section-number">5</span> Visualizing the Likelihood and Log-Likelihood</a></li>
+  <li><a href="#conclusion" id="toc-conclusion" class="nav-link" data-scroll-target="#conclusion"><span class="header-section-number">6</span> Conclusion</a></li>
   </ul>
 <div class="quarto-alternate-formats"><h2>Other Formats</h2><ul><li><a href="likelihood-and-log-likelihood.pdf"><i class="bi bi-file-pdf"></i>PDF</a></li></ul></div></nav>
 </div>
@@ -126,45 +127,71 @@ window.Quarto = {
 <h1 data-number="1"><span class="header-section-number">1</span> Background</h1>
 <p>The likelihood is the probability that a given set of parameters would give rise to a given data set.</p>
 <p>Formally, the likelihood is a product of probabilities.</p>
-<p><span class="math display">\[\mathscr{L}(\beta) = \prod p(\beta | x, y)\]</span></p>
+<p><span id="eq-likelihood"><span class="math display">\[\mathscr{L}(\beta) = \prod p(\beta | x, y) \tag{1}\]</span></span></p>
 </section>
-<section id="maximum-likelihood-estimation" class="level1" data-number="2">
-<h1 data-number="2"><span class="header-section-number">2</span> Maximum Likelihood Estimation</h1>
-<p>Maximum Likelihood Estimation is essentially the process of finding the combination of parameters (e.g.&nbsp;<span class="math inline">\(\beta\)</span>) which maximizes the likelihood of producing the data.</p>
+<section id="an-empirical-example" class="level1" data-number="2">
+<h1 data-number="2"><span class="header-section-number">2</span> An Empirical Example</h1>
 <div class="cell">
 <div class="cell-output-display">
-<div class="quarto-figure quarto-figure-center">
-<figure class="figure">
-<p><a href="likelihood-and-log-likelihood_files/figure-html/unnamed-chunk-3-1.png" class="lightbox" data-gallery="quarto-lightbox-gallery-1" data-glightbox="description: .lightbox-desc-1" title="Joint Likelihood of Two Parameters"><img src="likelihood-and-log-likelihood_files/figure-html/unnamed-chunk-3-1.png" class="img-fluid figure-img" width="672" alt="Joint Likelihood of Two Parameters"></a></p>
-<figcaption>Joint Likelihood of Two Parameters</figcaption>
+<div id="fig-empirical-example" class="quarto-figure quarto-figure-center quarto-float anchored">
+<figure class="quarto-float quarto-float-fig figure">
+<div aria-describedby="fig-empirical-example-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
+<a href="likelihood-and-log-likelihood_files/figure-html/fig-empirical-example-1.png" class="lightbox" data-glightbox="description: .lightbox-desc-1" data-gallery="quarto-lightbox-gallery-1"><img src="likelihood-and-log-likelihood_files/figure-html/fig-empirical-example-1.png" class="img-fluid figure-img" width="672"></a>
+</div>
+<figcaption class="quarto-float-caption-bottom quarto-float-caption quarto-float-fig" id="fig-empirical-example-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
+Figure&nbsp;1: An Empirical Example
+</figcaption>
 </figure>
 </div>
 </div>
 </div>
 </section>
-<section id="log-likelihood" class="level1" data-number="3">
-<h1 data-number="3"><span class="header-section-number">3</span> Log-Likelihood</h1>
+<section id="maximum-likelihood-estimation" class="level1" data-number="3">
+<h1 data-number="3"><span class="header-section-number">3</span> Maximum Likelihood Estimation</h1>
+<p>Maximum Likelihood Estimation is essentially the process of finding the <em>combination</em> of parameters (e.g.&nbsp;<span class="math inline">\(\beta\)</span>) which maximizes the likelihood of producing the data.</p>
+<div class="cell">
+<div class="cell-output-display">
+<div id="fig-joint-likelihood" class="quarto-figure quarto-figure-center quarto-float anchored">
+<figure class="quarto-float quarto-float-fig figure">
+<div aria-describedby="fig-joint-likelihood-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
+<a href="likelihood-and-log-likelihood_files/figure-html/fig-joint-likelihood-1.png" class="lightbox" data-glightbox="description: .lightbox-desc-2" data-gallery="quarto-lightbox-gallery-2"><img src="likelihood-and-log-likelihood_files/figure-html/fig-joint-likelihood-1.png" class="img-fluid figure-img" width="672"></a>
+</div>
+<figcaption class="quarto-float-caption-bottom quarto-float-caption quarto-float-fig" id="fig-joint-likelihood-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
+Figure&nbsp;2: Joint Likelihood of Two Parameters
+</figcaption>
+</figure>
+</div>
+</div>
+</div>
+</section>
+<section id="log-likelihood" class="level1" data-number="4">
+<h1 data-number="4"><span class="header-section-number">4</span> Log-Likelihood</h1>
 <p>Because probabilities are by definition <span class="math inline">\(&lt; 1\)</span>, the likelihood <span class="math inline">\(\mathscr{L}\)</span> tends to be a very small number. For a variety of reasons, it is often easier to work with the logarithm of the likelihood: <span class="math inline">\(\ln \mathscr{L}\)</span>.</p>
 </section>
-<section id="visualizing-the-likelihood-and-log-likelihood" class="level1" data-number="4">
-<h1 data-number="4"><span class="header-section-number">4</span> Visualizing the Likelihood and Log-Likelihood</h1>
+<section id="visualizing-the-likelihood-and-log-likelihood" class="level1" data-number="5">
+<h1 data-number="5"><span class="header-section-number">5</span> Visualizing the Likelihood and Log-Likelihood</h1>
 <div class="cell">
 <div class="cell-output-display">
-<div class="quarto-figure quarto-figure-center">
-<figure class="figure">
-<p><a href="likelihood-and-log-likelihood_files/figure-html/unnamed-chunk-4-1.png" class="lightbox" data-gallery="quarto-lightbox-gallery-2" data-glightbox="description: .lightbox-desc-2" title="Likelihood and Log-Likelihood"><img src="likelihood-and-log-likelihood_files/figure-html/unnamed-chunk-4-1.png" class="img-fluid figure-img" width="672" alt="Likelihood and Log-Likelihood"></a></p>
-<figcaption>Likelihood and Log-Likelihood</figcaption>
+<div id="fig-likelihood-log-likelihood" class="quarto-figure quarto-figure-center quarto-float anchored">
+<figure class="quarto-float quarto-float-fig figure">
+<div aria-describedby="fig-likelihood-log-likelihood-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
+<a href="likelihood-and-log-likelihood_files/figure-html/fig-likelihood-log-likelihood-1.png" class="lightbox" data-glightbox="description: .lightbox-desc-3" data-gallery="quarto-lightbox-gallery-3"><img src="likelihood-and-log-likelihood_files/figure-html/fig-likelihood-log-likelihood-1.png" class="img-fluid figure-img" width="672"></a>
+</div>
+<figcaption class="quarto-float-caption-bottom quarto-float-caption quarto-float-fig" id="fig-likelihood-log-likelihood-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
+Figure&nbsp;3: Likelihood and Log-Likelihood
+</figcaption>
 </figure>
 </div>
 </div>
 </div>
 </section>
-<section id="conclusion" class="level1" data-number="5">
-<h1 data-number="5"><span class="header-section-number">5</span> Conclusion</h1>
+<section id="conclusion" class="level1" data-number="6">
+<h1 data-number="6"><span class="header-section-number">6</span> Conclusion</h1>
 <p>Higher values of the <em>log-likelihood</em>, closer to 0, represent models with a better fit.</p>
 <div class="hidden" aria-hidden="true">
-<span class="glightbox-desc lightbox-desc-1">Joint Likelihood of Two Parameters</span>
-<span class="glightbox-desc lightbox-desc-2">Likelihood and Log-Likelihood</span>
+<span class="glightbox-desc lightbox-desc-1">Figure&nbsp;1: An Empirical Example</span>
+<span class="glightbox-desc lightbox-desc-2">Figure&nbsp;2: Joint Likelihood of Two Parameters</span>
+<span class="glightbox-desc lightbox-desc-3">Figure&nbsp;3: Likelihood and Log-Likelihood</span>
 </div>
 </section>
 
@@ -702,7 +729,7 @@ window.document.addEventListener("DOMContentLoaded", function (event) {
 });
 </script>
 </div> <!-- /content -->
-<script>var lightboxQuarto = GLightbox({"openEffect":"zoom","selector":".lightbox","closeEffect":"zoom","descPosition":"bottom","loop":false});
+<script>var lightboxQuarto = GLightbox({"closeEffect":"zoom","openEffect":"zoom","selector":".lightbox","loop":false,"descPosition":"bottom"});
 window.onload = () => {
   lightboxQuarto.on('slide_before_load', (data) => {
     const { slideIndex, slideNode, slideConfig, player, trigger } = data;

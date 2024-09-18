@@ -17,14 +17,9 @@ format:
           \usepackage[sfdefault]{roboto}
     toc: true
     number-sections: true
+execute: 
+  echo: false
 ---
-
-```{r setup, include=FALSE}
-
-knitr::opts_chunk$set(echo = FALSE,
-                      fig.margin =TRUE)
-
-```
 
 ```{r}
 
@@ -41,13 +36,40 @@ The likelihood is the probability that a given set of parameters would give rise
 
 Formally, the likelihood is a product of probabilities.
 
-$$\mathscr{L}(\beta) = \prod p(\beta | x, y)$$
+$$\mathscr{L}(\beta) = \prod p(\beta | x, y)$$ {#eq-likelihood}
+
+# An Empirical Example
+
+```{r}
+#| label: fig-empirical-example
+#| fig-cap: "An Empirical Example"
+
+set.seed(1234) # random seed
+
+N <- 1000 # sample size
+
+x <- round(rnorm(N, 100, 10), 2) # random x
+
+e <- round(rnorm(N, 0, 7), 2) # random error
+
+y <- 10 + x + e # true equation that generates y
+
+mydata <- data.frame(x, e, y)
+
+plot(x, y , col="lightgrey",
+     main = "Line With Slope Most Likely To Produce Data")
+
+abline(10, 1, col="red", lwd=3)
+
+```
 
 # Maximum Likelihood Estimation
 
-Maximum Likelihood Estimation is essentially the process of finding the combination of parameters (e.g. $\beta$) which maximizes the likelihood of producing the data.
+Maximum Likelihood Estimation is essentially the process of finding the *combination* of parameters (e.g. $\beta$) which maximizes the likelihood of producing the data.
 
-```{r, eval=FALSE, echo=FALSE}
+```{r}
+#| eval: false
+#| echo: false
 
 N <- 1000
 
@@ -67,7 +89,10 @@ ggplot(data = NULL,
 
 ```
 
-```{r, fig.height=3, fig.cap="Joint Likelihood of Two Parameters"}
+```{r}
+#| fig-height: 3
+#| fig-cap: "Joint Likelihood of Two Parameters" 
+#| label: fig-joint-likelihood
 
 # inspired by a coding approach at
 # https://stackoverflow.com/questions/11530010/how-to-simulate-bimodal-distribution
@@ -99,30 +124,32 @@ Because probabilities are by definition $< 1$, the likelihood $\mathscr{L}$ tend
 
 # Visualizing the Likelihood and Log-Likelihood
 
-```{r, fig.cap="Likelihood and Log-Likelihood"}
+```{r}
+#| fig-cap: "Likelihood and Log-Likelihood"
+#| label: fig-likelihood-log-likelihood
 
 x <- seq(.01, 1, .01)
 
 y <- log(x)
 
-ggplot(data = NULL,
-       aes(x = x,
-           y = y,
-           color = x)) +
-  geom_point() +
-  labs(title = "Simulated Likelihood and Log-Likelihood", 
-       x = "Likelihood", 
-       y = "Log-Likelihood") +
-  theme_minimal() +
-  scale_color_viridis_c() +
-  theme(legend.position = "none")
+# ggplot(data = NULL,
+#        aes(x = x,
+#            y = y,
+#            color = x)) +
+#   geom_point() +
+#   labs(title = "Simulated Likelihood and Log-Likelihood", 
+#        x = "Likelihood", 
+#        y = "Log-Likelihood") +
+#   theme_minimal() +
+#   scale_color_viridis_c() +
+#   theme(legend.position = "none")
 
-# plot(x, y,
-#      pch = 19,
-#      col = "blue",
-#      main = "Simulated Likelihood and Log-Likelihood",
-#      xlab = "Likelihood",
-#      ylab = "Log-Likelihood")
+plot(x, y,
+     pch = 19,
+     col = "blue",
+     main = "Simulated Likelihood and Log-Likelihood",
+     xlab = "Likelihood",
+     ylab = "Log-Likelihood")
 
 ```
 
