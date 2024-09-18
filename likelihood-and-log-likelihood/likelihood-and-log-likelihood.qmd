@@ -8,9 +8,9 @@ format:
     number-sections: true
     anchor-sections: true
     theme:
-      light: cosmo
+      light: yeti
       dark: vapor
-    css: styles.css
+    lightbox: true
   pdf:
     include-in-header:
       - text: | 
