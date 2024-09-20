@@ -7,7 +7,7 @@ format:
     toc: true
     number-sections: true
     theme:
-      light: united
+      light: yeti
       dark: vapor
     css: styles.css
   pdf:
