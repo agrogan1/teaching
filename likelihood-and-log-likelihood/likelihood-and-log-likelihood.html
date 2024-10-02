@@ -2,12 +2,12 @@
 <html xmlns="http://www.w3.org/1999/xhtml" lang="en" xml:lang="en"><head>
 
 <meta charset="utf-8">
-<meta name="generator" content="quarto-1.4.549">
+<meta name="generator" content="quarto-1.5.57">
 
 <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes">
 
 <meta name="author" content="Andy Grogan-Kaylor">
-<meta name="dcterms.date" content="2024-09-18">
+<meta name="dcterms.date" content="2024-10-02">
 
 <title>Likelihood and Log Likelihood</title>
 <style>
@@ -41,7 +41,7 @@ ul.task-list li input[type="checkbox"] {
 <link href="likelihood-and-log-likelihood_files/libs/quarto-contrib/glightbox/glightbox.min.css" rel="stylesheet">
 <link href="likelihood-and-log-likelihood_files/libs/quarto-contrib/glightbox/lightbox.css" rel="stylesheet">
 
-  <script src="https://polyfill.io/v3/polyfill.min.js?features=es6"></script>
+  <script src="https://cdnjs.cloudflare.com/polyfill/v3/polyfill.min.js?features=es6"></script>
   <script src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-chtml-full.js" type="text/javascript"></script>
 
 <script type="text/javascript">
@@ -82,8 +82,8 @@ window.Quarto = {
    
   <ul>
   <li><a href="#background" id="toc-background" class="nav-link active" data-scroll-target="#background"><span class="header-section-number">1</span> Background</a></li>
-  <li><a href="#an-empirical-example" id="toc-an-empirical-example" class="nav-link" data-scroll-target="#an-empirical-example"><span class="header-section-number">2</span> An Empirical Example</a></li>
-  <li><a href="#maximum-likelihood-estimation" id="toc-maximum-likelihood-estimation" class="nav-link" data-scroll-target="#maximum-likelihood-estimation"><span class="header-section-number">3</span> Maximum Likelihood Estimation</a></li>
+  <li><a href="#maximum-likelihood-estimation" id="toc-maximum-likelihood-estimation" class="nav-link" data-scroll-target="#maximum-likelihood-estimation"><span class="header-section-number">2</span> Maximum Likelihood Estimation</a></li>
+  <li><a href="#an-empirical-example" id="toc-an-empirical-example" class="nav-link" data-scroll-target="#an-empirical-example"><span class="header-section-number">3</span> An Empirical Example</a></li>
   <li><a href="#log-likelihood" id="toc-log-likelihood" class="nav-link" data-scroll-target="#log-likelihood"><span class="header-section-number">4</span> Log-Likelihood</a></li>
   <li><a href="#visualizing-the-likelihood-and-log-likelihood" id="toc-visualizing-the-likelihood-and-log-likelihood" class="nav-link" data-scroll-target="#visualizing-the-likelihood-and-log-likelihood"><span class="header-section-number">5</span> Visualizing the Likelihood and Log-Likelihood</a></li>
   <li><a href="#conclusion" id="toc-conclusion" class="nav-link" data-scroll-target="#conclusion"><span class="header-section-number">6</span> Conclusion</a></li>
@@ -111,7 +111,7 @@ window.Quarto = {
     <div>
     <div class="quarto-title-meta-heading">Published</div>
     <div class="quarto-title-meta-contents">
-      <p class="date">September 18, 2024</p>
+      <p class="date">October 2, 2024</p>
     </div>
   </div>
   
@@ -129,35 +129,35 @@ window.Quarto = {
 <p>Formally, the likelihood is a product of probabilities.</p>
 <p><span id="eq-likelihood"><span class="math display">\[\mathscr{L}(\beta) = \prod p(\beta | x, y) \tag{1}\]</span></span></p>
 </section>
-<section id="an-empirical-example" class="level1" data-number="2">
-<h1 data-number="2"><span class="header-section-number">2</span> An Empirical Example</h1>
+<section id="maximum-likelihood-estimation" class="level1" data-number="2">
+<h1 data-number="2"><span class="header-section-number">2</span> Maximum Likelihood Estimation</h1>
+<p>Maximum Likelihood Estimation is essentially the process of finding the <em>combination</em> of parameters (e.g.&nbsp;<span class="math inline">\(\beta\)</span>) which maximizes the likelihood of producing the data.</p>
 <div class="cell">
 <div class="cell-output-display">
-<div id="fig-empirical-example" class="quarto-figure quarto-figure-center quarto-float anchored">
+<div id="fig-joint-likelihood" class="quarto-float quarto-figure quarto-figure-center anchored">
 <figure class="quarto-float quarto-float-fig figure">
-<div aria-describedby="fig-empirical-example-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
-<a href="likelihood-and-log-likelihood_files/figure-html/fig-empirical-example-1.png" class="lightbox" data-glightbox="description: .lightbox-desc-1" data-gallery="quarto-lightbox-gallery-1"><img src="likelihood-and-log-likelihood_files/figure-html/fig-empirical-example-1.png" class="img-fluid figure-img" width="672"></a>
+<div aria-describedby="fig-joint-likelihood-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
+<a href="likelihood-and-log-likelihood_files/figure-html/fig-joint-likelihood-1.png" class="lightbox" data-gallery="quarto-lightbox-gallery-1" title="Figure&nbsp;1: Joint Likelihood of Two Parameters"><img src="likelihood-and-log-likelihood_files/figure-html/fig-joint-likelihood-1.png" class="img-fluid figure-img" width="672"></a>
 </div>
-<figcaption class="quarto-float-caption-bottom quarto-float-caption quarto-float-fig" id="fig-empirical-example-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
-Figure&nbsp;1: An Empirical Example
+<figcaption class="quarto-float-caption-bottom quarto-float-caption quarto-float-fig" id="fig-joint-likelihood-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
+Figure&nbsp;1: Joint Likelihood of Two Parameters
 </figcaption>
 </figure>
 </div>
 </div>
 </div>
 </section>
-<section id="maximum-likelihood-estimation" class="level1" data-number="3">
-<h1 data-number="3"><span class="header-section-number">3</span> Maximum Likelihood Estimation</h1>
-<p>Maximum Likelihood Estimation is essentially the process of finding the <em>combination</em> of parameters (e.g.&nbsp;<span class="math inline">\(\beta\)</span>) which maximizes the likelihood of producing the data.</p>
+<section id="an-empirical-example" class="level1" data-number="3">
+<h1 data-number="3"><span class="header-section-number">3</span> An Empirical Example</h1>
 <div class="cell">
 <div class="cell-output-display">
-<div id="fig-joint-likelihood" class="quarto-figure quarto-figure-center quarto-float anchored">
+<div id="fig-empirical-example" class="quarto-float quarto-figure quarto-figure-center anchored">
 <figure class="quarto-float quarto-float-fig figure">
-<div aria-describedby="fig-joint-likelihood-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
-<a href="likelihood-and-log-likelihood_files/figure-html/fig-joint-likelihood-1.png" class="lightbox" data-glightbox="description: .lightbox-desc-2" data-gallery="quarto-lightbox-gallery-2"><img src="likelihood-and-log-likelihood_files/figure-html/fig-joint-likelihood-1.png" class="img-fluid figure-img" width="672"></a>
+<div aria-describedby="fig-empirical-example-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
+<a href="likelihood-and-log-likelihood_files/figure-html/fig-empirical-example-1.png" class="lightbox" data-gallery="quarto-lightbox-gallery-2" title="Figure&nbsp;2: An Empirical Example"><img src="likelihood-and-log-likelihood_files/figure-html/fig-empirical-example-1.png" class="img-fluid figure-img" width="672"></a>
 </div>
-<figcaption class="quarto-float-caption-bottom quarto-float-caption quarto-float-fig" id="fig-joint-likelihood-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
-Figure&nbsp;2: Joint Likelihood of Two Parameters
+<figcaption class="quarto-float-caption-bottom quarto-float-caption quarto-float-fig" id="fig-empirical-example-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
+Figure&nbsp;2: An Empirical Example
 </figcaption>
 </figure>
 </div>
@@ -172,10 +172,10 @@ Figure&nbsp;2: Joint Likelihood of Two Parameters
 <h1 data-number="5"><span class="header-section-number">5</span> Visualizing the Likelihood and Log-Likelihood</h1>
 <div class="cell">
 <div class="cell-output-display">
-<div id="fig-likelihood-log-likelihood" class="quarto-figure quarto-figure-center quarto-float anchored">
+<div id="fig-likelihood-log-likelihood" class="quarto-float quarto-figure quarto-figure-center anchored">
 <figure class="quarto-float quarto-float-fig figure">
 <div aria-describedby="fig-likelihood-log-likelihood-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
-<a href="likelihood-and-log-likelihood_files/figure-html/fig-likelihood-log-likelihood-1.png" class="lightbox" data-glightbox="description: .lightbox-desc-3" data-gallery="quarto-lightbox-gallery-3"><img src="likelihood-and-log-likelihood_files/figure-html/fig-likelihood-log-likelihood-1.png" class="img-fluid figure-img" width="672"></a>
+<a href="likelihood-and-log-likelihood_files/figure-html/fig-likelihood-log-likelihood-1.png" class="lightbox" data-gallery="quarto-lightbox-gallery-3" title="Figure&nbsp;3: Likelihood and Log-Likelihood"><img src="likelihood-and-log-likelihood_files/figure-html/fig-likelihood-log-likelihood-1.png" class="img-fluid figure-img" width="672"></a>
 </div>
 <figcaption class="quarto-float-caption-bottom quarto-float-caption quarto-float-fig" id="fig-likelihood-log-likelihood-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
 Figure&nbsp;3: Likelihood and Log-Likelihood
@@ -188,11 +188,6 @@ Figure&nbsp;3: Likelihood and Log-Likelihood
 <section id="conclusion" class="level1" data-number="6">
 <h1 data-number="6"><span class="header-section-number">6</span> Conclusion</h1>
 <p>Higher values of the <em>log-likelihood</em>, closer to 0, represent models with a better fit.</p>
-<div class="hidden" aria-hidden="true">
-<span class="glightbox-desc lightbox-desc-1">Figure&nbsp;1: An Empirical Example</span>
-<span class="glightbox-desc lightbox-desc-2">Figure&nbsp;2: Joint Likelihood of Two Parameters</span>
-<span class="glightbox-desc lightbox-desc-3">Figure&nbsp;3: Likelihood and Log-Likelihood</span>
-</div>
 </section>
 
 </main>
@@ -376,18 +371,7 @@ window.document.addEventListener("DOMContentLoaded", function (event) {
     }
     return false;
   }
-  const clipboard = new window.ClipboardJS('.code-copy-button', {
-    text: function(trigger) {
-      const codeEl = trigger.previousElementSibling.cloneNode(true);
-      for (const childEl of codeEl.children) {
-        if (isCodeAnnotation(childEl)) {
-          childEl.remove();
-        }
-      }
-      return codeEl.innerText;
-    }
-  });
-  clipboard.on('success', function(e) {
+  const onCopySuccess = function(e) {
     // button target
     const button = e.trigger;
     // don't keep focus
@@ -419,7 +403,47 @@ window.document.addEventListener("DOMContentLoaded", function (event) {
     }, 1000);
     // clear code selection
     e.clearSelection();
+  }
+  const getTextToCopy = function(trigger) {
+      const codeEl = trigger.previousElementSibling.cloneNode(true);
+      for (const childEl of codeEl.children) {
+        if (isCodeAnnotation(childEl)) {
+          childEl.remove();
+        }
+      }
+      return codeEl.innerText;
+  }
+  const clipboard = new window.ClipboardJS('.code-copy-button:not([data-in-quarto-modal])', {
+    text: getTextToCopy
   });
+  clipboard.on('success', onCopySuccess);
+  if (window.document.getElementById('quarto-embedded-source-code-modal')) {
+    // For code content inside modals, clipBoardJS needs to be initialized with a container option
+    // TODO: Check when it could be a function (https://github.com/zenorocha/clipboard.js/issues/860)
+    const clipboardModal = new window.ClipboardJS('.code-copy-button[data-in-quarto-modal]', {
+      text: getTextToCopy,
+      container: window.document.getElementById('quarto-embedded-source-code-modal')
+    });
+    clipboardModal.on('success', onCopySuccess);
+  }
+    var localhostRegex = new RegExp(/^(?:http|https):\/\/localhost\:?[0-9]*\//);
+    var mailtoRegex = new RegExp(/^mailto:/);
+      var filterRegex = new RegExp('/' + window.location.host + '/');
+    var isInternal = (href) => {
+        return filterRegex.test(href) || localhostRegex.test(href) || mailtoRegex.test(href);
+    }
+    // Inspect non-navigation links and adorn them if external
+ 	var links = window.document.querySelectorAll('a[href]:not(.nav-link):not(.navbar-brand):not(.toc-action):not(.sidebar-link):not(.sidebar-item-toggle):not(.pagination-link):not(.no-external):not([aria-hidden]):not(.dropdown-item):not(.quarto-navigation-tool):not(.about-link)');
+    for (var i=0; i<links.length; i++) {
+      const link = links[i];
+      if (!isInternal(link.href)) {
+        // undo the damage that might have been done by quarto-nav.js in the case of
+        // links that we want to consider external
+        if (link.dataset.originalHref !== undefined) {
+          link.href = link.dataset.originalHref;
+        }
+      }
+    }
   function tippyHover(el, contentFn, onTriggerFn, onUntriggerFn) {
     const config = {
       allowHTML: true,
@@ -454,7 +478,11 @@ window.document.addEventListener("DOMContentLoaded", function (event) {
       try { href = new URL(href).hash; } catch {}
       const id = href.replace(/^#\/?/, "");
       const note = window.document.getElementById(id);
-      return note.innerHTML;
+      if (note) {
+        return note.innerHTML;
+      } else {
+        return "";
+      }
     });
   }
   const xrefs = window.document.querySelectorAll('a.quarto-xref');
@@ -729,30 +757,37 @@ window.document.addEventListener("DOMContentLoaded", function (event) {
 });
 </script>
 </div> <!-- /content -->
-<script>var lightboxQuarto = GLightbox({"closeEffect":"zoom","openEffect":"zoom","selector":".lightbox","loop":false,"descPosition":"bottom"});
-window.onload = () => {
-  lightboxQuarto.on('slide_before_load', (data) => {
-    const { slideIndex, slideNode, slideConfig, player, trigger } = data;
-    const href = trigger.getAttribute('href');
-    if (href !== null) {
-      const imgEl = window.document.querySelector(`a[href="${href}"] img`);
-      if (imgEl !== null) {
-        const srcAttr = imgEl.getAttribute("src");
-        if (srcAttr && srcAttr.startsWith("data:")) {
-          slideConfig.href = srcAttr;
-        }
-      }
-    } 
-  });
-
-  lightboxQuarto.on('slide_after_load', (data) => {
-    const { slideIndex, slideNode, slideConfig, player, trigger } = data;
-    if (window.Quarto?.typesetMath) {
-      window.Quarto.typesetMath(slideNode);
+<script>var lightboxQuarto = GLightbox({"openEffect":"zoom","selector":".lightbox","closeEffect":"zoom","descPosition":"bottom","loop":false});
+(function() {
+  let previousOnload = window.onload;
+  window.onload = () => {
+    if (previousOnload) {
+      previousOnload();
     }
-  });
-
-};
+    lightboxQuarto.on('slide_before_load', (data) => {
+      const { slideIndex, slideNode, slideConfig, player, trigger } = data;
+      const href = trigger.getAttribute('href');
+      if (href !== null) {
+        const imgEl = window.document.querySelector(`a[href="${href}"] img`);
+        if (imgEl !== null) {
+          const srcAttr = imgEl.getAttribute("src");
+          if (srcAttr && srcAttr.startsWith("data:")) {
+            slideConfig.href = srcAttr;
+          }
+        }
+      } 
+    });
+  
+    lightboxQuarto.on('slide_after_load', (data) => {
+      const { slideIndex, slideNode, slideConfig, player, trigger } = data;
+      if (window.Quarto?.typesetMath) {
+        window.Quarto.typesetMath(slideNode);
+      }
+    });
+  
+  };
+  
+})();
           </script>
 
 

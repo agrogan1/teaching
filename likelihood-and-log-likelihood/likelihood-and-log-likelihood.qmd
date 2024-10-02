@@ -38,31 +38,6 @@ Formally, the likelihood is a product of probabilities.
 
 $$\mathscr{L}(\beta) = \prod p(\beta | x, y)$$ {#eq-likelihood}
 
-# An Empirical Example
-
-```{r}
-#| label: fig-empirical-example
-#| fig-cap: "An Empirical Example"
-
-set.seed(1234) # random seed
-
-N <- 1000 # sample size
-
-x <- round(rnorm(N, 100, 10), 2) # random x
-
-e <- round(rnorm(N, 0, 7), 2) # random error
-
-y <- 10 + x + e # true equation that generates y
-
-mydata <- data.frame(x, e, y)
-
-plot(x, y , col="lightgrey",
-     main = "Line With Slope Most Likely To Produce Data")
-
-abline(10, 1, col="red", lwd=3)
-
-```
-
 # Maximum Likelihood Estimation
 
 Maximum Likelihood Estimation is essentially the process of finding the *combination* of parameters (e.g. $\beta$) which maximizes the likelihood of producing the data.
@@ -117,6 +92,41 @@ persp(mydensity,
       lwd = .5)
 
 ```
+
+# An Empirical Example
+
+```{r}
+#| label: fig-empirical-example
+#| fig-cap: "An Empirical Example"
+
+set.seed(1234) # random seed
+
+N <- 1000 # sample size
+
+x <- round(rnorm(N, 100, 10), 2) # random x
+
+e <- round(rnorm(N, 0, 7), 2) # random error
+
+y <- 10 + x + e # true equation that generates y
+
+mydata <- data.frame(x, e, y)
+
+plot(x, 
+     y, 
+     col="lightgrey",
+     pch = 19,
+     main = "Line With Intercept And Slope Most Likely To Produce Data",
+     sub = "Lines Less Likely To Produce Data in Grey")
+
+
+abline(30, .75, col="darkgrey", lwd=3)
+
+abline(-10, 1.25, col="darkgrey", lwd=3)
+
+abline(10, 1, col="red", lwd=3)
+
+```
+
 
 # Log-Likelihood
 
