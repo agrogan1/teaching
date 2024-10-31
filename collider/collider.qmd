@@ -9,13 +9,13 @@ format:
     code-fold: true
     code-summary: "Show the code"
     theme:
-      light: cosmo
+      light: yeti
       dark: vapor
 ---
 
 # Introduction
 
-Selecting on a collider may introduce bias.
+Selecting on a *collider* may introduce bias.
 
 # Call Libraries
 
@@ -30,7 +30,7 @@ library(dplyr) # data wrangling
 
 library(sjPlot) # nice tables
 
-set.seed(1234)
+set.seed(1234) # set random seed
 
 ```
 
@@ -44,18 +44,22 @@ x <- rnorm(N, 100, 10) # randomly distributed x
 
 e <- rnorm(N, 0, 5) # normal error
 
-y <- 1 * x + e
+y <- 1 * x + e # y is a function of x + random error (e)
 
 z <- x + y # z is a collider
 
-df <- data.frame(x, y, e, z) # data frame
+df <- data.frame(x, y, z) # data frame
+
+head(df) # replay
 
 ```
 
 ```{r}
 
+df$selected <- z > 215
+
 df_selected <- df %>% # data selected on collider
-  filter(z > 215)  # selection criterion
+  filter(selected)  # selection criterion
 
 ```
 
@@ -66,10 +70,12 @@ df_selected <- df %>% # data selected on collider
 p1 <- ggplot(df,
              aes(x = x,
                  y = y)) + 
-  geom_point() +
+  geom_point(aes(color = selected)) +
   geom_smooth(method = "lm") +
   labs(title = "y ~ x",
        subtitle = "Entire Sample") +
+  scale_color_manual(values = c('TRUE' = 'blue', 
+                                'FALSE' = 'red')) +
   ylim(50, 150) + # specify y scale
   theme_minimal()
 
@@ -78,12 +84,14 @@ p1 <- ggplot(df,
 ```{r}
 
 p2 <- ggplot(df_selected,
-       aes(x = x,
+             aes(x = x,
                  y = y)) + 
-  geom_point() +
+  geom_point(aes(color = selected)) +
   geom_smooth(method = "lm") +
   labs(title = "y ~ x",
        subtitle = "Selected On Collider") +
+  scale_color_manual(values = c('TRUE' = 'blue', 
+                                'FALSE' = 'red')) +
   ylim(50, 150) + # specify y scale
   theme_minimal()
 
