@@ -1,0 +1,106 @@
+---
+title: "Presenting Interactions"
+author: "Andy Grogan-Kaylor"
+format: 
+  revealjs:
+    theme: solarized
+    lightbox: true
+    smaller: false
+    scrollable: true
+    html-math-method: mathjax
+    transition: slide
+    controls: true 
+    controls-tutorial: true
+    code-fold: true
+    code-summary: "show the code"
+    chalkboard: true
+---
+
+## Background
+
+*x* is an independent variable. *y* is an outcome. *m* is a moderator.
+
+::: {.callout-tip appearance="simple"}
+### A Substantive Example
+
+For the sake of illustration, we might imagine that *x* is *bad parenting*, *y* is *mental health problem* or *aggression*, and *m* is *disadvantaged neighborhood* or *disadvantaged context*.
+:::
+
+::: {.callout-tip appearance="simple"}
+### Dichotomous Variables
+
+This example is presented with dichotomous *x* and *m*, but the same principles would apply with continuous *x* and *m*.
+:::
+
+```{r}
+
+library(ggplot2)
+
+library(ggthemes)
+
+```
+
+
+```{r}
+
+set.seed(1234)
+
+N <- 1000
+
+x <- rbinom(N, 1, .5) # binomial x
+
+m <- rbinom(N, 1, .5) # binomial moderator (m)
+
+e <- rnorm(N, 0, 5) # normal error
+
+y <- x + m + 3 * x * m + e
+
+mydata <- data.frame(x, y, m)
+
+```
+
+## Equation
+
+$$y = \beta_0 + \beta_1 x + \beta_2 m + \beta_3 x \times m + e_i$$
+
+## Independent Variable on Horizontal Axis; Dependent Variable on Vertical Axis; Separate Lines For Moderator
+
+```{r}
+#| label: fig-plot1
+#| fig-cap: "Independent Variable on Horizontal Axis; Dependent Variable on Vertical Axis; Separate Lines For Moderator"
+
+ggplot(mydata, 
+       aes(x = x,
+           y = y,
+           color = factor(m))) +
+  geom_smooth(method = "lm") +
+  labs(title = "Outcome by Independent Variable and Moderator") +
+  scale_color_solarized(name = "m") +
+  theme_solarized() +
+  theme(title = element_text(size = rel(1.5)))
+
+```
+
+## Moderator Variable on Horizontal Axis; Dependent Variable on Vertical Axis; Separate Lines For Independent Variable
+
+```{r}
+#| label: fig-plot2
+#| fig-cap: "Moderator Variable on Horizontal Axis; Dependent Variable on Vertical Axis; Separate Lines For Independent Variable"
+
+ggplot(mydata, 
+       aes(x = m,
+           y = y,
+           color = factor(x))) +
+  geom_smooth(method = "lm") +
+  labs(title = "Outcome by Independent Variable and Moderator") +
+  scale_color_solarized(name = "x") +
+  theme_solarized() +
+  theme(title = element_text(size = rel(1.5)))
+
+```
+
+
+
+
+
+
