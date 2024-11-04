@@ -79,6 +79,8 @@ ggplot(mydata,
   theme_solarized() +
   theme(title = element_text(size = rel(1.5)))
 
+ggsave("p1.png")
+
 ```
 
 ## Moderator Variable on Horizontal Axis; Dependent Variable on Vertical Axis; Separate Lines For Independent Variable
@@ -96,6 +98,8 @@ ggplot(mydata,
   scale_color_solarized(name = "x") +
   theme_solarized() +
   theme(title = element_text(size = rel(1.5)))
+
+ggsave("p2.png")
 
 ```
 
