@@ -8,6 +8,7 @@ format:
     theme: 
       light: yeti
       dark: vapor
+    lightbox: true
     toc: true
     number-sections: true
     anchor-sections: true
