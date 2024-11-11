@@ -1,6 +1,7 @@
 ---
 title: "Presenting Interactions"
 author: "Andy Grogan-Kaylor"
+date: "today"
 format: 
   revealjs:
     theme: solarized
