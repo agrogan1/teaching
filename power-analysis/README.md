@@ -22,5 +22,7 @@ flowchart LR
   secondary --> probablynot(Probably not.) 
   question --> intervention(I'm designing an intervention.)
   intervention --> enoughdata(I need to know if I will have enough data to detect the expected effects.)
+  question --> smallsecondary(I have SMALLER secondary data)
+  smallsecondary --> enoughdata
 ```
 
