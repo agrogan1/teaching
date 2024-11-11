@@ -18,7 +18,7 @@ Some thoughts about power analysis.
 }%%
 
 flowchart LR
-  question(Do I need to do a power analysis?) --> secondary(I have large secondary data.)
+  question(Do I need to do a power analysis?) --> secondary(I have LARGER secondary data.)
   secondary --> probablynot(Probably not.) 
   question --> intervention(I'm designing an intervention.)
   intervention --> enoughdata(I need to know if I will have enough data to detect the expected effects.)
