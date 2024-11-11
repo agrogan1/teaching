@@ -1,0 +1,43 @@
+---
+title: "Effect Sizes"
+subtitle: "Approximated From Bushman and Anderson"
+author: "Andy Grogan-Kaylor"
+date: "today"
+format: 
+  revealjs:
+    theme: default
+    lightbox: true
+    smaller: false
+    scrollable: true
+    html-math-method: mathjax
+    transition: slide
+    controls: true 
+    controls-tutorial: true
+    code-fold: true
+    code-summary: "show the code"
+    chalkboard: true
+---
+
+## Bushman and Anderson
+
+Effect sizes are approximated from Bushman and Anderson.
+
+## Effect Sizes
+
+```{r}
+
+library(readr)
+
+effectsizes <- read_csv("effectsizes.csv")
+
+library(plotly)
+
+plot_ly(effectsizes,
+        y = ~Association,
+        x = ~Correlation,
+        name = "Effect Sizes",
+        type = "bar")
+
+
+```
+

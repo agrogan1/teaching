@@ -1,0 +1,13 @@
+Association ,Correlation
+"Smoking and Lung Cancer",0.4
+"Passive Smoking and Lung Cancer at Work",0.18
+"Condom Use and Sexually Transmitted HIV",0.22
+"Exposure to Asbestos and Laryngeal cancer",0.1
+"Exposure to Lead and IQ Scores in Children",-0.15
+"Nicotine Patch and Smoking Cessation",0.12
+"Calcium intake and bone mass",0.11
+"Self-examination and Extent of Breast Cancer",-0.06
+"Corporal Punishment and Child Aggression",0.15
+"Homework and Academic Achievement",0.1
+"Media Violence and Aggression",0.35
+"Parental Income and Child Income as an Adult",0.5
