@@ -1,6 +1,6 @@
 ---
 title: "Effect Sizes"
-subtitle: "Approximated From Bushman and Anderson"
+subtitle: "*Approximated* From Bushman and Anderson"
 author: "Andy Grogan-Kaylor"
 date: "today"
 format: 
@@ -20,7 +20,7 @@ format:
 
 ## Bushman and Anderson
 
-Effect sizes are approximated from Bushman and Anderson.
+Effect sizes are *approximated* from Bushman and Anderson.
 
 ## Effect Sizes
 
