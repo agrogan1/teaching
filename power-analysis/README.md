@@ -18,8 +18,8 @@ Some thoughts about power analysis.
 }%%
 
 flowchart LR
-  A(Do I need to do a power analysis?) --> B(I have large secondary data.)
-  B --> C(Probably not.) 
+  question(Do I need to do a power analysis?) --> SD(I have large secondary data.)
+  SD --> C(Probably not.) 
   A --> D(I'm designing an intervention.)
   D --> E(I need to know if I will have enough data to detect the expected effects.)
   E --> F(make conclusions)
