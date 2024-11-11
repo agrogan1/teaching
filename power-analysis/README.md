@@ -18,8 +18,8 @@ Some thoughts about power analysis.
 }%%
 
 flowchart LR
-  A(Do I need to do a power analysis?) --> B(get data)
-  B --> C(process <br>and clean data) 
+  A(Do I need to do a power analysis?) --> B(I have large secondary data)
+  B --> C(Probably not.) 
   C --> D(analyze data)
   D --> E(visualize data)
   E --> F(make conclusions)
