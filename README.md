@@ -16,6 +16,8 @@
 
 ## Statistics
 
+* [Effect Sizes approximated from an article by Bushman and Anderson](https://agrogan1.github.io/teaching/Bushman-Anderson/effectsizes.html)
+
 * Basics of [Quantitative Data Analysis](./quantitative-data-analysis/quantitative-data-analysis.html)
 
 * [New Regression Tutorial](./new-regression-tutorial/index.html)
