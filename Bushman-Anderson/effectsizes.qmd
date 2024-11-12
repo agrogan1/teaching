@@ -35,6 +35,7 @@ library(plotly)
 plot_ly(effectsizes,
         y = ~Association,
         x = ~Correlation,
+        color = ~Correlation,
         name = "Effect Sizes",
         type = "bar")
 
