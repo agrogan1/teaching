@@ -37,11 +37,13 @@ plot_ly(effectsizes,
         y = ~Association,
         x = ~Correlation,
         color = ~Correlation,
+        text =  ~Correlation,
         name = "Effect Sizes",
         type = "bar")
 
 
 ```
+
 
 ## References
 
