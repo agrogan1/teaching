@@ -16,11 +16,12 @@ format:
     code-fold: true
     code-summary: "show the code"
     chalkboard: true
+bibliography: effectsizes.bib
 ---
 
 ## Bushman and Anderson
 
-Effect sizes are *approximated* from Bushman and Anderson.
+Effect sizes are *approximated* from a Figure in @Bushman2001.
 
 ## Effect Sizes
 
@@ -41,4 +42,10 @@ plot_ly(effectsizes,
 
 
 ```
+
+## References
+
+
+
+
 
