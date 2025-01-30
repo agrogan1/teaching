@@ -1,0 +1,120 @@
+---
+title: "Weighted Data"
+author: "Andy Grogan-Kaylor"
+format: 
+  html:
+    theme: yeti
+    toc: true
+    lightbox: true
+    code-fold: true
+    code-summary: "Show the code"
+---
+
+# Weights
+
+In their simplest form, weights are the *inverse probability of selection*. If $p_i$ is the probability of selection, then the weight is defined as $w_i = \frac{1}{p_i}$.
+
+# Simulate Population Data
+
+```{r}
+#| echo: false
+#| output: false
+
+library(Statamarkdown)
+
+```
+
+```{stata, collectcode = TRUE}
+
+clear all
+
+set seed 3846 // random seed
+
+set obs 10000 // observations
+
+generate x = rnormal(100, 10) // random normal x
+
+generate z = rbinomial(1, .1) // dichotomous z
+
+generate e = rnormal(0, 10) // random error
+
+generate y = 2 * x + z + e // TRUE relationship in population
+
+drop e // drop error
+
+save population.dta, replace // save population data
+
+dtable x i.z y // descriptive statistics
+
+quietly: regress y x i.z // population
+
+est store population
+
+```
+
+# Random Sample
+
+```{stata}
+
+use population.dta, clear
+
+sample 50, count by(z) // 50 from each group
+
+save sample.dta, replace // sample data
+
+dtable x i.z y // descriptive statistics
+
+```
+
+# Generate Weights
+
+```{stata}
+
+* p is probability of selection
+* w = 1/p
+
+use sample.dta, clear
+
+generate p = . // initialize to missing
+
+replace p = 50/100 if z == 1
+
+replace p = 50/900 if z == 0
+
+generate w = 1/p
+
+dtable x i.z y p w
+
+save sample.dta, replace
+
+```
+
+# Regressions
+
+```{stata}
+
+use sample.dta, clear
+
+quietly: regress y x i.z // unweighted
+
+est store unweighted
+
+quietly: regress y x i.z [pweight = w] // weighted
+
+est store weighted
+
+etable, ///
+estimates(population unweighted weighted) ///
+column(estimate)
+
+```
+
+
+
+
+
+
+
+
+
+
