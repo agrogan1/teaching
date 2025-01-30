@@ -4,7 +4,14 @@ subtitle: "*Approximated* From Bushman and Anderson"
 author: "Andy Grogan-Kaylor"
 date: "today"
 format: 
+  html:
+    theme: yeti
+    toc: true
+    lightbox: true
+    code-fold: true
+    code-summary: "Show the code"
   revealjs:
+    output-file: effectsizes-revealjs.html
     theme: default
     lightbox: true
     smaller: false
@@ -26,6 +33,8 @@ Effect sizes are *approximated* from a Figure in @Bushman2001.
 ## Effect Sizes
 
 ```{r}
+#| message: false
+#| warning: false
 
 library(readr)
 
