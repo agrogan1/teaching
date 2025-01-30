@@ -7,6 +7,7 @@
 <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes">
 
 <meta name="author" content="Andy Grogan-Kaylor">
+<meta name="dcterms.date" content="2025-01-30">
 
 <title>Weighted Data</title>
 <style>
@@ -113,6 +114,7 @@ window.Quarto = {
   <li><a href="#simulate-population-data" id="toc-simulate-population-data" class="nav-link" data-scroll-target="#simulate-population-data">Simulate Population Data</a></li>
   <li><a href="#random-sample" id="toc-random-sample" class="nav-link" data-scroll-target="#random-sample">Random Sample</a></li>
   <li><a href="#generate-weights" id="toc-generate-weights" class="nav-link" data-scroll-target="#generate-weights">Generate Weights</a></li>
+  <li><a href="#descriptive-statistics" id="toc-descriptive-statistics" class="nav-link" data-scroll-target="#descriptive-statistics">Descriptive Statistics</a></li>
   <li><a href="#regressions" id="toc-regressions" class="nav-link" data-scroll-target="#regressions">Regressions</a></li>
   </ul>
 </nav>
@@ -135,6 +137,12 @@ window.Quarto = {
           </div>
   </div>
     
+    <div>
+    <div class="quarto-title-meta-heading">Published</div>
+    <div class="quarto-title-meta-contents">
+      <p class="date">January 30, 2025</p>
+    </div>
+  </div>
   
     
   </div>
@@ -153,51 +161,48 @@ window.Quarto = {
 <div class="cell" data-collectcode="true">
 <details class="code-fold">
 <summary>Show the code</summary>
-<div class="sourceCode cell-code" id="cb1"><pre class="sourceCode stata code-with-copy"><code class="sourceCode stata"><span id="cb1-1"><a href="#cb1-1" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb1-2"><a href="#cb1-2" aria-hidden="true" tabindex="-1"></a><span class="kw">clear</span> <span class="ot">all</span></span>
-<span id="cb1-3"><a href="#cb1-3" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb1-4"><a href="#cb1-4" aria-hidden="true" tabindex="-1"></a><span class="kw">set</span> <span class="dv">seed</span> 3846 <span class="co">// random seed</span></span>
-<span id="cb1-5"><a href="#cb1-5" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb1-6"><a href="#cb1-6" aria-hidden="true" tabindex="-1"></a><span class="kw">set</span> <span class="kw">obs</span> 10000 <span class="co">// observations</span></span>
-<span id="cb1-7"><a href="#cb1-7" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb1-8"><a href="#cb1-8" aria-hidden="true" tabindex="-1"></a><span class="kw">generate</span> x = rnormal(100, 10) <span class="co">// random normal x</span></span>
-<span id="cb1-9"><a href="#cb1-9" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb1-10"><a href="#cb1-10" aria-hidden="true" tabindex="-1"></a><span class="kw">generate</span> z = rbinomial(1, .1) <span class="co">// dichotomous z</span></span>
-<span id="cb1-11"><a href="#cb1-11" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb1-12"><a href="#cb1-12" aria-hidden="true" tabindex="-1"></a><span class="kw">generate</span> <span class="fu">e</span> = rnormal(0, 10) <span class="co">// random error</span></span>
-<span id="cb1-13"><a href="#cb1-13" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb1-14"><a href="#cb1-14" aria-hidden="true" tabindex="-1"></a><span class="kw">generate</span> <span class="fu">y</span> = 2 * x + z + <span class="fu">e</span> <span class="co">// TRUE relationship in population</span></span>
-<span id="cb1-15"><a href="#cb1-15" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb1-16"><a href="#cb1-16" aria-hidden="true" tabindex="-1"></a><span class="kw">drop</span> <span class="fu">e</span> <span class="co">// drop error</span></span>
-<span id="cb1-17"><a href="#cb1-17" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb1-18"><a href="#cb1-18" aria-hidden="true" tabindex="-1"></a><span class="kw">save</span> population.dta, <span class="kw">replace</span> <span class="co">// save population data</span></span>
-<span id="cb1-19"><a href="#cb1-19" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb1-20"><a href="#cb1-20" aria-hidden="true" tabindex="-1"></a>dtable x i.z <span class="fu">y</span> <span class="co">// descriptive statistics</span></span>
-<span id="cb1-21"><a href="#cb1-21" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb1-22"><a href="#cb1-22" aria-hidden="true" tabindex="-1"></a><span class="kw">quietly</span>: <span class="kw">regress</span> <span class="fu">y</span> x i.z <span class="co">// population</span></span>
-<span id="cb1-23"><a href="#cb1-23" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb1-24"><a href="#cb1-24" aria-hidden="true" tabindex="-1"></a><span class="kw">est</span> <span class="kw">store</span> population</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="sourceCode cell-code" id="cb1"><pre class="sourceCode stata code-with-copy"><code class="sourceCode stata"><span id="cb1-1"><a href="#cb1-1" aria-hidden="true" tabindex="-1"></a><span class="kw">clear</span> <span class="ot">all</span></span>
+<span id="cb1-2"><a href="#cb1-2" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb1-3"><a href="#cb1-3" aria-hidden="true" tabindex="-1"></a><span class="kw">set</span> <span class="dv">seed</span> 3846 <span class="co">// random seed</span></span>
+<span id="cb1-4"><a href="#cb1-4" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb1-5"><a href="#cb1-5" aria-hidden="true" tabindex="-1"></a><span class="kw">set</span> <span class="kw">obs</span> 10000 <span class="co">// observations</span></span>
+<span id="cb1-6"><a href="#cb1-6" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb1-7"><a href="#cb1-7" aria-hidden="true" tabindex="-1"></a><span class="kw">generate</span> x = rnormal(100, 10) <span class="co">// random normal x</span></span>
+<span id="cb1-8"><a href="#cb1-8" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb1-9"><a href="#cb1-9" aria-hidden="true" tabindex="-1"></a><span class="kw">generate</span> z = rbinomial(1, .25) <span class="co">// dichotomous z</span></span>
+<span id="cb1-10"><a href="#cb1-10" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb1-11"><a href="#cb1-11" aria-hidden="true" tabindex="-1"></a><span class="kw">generate</span> <span class="fu">e</span> = rnormal(0, 10) <span class="co">// random error</span></span>
+<span id="cb1-12"><a href="#cb1-12" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb1-13"><a href="#cb1-13" aria-hidden="true" tabindex="-1"></a><span class="kw">replace</span> x = x - 20 <span class="kw">if</span> z == 1 <span class="co">// x is 20 lower for z=1</span></span>
+<span id="cb1-14"><a href="#cb1-14" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb1-15"><a href="#cb1-15" aria-hidden="true" tabindex="-1"></a><span class="kw">generate</span> <span class="fu">y</span> = 2 * x + z + <span class="fu">e</span> <span class="co">// TRUE relationship in population</span></span>
+<span id="cb1-16"><a href="#cb1-16" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb1-17"><a href="#cb1-17" aria-hidden="true" tabindex="-1"></a><span class="kw">drop</span> <span class="fu">e</span> <span class="co">// drop error</span></span>
+<span id="cb1-18"><a href="#cb1-18" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb1-19"><a href="#cb1-19" aria-hidden="true" tabindex="-1"></a><span class="kw">save</span> population.dta, <span class="kw">replace</span> <span class="co">// save population data</span></span>
+<span id="cb1-20"><a href="#cb1-20" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb1-21"><a href="#cb1-21" aria-hidden="true" tabindex="-1"></a><span class="kw">quietly</span>: <span class="kw">regress</span> <span class="fu">y</span> x i.z <span class="co">// population</span></span>
+<span id="cb1-22"><a href="#cb1-22" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb1-23"><a href="#cb1-23" aria-hidden="true" tabindex="-1"></a><span class="kw">est</span> <span class="kw">store</span> population</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</details>
+</div>
+<div class="cell">
+<details class="code-fold">
+<summary>Show the code</summary>
+<div class="sourceCode cell-code" id="cb2"><pre class="sourceCode stata code-with-copy"><code class="sourceCode stata"><span id="cb2-1"><a href="#cb2-1" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb2-2"><a href="#cb2-2" aria-hidden="true" tabindex="-1"></a><span class="kw">use</span> population.dta, <span class="kw">clear</span></span>
+<span id="cb2-3"><a href="#cb2-3" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb2-4"><a href="#cb2-4" aria-hidden="true" tabindex="-1"></a>dtable x i.z <span class="fu">y</span> <span class="co">// descriptive statistics</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 </details>
 <div class="cell-output cell-output-stdout">
-<pre><code>Number of observations (_N) was 0, now 10,000.
-
-
-
-
-
-
-file population.dta saved
-
-
---------------------
-         Summary    
+<pre><code>         Summary    
 --------------------
 N             10,000
-x    99.959 (10.184)
+x    94.945 (13.360)
 z                   
-  0    8,970 (89.7%)
-  1    1,030 (10.3%)
-y   199.969 (22.570)
+  0    7,493 (74.9%)
+  1    2,507 (25.1%)
+y   190.089 (28.239)
 --------------------</code></pre>
 </div>
 </div>
@@ -207,17 +212,17 @@ y   199.969 (22.570)
 <div class="cell">
 <details class="code-fold">
 <summary>Show the code</summary>
-<div class="sourceCode cell-code" id="cb3"><pre class="sourceCode stata code-with-copy"><code class="sourceCode stata"><span id="cb3-1"><a href="#cb3-1" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb3-2"><a href="#cb3-2" aria-hidden="true" tabindex="-1"></a><span class="kw">use</span> population.dta, <span class="kw">clear</span></span>
-<span id="cb3-3"><a href="#cb3-3" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb3-4"><a href="#cb3-4" aria-hidden="true" tabindex="-1"></a><span class="kw">sample</span> 50, <span class="fu">count</span> <span class="kw">by</span>(z) <span class="co">// 50 from each group</span></span>
-<span id="cb3-5"><a href="#cb3-5" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb3-6"><a href="#cb3-6" aria-hidden="true" tabindex="-1"></a><span class="kw">save</span> <span class="kw">sample</span>.dta, <span class="kw">replace</span> <span class="co">// sample data</span></span>
-<span id="cb3-7"><a href="#cb3-7" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb3-8"><a href="#cb3-8" aria-hidden="true" tabindex="-1"></a>dtable x i.z <span class="fu">y</span> <span class="co">// descriptive statistics</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="sourceCode cell-code" id="cb4"><pre class="sourceCode stata code-with-copy"><code class="sourceCode stata"><span id="cb4-1"><a href="#cb4-1" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb4-2"><a href="#cb4-2" aria-hidden="true" tabindex="-1"></a><span class="kw">use</span> population.dta, <span class="kw">clear</span></span>
+<span id="cb4-3"><a href="#cb4-3" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb4-4"><a href="#cb4-4" aria-hidden="true" tabindex="-1"></a><span class="kw">sample</span> 100, <span class="fu">count</span> <span class="kw">by</span>(z) <span class="co">// same count from each group</span></span>
+<span id="cb4-5"><a href="#cb4-5" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb4-6"><a href="#cb4-6" aria-hidden="true" tabindex="-1"></a><span class="kw">save</span> <span class="kw">sample</span>.dta, <span class="kw">replace</span> <span class="co">// sample data</span></span>
+<span id="cb4-7"><a href="#cb4-7" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb4-8"><a href="#cb4-8" aria-hidden="true" tabindex="-1"></a>dtable x i.z <span class="fu">y</span> <span class="co">// descriptive statistics</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 </details>
 <div class="cell-output cell-output-stdout">
-<pre><code>(9,900 observations deleted)
+<pre><code>(9,800 observations deleted)
 
 file sample.dta saved
 
@@ -225,12 +230,12 @@ file sample.dta saved
 --------------------
          Summary    
 --------------------
-N                100
-x   101.132 (11.288)
+N                200
+x    90.014 (15.310)
 z                   
-  0       50 (50.0%)
-  1       50 (50.0%)
-y   201.997 (23.081)
+  0      100 (50.0%)
+  1      100 (50.0%)
+y   179.519 (30.502)
 --------------------</code></pre>
 </div>
 </div>
@@ -240,82 +245,134 @@ y   201.997 (23.081)
 <div class="cell">
 <details class="code-fold">
 <summary>Show the code</summary>
-<div class="sourceCode cell-code" id="cb5"><pre class="sourceCode stata code-with-copy"><code class="sourceCode stata"><span id="cb5-1"><a href="#cb5-1" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb5-2"><a href="#cb5-2" aria-hidden="true" tabindex="-1"></a>* <span class="kw">p</span> is probability <span class="kw">of</span> selection</span>
-<span id="cb5-3"><a href="#cb5-3" aria-hidden="true" tabindex="-1"></a>* <span class="fu">w</span> = 1/<span class="kw">p</span></span>
-<span id="cb5-4"><a href="#cb5-4" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb5-5"><a href="#cb5-5" aria-hidden="true" tabindex="-1"></a><span class="kw">use</span> <span class="kw">sample</span>.dta, <span class="kw">clear</span></span>
-<span id="cb5-6"><a href="#cb5-6" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb5-7"><a href="#cb5-7" aria-hidden="true" tabindex="-1"></a><span class="kw">generate</span> <span class="kw">p</span> = . <span class="co">// initialize to missing</span></span>
-<span id="cb5-8"><a href="#cb5-8" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb5-9"><a href="#cb5-9" aria-hidden="true" tabindex="-1"></a><span class="kw">replace</span> <span class="kw">p</span> = 50/100 <span class="kw">if</span> z == 1</span>
-<span id="cb5-10"><a href="#cb5-10" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb5-11"><a href="#cb5-11" aria-hidden="true" tabindex="-1"></a><span class="kw">replace</span> <span class="kw">p</span> = 50/900 <span class="kw">if</span> z == 0</span>
-<span id="cb5-12"><a href="#cb5-12" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb5-13"><a href="#cb5-13" aria-hidden="true" tabindex="-1"></a><span class="kw">generate</span> <span class="fu">w</span> = 1/<span class="kw">p</span></span>
-<span id="cb5-14"><a href="#cb5-14" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb5-15"><a href="#cb5-15" aria-hidden="true" tabindex="-1"></a>dtable x i.z <span class="fu">y</span> <span class="kw">p</span> <span class="fu">w</span></span>
-<span id="cb5-16"><a href="#cb5-16" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb5-17"><a href="#cb5-17" aria-hidden="true" tabindex="-1"></a><span class="kw">save</span> <span class="kw">sample</span>.dta, <span class="kw">replace</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="sourceCode cell-code" id="cb6"><pre class="sourceCode stata code-with-copy"><code class="sourceCode stata"><span id="cb6-1"><a href="#cb6-1" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb6-2"><a href="#cb6-2" aria-hidden="true" tabindex="-1"></a>* <span class="kw">p</span> is probability <span class="kw">of</span> selection</span>
+<span id="cb6-3"><a href="#cb6-3" aria-hidden="true" tabindex="-1"></a>* <span class="fu">w</span> = 1/<span class="kw">p</span></span>
+<span id="cb6-4"><a href="#cb6-4" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb6-5"><a href="#cb6-5" aria-hidden="true" tabindex="-1"></a><span class="kw">use</span> <span class="kw">sample</span>.dta, <span class="kw">clear</span></span>
+<span id="cb6-6"><a href="#cb6-6" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb6-7"><a href="#cb6-7" aria-hidden="true" tabindex="-1"></a><span class="kw">generate</span> <span class="kw">p</span> = . <span class="co">// initialize to missing</span></span>
+<span id="cb6-8"><a href="#cb6-8" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb6-9"><a href="#cb6-9" aria-hidden="true" tabindex="-1"></a><span class="kw">replace</span> <span class="kw">p</span> = 100/250 <span class="kw">if</span> z == 1</span>
+<span id="cb6-10"><a href="#cb6-10" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb6-11"><a href="#cb6-11" aria-hidden="true" tabindex="-1"></a><span class="kw">replace</span> <span class="kw">p</span> = 100/750 <span class="kw">if</span> z == 0</span>
+<span id="cb6-12"><a href="#cb6-12" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb6-13"><a href="#cb6-13" aria-hidden="true" tabindex="-1"></a><span class="kw">generate</span> <span class="fu">w</span> = 1/<span class="kw">p</span></span>
+<span id="cb6-14"><a href="#cb6-14" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb6-15"><a href="#cb6-15" aria-hidden="true" tabindex="-1"></a>dtable x i.z <span class="fu">y</span> <span class="kw">p</span> <span class="fu">w</span></span>
+<span id="cb6-16"><a href="#cb6-16" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb6-17"><a href="#cb6-17" aria-hidden="true" tabindex="-1"></a><span class="kw">save</span> <span class="kw">sample</span>.dta, <span class="kw">replace</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 </details>
 <div class="cell-output cell-output-stdout">
-<pre><code>(100 missing values generated)
+<pre><code>(200 missing values generated)
 
-(50 real changes made)
+(100 real changes made)
 
-(50 real changes made)
+(100 real changes made)
 
 
 
 --------------------
          Summary    
 --------------------
-N                100
-x   101.132 (11.288)
+N                200
+x    90.014 (15.310)
 z                   
-  0       50 (50.0%)
-  1       50 (50.0%)
-y   201.997 (23.081)
-p      0.278 (0.223)
-w     10.000 (8.040)
+  0      100 (50.0%)
+  1      100 (50.0%)
+y   179.519 (30.502)
+p      0.267 (0.134)
+w      5.000 (2.506)
 --------------------
 
 file sample.dta saved</code></pre>
 </div>
 </div>
 </section>
-<section id="regressions" class="level1">
-<h1>Regressions</h1>
+<section id="descriptive-statistics" class="level1">
+<h1>Descriptive Statistics</h1>
+<p>We see that in terms of <em>descriptive statistics</em>, the <em>weighted</em> estimates are much better than the <em>unweighted</em> estimates.</p>
 <div class="cell">
 <details class="code-fold">
 <summary>Show the code</summary>
-<div class="sourceCode cell-code" id="cb7"><pre class="sourceCode stata code-with-copy"><code class="sourceCode stata"><span id="cb7-1"><a href="#cb7-1" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb7-2"><a href="#cb7-2" aria-hidden="true" tabindex="-1"></a><span class="kw">use</span> <span class="kw">sample</span>.dta, <span class="kw">clear</span></span>
-<span id="cb7-3"><a href="#cb7-3" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb7-4"><a href="#cb7-4" aria-hidden="true" tabindex="-1"></a><span class="kw">quietly</span>: <span class="kw">regress</span> <span class="fu">y</span> x i.z <span class="co">// unweighted</span></span>
-<span id="cb7-5"><a href="#cb7-5" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb7-6"><a href="#cb7-6" aria-hidden="true" tabindex="-1"></a><span class="kw">est</span> <span class="kw">store</span> unweighted</span>
-<span id="cb7-7"><a href="#cb7-7" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb7-8"><a href="#cb7-8" aria-hidden="true" tabindex="-1"></a><span class="kw">quietly</span>: <span class="kw">regress</span> <span class="fu">y</span> x i.z [<span class="kw">pweight</span> = <span class="fu">w</span>] <span class="co">// weighted</span></span>
-<span id="cb7-9"><a href="#cb7-9" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb7-10"><a href="#cb7-10" aria-hidden="true" tabindex="-1"></a><span class="kw">est</span> <span class="kw">store</span> weighted</span>
-<span id="cb7-11"><a href="#cb7-11" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb7-12"><a href="#cb7-12" aria-hidden="true" tabindex="-1"></a>etable, <span class="co">///</span></span>
-<span id="cb7-13"><a href="#cb7-13" aria-hidden="true" tabindex="-1"></a><span class="kw">estimates</span>(population unweighted weighted) <span class="co">///</span></span>
-<span id="cb7-14"><a href="#cb7-14" aria-hidden="true" tabindex="-1"></a>column(estimate)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="sourceCode cell-code" id="cb8"><pre class="sourceCode stata code-with-copy"><code class="sourceCode stata"><span id="cb8-1"><a href="#cb8-1" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb8-2"><a href="#cb8-2" aria-hidden="true" tabindex="-1"></a><span class="kw">use</span> <span class="kw">sample</span>.dta, <span class="kw">clear</span></span>
+<span id="cb8-3"><a href="#cb8-3" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb8-4"><a href="#cb8-4" aria-hidden="true" tabindex="-1"></a><span class="kw">svyset</span> [<span class="kw">pweight</span>=<span class="fu">w</span>] <span class="co">// svyset the data</span></span>
+<span id="cb8-5"><a href="#cb8-5" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb8-6"><a href="#cb8-6" aria-hidden="true" tabindex="-1"></a><span class="kw">mean</span> x <span class="co">// unweighted estimate</span></span>
+<span id="cb8-7"><a href="#cb8-7" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb8-8"><a href="#cb8-8" aria-hidden="true" tabindex="-1"></a><span class="kw">svy</span>: <span class="kw">mean</span> x <span class="co">// weighted estimate </span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 </details>
 <div class="cell-output cell-output-stdout">
-<pre><code>                       population unweighted weighted
------------------------------------------------------
-x                           1.986      1.858    1.805
-                          (0.010)    (0.085)  (0.120)
-z                                                    
-  1                         1.302      3.616    3.628
-                          (0.329)    (1.903)  (1.909)
-Intercept                   1.359     12.274   17.655
-                          (0.988)    (8.665) (12.156)
-Number of observations      10000        100      100
------------------------------------------------------</code></pre>
+<pre><code>Sampling weights: w
+             VCE: linearized
+     Single unit: missing
+        Strata 1: &lt;one&gt;
+ Sampling unit 1: &lt;observations&gt;
+           FPC 1: &lt;zero&gt;
+
+
+Mean estimation                            Number of obs = 200
+
+--------------------------------------------------------------
+             |       Mean   Std. err.     [95% conf. interval]
+-------------+------------------------------------------------
+           x |   90.01397   1.082594      87.87914     92.1488
+--------------------------------------------------------------
+
+(running mean on estimation sample)
+
+Survey: Mean estimation
+
+Number of strata =   1            Number of obs   =        200
+Number of PSUs   = 200            Population size = 999.999952
+                                  Design df       =        199
+
+--------------------------------------------------------------
+             |             Linearized
+             |       Mean   std. err.     [95% conf. interval]
+-------------+------------------------------------------------
+           x |   95.48824   .9906796      93.53466    97.44181
+--------------------------------------------------------------</code></pre>
+</div>
+</div>
+</section>
+<section id="regressions" class="level1">
+<h1>Regressions</h1>
+<p>Here the decision of whether <em>unweighted</em> or <em>weighted</em> results are better is not so clear.</p>
+<div class="cell">
+<details class="code-fold">
+<summary>Show the code</summary>
+<div class="sourceCode cell-code" id="cb10"><pre class="sourceCode stata code-with-copy"><code class="sourceCode stata"><span id="cb10-1"><a href="#cb10-1" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb10-2"><a href="#cb10-2" aria-hidden="true" tabindex="-1"></a><span class="kw">use</span> <span class="kw">sample</span>.dta, <span class="kw">clear</span></span>
+<span id="cb10-3"><a href="#cb10-3" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb10-4"><a href="#cb10-4" aria-hidden="true" tabindex="-1"></a><span class="kw">quietly</span>: <span class="kw">regress</span> <span class="fu">y</span> x i.z <span class="co">// unweighted</span></span>
+<span id="cb10-5"><a href="#cb10-5" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb10-6"><a href="#cb10-6" aria-hidden="true" tabindex="-1"></a><span class="kw">est</span> <span class="kw">store</span> unweighted</span>
+<span id="cb10-7"><a href="#cb10-7" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb10-8"><a href="#cb10-8" aria-hidden="true" tabindex="-1"></a><span class="kw">quietly</span>: <span class="kw">regress</span> <span class="fu">y</span> x i.z [<span class="kw">pweight</span> = <span class="fu">w</span>] <span class="co">// weighted</span></span>
+<span id="cb10-9"><a href="#cb10-9" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb10-10"><a href="#cb10-10" aria-hidden="true" tabindex="-1"></a><span class="kw">est</span> <span class="kw">store</span> weighted</span>
+<span id="cb10-11"><a href="#cb10-11" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb10-12"><a href="#cb10-12" aria-hidden="true" tabindex="-1"></a>etable, <span class="co">///</span></span>
+<span id="cb10-13"><a href="#cb10-13" aria-hidden="true" tabindex="-1"></a><span class="kw">estimates</span>(population unweighted weighted) <span class="co">///</span></span>
+<span id="cb10-14"><a href="#cb10-14" aria-hidden="true" tabindex="-1"></a>column(estimate) <span class="co">///</span></span>
+<span id="cb10-15"><a href="#cb10-15" aria-hidden="true" tabindex="-1"></a>showstars showstarsnote</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</details>
+<div class="cell-output cell-output-stdout">
+<pre><code>                       population unweighted  weighted 
+-------------------------------------------------------
+x                        1.986 **   1.858 **   1.892 **
+                       (0.010)    (0.066)    (0.075)   
+z                                                      
+  1                      0.440     -1.122     -0.382   
+                       (0.303)    (2.019)    (1.984)   
+Intercept                1.446     12.844      9.431   
+                       (0.989)    (6.746)    (7.474)   
+Number of observations   10000        200        200   
+-------------------------------------------------------
+** p&lt;.01, * p&lt;.05</code></pre>
 </div>
 </div>
 </section>

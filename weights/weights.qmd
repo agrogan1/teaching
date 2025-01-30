@@ -1,6 +1,7 @@
 ---
 title: "Weighted Data"
 author: "Andy Grogan-Kaylor"
+date: "today"
 format: 
   html:
     theme: yeti
@@ -25,6 +26,7 @@ library(Statamarkdown)
 ```
 
 ```{stata, collectcode = TRUE}
+#| output: false
 
 clear all
 
@@ -34,9 +36,11 @@ set obs 10000 // observations
 
 generate x = rnormal(100, 10) // random normal x
 
-generate z = rbinomial(1, .1) // dichotomous z
+generate z = rbinomial(1, .25) // dichotomous z
 
 generate e = rnormal(0, 10) // random error
+
+replace x = x - 20 if z == 1 // x is 20 lower for z=1
 
 generate y = 2 * x + z + e // TRUE relationship in population
 
@@ -44,11 +48,17 @@ drop e // drop error
 
 save population.dta, replace // save population data
 
-dtable x i.z y // descriptive statistics
-
 quietly: regress y x i.z // population
 
 est store population
+
+```
+
+```{stata}
+
+use population.dta, clear
+
+dtable x i.z y // descriptive statistics
 
 ```
 
@@ -58,7 +68,7 @@ est store population
 
 use population.dta, clear
 
-sample 50, count by(z) // 50 from each group
+sample 100, count by(z) // same count from each group
 
 save sample.dta, replace // sample data
 
@@ -77,9 +87,9 @@ use sample.dta, clear
 
 generate p = . // initialize to missing
 
-replace p = 50/100 if z == 1
+replace p = 100/250 if z == 1
 
-replace p = 50/900 if z == 0
+replace p = 100/750 if z == 0
 
 generate w = 1/p
 
@@ -89,7 +99,27 @@ save sample.dta, replace
 
 ```
 
+# Descriptive Statistics
+
+We see that in terms of *descriptive statistics*, the *weighted* estimates are much better than the *unweighted* estimates. 
+
+```{stata}
+
+use sample.dta, clear
+
+svyset [pweight=w] // svyset the data
+
+mean x // unweighted estimate
+
+svy: mean x // weighted estimate 
+
+```
+
+
 # Regressions
+
+Here the decision of whether *unweighted* or *weighted* results are better is not so clear.
+
 
 ```{stata}
 
@@ -105,7 +135,8 @@ est store weighted
 
 etable, ///
 estimates(population unweighted weighted) ///
-column(estimate)
+column(estimate) ///
+showstars showstarsnote
 
 ```
 

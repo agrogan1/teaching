@@ -47,6 +47,8 @@
 
 * [The Difference Between Non-Significant and Non-Significant Can Be Statistically Significant](https://github.com/agrogan1/teaching/tree/master/the-difference-between-ns-and-ns-can-be-significant)
 
+* [Survey Weights](https://agrogan1.github.io/teaching/weights/weights.html)
+
 ## Mathematics
 
 * [Some Thinking About Differential Equations](./differential-equations/differential-equations.html)
