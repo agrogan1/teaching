@@ -1,0 +1,44 @@
+h1.title {
+  color: white;
+  background-color: red;
+}
+
+.quarto-title-author-name {
+  color: white;
+}
+
+p.author {
+  color: white;
+}
+
+#be-kind-be-motivated-be-less-wrong > h1{
+    font-size: 50px;
+}
+
+#be-kind-be-motivated-be-less-wrong > blockquote {
+  color: white;
+  border-left: 3px solid #FFCB05; 
+  padding: 0.5em 10px;
+}
+
+#be-motivated > blockquote {
+  color: black;
+  border-left: 3px solid #FFCB05; 
+  padding: 0.5em 10px;
+}
+
+#imposter-syndrome > blockquote {
+  color: black;
+  border-left: 3px solid #FFCB05; 
+  padding: 0.5em 10px;
+}
+
+#complex-answers-hidden-inside-simple-questions > h1{
+    font-size: 50px;
+}
+
+#be-kind > blockquote {
+  color: black;
+  border-left: 3px solid #FFCB05; 
+  padding: 0.5em 10px;
+}

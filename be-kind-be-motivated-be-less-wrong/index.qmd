@@ -1,0 +1,180 @@
+---
+title: "Be Kind; Be Motivated; Be Less Wrong"
+author: "Andy Grogan-Kaylor"
+date: "today"
+format:
+  revealjs: 
+    theme: default
+    scrollable: true
+    smaller: false
+    controls: true
+    transition: convex
+    transition-speed: slow
+    chalkboard: true
+    title-slide-attributes:
+      data-background-color: black
+    css: be-kind-be-motivated-be-less-wrong.css
+editor: source
+bibliography: be-kind-be-motivated-be-less-wrong.bib
+---
+
+# Be Kind; Be Motivated; Be Less Wrong {.smaller .scrollable background-color="black"}
+
+Andy Grogan-Kaylor, Sandra K. Danziger Collegiate Professor of Social Work
+
+University of Michigan School of Social Work
+
+> "A lifetime is too narrow to understand it all, beginning with the huge rockshelves that underlie all that life.
+> 
+> No one ever told us we had to study our lives, make of our lives a study, as if learning natural history or music, that we should begin with the simple exercises first and slowly go on trying  the hard ones, practicing till strength and accuracy became one with the daring ...
+> 
+> But there come times—perhaps this is one of them—when we have to take ourselves more seriously or die, when we have to pull back from the incantations, rhythms we've moved to thoughtlessly, and disenthrall ourselves, bestow ourselves to silence, or a severer listening ..." [@Rich1984]
+
+
+# About Me
+
+## Background (Be Kind)
+
+![Professor Dynarski Post on BlueSky](DynarskiBlueSky.jpg)
+
+## Earlier Research
+
+![Meta-Analysis of 50 Years of Research on Corporal Punishment](CPMeta1.png)
+
+## Current Research
+
+```{r}
+
+library(dplyr) # data wrangling
+
+library(tidyr) # tidy data
+
+library(countrycode) # manage country data
+
+library(leaflet) # web maps
+
+# library(sp) # spatial data
+
+library(sf) # simple features
+
+```
+
+```{r}
+
+global_data <- read_sf("../../mapping/shapefiles/wrld_simpl/wrld_simpl.shp") 
+
+# get MICS countries
+
+country <- c("Afghanistan", "Algeria",  "Argentina",  
+             "Bangladesh",  "Barbados",  "Belarus",  
+             "Belize",  "Benin",  "Bosnia and Herzegovina",  
+             "Cameroon",  "Central African Republic",  "Chad",  
+             "Democratic Republic of the Congo",  
+             "Republic of the Congo",  
+             "Costa Rica",  "Cote d'Ivoire",  
+             "Dominican Republic",  
+             "El Salvador",  "Eswatini",  "Ghana",  
+             "Guinea",  "Guinea Bissau",  "Guyana",  
+             "Iraq",  "Jamaica",  "Kazakhstan",  
+             "Kenya",  "Kosovo",  "Kyrgyzstan",  
+             "Laos", "Macedonia",  "Madagascar",  
+             "Malawi",  "Mali",  "Mauritania",  
+             "Mexico",  "Moldova",  "Mongolia",  
+             "Montenegro",  "Nepal",  "Nigeria",  
+             "Pakistan",  "Panama",  "Paraguay",  
+             "Sao Tome and Principe",  "Senegal",  "Serbia",  
+             "Sierra Leone",  "Somalia",  "St. Lucia",  
+             "State of Palestine",  "Suriname",  "Thailand",  
+             "The Gambia",  "Togo",  "Trinidad and Tobago",  
+             "Tunisia",  "Turkmenistan",  "Ukraine",  
+             "Uruguay",  "Vietnam",  "Zimbabwe")
+
+# convert to ISO3
+
+country_iso <- countrycode(country, 
+                           'country.name', 
+                           'iso3c')
+
+# MICS is an sf object that is subset of global_data
+
+MICS <- global_data %>% 
+  filter(ISO3 %in% country_iso)
+  
+```
+
+```{r}
+#| fig-cap: "Locations of Countries in MICS"
+#| fig-height: 5
+
+library(leaflet)
+
+leaflet() %>%
+  setView(0, 0, zoom = 1.5) %>%
+  # addTiles() %>%
+  addProviderTiles(providers$Esri.WorldImagery) %>%
+  addPolygons(data = MICS, 
+              fillOpacity = .75, 
+              color = "#5b92e5", 
+              label = MICS$NAME,
+              highlightOptions = highlightOptions(color = "red", 
+                                                  weight = 2,
+                                                  bringToFront = TRUE)) 
+
+```
+
+
+# Complex Answers Hidden Inside Simple Questions
+
+I have been thinking a lot lately about the idea that statistical questions are often seemingly simple questions, that contain complex answers, or answers that have complex operationalizations.
+
+One thing that I often say in teaching is that because so many of the outcomes we study are so important–and are often unequally allocated–we want to make sure our answers are as precise, and as close to correct, as we can make them. It turns out that failing to understand some of the hidden complexities of statistical thinking may lead to providing very wrong answers to important questions.
+
+## Images
+
+::: {#fig-nautilus-Mandelbrot layout-ncol=2}
+![The Nautilus Shell](nautilus-new.png){height=3in}
+
+![Image of the Mandelbrot Set, produced with `mandelbrot` by @Mandelbrot](mandelbrot.png){height=3in}
+
+Complex structures produced with simple rules
+:::
+
+## Ideas
+
+Each of these structures is based upon simple rules that produce a complex set of outcomes [@Stewart2017]. A nautilus shell is a logarithmic spiral, a structure that depends upon maintaining a constant angle with the center as the structure expands [@Livio2002]. The Mandelbrot set is a complex pattern that emerges from some simple rules about iterating the values of a complex function [@Mandelbrot]. 
+
+# Be Motivated {.smaller .scrollable}
+
+:::: {layout="[ 40, 60 ]"}
+
+::: {#first-column}
+
+![](trees.png)
+
+:::
+
+::: {#second-column}
+
+> "If you suddenly and unexpectedly feel joy, don’t hesitate. Give in to it. There are plenty of lives and whole towns destroyed or about to be. We are not wise, and not very often kind. And much can never be redeemed. Still, life has some possibility left. Perhaps this is its way of fighting back, that sometimes something happens better than all the riches or power in the world. It could be anything, but very likely you notice it in the instant when love begins. Anyway, that’s often the case. Anyway, whatever it is, don’t be afraid of its plenty. Joy is not made to be a crumb. [@Oliver2010]
+
+:::
+
+::::
+
+# Imposter Syndrome {.smaller .scrollable}
+
+> "Academic life is full of learning, excitement, and discovery. However, academics also experience professional challenges at various points in their career, including repeated rejection, impostor syndrome, and burnout. These negative experiences are rarely talked about publicly, creating a sense of loneliness and isolation for people who presume they are the only ones affected by such setbacks. However, nearly everyone has these experiences at one time or another, and thus talking about them should be a normal part of academic life." [@Jaremka2019]
+
+::: {.incremental}
+* Surface / Acknowledge the Feeling
+* Welcome The Feeling!
+* Fake It Until You Make It
+:::
+
+# Be Less Wrong
+
+Why use (advanced) quantitative methods?
+
+[https://globalfamilies.quarto.pub/be-less-wrong/](https://globalfamilies.quarto.pub/be-less-wrong/)
+
+# References {.smaller}
