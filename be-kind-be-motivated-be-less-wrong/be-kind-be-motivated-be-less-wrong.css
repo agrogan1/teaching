@@ -52,3 +52,10 @@ p.author, p.date {
   border-left: 3px solid #FFCB05; 
   padding: 0.5em 10px;
 }
+
+#be-less-wrong > blockquote {
+  color: black;
+  border-left: 3px solid #FFCB05; 
+  padding: 0.5em 10px;
+}
+

@@ -186,6 +186,8 @@ Each of these structures is based upon simple rules that produce a complex set o
 
 # Be Less Wrong
 
+> "Sure, it’s hard to get started; remember learning to use knife and fork? Dig in: you’ll never reach bottom. It’s not like it’s the end of the world--just the world as you think you know it." [@Dove1999]
+
 Why use (advanced) quantitative methods?
 
 [https://globalfamilies.quarto.pub/be-less-wrong/](https://globalfamilies.quarto.pub/be-less-wrong/)
