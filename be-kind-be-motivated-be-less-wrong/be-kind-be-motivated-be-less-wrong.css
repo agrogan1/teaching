@@ -1,17 +1,19 @@
 h1.title {
-  color: white;
-  background-color: red;
+  color: black;
+  background-color: #FFCB05;
 }
 
 .quarto-title-author-name {
-  color: white;
+  color: black;
 }
 
 p.author {
-  color: white;
+  color: black;
 }
 
 #be-kind-be-motivated-be-less-wrong > h1{
+    color: black;
+    background-color: #FFCB05;
     font-size: 50px;
 }
 
@@ -38,6 +40,12 @@ p.author {
 }
 
 #be-kind > blockquote {
+  color: black;
+  border-left: 3px solid #FFCB05; 
+  padding: 0.5em 10px;
+}
+
+#second-column > blockquote > p {
   color: black;
   border-left: 3px solid #FFCB05; 
   padding: 0.5em 10px;

@@ -11,8 +11,6 @@ format:
     transition: convex
     transition-speed: slow
     chalkboard: true
-    title-slide-attributes:
-      data-background-color: black
     css: be-kind-be-motivated-be-less-wrong.css
 editor: source
 bibliography: be-kind-be-motivated-be-less-wrong.bib
@@ -20,9 +18,9 @@ bibliography: be-kind-be-motivated-be-less-wrong.bib
 
 # Be Kind; Be Motivated; Be Less Wrong {.smaller .scrollable background-color="black"}
 
-Andy Grogan-Kaylor, Sandra K. Danziger Collegiate Professor of Social Work
+[Andy Grogan-Kaylor, Sandra K. Danziger Collegiate Professor of Social Work]{style="color:#FFCB05;"}
 
-University of Michigan School of Social Work
+[University of Michigan School of Social Work]{style="color:#FFCB05;"}
 
 > "A lifetime is too narrow to understand it all, beginning with the huge rockshelves that underlie all that life.
 > 
@@ -33,9 +31,24 @@ University of Michigan School of Social Work
 
 # About Me
 
-## Background (Be Kind)
+## Background (Be Kind) {.smaller .scrollable}
 
-![Professor Dynarski Post on BlueSky](DynarskiBlueSky.jpg)
+:::: {layout="[ 40, 60 ]"}
+
+::: {#first-column}
+
+![Professor Susan Dynarski Post on BlueSky](DynarskiBlueSky.jpg)
+
+:::
+
+::: {#second-column}
+
+> "Hello babies. Welcome to Earth. It’s hot in the summer and cold in the winter. It’s round and wet and crowded. On the outside, babies, you’ve got a hundred years here. There’s only one rule that I know of, babies-“G** d*** it, you’ve got to be kind." [@Vonnegut1965]
+
+:::
+
+::::
+
 
 ## Earlier Research
 
