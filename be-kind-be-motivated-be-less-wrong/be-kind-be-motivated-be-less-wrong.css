@@ -5,10 +5,12 @@ h1.title {
 
 .quarto-title-author-name {
   color: black;
+  background-color: #FFCB05;
 }
 
-p.author {
+p.author, p.date {
   color: black;
+  background-color: #FFCB05;
 }
 
 #be-kind-be-motivated-be-less-wrong > h1{
