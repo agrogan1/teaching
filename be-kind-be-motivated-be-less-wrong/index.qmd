@@ -11,6 +11,8 @@ format:
     transition: convex
     transition-speed: slow
     chalkboard: true
+    title-slide-attributes:
+      data-background-image: nautilus-new.png
     css: be-kind-be-motivated-be-less-wrong.css
 editor: source
 bibliography: be-kind-be-motivated-be-less-wrong.bib
@@ -191,5 +193,7 @@ Each of these structures is based upon simple rules that produce a complex set o
 Why use (advanced) quantitative methods?
 
 [https://globalfamilies.quarto.pub/be-less-wrong/](https://globalfamilies.quarto.pub/be-less-wrong/)
+
+# Questions??? {background-color="black"}
 
 # References {.smaller}
