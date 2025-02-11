@@ -1,7 +1,7 @@
 ---
 title: "Be Kind; Be Motivated; Be Less Wrong"
 author: "Andy Grogan-Kaylor"
-date: "today"
+date: "2025-2-5"
 format:
   revealjs: 
     theme: default
@@ -165,6 +165,8 @@ Each of these structures is based upon simple rules that produce a complex set o
 ::: {#first-column}
 
 ![](trees.png)
+
+> "I know my trees.... How much I owe the trees..." [@Watson2010]
 
 :::
 

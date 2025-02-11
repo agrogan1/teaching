@@ -47,6 +47,12 @@ p.author, p.date {
   padding: 0.5em 10px;
 }
 
+#first-column > blockquote > p {
+  color: black;
+  border-left: 3px solid #FFCB05; 
+  padding: 0.5em 10px;
+}
+
 #second-column > blockquote > p {
   color: black;
   border-left: 3px solid #FFCB05; 
