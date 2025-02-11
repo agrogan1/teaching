@@ -12,6 +12,7 @@ mb <- mandelbrot(xlim = c(-2, 2),
 cols <- mandelbrot_palette(RColorBrewer::brewer.pal(11, "Spectral"), 
                            fold = FALSE)
 
+cols2 <- mandelbrot_palette(gray.colors(11)) # greyscale
 
 # mypalette <- RColorBrewer::brewer.pal(9, "PRGn")
 # 
@@ -19,6 +20,8 @@ cols <- mandelbrot_palette(RColorBrewer::brewer.pal(11, "Spectral"),
 #                            # in_set = "white",
 #                            fold = TRUE, 
 #                            reps = 2)
+
+# RColorBrewer
 
 png("./mandelbrot/mandelbrot.png")
 
@@ -29,6 +32,20 @@ plot(mb,
      col = cols)
 
 dev.off()
+
+# greyscale
+
+png("./mandelbrot/mandelbrot2.png")
+
+plot(mb,
+     xlim = c(-1, .1),
+     ylim = c(-1, 1),
+     # transform = "inverse",
+     col = cols2)
+
+dev.off()
+
+# Citation
 
 citation(package = "mandelbrot")
 
