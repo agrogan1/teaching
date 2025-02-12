@@ -52,90 +52,10 @@ bibliography: be-kind-be-motivated-be-less-wrong.bib
 ::::
 
 
-## Earlier Research
+## Research
 
 ![Meta-Analysis of 50 Years of Research on Corporal Punishment](CPMeta1.png)
 
-## Current Research
-
-```{r}
-
-library(dplyr) # data wrangling
-
-library(tidyr) # tidy data
-
-library(countrycode) # manage country data
-
-library(leaflet) # web maps
-
-# library(sp) # spatial data
-
-library(sf) # simple features
-
-```
-
-```{r}
-
-global_data <- read_sf("../../mapping/shapefiles/wrld_simpl/wrld_simpl.shp") 
-
-# get MICS countries
-
-country <- c("Afghanistan", "Algeria",  "Argentina",  
-             "Bangladesh",  "Barbados",  "Belarus",  
-             "Belize",  "Benin",  "Bosnia and Herzegovina",  
-             "Cameroon",  "Central African Republic",  "Chad",  
-             "Democratic Republic of the Congo",  
-             "Republic of the Congo",  
-             "Costa Rica",  "Cote d'Ivoire",  
-             "Dominican Republic",  
-             "El Salvador",  "Eswatini",  "Ghana",  
-             "Guinea",  "Guinea Bissau",  "Guyana",  
-             "Iraq",  "Jamaica",  "Kazakhstan",  
-             "Kenya",  "Kosovo",  "Kyrgyzstan",  
-             "Laos", "Macedonia",  "Madagascar",  
-             "Malawi",  "Mali",  "Mauritania",  
-             "Mexico",  "Moldova",  "Mongolia",  
-             "Montenegro",  "Nepal",  "Nigeria",  
-             "Pakistan",  "Panama",  "Paraguay",  
-             "Sao Tome and Principe",  "Senegal",  "Serbia",  
-             "Sierra Leone",  "Somalia",  "St. Lucia",  
-             "State of Palestine",  "Suriname",  "Thailand",  
-             "The Gambia",  "Togo",  "Trinidad and Tobago",  
-             "Tunisia",  "Turkmenistan",  "Ukraine",  
-             "Uruguay",  "Vietnam",  "Zimbabwe")
-
-# convert to ISO3
-
-country_iso <- countrycode(country, 
-                           'country.name', 
-                           'iso3c')
-
-# MICS is an sf object that is subset of global_data
-
-MICS <- global_data %>% 
-  filter(ISO3 %in% country_iso)
-  
-```
-
-```{r}
-#| fig-cap: "Locations of Countries in MICS"
-#| fig-height: 5
-
-library(leaflet)
-
-leaflet() %>%
-  setView(0, 0, zoom = 1.5) %>%
-  # addTiles() %>%
-  addProviderTiles(providers$Esri.WorldImagery) %>%
-  addPolygons(data = MICS, 
-              fillOpacity = .75, 
-              color = "#5b92e5", 
-              label = MICS$NAME,
-              highlightOptions = highlightOptions(color = "red", 
-                                                  weight = 2,
-                                                  bringToFront = TRUE)) 
-
-```
 
 
 # Complex Answers Hidden Inside Simple Questions
