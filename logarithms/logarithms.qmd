@@ -1,0 +1,65 @@
+---
+title: "Logarithms"
+author: "Andy Grogan-Kaylor"
+date: "today"
+format:
+  revealjs:
+    transition: convex
+    auto-animate-duration: 2
+---
+
+## Definition
+
+:::: {.columns}
+
+::: {.column width="45%"}
+If 
+
+$$\color{red}{b}^\color{blue}{x} = \color{purple}{n}$$
+```{r}
+
+x1 <- seq(1,10)
+
+y1 = exp(x1)
+
+plot(x1, 
+     y1,
+     xlab = "x", 
+     ylab = "n", 
+     pch = 19, 
+     col = "purple", 
+     main = expression(e^x == n),
+     cex = 2.0, cex.lab = 2.0, cex.main = 2.0)
+
+```
+:::
+
+::: {.column width="45%"}
+Then:
+
+$$\color{blue}{x} = \log_\color{red}{b}(\color{purple}{n})$$
+```{r}
+
+x2 <- seq(1,10)
+
+y2 = log(x2)
+
+plot(x2, 
+     y2,
+     xlab = "n", 
+     ylab = "x", 
+     pch = 19, 
+     col = "blue", 
+     main = expression(x == ln(n)),
+     cex = 2.0, cex.lab = 2.0, cex.main = 2.0)
+
+```
+:::
+
+::::
+
+
+
+
+
+
