@@ -5,6 +5,7 @@ date: "today"
 format:
   revealjs:
     transition: convex
+    controls: true
     auto-animate-duration: 2
 ---
 
