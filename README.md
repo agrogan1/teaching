@@ -51,6 +51,8 @@
 
 ## Mathematics
 
+* [Logarithms](./logarithms/logarithms.html)
+
 * [Some Thinking About Differential Equations](./differential-equations/differential-equations.html)
 
 
