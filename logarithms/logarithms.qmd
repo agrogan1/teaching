@@ -14,9 +14,7 @@ format:
 :::: {.columns}
 
 ::: {.column width="45%"}
-If 
-
-$$\color{red}{b}^\color{blue}{x} = \color{purple}{n}$$
+$$\color{purple}{y} = \color{red}{b}^\color{blue}{x}$$
 ```{r}
 
 x1 <- seq(1,10)
@@ -26,19 +24,21 @@ y1 = exp(x1)
 plot(x1, 
      y1,
      xlab = "x", 
-     ylab = "n", 
+     ylab = "y", 
      pch = 19, 
      col = "purple", 
-     main = expression(e^x == n),
+     main = expression(e^x == y),
      cex = 2.0, cex.lab = 2.0, cex.main = 2.0)
 
 ```
 :::
 
-::: {.column width="45%"}
-Then:
+::: {.column width="5%"}
+$$\iff$$
+:::
 
-$$\color{blue}{x} = \log_\color{red}{b}(\color{purple}{n})$$
+::: {.column width="45%"}
+$$\color{blue}{x} = \log_\color{red}{b}(\color{purple}{y})$$
 ```{r}
 
 x2 <- seq(1,10)
@@ -47,17 +47,18 @@ y2 = log(x2)
 
 plot(x2, 
      y2,
-     xlab = "n", 
+     xlab = "y", 
      ylab = "x", 
      pch = 19, 
      col = "blue", 
-     main = expression(x == ln(n)),
+     main = expression(x == ln(y)),
      cex = 2.0, cex.lab = 2.0, cex.main = 2.0)
 
 ```
 :::
 
 ::::
+
 
 
 
