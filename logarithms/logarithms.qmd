@@ -19,7 +19,7 @@ $$\color{purple}{y} = \color{red}{b}^\color{blue}{x}$$
 
 x1 <- seq(1,10)
 
-y1 = exp(x1)
+y1 = 2^x1
 
 plot(x1, 
      y1,
@@ -27,8 +27,10 @@ plot(x1,
      ylab = "y", 
      pch = 19, 
      col = "purple", 
-     main = expression(e^x == y),
+     main = expression(2^x == y),
      cex = 2.0, cex.lab = 2.0, cex.main = 2.0)
+
+text(x1, y1 + 100, labels = y1)
 
 ```
 :::
@@ -43,7 +45,7 @@ $$\color{blue}{x} = \log_\color{red}{b}(\color{purple}{y})$$
 
 x2 <- seq(1,10)
 
-y2 = log(x2)
+y2 = log2(x2)
 
 plot(x2, 
      y2,
@@ -51,13 +53,39 @@ plot(x2,
      ylab = "x", 
      pch = 19, 
      col = "blue", 
-     main = expression(x == ln(y)),
+     main = expression(x == log[2](y)),
      cex = 2.0, cex.lab = 2.0, cex.main = 2.0)
+
+text(x2, y2 - .5, labels = round(y2, 2))
 
 ```
 :::
 
 ::::
+
+## Exponential and Logarithmic Functions Are Mirror Images
+
+```{r}
+
+library(ggplot2)
+
+x3 <- seq(-10,5, by = .01)
+
+x4 <- seq(.01, 10, by = .01)
+
+y3exp <- 2^x3
+
+y4log <- log2(x4)
+
+ggplot(data=NULL) + 
+geom_point(aes(x = x3, y = y3exp, color = "exponential")) + 
+geom_point(aes(x = x4, y = y4log, color = "logarithmic")) +
+labs(title = "Exponential and Logarithmic Functions Are Mirror Images",
+x = "x", y = "y") +
+scale_color_manual(values = c("purple", "blue")) +
+theme_minimal()
+
+```
 
 
 
