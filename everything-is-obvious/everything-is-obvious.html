@@ -8,9 +8,10 @@
 <link href="everything-is-obvious_files/libs/quarto-html/light-border.css" rel="stylesheet">
 <link href="everything-is-obvious_files/libs/quarto-html/quarto-html.min.css" rel="stylesheet" data-mode="light">
 <link href="everything-is-obvious_files/libs/quarto-html/quarto-syntax-highlighting.css" rel="stylesheet" id="quarto-text-highlighting-styles"><meta charset="utf-8">
-  <meta name="generator" content="quarto-1.3.433">
+  <meta name="generator" content="quarto-1.4.553">
 
   <meta name="author" content="Andy Grogan-Kaylor">
+  <meta name="dcterms.date" content="2025-04-03">
   <title>Everything Is Obvious Once You Know The Answer</title>
   <meta name="apple-mobile-web-app-capable" content="yes">
   <meta name="apple-mobile-web-app-status-bar-style" content="black-translucent">
@@ -157,7 +158,8 @@
   }
 
   .callout.callout-titled .callout-body > .callout-content > :last-child {
-    margin-bottom: 0.5rem;
+    padding-bottom: 0.5rem;
+    margin-bottom: 0;
   }
 
   .callout.callout-titled .callout-icon::before {
@@ -337,6 +339,7 @@ Andy Grogan-Kaylor
 </div>
 </div>
 
+  <p class="date">2025-04-03</p>
 </section>
 <section id="navigation" class="slide level2">
 <h2>Navigation</h2>
@@ -358,7 +361,7 @@ Andy Grogan-Kaylor
 </div>
 </div>
 </section>
-<section id="from-a-study-of-over-600000-returned-soldiers-after-world-war-ii" class="slide level2">
+<section id="from-a-study-of-over-600000-returned-soldiers-after-world-war-ii" class="slide level2 scrollable">
 <h2>From a Study of Over 600,000 Returned Soldiers After World War II</h2>
 <p>“1. Better educated men showed more psycho-neurotic symptoms than those with less education.</p>
 <div class="fragment">
@@ -394,11 +397,16 @@ Andy Grogan-Kaylor
 <p><span style="color:blue;">Southerners showed no greater ability than Northerners to adjust to a tropical climate; …</span></p>
 </div>
 </section>
+<section id="is-everything-really-so-obvious" class="slide level2" data-background-color="black">
+<h2>Is Everything Really So Obvious?</h2>
+</section>
 <section id="citation" class="slide level2">
 <h2>Citation</h2>
 <p>Lazarsfeld, P. F. (1949). The American Soldier-An Expository Review. <em>The Public Opinion Quarterly</em>, 13(3), 377–404. <a href="http://www.jstor.org/stable/2745717">http://www.jstor.org/stable/2745717</a></p>
+<div class="quarto-auto-generated-content">
 <div class="footer footer-default">
 
+</div>
 </div>
 </section>
     </div>
@@ -427,7 +435,6 @@ Andy Grogan-Kaylor
       Reveal.initialize({
 'controlsAuto': false,
 'previewLinksAuto': false,
-'smaller': false,
 'pdfSeparateFragments': false,
 'autoAnimateEasing': "ease",
 'autoAnimateDuration': 1,
@@ -613,42 +620,80 @@ Andy Grogan-Kaylor
       });
     </script>
     
+
     <script>
+
       // htmlwidgets need to know to resize themselves when slides are shown/hidden.
+
       // Fire the "slideenter" event (handled by htmlwidgets.js) when the current
+
       // slide changes (different for each slide format).
+
       (function () {
+
         // dispatch for htmlwidgets
+
         function fireSlideEnter() {
+
           const event = window.document.createEvent("Event");
+
           event.initEvent("slideenter", true, true);
+
           window.document.dispatchEvent(event);
+
         }
+
+    
 
         function fireSlideChanged(previousSlide, currentSlide) {
+
           fireSlideEnter();
 
+    
+
           // dispatch for shiny
+
           if (window.jQuery) {
+
             if (previousSlide) {
+
               window.jQuery(previousSlide).trigger("hidden");
+
             }
+
             if (currentSlide) {
+
               window.jQuery(currentSlide).trigger("shown");
+
             }
+
           }
+
         }
+
+    
 
         // hookup for slidy
+
         if (window.w3c_slidy) {
+
           window.w3c_slidy.add_observer(function (slide_num) {
+
             // slide_num starts at position 1
+
             fireSlideChanged(null, w3c_slidy.slides[slide_num - 1]);
+
           });
+
         }
 
+    
+
       })();
+
     </script>
+
+    
 
     <script id="quarto-html-after-body" type="application/javascript">
     window.document.addEventListener("DOMContentLoaded", function (event) {
@@ -726,10 +771,27 @@ Andy Grogan-Kaylor
         // clear code selection
         e.clearSelection();
       });
-      function tippyHover(el, contentFn) {
+        var localhostRegex = new RegExp(/^(?:http|https):\/\/localhost\:?[0-9]*\//);
+        var mailtoRegex = new RegExp(/^mailto:/);
+          var filterRegex = new RegExp('/' + window.location.host + '/');
+        var isInternal = (href) => {
+            return filterRegex.test(href) || localhostRegex.test(href) || mailtoRegex.test(href);
+        }
+        // Inspect non-navigation links and adorn them if external
+     	var links = window.document.querySelectorAll('a[href]:not(.nav-link):not(.navbar-brand):not(.toc-action):not(.sidebar-link):not(.sidebar-item-toggle):not(.pagination-link):not(.no-external):not([aria-hidden]):not(.dropdown-item):not(.quarto-navigation-tool)');
+        for (var i=0; i<links.length; i++) {
+          const link = links[i];
+          if (!isInternal(link.href)) {
+            // undo the damage that might have been done by quarto-nav.js in the case of
+            // links that we want to consider external
+            if (link.dataset.originalHref !== undefined) {
+              link.href = link.dataset.originalHref;
+            }
+          }
+        }
+      function tippyHover(el, contentFn, onTriggerFn, onUntriggerFn) {
         const config = {
           allowHTML: true,
-          content: contentFn,
           maxWidth: 500,
           delay: 100,
           arrow: false,
@@ -739,8 +801,17 @@ Andy Grogan-Kaylor
           interactive: true,
           interactiveBorder: 10,
           theme: 'light-border',
-          placement: 'bottom-start'
+          placement: 'bottom-start',
         };
+        if (contentFn) {
+          config.content = contentFn;
+        }
+        if (onTriggerFn) {
+          config.onTrigger = onTriggerFn;
+        }
+        if (onUntriggerFn) {
+          config.onUntrigger = onUntriggerFn;
+        }
           config['offset'] = [0,0];
           config['maxWidth'] = 700;
         window.tippy(el, config); 
@@ -754,7 +825,11 @@ Andy Grogan-Kaylor
           try { href = new URL(href).hash; } catch {}
           const id = href.replace(/^#\/?/, "");
           const note = window.document.getElementById(id);
-          return note.innerHTML;
+          if (note) {
+            return note.innerHTML;
+          } else {
+            return "";
+          }
         });
       }
       const findCites = (el) => {
