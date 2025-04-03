@@ -68,7 +68,7 @@ Would it not be wiser to take them for granted and proceed directly to a more so
 
 <span style="color:blue;">Southerners showed no greater ability than Northerners to adjust to a tropical climate; ...</span>
 
-## Is Everything Really So Obvious? {background-color="black"}
+## Is Everything Really So Obvious? {background-color="black" .center}
 
 ## Citation
 
