@@ -7,6 +7,7 @@ format:
     transition: convex
     controls: true
     auto-animate-duration: 2
+    incremental: true
 ---
 
 ## Definition
@@ -63,6 +64,14 @@ text(x2, y2 - .5, labels = round(y2, 2))
 
 ::::
 
+::: {.callout-tip collapse="true"}
+### Key Idea
+
+The exponential and logarithmic functions are *inverses* of each other.
+:::
+
+
+
 ## Exponential and Logarithmic Functions Are Mirror Images
 
 ```{r}
@@ -85,8 +94,15 @@ x = "x", y = "y") +
 scale_color_manual(values = c("purple", "blue")) +
 theme_minimal()
 
+ggsave("exponential-logarithmic.png")
+
 ```
 
+## Applications of Exponential and Logarithmic Functions
+
+* Radioactive decay
+* Disease spread
+* Population growth
 
 
 
