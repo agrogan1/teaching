@@ -126,7 +126,7 @@ It is usually best to store quantitative data in a statistical format such as R,
 ::: {.callout-important}
 ## Good Workflows Require Safe Workspaces
 
-It is also *very important* to be aware that good complex workflows are *highly iterative* and *highly collaborative*. Good complex workflows require a *safe workspace* in which team members feel free to admit their own errors, and help with others' mistakes in a non-judgmental fashion. Such a *safe environment* is necessary to build an environment where the *overall error rate* is low.
+It is also *very important* to be aware that good complex workflows are *highly iterative* and *highly collaborative*. Some--hopefully small--amount of error is *unavoidable* and *inevitable*. Good complex workflows require a *safe workspace* in which team members feel free to admit their own errors, and help with others' mistakes in a non-judgmental fashion. Such a *safe environment* is necessary to build an environment where the *overall error rate* is low.
 :::
 
 :::{.callout-important}
