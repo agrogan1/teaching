@@ -8,9 +8,32 @@ format:
     controls: true
     auto-animate-duration: 2
     incremental: true
+    lightbox: true
 ---
 
-## Definition
+## Linear Functions 
+
+```{r}
+
+x0 <- seq(1,10)
+
+y0 = 2 * x0
+
+plot(x0, 
+     y0,
+     xlab = "x", 
+     ylab = "y", 
+     pch = 19, 
+     col = "darkorange", 
+     main = expression(2 * x == y),
+     cex = 2.0, cex.lab = 2.0, cex.main = 2.0,
+     ylim = c(0,25))
+
+text(x0, y0 + 3, labels = y0)
+
+```
+
+## Exponential and Logarithmic Functions
 
 :::: {.columns}
 
@@ -100,6 +123,7 @@ ggsave("exponential-logarithmic.png")
 
 ## Applications of Exponential and Logarithmic Functions
 
+* Categorical Data Analysis 
 * Radioactive decay
 * Disease spread
 * Population growth
