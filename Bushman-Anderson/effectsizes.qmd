@@ -26,11 +26,17 @@ format:
 bibliography: effectsizes.bib
 ---
 
-## Bushman and Anderson
+# Cohen's Standards
+
+@Cohen1992 proposed effect size standards for correlations of .10 (small), .30 (medium), and .50 (large).
+
+# Bushman and Anderson
+
+In contrast, @Bushman2001 ask us to think about the correlations of many associations that we think are serious or important from an intervention, public policy, or public health perspective.
 
 Effect sizes are *approximated* from a Figure in @Bushman2001.
 
-## Effect Sizes
+# Effect Sizes
 
 ```{r}
 #| message: false
@@ -53,8 +59,7 @@ plot_ly(effectsizes,
 
 ```
 
-
-## References
+# References
 
 
 
