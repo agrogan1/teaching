@@ -49,6 +49,8 @@
 
 * [Survey Weights](https://agrogan1.github.io/teaching/weights/weights.html)
 
+* [Confirmatory Factor Analysis](https://agrogan1.github.io/teaching/CFA/CFA.html)
+
 ## Mathematics
 
 * [Logarithms](./logarithms/logarithms.html)
