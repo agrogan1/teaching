@@ -1,0 +1,92 @@
+---
+title: "Confirmatory Factor Analysis"
+subtitle: "An Evolving Tutorial"
+author: "Andy Grogan-Kaylor"
+date: "today"
+format:
+  html: 
+    toc: true
+    number-sections: true
+    theme: yeti
+    lightbox: true
+  pdf: 
+    toc: true
+    number-sections: true
+editor: source
+bibliography: bibliography.bib
+---
+
+# Data
+
+```{r}
+#| output: false
+#| echo: false
+
+library(Statamarkdown)
+
+```
+
+Data are the @Worland1984 data used in [https://stats.oarc.ucla.edu/mplus/seminars/intromplus-part2/mplus-class-notesconfirmatory-factor-analysis/](https://stats.oarc.ucla.edu/mplus/seminars/intromplus-part2/mplus-class-notesconfirmatory-factor-analysis/).
+
+```{stata, collectcode=TRUE}
+
+use worland.dta, clear
+
+```
+
+# Describe The Data
+
+```{stata}
+
+describe
+
+```
+
+# Descriptive Statistics
+
+```{stata}
+
+summarize
+
+```
+# One Factor Model
+
+```{stata}
+
+sem (motiv extra harm stabi <- adjust), ///
+nocapslatent /// latent variables NOT in caps
+latent(adjust) // latent variable
+
+estat gof, stats(all) // goodness of fit
+
+```
+
+
+# Multiple Factor Model
+
+
+```{stata}
+
+sem ///
+(motiv extra harm stabi <- adjust) ///
+(psych ses <- family) ///
+(verbal vissp mem <- cog) ///
+(read arith spell <- achieve), ///
+nocapslatent /// latent variables NOT in caps
+latent(adjust family cog achieve) /// latent variables
+
+estat gof, stats(all) // goodness of fit
+
+```
+
+
+# Modification Indices
+
+
+
+
+
+
+
+
+
