@@ -28,6 +28,12 @@ library(Statamarkdown)
 
 Data are the @Worland1984 data used in [https://stats.oarc.ucla.edu/mplus/seminars/intromplus-part2/mplus-class-notesconfirmatory-factor-analysis/](https://stats.oarc.ucla.edu/mplus/seminars/intromplus-part2/mplus-class-notesconfirmatory-factor-analysis/).
 
+::: {.callout-note collapse="true"}
+## Download The Data
+
+[Download the Data](https://github.com/agrogan1/teaching/raw/refs/heads/master/CFA/worland.dta)
+:::
+
 ```{stata, collectcode=TRUE}
 
 use worland.dta, clear
@@ -65,7 +71,7 @@ estat gof, stats(all) // goodness of fit
 # Multiple Factor Model
 
 
-```{stata}
+```{stata, collectcode=TRUE}
 
 sem ///
 (motiv extra harm stabi <- adjust) ///
@@ -79,8 +85,14 @@ estat gof, stats(all) // goodness of fit
 
 ```
 
-
 # Modification Indices
+
+```{stata}
+
+estat mindices
+
+```
+
 
 
 

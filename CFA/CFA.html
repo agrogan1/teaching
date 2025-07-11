@@ -147,6 +147,22 @@ div.csl-indent {
 <section id="data" class="level1" data-number="1">
 <h1 data-number="1"><span class="header-section-number">1</span> Data</h1>
 <p>Data are the <span class="citation" data-cites="Worland1984">Worland et al. (<a href="#ref-Worland1984" role="doc-biblioref">1984</a>)</span> data used in <a href="https://stats.oarc.ucla.edu/mplus/seminars/intromplus-part2/mplus-class-notesconfirmatory-factor-analysis/">https://stats.oarc.ucla.edu/mplus/seminars/intromplus-part2/mplus-class-notesconfirmatory-factor-analysis/</a>.</p>
+<div class="callout callout-style-default callout-note callout-titled">
+<div class="callout-header d-flex align-content-center" data-bs-toggle="collapse" data-bs-target=".callout-1-contents" aria-controls="callout-1" aria-expanded="false" aria-label="Toggle callout">
+<div class="callout-icon-container">
+<i class="callout-icon"></i>
+</div>
+<div class="callout-title-container flex-fill">
+Download The Data
+</div>
+<div class="callout-btn-toggle d-inline-block border-0 py-1 ps-1 pe-0 float-end"><i class="callout-toggle"></i></div>
+</div>
+<div id="callout-1" class="callout-1-contents callout-collapse collapse">
+<div class="callout-body-container callout-body">
+<p><a href="https://github.com/agrogan1/teaching/raw/refs/heads/master/CFA/worland.dta">Download the Data</a></p>
+</div>
+</div>
+</div>
 <div class="cell" data-collectcode="true">
 <div class="sourceCode cell-code" id="cb1"><pre class="sourceCode stata code-with-copy"><code class="sourceCode stata"><span id="cb1-1"><a href="#cb1-1" aria-hidden="true" tabindex="-1"></a></span>
 <span id="cb1-2"><a href="#cb1-2" aria-hidden="true" tabindex="-1"></a><span class="kw">use</span> worland.dta, <span class="kw">clear</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
@@ -213,7 +229,7 @@ Sorted by: </code></pre>
 <div class="sourceCode cell-code" id="cb6"><pre class="sourceCode stata code-with-copy"><code class="sourceCode stata"><span id="cb6-1"><a href="#cb6-1" aria-hidden="true" tabindex="-1"></a></span>
 <span id="cb6-2"><a href="#cb6-2" aria-hidden="true" tabindex="-1"></a>sem (motiv extra harm stabi &lt;- <span class="kw">adjust</span>), <span class="co">///</span></span>
 <span id="cb6-3"><a href="#cb6-3" aria-hidden="true" tabindex="-1"></a>nocapslatent <span class="co">/// latent variables NOT in caps</span></span>
-<span id="cb6-4"><a href="#cb6-4" aria-hidden="true" tabindex="-1"></a>latent(<span class="kw">adjust</span>) <span class="co">// name of latent variable</span></span>
+<span id="cb6-4"><a href="#cb6-4" aria-hidden="true" tabindex="-1"></a>latent(<span class="kw">adjust</span>) <span class="co">// latent variable</span></span>
 <span id="cb6-5"><a href="#cb6-5" aria-hidden="true" tabindex="-1"></a></span>
 <span id="cb6-6"><a href="#cb6-6" aria-hidden="true" tabindex="-1"></a><span class="kw">estat</span> gof, <span class="kw">stats</span>(<span class="ot">all</span>) <span class="co">// goodness of fit</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output cell-output-stdout">
@@ -298,13 +314,237 @@ Size of residuals    |
 </section>
 <section id="multiple-factor-model" class="level1" data-number="5">
 <h1 data-number="5"><span class="header-section-number">5</span> Multiple Factor Model</h1>
+<div class="cell" data-collectcode="true">
+<div class="sourceCode cell-code" id="cb8"><pre class="sourceCode stata code-with-copy"><code class="sourceCode stata"><span id="cb8-1"><a href="#cb8-1" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb8-2"><a href="#cb8-2" aria-hidden="true" tabindex="-1"></a>sem <span class="co">///</span></span>
+<span id="cb8-3"><a href="#cb8-3" aria-hidden="true" tabindex="-1"></a>(motiv extra harm stabi &lt;- <span class="kw">adjust</span>) <span class="co">///</span></span>
+<span id="cb8-4"><a href="#cb8-4" aria-hidden="true" tabindex="-1"></a>(psych ses &lt;- <span class="kw">family</span>) <span class="co">///</span></span>
+<span id="cb8-5"><a href="#cb8-5" aria-hidden="true" tabindex="-1"></a>(verbal vissp mem &lt;- cog) <span class="co">///</span></span>
+<span id="cb8-6"><a href="#cb8-6" aria-hidden="true" tabindex="-1"></a>(read arith spell &lt;- achieve), <span class="co">///</span></span>
+<span id="cb8-7"><a href="#cb8-7" aria-hidden="true" tabindex="-1"></a>nocapslatent <span class="co">/// latent variables NOT in caps</span></span>
+<span id="cb8-8"><a href="#cb8-8" aria-hidden="true" tabindex="-1"></a>latent(<span class="kw">adjust</span> <span class="kw">family</span> cog achieve) <span class="co">/// latent variables</span></span>
+<span id="cb8-9"><a href="#cb8-9" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb8-10"><a href="#cb8-10" aria-hidden="true" tabindex="-1"></a><span class="kw">estat</span> gof, <span class="kw">stats</span>(<span class="ot">all</span>) <span class="co">// goodness of fit</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-stdout">
+<pre><code>Endogenous variables
+  Measurement: motiv extra harm stabi psych ses verbal vissp mem read arith spell
+
+Exogenous variables
+  Latent: adjust family cog achieve
+
+Fitting target model:
+Iteration 0:  Log likelihood = -6773.8379  
+Iteration 1:  Log likelihood = -6749.2754  
+Iteration 2:  Log likelihood = -6745.3567  
+Iteration 3:  Log likelihood = -6745.3247  
+Iteration 4:  Log likelihood = -6745.3247  
+
+Structural equation model                                  Number of obs = 500
+Estimation method: ml
+
+Log likelihood = -6745.3247
+
+ ( 1)  [motiv]adjust = 1
+ ( 2)  [psych]family = 1
+ ( 3)  [verbal]cog = 1
+ ( 4)  [read]achieve = 1
+------------------------------------------------------------------------------------
+                   |                 OIM
+                   | Coefficient  std. err.      z    P&gt;|z|     [95% conf. interval]
+-------------------+----------------------------------------------------------------
+Measurement        |
+  motiv            |
+            adjust |          1  (constrained)
+             _cons |   2.50e-08   .0446766     0.00   1.000    -.0875645    .0875646
+  -----------------+----------------------------------------------------------------
+  extra            |
+            adjust |   .2326907   .0483475     4.81   0.000     .1379313    .3274502
+             _cons |   1.82e-08   .0446766     0.00   1.000    -.0875645    .0875646
+  -----------------+----------------------------------------------------------------
+  harm             |
+            adjust |   .8572018   .0422357    20.30   0.000     .7744214    .9399823
+             _cons |   9.02e-10   .0446766     0.00   1.000    -.0875646    .0875646
+  -----------------+----------------------------------------------------------------
+  stabi            |
+            adjust |   .6615586   .0452643    14.62   0.000     .5728422    .7502749
+             _cons |   7.66e-09   .0446766     0.00   1.000    -.0875646    .0875646
+  -----------------+----------------------------------------------------------------
+  psych            |
+            family |          1  (constrained)
+             _cons |  -1.04e-08   .0446766    -0.00   1.000    -.0875646    .0875645
+  -----------------+----------------------------------------------------------------
+  ses              |
+            family |  -1.107189   .1146458    -9.66   0.000    -1.331891   -.8824879
+             _cons |  -6.26e-09   .0446766    -0.00   1.000    -.0875646    .0875646
+  -----------------+----------------------------------------------------------------
+  verbal           |
+               cog |          1  (constrained)
+             _cons |   5.65e-10   .0446766     0.00   1.000    -.0875646    .0875646
+  -----------------+----------------------------------------------------------------
+  vissp            |
+               cog |   .8332379   .0453008    18.39   0.000     .7444498    .9220259
+             _cons |   7.09e-09   .0446766     0.00   1.000    -.0875646    .0875646
+  -----------------+----------------------------------------------------------------
+  mem              |
+               cog |   .9718118   .0435288    22.33   0.000     .8864968    1.057127
+             _cons |   8.64e-09   .0446766     0.00   1.000    -.0875645    .0875646
+  -----------------+----------------------------------------------------------------
+  read             |
+           achieve |          1  (constrained)
+             _cons |   6.13e-10   .0446766     0.00   1.000    -.0875646    .0875646
+  -----------------+----------------------------------------------------------------
+  arith            |
+           achieve |   .8420182   .0338976    24.84   0.000     .7755802    .9084563
+             _cons |   8.49e-09   .0446766     0.00   1.000    -.0875646    .0875646
+  -----------------+----------------------------------------------------------------
+  spell            |
+           achieve |   .9544333    .026793    35.62   0.000       .90192    1.006947
+             _cons |   1.20e-09   .0446766     0.00   1.000    -.0875646    .0875646
+-------------------+----------------------------------------------------------------
+       var(e.motiv)|   .0970652    .031835                      .0510377     .184602
+       var(e.extra)|   .9492189   .0604525                      .8378307    1.075416
+        var(e.harm)|   .3359976   .0325635                      .2778698    .4062853
+       var(e.stabi)|   .6036971   .0423092                      .5262158     .692587
+       var(e.psych)|   .6194198   .0530303                      .5237347    .7325863
+         var(e.ses)|   .5339105   .0553171                      .4357903    .6541229
+      var(e.verbal)|   .2589542   .0236116                      .2165757     .309625
+       var(e.vissp)|   .4848913   .0354482                      .4201622    .5595925
+         var(e.mem)|   .3000317   .0257689                      .2535477    .3550377
+        var(e.read)|   .1011367    .014162                      .0768629    .1330764
+       var(e.arith)|   .3621287   .0266028                      .3135681    .4182097
+       var(e.spell)|   .1810087   .0158956                      .1523876    .2150053
+        var(adjust)|   .9009348   .0701577                      .7734077     1.04949
+        var(family)|   .3785802   .0610473                      .2759934    .5192984
+           var(cog)|   .7390458   .0632856                      .6248585    .8740998
+       var(achieve)|   .8968633   .0640527                      .7797128    1.031615
+-------------------+----------------------------------------------------------------
+ cov(adjust,family)|  -.2449657   .0401616    -6.10   0.000    -.3236809   -.1662505
+    cov(adjust,cog)|   .5081442   .0483487    10.51   0.000     .4133826    .6029059
+cov(adjust,achieve)|   .5674246   .0511103    11.10   0.000     .4672503    .6675988
+    cov(family,cog)|  -.4112623   .0464576    -8.85   0.000    -.5023175   -.3202071
+cov(family,achieve)|   -.362522   .0444752    -8.15   0.000    -.4496918   -.2753522
+   cov(cog,achieve)|   .7395505   .0555865    13.30   0.000     .6306029    .8484981
+------------------------------------------------------------------------------------
+LR test of model vs. saturated: chi2(48) = 600.11               Prob &gt; chi2 = 0.0000
+
+
+----------------------------------------------------------------------------
+Fit statistic        |      Value   Description
+---------------------+------------------------------------------------------
+Likelihood ratio     |
+         chi2_ms(48) |    600.106   model vs. saturated
+            p &gt; chi2 |      0.000
+         chi2_bs(66) |   4124.707   baseline vs. saturated
+            p &gt; chi2 |      0.000
+---------------------+------------------------------------------------------
+Population error     |
+               RMSEA |      0.152   Root mean squared error of approximation
+ 90% CI, lower bound |      0.141
+         upper bound |      0.163
+              pclose |      0.000   Probability RMSEA &lt;= 0.05
+---------------------+------------------------------------------------------
+Information criteria |
+                 AIC |  13574.649   Akaike's information criterion
+                 BIC |  13751.663   Bayesian information criterion
+---------------------+------------------------------------------------------
+Baseline comparison  |
+                 CFI |      0.864   Comparative fit index
+                 TLI |      0.813   Tucker–Lewis index
+---------------------+------------------------------------------------------
+Size of residuals    |
+                SRMR |      0.067   Standardized root mean squared residual
+                  CD |      0.998   Coefficient of determination
+----------------------------------------------------------------------------</code></pre>
+</div>
+</div>
 </section>
-<section id="modification-indices" class="level1 unnumbered" data-number="6">
+<section id="modification-indices" class="level1" data-number="6">
+<h1 data-number="6"><span class="header-section-number">6</span> Modification Indices</h1>
+<div class="cell">
+<div class="sourceCode cell-code" id="cb10"><pre class="sourceCode stata code-with-copy"><code class="sourceCode stata"><span id="cb10-1"><a href="#cb10-1" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb10-2"><a href="#cb10-2" aria-hidden="true" tabindex="-1"></a><span class="kw">estat</span> mindices</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-stdout">
+<pre><code>Modification indices
 
+--------------------------------------------------------------------
+                     |                                      Standard
+                     |        MI     df   P&gt;MI        EPC        EPC
+---------------------+----------------------------------------------
+Measurement          |
+  motiv              |
+             achieve |     5.186      1   0.02   .1353277   .1282876
+  -------------------+----------------------------------------------
+  extra              |
+              family |     6.765      1   0.01  -.2539391  -.1564024
+  -------------------+----------------------------------------------
+  harm               |
+             achieve |     6.969      1   0.01   -.136664  -.1295543
+  -------------------+----------------------------------------------
+  verbal             |
+              family |     5.975      1   0.01  -.3081078  -.1897651
+  -------------------+----------------------------------------------
+  vissp              |
+              adjust |    24.058      1   0.00  -.2499086  -.2374448
+              family |    12.508      1   0.00  -.4928809  -.3035678
+             achieve |    53.803      1   0.00  -.9523603  -.9028158
+  -------------------+----------------------------------------------
+  mem                |
+              adjust |    27.787      1   0.00   .2461945   .2339159
+              family |    27.708      1   0.00   .6642258   .4090999
+             achieve |    28.251      1   0.00   .7010852   .6646127
+  -------------------+----------------------------------------------
+  read               |
+              adjust |    42.701      1   0.00  -.2250517  -.2138276
+              family |    22.179      1   0.00  -.3344348    -.20598
+                 cog |    13.673      1   0.00   .4377681   .3767164
+  -------------------+----------------------------------------------
+  arith              |
+              adjust |    30.500      1   0.00   .2355974   .2238474
+                 cog |    23.450      1   0.00   .5720604   .4922801
+  -------------------+----------------------------------------------
+  spell              |
+              adjust |     8.768      1   0.00   .1036593   .0984894
+              family |    35.387      1   0.00   .4250929   .2618168
+                 cog |    60.400      1   0.00  -.8767681  -.7544929
+---------------------+----------------------------------------------
+ cov(e.motiv,e.extra)|    34.682      1   0.00   .1603303   .5282027
+  cov(e.motiv,e.harm)|    10.501      1   0.00  -.1791718  -.9921327
+ cov(e.motiv,e.stabi)|     4.129      1   0.04  -.0671961  -.2775895
+   cov(e.motiv,e.ses)|     4.551      1   0.03  -.0476171  -.2091686
+cov(e.motiv,e.verbal)|     4.055      1   0.04  -.0305034  -.1923997
+ cov(e.motiv,e.vissp)|     6.431      1   0.01  -.0464394  -.2140585
+   cov(e.motiv,e.mem)|    15.340      1   0.00   .0613961   .3597702
+  cov(e.motiv,e.read)|    18.976      1   0.00  -.0493758  -.4983426
+ cov(e.motiv,e.arith)|    22.040      1   0.00   .0738113   .3936947
+ cov(e.motiv,e.spell)|    11.155      1   0.00   .0411349   .3103335
+ cov(e.extra,e.stabi)|   170.365      1   0.00    -.45608  -.6024878
+  cov(e.harm,e.stabi)|    22.937      1   0.00   .1369801   .3041443
+ cov(e.stabi,e.vissp)|     4.596      1   0.03   .0556954   .1029408
+  cov(e.psych,e.read)|     5.347      1   0.02  -.0402946  -.1609905
+ cov(e.psych,e.arith)|    16.448      1   0.00   .0994297   .2099385
+  cov(e.ses,e.verbal)|     8.293      1   0.00     .07167   .1927488
+     cov(e.ses,e.mem)|     8.150      1   0.00  -.0723734  -.1808261
+   cov(e.ses,e.spell)|     4.868      1   0.03  -.0411494  -.1323668
+cov(e.verbal,e.vissp)|    13.728      1   0.00    .080398   .2268881
+  cov(e.verbal,e.mem)|    59.775      1   0.00   -.187443  -.6724719
+ cov(e.verbal,e.read)|    48.453      1   0.00   .0891319   .5507662
+cov(e.verbal,e.arith)|     8.579      1   0.00   .0491063   .1603594
+cov(e.verbal,e.spell)|    65.985      1   0.00  -.1102961   -.509447
+   cov(e.vissp,e.mem)|    20.519      1   0.00   .0991144   .2598548
+ cov(e.vissp,e.spell)|    11.152      1   0.00   -.054328  -.1833799
+    cov(e.mem,e.read)|    19.657      1   0.00  -.0582364  -.3343156
+   cov(e.mem,e.arith)|    12.673      1   0.00   .0622686   .1889095
+   cov(e.mem,e.spell)|    19.021      1   0.00   .0611912   .2625763
+  cov(e.read,e.arith)|    35.936      1   0.00  -.0988262  -.5164002
+  cov(e.read,e.spell)|    49.810      1   0.00   .1487054   1.099063
+--------------------------------------------------------------------
+EPC is expected parameter change.</code></pre>
+</div>
+</div>
 
 </section>
 
-<div id="quarto-appendix" class="default"><section class="quarto-appendix-contents" role="doc-bibliography" id="quarto-bibliography"><h2 class="anchored quarto-appendix-heading">6 Modification Indices</h2><div id="refs" class="references csl-bib-body hanging-indent" data-entry-spacing="0" role="list">
+<div id="quarto-appendix" class="default"><section class="quarto-appendix-contents" role="doc-bibliography" id="quarto-bibliography"><h2 class="anchored quarto-appendix-heading">References</h2><div id="refs" class="references csl-bib-body hanging-indent" data-entry-spacing="0" role="list">
 <div id="ref-Worland1984" class="csl-entry" role="listitem">
 Worland, Julien, David G Weeks, Cynthia L Janes, and Barbara D Strock. 1984. <span>“Intelligence, Classroom Behavior, and Academic Achievement in Children at High and Low Risk for Psychopathology: A Structural Equation Analysis.”</span> <em>Journal of Abnormal Child Psychology</em> 12: 437–54. <a href="https://doi.org/10.1007/BF00910658">https://doi.org/10.1007/BF00910658</a>.
 </div>
