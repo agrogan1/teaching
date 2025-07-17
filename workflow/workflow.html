@@ -7,7 +7,7 @@
 <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes">
 
 <meta name="author" content="Andy Grogan-Kaylor">
-<meta name="dcterms.date" content="2025-05-21">
+<meta name="dcterms.date" content="2025-07-17">
 
 <title>Workflow</title>
 <style>
@@ -128,7 +128,7 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
     <div>
     <div class="quarto-title-meta-heading">Published</div>
     <div class="quarto-title-meta-contents">
-      <p class="date">May 21, 2025</p>
+      <p class="date">July 17, 2025</p>
     </div>
   </div>
   
@@ -158,7 +158,7 @@ blockquote {
 </section>
 <section id="visually-and-conceptually" class="level1" data-number="2">
 <h1 data-number="2"><span class="header-section-number">2</span> Visually and Conceptually</h1>
-<div class="cell" data-layout-align="default">
+<div class="cell" data-fig-height="7" data-layout-align="default">
 <div class="cell-output-display">
 <div>
 <p></p><figure class="figure"><p></p>
@@ -287,7 +287,7 @@ Good Workflows Require Safe Workspaces
 </div>
 </div>
 <div class="callout-body-container callout-body">
-<p>It is also <em>very important</em> to be aware that good complex workflows are <em>highly iterative</em> and <em>highly collaborative</em>. Some–hopefully small–amount of error is <em>unavoidable</em> and <em>inevitable</em>. Good complex workflows require a <em>safe workspace</em> in which team members feel free to admit their own errors, and help with others’ mistakes in a non-judgmental fashion. Such a <em>safe environment</em> is necessary to build an environment where the <em>overall error rate</em> is low.</p>
+<p>It is also <em>very important</em> to be aware that good complex workflows are <em>highly iterative</em> and <em>highly collaborative</em>, often requiring <em>a lot of conversation</em>. Some–hopefully small–amount of error is <em>unavoidable</em> and <em>inevitable</em>. Good complex workflows require a <em>safe workspace</em> in which team members feel free to talk through their ideas, admit their own errors, and help with others’ mistakes in a non-judgmental fashion. Such a <em>safe environment</em> is necessary to build an environment where the <em>overall error rate</em> is low.</p>
 </div>
 </div>
 <div class="callout callout-style-default callout-important callout-titled">
@@ -367,11 +367,11 @@ species
 <span id="cb5-3"><a href="#cb5-3" aria-hidden="true" tabindex="-1"></a></span>
 <span id="cb5-4"><a href="#cb5-4" aria-hidden="true" tabindex="-1"></a><span class="kw">use</span> <span class="st">"https://github.com/agrogan1/Stata/raw/main/do-files/penguins.dta"</span>, <span class="kw">clear</span></span>
 <span id="cb5-5"><a href="#cb5-5" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb5-6"><a href="#cb5-6" aria-hidden="true" tabindex="-1"></a><span class="kw">graph</span> <span class="bn">bar</span> body_mass_g, <span class="bn">over</span>(species) <span class="dv">scheme</span>(s1color) <span class="co">// bar graph</span></span>
+<span id="cb5-6"><a href="#cb5-6" aria-hidden="true" tabindex="-1"></a><span class="kw">graph</span> <span class="bn">bar</span> body_mass_g, <span class="bn">over</span>(species) <span class="co">// bar graph</span></span>
 <span id="cb5-7"><a href="#cb5-7" aria-hidden="true" tabindex="-1"></a></span>
 <span id="cb5-8"><a href="#cb5-8" aria-hidden="true" tabindex="-1"></a><span class="kw">quietly</span> <span class="kw">graph</span> <span class="kw">export</span> <span class="st">"mybargraph.png"</span>, <span class="kw">replace</span></span>
 <span id="cb5-9"><a href="#cb5-9" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb5-10"><a href="#cb5-10" aria-hidden="true" tabindex="-1"></a><span class="kw">twoway</span> <span class="kw">scatter</span> culmen_length_mm body_mass_g, <span class="dv">scheme</span>(s1color) <span class="co">// scatterplot</span></span>
+<span id="cb5-10"><a href="#cb5-10" aria-hidden="true" tabindex="-1"></a><span class="kw">twoway</span> <span class="kw">scatter</span> culmen_length_mm body_mass_g <span class="co">// scatterplot</span></span>
 <span id="cb5-11"><a href="#cb5-11" aria-hidden="true" tabindex="-1"></a></span>
 <span id="cb5-12"><a href="#cb5-12" aria-hidden="true" tabindex="-1"></a><span class="kw">quietly</span> <span class="kw">graph</span> <span class="kw">export</span> <span class="st">"myscatterplot.png"</span>, <span class="kw">replace</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 </div>
@@ -429,7 +429,7 @@ Number of observations        342
 <p>In contrast, in the diagram below, one workflow is <em>coordinated</em>. Each person’s work is available to the others so that updates and corrections to errors are propagated through the workflow, and into final analyses and visualizations.</p>
 <p>It is often the case that a <em>coordinated</em> workflow requires more <em>coordination</em>, <em>time</em> and <em>energy</em> to implement than an <em>uncoordinated</em> workflow, but a <em>coordinated</em> workflow is likely to pay benefits in terms of all of the advantages of good workflows listed above.</p>
 <div class="column-page">
-<div class="cell" data-layout-align="default">
+<div class="cell" data-fig-width="7" data-layout-align="default">
 <div class="cell-output-display">
 <div>
 <p></p><figure class="figure"><p></p>

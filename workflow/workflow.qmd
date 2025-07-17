@@ -51,6 +51,7 @@ So many workflows follow the same conceptual pattern.
 
 ```{mermaid}
 %%| fig-cap: "A Common Data Workflow"
+%%| fig-height: 7
 
 flowchart TB
 
@@ -130,7 +131,7 @@ It is usually best to store quantitative data in a statistical format such as R,
 ::: {.callout-important}
 ## Good Workflows Require Safe Workspaces
 
-It is also *very important* to be aware that good complex workflows are *highly iterative* and *highly collaborative*. Some--hopefully small--amount of error is *unavoidable* and *inevitable*. Good complex workflows require a *safe workspace* in which team members feel free to admit their own errors, and help with others' mistakes in a non-judgmental fashion. Such a *safe environment* is necessary to build an environment where the *overall error rate* is low.
+It is also *very important* to be aware that good complex workflows are *highly iterative* and *highly collaborative*, often requiring *a lot of conversation*. Some--hopefully small--amount of error is *unavoidable* and *inevitable*. Good complex workflows require a *safe workspace* in which team members feel free to talk through their ideas, admit their own errors, and help with others' mistakes in a non-judgmental fashion. Such a *safe environment* is necessary to build an environment where the *overall error rate* is low.
 :::
 
 :::{.callout-important}
@@ -188,11 +189,11 @@ dtable culmen_length_mm culmen_depth_mm flipper_length_mm body_mass_g i.species
 
 use "https://github.com/agrogan1/Stata/raw/main/do-files/penguins.dta", clear
 
-graph bar body_mass_g, over(species) scheme(s1color) // bar graph
+graph bar body_mass_g, over(species) // bar graph
 
 quietly graph export "mybargraph.png", replace
 
-twoway scatter culmen_length_mm body_mass_g, scheme(s1color) // scatterplot
+twoway scatter culmen_length_mm body_mass_g // scatterplot
 
 quietly graph export "myscatterplot.png", replace
 
@@ -234,6 +235,7 @@ It is often the case that a *coordinated* workflow requires more *coordination*,
 :::{.column-page}
 
 ```{mermaid}
+%%| fig-width: 7
 
 flowchart TB 
 
