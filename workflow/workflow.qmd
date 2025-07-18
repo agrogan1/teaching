@@ -125,7 +125,7 @@ Always (or usually) beginning with the raw data, and then writing and running a 
 ::: {.callout-tip}
 ## Data Are Often Best Stored In Statistical Formats
 
-It is usually best to store quantitative data in a statistical format such as R, Stata, or SPSS. [Spreadsheets are likely to be a bad tool for storing quantitative data](https://agrogan1.github.io/posts/why-Excel-is-a-bad-format-for-storing-data/).
+It is usually best to store quantitative data in a statistical format such as R, Stata, or SPSS. [Spreadsheets are likely to be a bad tool for storing quantitative data](https://agrogan1.github.io/posts/why-spreadsheets-are-a-bad-format-for-storing-data/).
 :::
 
 ::: {.callout-important}
