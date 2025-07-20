@@ -31,8 +31,6 @@
 
 * [Selecting on a Collider](./collider/collider.html)
 
-* [Interactions and Moderation](./interactions/interactions.html)
-
 * [Unpacking Interactions](./interactions-unpacking/interactions-unpacking.html)
 
 * [Visualizing and Analyzing Data on Multiple Identities](./multiple-identities/multiple-identities.html)
