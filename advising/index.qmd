@@ -43,7 +43,7 @@ format:
 * I have strong interests in social justice.  I was originally a community organizer, and also served as a Peace Corps Volunteer in Ghana, West Africa.
 * I do a lot of work researching physical punishment of children. A number of years ago, I published an analysis of 50 years of research on corporal punishment that you may have read about in the media.  Don’t spank kids! I continue to do research on physical punishment, but am increasingly focusing on positive parenting.
 * I teach in the areas of research and social policy and evaluation.
-I have taught a course on *Statistics For SP&E Majors*. 
+I have taught courses on *Statistics For SP&E Majors* and *Data Visualization*. 
 * A few years ago, I was a *Technical Advisor* fielding queries from students with challenging advising questions.
 
 # Take Attendance
