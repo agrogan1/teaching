@@ -230,7 +230,7 @@ In the diagram below, one workflow is *uncoordinated*. Each person's work is not
 
 In contrast, in the diagram below, one workflow is *coordinated*. Each person's work is available to the others so that updates and corrections to errors are propagated through the workflow, and into final analyses and visualizations. 
 
-It is often the case that a *coordinated* workflow requires more *coordination*, *time* and *energy* to implement than an *uncoordinated* workflow, but a *coordinated* workflow is likely to pay benefits in terms of all of the advantages of good workflows listed above. 
+It is often the case that a *coordinated* workflow requires more *coordination*, *time*, *energy*, and *patience* to implement than an *uncoordinated* workflow, but a *coordinated* workflow is likely to pay benefits in terms of all of the advantages of good workflows listed above. 
 
 :::{.column-page}
 
