@@ -10,11 +10,16 @@ format:
   revealjs:
     transition: slide
     controls: true
+    controls-tutorial: true
+    progress: true
+    transition-speed: slow
 editor: source
 bibliography: numbers.bib
 ---
 
 "Why can’t numbers be beautiful too? 
+
+. . .
 
 We all talk of beautiful words, art, buildings
  and they’re not part of the natural world, either. 
@@ -55,7 +60,6 @@ I am brittle and dusty as old paper?
 
 Look again. See the numbers shine in my eyes"
 
-##
+[@Pye2011]
 
--- @Pye2011
-
+## Reference
