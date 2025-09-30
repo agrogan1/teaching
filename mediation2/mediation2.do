@@ -8,7 +8,9 @@ matrix input C = ///
 (1, .25 \ ///
  .25, 1)
 
-corr2data x m, corr(C)
+matrix list C
+
+corr2data x m , corr(C)
 
 summarize
 
@@ -21,3 +23,7 @@ generate y = m + x + e
 regress y x m 
 
 mediate (y) (m) (x, continuous(0 1))
+
+sem (y <- x m) (m <- x)
+
+estat teffects
