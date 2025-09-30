@@ -9,10 +9,16 @@ mb <- mandelbrot(xlim = c(-2, 2),
                  resolution = 2000, 
                  iterations = 500)
 
-cols <- mandelbrot_palette(RColorBrewer::brewer.pal(11, "Spectral"), 
+cols <- mandelbrot_palette(RColorBrewer::brewer.pal(11, 
+                                                    "Spectral"), 
                            fold = FALSE)
 
 cols2 <- mandelbrot_palette(gray.colors(11)) # greyscale
+
+cols3 <- mandelbrot_palette(pal_viridis(begin = 0.2, 
+                                        end = 0.8,
+                                        direction = 1,
+                                        option = "plasma")(11))
 
 # mypalette <- RColorBrewer::brewer.pal(9, "PRGn")
 # 
@@ -42,6 +48,18 @@ plot(mb,
      ylim = c(-1, 1),
      # transform = "inverse",
      col = cols2)
+
+dev.off()
+
+# viridis
+
+png("./mandelbrot/mandelbrot3.png")
+
+plot(mb,
+     xlim = c(-1, .1),
+     ylim = c(-1, 1),
+     # transform = "inverse",
+     col = cols3)
 
 dev.off()
 
