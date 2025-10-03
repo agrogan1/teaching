@@ -11,9 +11,7 @@ format:
   html:
     toc: true
     number-sections: true
-    theme:
-      light: yeti
-      dark: vapor
+    theme: yeti
     lightbox: true
   typst:
     toc: true
