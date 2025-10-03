@@ -4,6 +4,8 @@ library(viridis)
 
 library(ggplot2)
 
+library(scales)
+
 mb <- mandelbrot(xlim = c(-2, 2), 
                  ylim = c(-2, 2), 
                  resolution = 2000, 
