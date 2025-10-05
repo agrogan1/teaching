@@ -1,30 +1,23 @@
 ---
 title: "The Idea of Regression"
 subtitle: "New Regression Tutorial (A Hypothetical Example With Runners)"
-author: "Andy Grogan-Kaylor"
-date: "`r Sys.Date()`"
-output: 
-  tint::tintHtml:
-    number_sections: yes
-    toc: yes
-    highlight: haddock
+author: 
+  name: Andy Grogan-Kaylor 
+  url: https://agrogan1.github.io/
+  affiliation: 
+    - name: University of Michigan
+      url: https://umich.edu/
+date: "today"
+format:
+  html:
+    toc: true
+    number-sections: true
+    theme: yeti
+    lightbox: true
+    fig-height: 3
+execute:
+  echo: false
 ---
-
-```{r setup, include=FALSE}
-
-library(tint)
-
-# invalidate cache when the package version changes
-
-knitr::opts_chunk$set(echo = FALSE,
-                      warning = FALSE,
-                      message = FALSE,
-                      tidy = FALSE, 
-                      cache.extra = packageVersion('tint'))
-
-options(htmltools.dir.version = FALSE)
-
-```
 
 ```{r}
 
@@ -40,7 +33,11 @@ library(pander) # beautiful tables
 
 Somewhere along the way in a math class in elementary, middle or high school, you may have encountered the idea of graphing lines and thinking about the equations that represent those lines.  
 
-> We are going to try to illustrate the idea of *regression analysis* using some hypothetical data on *runners*.
+::: {.callout-tip}
+## Key Idea
+
+We are going to try to illustrate the idea of *regression analysis* using some hypothetical data on *runners*.
+:::
 
 # Imagine A Single Runner
 
@@ -48,7 +45,8 @@ Let’s think about this idea using the hypothetical example of several runners.
 
 The <font color="orange">orange</font> line represents a runner who runs 6 miles every hour.  In 2 hours, this person will have run 12 miles, and if that runner continued for 3 hours of running, they would run 18 miles.
 
-```{r, fig.margin = TRUE}
+```{r}
+#| message: false
 
 x1 <- c(0, 1, 2, 3)
 
@@ -64,7 +62,7 @@ p1 <- ggplot(data = mydata,
              size = 10,
              alpha = .7) + 
   geom_line(color = "orange",
-            size = 2) + 
+            linewidth = 2) + 
   # geom_label(aes(label = paste("hours", 
   #                              round(x, digits = 2),
   #                              "\n",
@@ -74,9 +72,9 @@ p1 <- ggplot(data = mydata,
        x = "Hours",
        y = "Distance") +
   theme_minimal() +
-  theme(title = element_text(size = rel(2)),
-        axis.text = element_text(size = rel(2)),
-        legend.text = element_text(size = rel(2))) +
+  # theme(title = element_text(size = rel(2)),
+  #       axis.text = element_text(size = rel(2)),
+  #       legend.text = element_text(size = rel(2))) +
   transition_reveal(x1) 
 
 p1 # replay graph
@@ -97,7 +95,8 @@ In this case, the runner’s speed (6 miles per hour) is what we call the *slope
 
 Imagine now two other runners, represented by a <font color="red">red</font> line and a <font color="blue">blue</font> line.  
 
-```{r, fig.margin = TRUE}
+```{r}
+#| message: false
 
 x2 <- rep(c(0, 1, 2, 3), 3)
 
@@ -118,7 +117,7 @@ p2 <- ggplot(data = mydata2,
                 group = runner)) +
   geom_point(size = 10, 
              alpha = .7) + 
-  geom_line(size = 2,
+  geom_line(linewidth = 2,
             show.legend = FALSE) + 
   labs(title = "Distance as a Function of Time",
        x = "Hours",
@@ -127,9 +126,9 @@ p2 <- ggplot(data = mydata2,
                                 "orange",
                                 "red")) +
   theme_minimal() +
-  theme(title = element_text(size = rel(2)),
-        axis.text = element_text(size = rel(2)),
-        legend.text = element_text(size = rel(2))) +
+  # theme(title = element_text(size = rel(2)),
+  #       axis.text = element_text(size = rel(2)),
+  #       legend.text = element_text(size = rel(2))) +
   transition_reveal(x2) 
 
 p2 # replay graph
@@ -148,6 +147,7 @@ These two concepts of the *slope* and the *y-intercept* are the foundations of t
 # A New Example With More Runners
 
 ```{r}
+#| message: false
 
 library(haven)
 
@@ -161,7 +161,9 @@ runners$yhat <- fitted.values(fit)
 
 ```
 
-```{r, fig.margin = TRUE}
+```{r}
+#| message: false
+#| warning: false
 
 p3 <- ggplot(runners,
              aes(x = hours,
@@ -173,10 +175,10 @@ p3 <- ggplot(runners,
   labs(title = "Distance Run by Time Spent Running",
        x = "Hours",
        y = "Distance") + 
-  theme_minimal() +
-  theme(title = element_text(size = rel(2)),
-        axis.text = element_text(size = rel(2)),
-        legend.text = element_text(size = rel(2)))  
+  theme_minimal() 
+  # theme(title = element_text(size = rel(2)),
+  #       axis.text = element_text(size = rel(2)),
+  #       legend.text = element_text(size = rel(2)))
 
 p3 # + 
   # transition_manual(hours, cumulative = TRUE)
@@ -187,11 +189,12 @@ Let’s stick with the hypothetical example of runners, but now let’s imagine 
 
 I want to draw the line that *best fits* these data to get a sense of *on average*, how fast runners run.
 
-```{r, fig.margin = TRUE}
+```{r}
+#| message: false
 
 p3 + 
   geom_line(aes(y = yhat),
-            size = 2,
+            linewidth = 2,
             color = "blue") + 
   transition_reveal(hours)
 
@@ -208,16 +211,23 @@ My best guess about the *slope* and *intercept* together are drawn as a <font co
 It looks like my best guess is that all of the runners started the race at 0.  That is to say, none of the runners had a head start, like they did in my first example.
 
 
-```{r, fig.margin = TRUE}
+```{r}
+#| message: false
+#| warning: false
 
 p3 + 
   geom_abline(intercept = 0, 
               slope = 4.9,
-              size = 2,
+              linewidth = 2,
               color = "purple") +
-  geom_label(aes(x = 2.5,
-                 y = 10,
-                 label = "4.9 miles per hour")) 
+  # geom_label(aes(x = 2.5,
+  #                y = 10,
+  #                label = "4.9 miles per hour")) +
+  annotate("label", 
+           x = 2.5, 
+           y = 10, 
+           label = "4.9 miles per hour", 
+           color = "red")
 
 ```
 
@@ -227,7 +237,11 @@ I know that the equation for my line is:
 
 $$\text{distance} = \text{starting place} + \text{speed} * \text{hours} + e_i$$
 
-> The $e_i$ is a new concept for us in this tutorial, and represents the *error*. To a certain degree we are going to make a wrong prediction about every runner in our data. We are trying to understand the distances that runners run, *on average*.
+::: {.callout-tip}
+## $e_i$ 
+
+The $e_i$ is a new concept for us in this tutorial, and represents the *error*. To a certain degree we are going to make a wrong prediction about every runner in our data. We are trying to understand the distances that runners run, *on average*.
+:::
 
 In this particular case my best guess is…
 
@@ -237,7 +251,11 @@ Expressed in more intuitive language:  “for every 1 hour that a runner runs, o
 
 <a id="regressionsentence"></a>
 
-> In general, this is going to be a template for the kind of sentence we use in regression analysis: "For every 1 unit change in the independent variable, what is the change in the dependent variable?"
+::: {.callout-tip}
+## Key Idea
+
+In general, this is going to be a template for the kind of sentence we use in regression analysis: "For every 1 unit change in the independent variable, what is the change in the dependent variable?"
+:::
 
 We need to think about a few more issues.
 
@@ -266,6 +284,7 @@ Would be to say
 The last thing that I want to do in this tutorial is to ask the computer to make a best guess about the slope and the y-intercept.  We’ll learn something about how those estimates are made in other readings, and in lecture.
 
 ```{r}
+#| message: false
 
 fit <- lm(miles ~ hours, data = runners)
 
@@ -275,12 +294,13 @@ pander(summary(fit))
 
 As always, when looking at statistical output, there is probably more information than we want, so it makes sense to identify the crucial quantities.
 
-```{r, fig.margin = TRUE}
+```{r}
+#| message: false
 
 p3 + 
   geom_smooth(method = "lm",
               color = "red",
-              size = 2,
+              linewidth = 2,
               fullrange = TRUE) +
   labs(subtitle = "Fitted Regression Line") + 
   theme(plot.subtitle = element_text(color = "red"))
@@ -291,6 +311,5 @@ It turns out our estimate of slope *(4.9)* was pretty close to what the computer
 
 Lastly, the $R^2$ value indicates that `r round(summary(fit)$r.squared, digits = 3)` of the variation in our *dependent variable*, *miles*, is explained by the variation in our *independent variable*, *hours*.
 
-(written by [Andy Grogan-Kaylor](https://agrogan1.github.io/). Comments and questions welcome and should be directed to [agrogan@umich.edu](agrogan@umich.edu)) 
 
 
