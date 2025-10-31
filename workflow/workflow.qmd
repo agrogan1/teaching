@@ -86,7 +86,7 @@ For **complex workflows**, we will often want to write a script or code.
 ::: {.callout-tip}
 ## Complex Workflows Benefit From Scripts or Code
 
-The more graphs or calculations I have to make, the more complex the project, the more the desires of the client are likely to change, the more frequently the data is being updated, the more team members that are involved in the workflow, and/or the more mission critical the results (i.e. I need auditability, documentation, and error correction) the more likely I am to use a scripting or coding tool like Stata or R.
+The more graphs or calculations I have to make, the more complex the project, the more the desires of the community or client are likely to change, the more frequently the data is being updated, the more team members that are involved in the workflow, and/or the more mission critical the results (i.e. I need auditability, documentation, and error correction) the more likely I am to use a scripting or coding tool like Stata or R.
 :::
 
 +---------------+---------------+--------------------+
