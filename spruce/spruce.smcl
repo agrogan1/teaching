@@ -3,15 +3,15 @@
       name:  {res}<unnamed>
        {txt}log:  {res}/Users/agrogan/Desktop/GitHub/teaching/spruce/spruce.smcl
   {txt}log type:  {res}smcl
- {txt}opened on:  {res} 2 Sep 2023, 13:02:48
+ {txt}opened on:  {res}17 Dec 2025, 16:09:52
 {txt}
 {com}. //_1
 . display c(current_date)
-{res} 2 Sep 2023
+{res}17 Dec 2025
 {txt}
 {com}. //_2
 . display c(current_time)
-{res}13:02:48
+{res}16:09:52
 {txt}
 {com}. //_3
 . clear all
@@ -238,7 +238,7 @@ format
       {txt}name:  {res}<unnamed>
        {txt}log:  {res}/Users/agrogan/Desktop/GitHub/teaching/spruce/spruce.smcl
   {txt}log type:  {res}smcl
- {txt}closed on:  {res} 2 Sep 2023, 13:02:54
+ {txt}closed on:  {res}17 Dec 2025, 16:09:54
 {txt}{.-}
 {smcl}
 {txt}{sf}{ul off}
