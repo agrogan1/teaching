@@ -131,7 +131,7 @@ The more graphs or calculations I have to make, the more complex the project, th
 # Best Practices
 
 ::: {.callout-tip}
-## Start With The Raw Data, And Document Your Thinking In Code
+## Start With The Raw Data, Do Your Thinking In Code, And Document Your Thinking In Code
 
 Always (or usually) beginning with the raw data, and then writing and running a script or code that generates our results allows us to develop a process that is **documentable**, **auditable**, **replicable** and **scalable**.
 :::
