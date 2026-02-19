@@ -31,7 +31,9 @@ library(pander)
 
 ```
 
-> This is an evolving and growing document. Comments, questions, corrections and clarifications are all welcome.
+::: {.callout-note}
+This is an evolving and growing document. Comments, questions, corrections and clarifications are all welcome.
+:::
 
 ```{r,echo=FALSE, eval=TRUE}
 
