@@ -9,9 +9,7 @@ format:
     number-sections: true
     code-fold: true
     code-summary: "Show the code"
-    theme:
-      light: cosmo
-      dark: vapor
+    theme: yeti
 ---
 
 # Introduction
