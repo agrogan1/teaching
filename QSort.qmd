@@ -1,0 +1,179 @@
+---
+title: "QSort Visualization Ideas"
+author: "Andy Grogan-Kaylor"
+date: "today"
+format: 
+  html:
+    toc: true
+    number-sections: true
+    code-fold: true
+    fig-height: 3
+---
+# Libraries
+
+```{r}
+#| message: false
+
+library(ggplot2) # beautiful graphs
+
+library(dplyr) # data wrangling
+
+library(tidyr) # data tidying
+
+library(canhrcolors) # CANHR colors!!!
+
+library(DT) # data table
+
+library(gt) # beautiful tables
+
+```
+
+# Generate Simulated Data
+
+```{r}
+
+N <- 30 # sample size
+
+id <- seq(1:N)
+
+QSORT <- data.frame(id) # start data frame
+
+# simulated QUESTIONS
+
+QSORT$Q1 <- floor(runif(N, min = -3, max = 3))
+
+QSORT$Q2 <- floor(runif(N, min = 2, max = 4)) # highly ranked
+
+QSORT$Q3 <- floor(runif(N, min = -3, max = -1)) # low ranked
+
+QSORT$Q4 <- floor(runif(N, min = -1, max = 1)) # medium ranked
+
+QSORT$Q5 <- floor(runif(N, min = -3, max = 3))
+
+datatable(QSORT) # replay
+
+```
+
+# Descriptive Statistics
+
+```{r}
+
+# summary(QSORT)
+
+library(skimr) # nice descriptive statistics
+
+s <- skim(QSORT) # create a skim
+
+print(s, include_summary = FALSE)
+
+```
+
+# It turns out LONG data is going to be pretty useful
+
+```{r}
+
+QSORTlong <- QSORT %>% 
+  pivot_longer(cols = `Q1`:`Q5`, 
+               names_to = "question", 
+               values_to = "value")
+
+datatable(QSORTlong) # replay
+
+```
+
+# Ranked Statements
+
+## Aggregate Data
+
+```{r}
+
+QSORTlongAGGREGATED <- QSORTlong %>% 
+  group_by(question) %>% # group by y
+  summarise(mean_value = mean(value, 
+                              na.rm = TRUE), # mean of x; removing NA's
+            n = n()) # count up
+
+datatable(QSORTlongAGGREGATED) # replay
+
+```
+
+## Sort
+
+```{r}
+
+QSORTlongAGGREGATED %>% 
+  arrange(desc(mean_value)) %>% # sort by mean value descending
+  datatable()
+
+```
+
+## Colorful Table of Ranked Statements
+
+```{r}
+
+QSORTlongAGGREGATED %>% 
+  arrange(desc(mean_value)) %>% # sort by mean value descending
+  gt() %>% # table
+  tab_header(title = "QSort Table",
+             subtitle = "Ranked Statements") %>% 
+  data_color(columns = "mean_value", 
+             method = "numeric",
+             palette = c("#236192", # low
+                         "#FFCD00")) #high
+
+
+```
+
+
+# Visualization
+
+## Histograms
+
+```{r}
+
+ggplot(QSORTlong,
+       aes(x = value,
+           fill = question)) + 
+  geom_density(alpha = .5, # transparency
+               adjust = 1.75) + # bandwidth adjustment
+  labs(title = "QSort from Community X") +
+  scale_fill_canhr() +
+  theme_canhr() # I didn't realize there was a THEME CANHR!!! :-)
+
+```
+
+## Boxplots
+
+```{r}
+
+ggplot(QSORTlong,
+       aes(x = value,
+           fill = question)) + 
+  geom_boxplot() + # 
+  labs(title = "QSort from Community X") +
+  scale_fill_canhr() +
+  theme_canhr() # I didn't realize there was a THEME CANHR!!! :-)
+
+```
+
+## Dotplots
+
+```{r}
+
+library(ggdist) # 'distribution' geometries
+
+ggplot(QSORTlong,
+       aes(x = value,
+           fill = question)) + 
+  stat_dots() + 
+  labs(title = "QSort from Community X") +
+  scale_fill_canhr() +
+  theme_canhr() # I didn't realize there was a THEME CANHR!!! :-)
+
+```
+
+
+
+
+
+
