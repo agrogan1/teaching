@@ -2,10 +2,6 @@
 
 ## Introductory Materials
 
-* [What Is Data?](./what-is-data/what-is-data.html)
-
-* [Workflow](./workflow/workflow.html)
-
 * [Everything Is Obvious Once You Know The Answer](./everything-is-obvious/everything-is-obvious.html)
 
 * [Writing an Empirical Research Paper](./empirical-paper/) (Mostly Aimed at PHD Students)
@@ -20,18 +16,10 @@
 
 * Basics of [Quantitative Data Analysis](./quantitative-data-analysis/quantitative-data-analysis.html)
 
-* [New Regression Tutorial](./new-regression-tutorial/index.html)
-
-* [Quick Regression Demo](./quick-regression-demo/quick-regression-demo.html)
-
 * [Causal Inference With The Spruce Data](./spruce/spruce.html) 
     + [HTML Slides](./spruce/spruce-slidy.html)
 
-* [Simpson's Paradox With Palmer Penguins Data](./simpsons-paradox-palmer-penguins/simpsons-paradox-palmer-penguins.html)
-
 * [Selecting on a Collider](./collider/collider.html)
-
-* [Unpacking Interactions](./interactions-unpacking/interactions-unpacking.html)
 
 * [Visualizing and Analyzing Data on Multiple Identities](./multiple-identities/multiple-identities.html)
 
@@ -50,8 +38,6 @@
 * [Confirmatory Factor Analysis](https://agrogan1.github.io/teaching/CFA/CFA.html)
 
 ## Mathematics
-
-* [Logarithms](./logarithms/logarithms.html)
 
 * [Some Thinking About Differential Equations](./differential-equations/differential-equations.html)
 
